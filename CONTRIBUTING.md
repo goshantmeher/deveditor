@@ -31,13 +31,13 @@ Please follow the project's code style and folder structure.
 ---
 
 ## 📦 Project Structure (MVP)
+
 /app
 /json-viewer
 /playground
 /components
 /utils
 /public
-
 
 - Each tool has its own route/page under `/app`
 - Shared logic/components live in `/components` and `/utils`
@@ -66,9 +66,8 @@ By contributing, you agree that:
 ## 🧠 Need Help?
 
 If you're unsure about something or want to discuss before contributing:
+
 - Open an issue
 - Or reach out via [mehergoshant@gmail.com or contact form](https://forms.gle/iKfAFpMuX4rJzUsx5)
 
 Thanks for being part of the DevEditor community! 💙
-
-
