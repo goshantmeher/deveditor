@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import ThemeToggle from "@/components/themeToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +25,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
+        suppressHydrationWarning
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <header className="p-4 sticky top-0 h-14 z-50 flex items-center justify-between bg-sidebar border-b border dark:border-border">
+            <div className="flex items-center gap-4">
+              <h1>DevEditor</h1>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+            </div>
+          </header>
+          {children}
+        </ThemeProvider>
+
+        {/* <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+          <span> Made with ❤️ by Goshant Meher</span>|
+          <a
+            className="text-sm text-muted-foreground hover:text-foreground"
+            href="https://github.com/goshantmeher/deveditor"
+          >
+            View source on GitHub
+          </a>
+        </footer> */}
       </body>
     </html>
   );
