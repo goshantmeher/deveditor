@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import { JsonEditor } from "json-edit-react";
-import ImportButton from "../ImportButton";
 
 interface JSONEditorProps {
-  data: any;
+  data: unknown;
 }
 
 function JSONEditor({ data }: JSONEditorProps) {

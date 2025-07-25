@@ -5,7 +5,7 @@ import { parseJson } from "@/lib/parser";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 interface ImportButtonProps {
-  onImport: (data: any) => void;
+  onImport: (data: unknown) => void;
   variant?: "ghost" | "default" | "secondary";
   data_type: "json" | "text";
   title?: string;
@@ -19,7 +19,7 @@ function ImportButton(props: ImportButtonProps) {
 
     const reader = new FileReader();
     reader.onload = (e) => {
-      let newData: any;
+      let newData: string | unknown;
       try {
         switch (props.data_type) {
           case "json":

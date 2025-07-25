@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-import JSONEditor from "@/components/editor/json-editior";
-import TextEditor from "@/components/editor/text-editor";
 import { Button } from "@/components/ui/button";
-import { ArrowBigLeftDash, ArrowBigRightDash, Bold } from "lucide-react";
+import { ArrowBigLeftDash, ArrowBigRightDash } from "lucide-react";
 import ImportButton from "@/components/ImportButton";
 import Editor from "@/components/editor/Editor";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
@@ -26,12 +24,12 @@ const tabHeaderConfig: {
 };
 
 function PageContent() {
-  const [leftData, setLeftData] = React.useState(defaultData);
-  const [rightData, setRightData] = React.useState(defaultData);
+  const [leftData, setLeftData] = React.useState<unknown>(defaultData);
+  const [rightData, setRightData] = React.useState<unknown>(defaultData);
   const [leftTabConfig, setLeftTabConfig] = React.useState(tabHeaderConfig);
   const [rightTabConfig, setRightTabConfig] = React.useState(tabHeaderConfig);
 
-  const handleDataChange = (newData: any) => {
+  const handleDataChange = (newData: unknown) => {
     setLeftData(newData);
   };
 
@@ -45,10 +43,10 @@ function PageContent() {
     setLeftData(rightData);
   };
 
-  const handleCompareLeftRight = () => {
-    //to be implemented
-    console.log("Comparing left and right data");
-  };
+  // const handleCompareLeftRight = () => {
+  //   //to be implemented
+  //   console.log("Comparing left and right data");
+  // };
 
   const updateEditorType = (
     type: keyof typeof tabEditorTypes,

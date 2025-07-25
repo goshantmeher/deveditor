@@ -5,10 +5,10 @@ import { json } from "@codemirror/lang-json";
 import { useTheme } from "next-themes";
 
 interface TextEditorProps {
-  data: any;
-  onChange: (newData: any) => void;
+  data: unknown;
+  onChange: (newData: unknown) => void;
 }
-function TextEditor({ data, onChange }: TextEditorProps) {
+function TextEditor({ data }: TextEditorProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
@@ -16,7 +16,7 @@ function TextEditor({ data, onChange }: TextEditorProps) {
     setMounted(true);
   }, []);
 
-  const handleOnChange = React.useCallback((value: string, viewUpdate: any) => {
+  const handleOnChange = React.useCallback((value: string) => {
     console.log("value:", value);
   }, []);
 
