@@ -1,3 +1,3 @@
-export const parseJson = (jsonString: string): any => {
+export const parseJson = (jsonString: string): unknown => {
   return JSON.parse(jsonString);
 };

@@ -4,8 +4,8 @@ import TextEditor from "./text-editor";
 import { tabEditorTypes } from "@/pageContent/json-editor/PageContent";
 
 interface EditorProps {
-  data: any;
-  onChange: (newData: any) => void;
+  data: string | unknown;
+  onChange: (newData: string | unknown) => void;
   type?: keyof typeof tabEditorTypes;
   children?: React.ReactNode;
 }

@@ -1,4 +1,3 @@
-import ThemeToggle from "@/components/themeToggle";
 import React, { ReactNode } from "react";
 
 interface PlaygroundLayoutProps {

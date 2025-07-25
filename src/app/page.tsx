@@ -9,43 +9,43 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Search, ExternalLink, Github, Heart } from "lucide-react";
+import { Search, ExternalLink, Heart } from "lucide-react";
 import Link from "next/link";
 import { useState, useMemo } from "react";
 
+const tools = [
+  {
+    title: "JSON Viewer",
+    description: "Format and validate JSON data",
+    icon: "🧩",
+    href: "/json-editor",
+    available: true,
+  },
+  {
+    title: "CSS Playground",
+    description: "Test and experiment with CSS",
+    icon: "🎨",
+    href: "/css-playground",
+    available: false,
+  },
+  {
+    title: "Base64 Encoder",
+    description: "Encode and decode Base64 strings",
+    icon: "⚙️",
+    href: "/base64-encoder",
+    available: false,
+  },
+  {
+    title: "JWT Decoder",
+    description: "Decode and verify JWT tokens",
+    icon: "🔐",
+    href: "/jwt-decoder",
+    available: false,
+  },
+];
+
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
-
-  const tools = [
-    {
-      title: "JSON Viewer",
-      description: "Format and validate JSON data",
-      icon: "🧩",
-      href: "/json-editor",
-      available: true,
-    },
-    {
-      title: "CSS Playground",
-      description: "Test and experiment with CSS",
-      icon: "🎨",
-      href: "/css-playground",
-      available: false,
-    },
-    {
-      title: "Base64 Encoder",
-      description: "Encode and decode Base64 strings",
-      icon: "⚙️",
-      href: "/base64-encoder",
-      available: false,
-    },
-    {
-      title: "JWT Decoder",
-      description: "Decode and verify JWT tokens",
-      icon: "🔐",
-      href: "/jwt-decoder",
-      available: false,
-    },
-  ];
 
   const filteredTools = useMemo(() => {
     if (!searchQuery.trim()) {
@@ -93,7 +93,8 @@ export default function Home() {
                     } found`}
                 {searchQuery.trim() && (
                   <span className="ml-1">
-                    for "<span className="font-medium">{searchQuery}</span>"
+                    for &quot;<span className="font-medium">{searchQuery}</span>
+                    &quot;
                   </span>
                 )}
               </p>

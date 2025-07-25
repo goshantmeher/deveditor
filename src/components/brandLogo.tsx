@@ -18,7 +18,7 @@ function BrandLogo() {
   const logoSrc = theme === "dark" ? "/logoDark.svg" : "/logoLight.svg";
   return (
     <Link href="/">
-      <img src={logoSrc} alt="DevEditor Logo" className="h-8 w-auto" />
+      <img src={logoSrc} alt="DevEditor Logo" className="h-8" />
     </Link>
   );
 }
