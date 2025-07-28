@@ -10,11 +10,9 @@ interface EditorProps {
   children?: React.ReactNode;
 }
 function Editor({ data, onChange, type, children }: EditorProps) {
-  console.log("Editor component rendered with type:", type);
-
   return (
     <>
-      <div className="w-full h-10 flex gap-2 pl-2 pr-2 items-center bg-card">
+      <div className="w-full h-10 flex pl-2 pr-2 items-center bg-card border-b border-border">
         {children}
       </div>
       <div

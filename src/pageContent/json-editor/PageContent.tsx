@@ -1,10 +1,22 @@
 "use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowBigLeftDash, ArrowBigRightDash } from "lucide-react";
+import {
+  ArrowBigLeftDash,
+  ArrowBigRightDash,
+  Braces,
+  FoldVertical,
+  Sun,
+  UnfoldVertical,
+} from "lucide-react";
 import ImportButton from "@/components/ImportButton";
 import Editor from "@/components/editor/Editor";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import ExpandButton from "@/components/ExpandButton";
+import CollapseButton from "@/components/CollapseButton";
+import JusifyButton from "@/components/JustifiyButton";
+import BracesButton from "@/components/BracesButton";
+import SearchButton from "@/components/SearchButton";
 
 const defaultData = {
   name: "John",
@@ -84,7 +96,32 @@ function PageContent() {
                 <span>tree</span>
               </ToggleGroupItem>
             </ToggleGroup>
-            <ImportButton onImport={handleDataChange} data_type="json" />
+            <div className="flex justify-between items-center w-full pl-2">
+              <div className="flex items-center">
+                <ExpandButton onClick={() => console.log("Expand clicked")} />
+                <CollapseButton
+                  onClick={() => console.log("Collapse clicked")}
+                />
+                <JusifyButton
+                  onClick={() => console.log("Justify clicked")}
+                  title="Remove whitespace and indentation"
+                />
+                <BracesButton
+                  onClick={() => console.log("Braces clicked")}
+                  title="Format"
+                />
+              </div>
+              <div className="flex items-center">
+                <SearchButton onClick={() => console.log("Search clicked")} />
+                <ImportButton
+                  onImport={handleDataChange}
+                  data_type="json"
+                  onImportClick={() =>
+                    setLeftTabConfig((prev) => ({ ...prev, active: "text" }))
+                  }
+                />
+              </div>
+            </div>
           </Editor>
         </div>
         <div className="flex flex-col gap-2 w-full md:w-[100px] md:max-w-[100px] items-center justify-center bg-card border-l border-r border-border">
@@ -119,13 +156,14 @@ function PageContent() {
             onChange={setRightData}
             type={rightTabConfig.active}
           >
-            <ImportButton onImport={handleDataChange} data_type="json" />
+            <ImportButton
+              onImport={handleDataChange}
+              data_type="json"
+              onImportClick={() =>
+                setRightTabConfig((prev) => ({ ...prev, active: "text" }))
+              }
+            />
           </Editor>
-          {/* <TextEditor data={rightData} onChange={setRightData}>
-            <div className="w-full h-10 flex gap-2 pl-2 pr-2 bg-blue-400 items-center">
-              <ImportButton onImport={handleDataChange} data_type="json" />
-            </div>
-          </TextEditor> */}
         </div>
       </div>
     </div>

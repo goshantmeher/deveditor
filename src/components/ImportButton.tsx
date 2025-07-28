@@ -9,6 +9,7 @@ interface ImportButtonProps {
   variant?: "ghost" | "default" | "secondary";
   data_type: "json" | "text";
   title?: string;
+  onImportClick?: () => void;
 }
 function ImportButton(props: ImportButtonProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -23,6 +24,7 @@ function ImportButton(props: ImportButtonProps) {
       try {
         switch (props.data_type) {
           case "json":
+            debugger;
             if (!file.name.endsWith(".json")) {
               throw new Error("Please select a valid JSON file");
             }
@@ -47,6 +49,9 @@ function ImportButton(props: ImportButtonProps) {
   };
 
   const handleImportClick = () => {
+    if (props.onImportClick) {
+      props.onImportClick();
+    }
     fileInputRef.current?.click();
   };
   return (
