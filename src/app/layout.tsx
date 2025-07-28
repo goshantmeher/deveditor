@@ -27,6 +27,12 @@ export const metadata: Metadata = {
     "developer tools",
     "online tools",
     "JSON viewer",
+    "JSON formatter",
+    "JSON editor",
+    "JSON validator",
+    "JSON beautifier",
+    "JSON minifier",
+    "JSON playground",
     "CSS playground",
     "Base64 encoder",
     "JWT decoder",
@@ -60,7 +66,7 @@ export const metadata: Metadata = {
     url: "https://deveditor.io",
     title: "DevEditor - Developer Tools Collection",
     description:
-      "A comprehensive collection of free online developer tools including JSON viewer, CSS playground, Base64 encoder, JWT decoder and more.",
+      "A comprehensive collection of free online developer tools including JSON viewer, JSON formatter, CSS playground, Base64 encoder, JWT decoder and more.",
     siteName: "DevEditor",
     images: [
       {
@@ -75,20 +81,19 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DevEditor - Developer Tools Collection",
     description:
-      "A comprehensive collection of free online developer tools including JSON viewer, CSS playground, Base64 encoder, JWT decoder and more.",
+      "A comprehensive collection of free online developer tools including JSON viewer, JSON formatter, CSS playground, Base64 encoder, JWT decoder and more.",
     images: ["/twitter-image.png"],
     creator: "@deveditor",
   },
   verification: {
-    google: "your-google-site-verification",
-    yandex: "your-yandex-verification",
-    yahoo: "your-yahoo-verification",
+    google: "bs1NRdhyrF6xM_CPVHoMSOKIj4WV2TGyD5OJ_OHvtIg",
+    yandex: "2c056378113a1d91",
     other: {
-      me: ["your-email@example.com", "https://your-website.com"],
+      me: ["goshantmeher@gmail.com", "https://www.deveditor.io"],
     },
   },
   alternates: {
-    canonical: "https://deveditor.io",
+    canonical: "https://www.deveditor.io",
   },
   category: "technology",
   classification: "Developer Tools",
@@ -174,7 +179,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
@@ -189,16 +194,6 @@ export default function RootLayout({
           </header>
           {children}
         </ThemeProvider>
-
-        {/* <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-          <span> Made with ❤️ by Goshant Meher</span>|
-          <a
-            className="text-sm text-muted-foreground hover:text-foreground"
-            href="https://github.com/goshantmeher/deveditor"
-          >
-            View source on GitHub
-          </a>
-        </footer> */}
       </body>
     </html>
   );
