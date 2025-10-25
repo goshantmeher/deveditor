@@ -7,7 +7,6 @@ import React from "react";
 function ThemeToggle() {
   const { setTheme, theme } = useTheme();
   const currentTheme = theme?.includes("dark") ? "dark" : "light";
-  console.log("Current theme:", currentTheme, theme);
 
   const [mounted, setMounted] = React.useState(false);
 

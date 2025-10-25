@@ -40,7 +40,7 @@ export function JsonEditorView() {
           onDataChange={leftEditor.setData}
           config={leftEditor.config}
           onConfigChange={(newConfig) => updateConfig(leftEditor.config, newConfig, leftEditor.updateConfig)}
-          showFullControls={true}
+          
         />
 
         <EditorActions onCopyToRight={copyToRight} onCopyToLeft={copyToLeft} />
@@ -50,7 +50,7 @@ export function JsonEditorView() {
           onDataChange={rightEditor.setData}
           config={rightEditor.config}
           onConfigChange={(newConfig) => updateConfig(rightEditor.config, newConfig, rightEditor.updateConfig)}
-          showFullControls={false}
+
         />
       </div>
     </div>

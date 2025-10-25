@@ -18,7 +18,6 @@ export function EditorPanel({
   onDataChange,
   config,
   onConfigChange,
-  showFullControls = true,
 }: EditorPanelProps) {
 
 
@@ -45,12 +44,11 @@ export function EditorPanel({
   const handleEditorFormatChange = (value: FormatState) => {
     onConfigChange({ ...config, formatState: value });
   }
-  console.log(config);
 
   return (
     <div className="w-full md:flex-1 md:basis-0 md:min-w-0">
       <Editor data={data} onChange={onDataChange} config={config}>
-        {showFullControls ? (
+        
           <>
             <ToggleGroup
               type="single"
@@ -99,13 +97,7 @@ export function EditorPanel({
               </div>
             </div>
           </>
-        ) : (
-          <ImportButton
-            onImport={handleImport}
-            dataType="json"
-            onImportClick={handleImportClick}
-          />
-        )}
+        
       </Editor>
     </div>
   );
