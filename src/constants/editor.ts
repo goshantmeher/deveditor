@@ -3,7 +3,7 @@ export const EDITOR_TYPES = {
   text: "text",
 } as const;
 
-export type EditorType = typeof EDITOR_TYPES[keyof typeof EDITOR_TYPES];
+export type EditorType = (typeof EDITOR_TYPES)[keyof typeof EDITOR_TYPES];
 
 export const FORMAT_STATES = {
   EXPANDED: "expanded",
@@ -14,7 +14,7 @@ export const FORMAT_STATES = {
   NONE: "none",
 } as const;
 
-export type FormatState = typeof FORMAT_STATES[keyof typeof FORMAT_STATES];
+export type FormatState = (typeof FORMAT_STATES)[keyof typeof FORMAT_STATES];
 
 export const DEFAULT_EDITOR_CONFIG = {
   editorType: EDITOR_TYPES.text,
@@ -23,16 +23,16 @@ export const DEFAULT_EDITOR_CONFIG = {
 
 export const DEFAULT_TEXT_EDITOR_CONFIG = {
   ...DEFAULT_EDITOR_CONFIG,
-  formatState: FORMAT_STATES.STANDARD,
+  formatState: FORMAT_STATES.DEFAULT,
   editorFormatOptions: [FORMAT_STATES.MINIFIED, FORMAT_STATES.STANDARD],
-}
+};
 
 export const DEFAULT_JSON_EDITOR_CONFIG = {
   ...DEFAULT_EDITOR_CONFIG,
   formatState: FORMAT_STATES.NONE,
   editorFormatOptions: [FORMAT_STATES.EXPANDED, FORMAT_STATES.COLLAPSED],
   editorType: EDITOR_TYPES.json,
-}
+};
 
 export const DEFAULT_JSON_DATA = `{
   name: "John",

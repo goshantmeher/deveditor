@@ -1,4 +1,5 @@
-import JSON5 from 'json5';
+import json5 from "json5";
+import JSON5 from "json5";
 
 export interface JsonParseResult {
   success: boolean;
@@ -9,7 +10,7 @@ export interface JsonParseResult {
 export const parseJson = (jsonString: string): JsonParseResult => {
   try {
     // Try standard JSON first (faster)
-    const data = JSON.parse(jsonString);
+    const data = json5.parse(jsonString);
     return { success: true, data };
   } catch (error) {
     // Fall back to JSON5 for relaxed syntax (unquoted keys, trailing commas, etc.)
@@ -52,7 +53,10 @@ export const minifyJson = (jsonString: string): string => {
   return JSON.stringify(parsed);
 };
 
-export const beautifyJson = (jsonString: string, indent: number = 2): string => {
+export const beautifyJson = (
+  jsonString: string,
+  indent: number = 2
+): string => {
   const parsed = JSON.parse(jsonString);
   return JSON.stringify(parsed, null, indent);
 };

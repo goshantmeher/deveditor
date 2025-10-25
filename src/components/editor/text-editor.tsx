@@ -6,8 +6,9 @@ import { useTheme } from "next-themes";
 import { EditorConfig } from "@/types/editor";
 import { FORMAT_STATES, INDENT_LEVELS } from "@/constants/editor";
 import { parseJson } from "@/lib/parser";
-import { vscodeDark, vscodeLight } from '@uiw/codemirror-theme-vscode';
+import { vscodeDark, vscodeLight } from "@uiw/codemirror-theme-vscode";
 import { json } from "@codemirror/lang-json";
+import json5 from "json5";
 
 interface TextEditorProps {
   data: unknown;
@@ -24,9 +25,9 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
 
   const paintData = useMemo(() => {
     let tempData = data;
-    
+
     // If data is a string, try to parse it (supports JSON5 syntax)
-    if (typeof data === 'string') {
+    if (typeof data === "string") {
       const result = parseJson(data);
       if (result.success) {
         tempData = result.data;
@@ -36,22 +37,24 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
         return data as string;
       }
     }
-    
+
     switch (config.formatState) {
       case FORMAT_STATES.EXPANDED:
-        return JSON.stringify(tempData, null, INDENT_LEVELS.EXPANDED);
+        return json5.stringify(tempData, null, INDENT_LEVELS.EXPANDED);
       case FORMAT_STATES.COLLAPSED:
-        return JSON.stringify(tempData, null, INDENT_LEVELS.EXPANDED);
+        return json5.stringify(tempData, null, INDENT_LEVELS.EXPANDED);
       case FORMAT_STATES.MINIFIED:
-        return JSON.stringify(tempData, null, INDENT_LEVELS.MINIFIED);
+        return json5.stringify(tempData, null, INDENT_LEVELS.MINIFIED);
       case FORMAT_STATES.STANDARD:
-        return JSON.stringify(tempData, null, INDENT_LEVELS.STANDARD);
+        return json5
+          .stringify(tempData, null, INDENT_LEVELS.STANDARD)
+          .replace(/\n\s*\n+/g, "\n\n") // collapse multiple blank lines to a single blank line
+          .trimEnd();
       case FORMAT_STATES.DEFAULT:
-        return JSON.stringify(tempData, null, INDENT_LEVELS.STANDARD);
+        return json5.stringify(tempData, null, INDENT_LEVELS.STANDARD);
     }
-    return JSON.stringify(tempData, null, INDENT_LEVELS.STANDARD);
+    return json5.stringify(tempData, null, INDENT_LEVELS.STANDARD);
   }, [data, config.formatState]);
-
 
   const handleOnChange = React.useCallback(
     (value: string) => {
@@ -73,12 +76,15 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
   const extensions = useMemo(() => {
     const themeExtension = theme === "dark" ? vscodeDark : vscodeLight;
     const baseExtensions = [EditorView.lineWrapping, themeExtension];
-    
+
     // Add JSON syntax highlighting for formatted states
-    if (config.formatState !== FORMAT_STATES.MINIFIED && config.formatState !== FORMAT_STATES.DEFAULT) {
+    if (
+      config.formatState !== FORMAT_STATES.MINIFIED &&
+      config.formatState !== FORMAT_STATES.DEFAULT
+    ) {
       baseExtensions.push(json());
     }
-    
+
     return baseExtensions;
   }, [theme, config.formatState]);
 
@@ -86,9 +92,8 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
     return null;
   }
 
-
   const isMinified = config.formatState === FORMAT_STATES.MINIFIED;
-   
+
   const showLineNumbers = !isMinified;
   const showActiveLineHighlight = !isMinified;
 
