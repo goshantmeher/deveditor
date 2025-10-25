@@ -1,12 +1,7 @@
 "use client";
 import React, { useMemo, useRef } from "react";
 import CodeMirror, { ReactCodeMirrorRef } from "@uiw/react-codemirror";
-import {
-  EditorView,
-  Decoration,
-  ViewPlugin,
-  ViewUpdate,
-} from "@codemirror/view";
+import { EditorView } from "@codemirror/view";
 import { useTheme } from "next-themes";
 import { EditorConfig } from "@/types/editor";
 import { FORMAT_STATES, INDENT_LEVELS } from "@/constants/editor";
@@ -16,6 +11,13 @@ import { json } from "@codemirror/lang-json";
 import { Button } from "../ui/button";
 import { jsonrepair } from "jsonrepair";
 import { EditorSelection } from "@codemirror/state";
+import {
+  errorDecorationsTheme,
+  parseErrorPosition as parseErrorPosUtil,
+  createErrorDecorationsPlugin,
+  createErrorGutterExtension,
+  errorGutterTheme,
+} from "@/lib/editor-error";
 
 interface TextEditorProps {
   data: unknown;
@@ -33,52 +35,17 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
   } | null>(null);
   const [autoFixDisabled, setAutoFixDisabled] = React.useState(false);
   const editorRef = useRef<ReactCodeMirrorRef>(null);
+  const [pendingText, setPendingText] = React.useState<string | null>(null);
+  const PARSE_DEBOUNCE_MS = 200;
 
   React.useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Helper to compute line/col from a character index
-  const getLineColFromIndex = (text: string, index: number) => {
-    let line = 1;
-    let column = 1;
-    const max = Math.min(index, text.length);
-    for (let i = 0; i < max; i++) {
-      if (text[i] === "\n") {
-        line++;
-        column = 1;
-      } else {
-        column++;
-      }
-    }
-    return { line, column };
-  };
-
   // Extract line/column or absolute position from error message
   const parseErrorPosition = React.useCallback(
-    (errorMessage: string, source?: string) => {
-      const lineMatch = errorMessage.match(/line (\d+)/i);
-      const columnMatch = errorMessage.match(/column (\d+)/i);
-      if (lineMatch && columnMatch) {
-        return {
-          line: parseInt(lineMatch[1], 10),
-          column: parseInt(columnMatch[1], 10),
-        } as { line: number; column: number };
-      }
-
-      const posMatch = errorMessage.match(/position\s*(\d+)/i);
-      if (posMatch) {
-        const charIndex = parseInt(posMatch[1], 10);
-        if (Number.isFinite(charIndex)) {
-          if (source) {
-            const { line, column } = getLineColFromIndex(source, charIndex);
-            return { line, column, charIndex };
-          }
-          return { charIndex } as { charIndex: number };
-        }
-      }
-      return null;
-    },
+    (errorMessage: string, source?: string) =>
+      parseErrorPosUtil(errorMessage, source),
     []
   );
 
@@ -129,6 +96,10 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
 
     // If data is a string, try to parse it (supports JSON5 syntax)
     if (typeof data === "string") {
+      // When actively editing, avoid double parsing here; let debounced effect handle errors
+      if (pendingText !== null) {
+        return data as string;
+      }
       const result = parseJson(data);
       if (result.success) {
         tempData = result.data;
@@ -157,92 +128,76 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
         return stringifyJson(tempData, INDENT_LEVELS.STANDARD);
     }
     return stringifyJson(tempData, INDENT_LEVELS.STANDARD);
-  }, [data, config.formatState, parseErrorPosition]);
+  }, [data, config.formatState, parseErrorPosition, pendingText]);
 
-  const handleOnChange = React.useCallback(
-    (value: string) => {
-      // Any user change re-enables the Fix JSON button
-      setAutoFixDisabled(false);
-      // Try to parse as JSON/JSON5 to maintain data structure
-      const result = parseJson(value);
+  const handleOnChange = React.useCallback((value: string) => {
+    // Any user change re-enables the Fix JSON button
+    setAutoFixDisabled(false);
+    // Debounce parse by buffering the latest text
+    setPendingText(value);
+  }, []);
+
+  // Debounced parsing effect
+  React.useEffect(() => {
+    if (pendingText === null) return;
+    const id = window.setTimeout(() => {
+      const result = parseJson(pendingText);
       if (result.success) {
         setError(null);
         setErrorPosition(null);
         onChange(result.data);
       } else {
-        // If parsing fails, keep as string for editing
-        // This allows users to edit incomplete JSON
         console.warn("JSON parse error during edit:", result.error);
-        onChange(value);
+        setError(result.error || "Unknown parsing error");
+        const errorPos = parseErrorPosition(result.error || "", pendingText);
+        if (errorPos) {
+          setErrorPosition(errorPos);
+        }
+        // Keep as string for editing
+        onChange(pendingText);
       }
-    },
-    [onChange]
-  );
+      setPendingText(null);
+    }, PARSE_DEBOUNCE_MS);
+    return () => window.clearTimeout(id);
+  }, [pendingText, onChange, parseErrorPosition]);
 
   // Configure extensions including line wrapping and theme
   const extensions = useMemo(() => {
     const themeExtension = theme === "dark" ? vscodeDark : vscodeLight;
     const baseExtensions = [EditorView.lineWrapping, themeExtension];
 
-    // Add JSON syntax highlighting for formatted states
     if (
       config.formatState !== FORMAT_STATES.MINIFIED &&
       config.formatState !== FORMAT_STATES.DEFAULT
     ) {
-      baseExtensions.push(json());
+      baseExtensions.push(jsonLang);
     }
 
-    // Error line highlight extension
-    if (errorPosition) {
-      const errorLineTheme = EditorView.baseTheme({
-        ".cm-errorLine": {
-          backgroundColor: "rgba(239, 68, 68, 0.18)", // red-500 with opacity
-        },
-      });
-
-      const errorLinePlugin = ViewPlugin.fromClass(
-        class {
-          decorations;
-          constructor(view: EditorView) {
-            this.decorations = this.buildDecorations(view);
-          }
-          update(update: ViewUpdate) {
-            if (update.docChanged || update.viewportChanged) {
-              this.decorations = this.buildDecorations(update.view);
-            }
-          }
-          buildDecorations(view: EditorView) {
-            const doc = view.state.doc;
-            let lineNumber: number | null = null;
-
-            if (typeof errorPosition.charIndex === "number") {
-              const clamped = Math.max(
-                0,
-                Math.min(errorPosition.charIndex, doc.length)
-              );
-              lineNumber = doc.lineAt(clamped).number;
-            } else if (typeof errorPosition.line === "number") {
-              lineNumber = Math.max(1, Math.min(errorPosition.line, doc.lines));
-            }
-
-            if (!lineNumber) return Decoration.none;
-            const line = doc.line(lineNumber);
-            const deco = Decoration.line({
-              attributes: { class: "cm-errorLine" },
-            }).range(line.from);
-            return Decoration.set([deco]);
-          }
-        },
-        {
-          decorations: (v) => v.decorations,
-        }
-      );
-
-      baseExtensions.push(errorLineTheme, errorLinePlugin);
-    }
+    // Always include error decorations theme
+    baseExtensions.push(errorDecorationsTheme);
 
     return baseExtensions;
-  }, [theme, config.formatState, errorPosition]);
+  }, [theme, config.formatState]);
+
+  const errorPlugin = useMemo(
+    () => (errorPosition ? createErrorDecorationsPlugin(errorPosition) : null),
+    [errorPosition]
+  );
+
+  const gutterExt = useMemo(
+    () =>
+      error && errorPosition
+        ? createErrorGutterExtension(errorPosition, error)
+        : null,
+    [error, errorPosition]
+  );
+
+  const allExtensions = useMemo(() => {
+    let exts = extensions;
+    if (errorPlugin) exts = [...exts, errorPlugin];
+    if (gutterExt) exts = [...exts, gutterExt, errorGutterTheme];
+    return exts;
+  }, [extensions, errorPlugin, gutterExt]);
 
   if (!mounted) {
     return null;
@@ -270,7 +225,7 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
         err instanceof Error ? err.message : "Auto-fix failed";
       setError(`Auto-fix failed: ${errorMessage}`);
       const errorPos = parseErrorPosition(
-        error || "",
+        errorMessage,
         typeof data === "string" ? (data as string) : undefined
       );
       if (errorPos) {
@@ -310,7 +265,7 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
         ref={editorRef}
         value={paintData}
         theme="none"
-        extensions={extensions}
+        extensions={allExtensions}
         onChange={handleOnChange}
         height="100%"
         style={{ height: "100%" }}
@@ -341,5 +296,8 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
     </div>
   );
 }
+
+// Reuse a single JSON language extension instance
+const jsonLang = json();
 
 export default TextEditor;
