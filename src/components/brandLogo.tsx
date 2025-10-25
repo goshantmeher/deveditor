@@ -1,26 +1,30 @@
 "use client";
-import { useTheme } from "next-themes";
+
 import Link from "next/link";
-import React from "react";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
-function BrandLogo() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
+export default function BrandLogo() {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
-  const logoSrc = theme === "dark" ? "/logoDark.svg" : "/logoLight.svg";
+  const currentTheme = theme === "system" ? systemTheme : theme;
+
   return (
-    <Link href="/">
-      <img src={logoSrc} alt="DevEditor Logo" className="h-8" />
+    <Link href="/" className="flex items-center gap-2">
+      <Image
+        src={currentTheme === "dark" ? "/logoDark.svg" : "/logoLight.svg"}
+        alt="DevEditor Logo"
+        width={150}
+        height={25}
+      />
     </Link>
   );
 }
-
-export default BrandLogo;

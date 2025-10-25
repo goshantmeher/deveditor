@@ -1,5 +1,5 @@
-import PageContent from "@/pageContent/json-editor/PageContent";
+import { JsonEditorView } from "@/components/json-editor/JsonEditorView";
 
 export default function Page() {
-  return <PageContent />;
+  return <JsonEditorView />;
 }
