@@ -37,10 +37,7 @@ export const DEFAULT_JSON_EDITOR_CONFIG = {
 export const DEFAULT_JSON_DATA = `{
   name: "John",
   age: 30,
-
-
-
-  city: "New York",address: {
+ city: "New York",address: {
     street: "123 Main St",
     zip: "10001",
     details: {
@@ -62,7 +59,8 @@ export const DEFAULT_JSON_DATA = `{
       },
     ],
   },
-}`;
+}
+`;
 
 export const INDENT_LEVELS = {
   EXPANDED: 4, // More spacious

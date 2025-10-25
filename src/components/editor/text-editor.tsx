@@ -5,10 +5,11 @@ import { EditorView } from "@codemirror/view";
 import { useTheme } from "next-themes";
 import { EditorConfig } from "@/types/editor";
 import { FORMAT_STATES, INDENT_LEVELS } from "@/constants/editor";
-import { parseJson } from "@/lib/parser";
+import { parseJson, stringifyJson } from "@/lib/parser";
 import { vscodeDark, vscodeLight } from "@uiw/codemirror-theme-vscode";
 import { json } from "@codemirror/lang-json";
-import json5 from "json5";
+import { Button } from "../ui/button";
+import { jsonrepair } from "jsonrepair";
 
 interface TextEditorProps {
   data: unknown;
@@ -18,6 +19,7 @@ interface TextEditorProps {
 function TextEditor({ data, onChange, config }: TextEditorProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     setMounted(true);
@@ -34,26 +36,24 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
       } else {
         console.error("Failed to parse string as JSON:", result.error);
         // Keep as string if parsing fails
+        setError(result.error || "Unknown parsing error");
         return data as string;
       }
     }
 
     switch (config.formatState) {
       case FORMAT_STATES.EXPANDED:
-        return json5.stringify(tempData, null, INDENT_LEVELS.EXPANDED);
+        return stringifyJson(tempData, INDENT_LEVELS.EXPANDED);
       case FORMAT_STATES.COLLAPSED:
-        return json5.stringify(tempData, null, INDENT_LEVELS.EXPANDED);
+        return stringifyJson(tempData, INDENT_LEVELS.EXPANDED);
       case FORMAT_STATES.MINIFIED:
-        return json5.stringify(tempData, null, INDENT_LEVELS.MINIFIED);
+        return stringifyJson(tempData, INDENT_LEVELS.MINIFIED);
       case FORMAT_STATES.STANDARD:
-        return json5
-          .stringify(tempData, null, INDENT_LEVELS.STANDARD)
-          .replace(/\n\s*\n+/g, "\n\n") // collapse multiple blank lines to a single blank line
-          .trimEnd();
+        return stringifyJson(tempData, INDENT_LEVELS.STANDARD);
       case FORMAT_STATES.DEFAULT:
-        return json5.stringify(tempData, null, INDENT_LEVELS.STANDARD);
+        return stringifyJson(tempData, INDENT_LEVELS.STANDARD);
     }
-    return json5.stringify(tempData, null, INDENT_LEVELS.STANDARD);
+    return stringifyJson(tempData, INDENT_LEVELS.STANDARD);
   }, [data, config.formatState]);
 
   const handleOnChange = React.useCallback(
@@ -61,6 +61,7 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
       // Try to parse as JSON/JSON5 to maintain data structure
       const result = parseJson(value);
       if (result.success) {
+        setError(null);
         onChange(result.data);
       } else {
         // If parsing fails, keep as string for editing
@@ -91,6 +92,25 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
   if (!mounted) {
     return null;
   }
+  // ...existing code...
+  const fixJson = () => {
+    try {
+      const repaired = jsonrepair(data as string);
+      const result = parseJson(repaired);
+      if (result.success) {
+        setError(null);
+        onChange(result.data);
+      } else {
+        console.error("Failed to parse string as JSON:", result.error);
+        // Keep as string if parsing fails
+        setError(result.error || "Unknown parsing error");
+        return data as string;
+      }
+    } catch (err) {
+      setError(`Auto-fix failed: ${error}`);
+    }
+  };
+  // ...existing code...
 
   const isMinified = config.formatState === FORMAT_STATES.MINIFIED;
 
@@ -98,37 +118,47 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
   const showActiveLineHighlight = !isMinified;
 
   return (
-    <CodeMirror
-      value={paintData}
-      theme="none"
-      extensions={extensions}
-      onChange={handleOnChange}
-      height="100%"
-      style={{ height: "100%" }}
-      basicSetup={{
-        lineNumbers: showLineNumbers,
-        highlightActiveLineGutter: showActiveLineHighlight,
-        highlightSpecialChars: true,
-        foldGutter: true,
-        drawSelection: true,
-        dropCursor: true,
-        allowMultipleSelections: true,
-        indentOnInput: true,
-        syntaxHighlighting: true,
-        bracketMatching: true,
-        closeBrackets: true,
-        autocompletion: true,
-        rectangularSelection: true,
-        crosshairCursor: true,
-        highlightActiveLine: showActiveLineHighlight,
-        highlightSelectionMatches: true,
-        closeBracketsKeymap: true,
-        searchKeymap: true,
-        foldKeymap: true,
-        completionKeymap: true,
-        lintKeymap: true,
-      }}
-    />
+    <div className="h-full w-full">
+      {error && (
+        <div className="p-2 bg-red-100 text-red-800 border border-red-400 mb-2 flex justify-between items-center">
+          <span> {error}</span>
+          <Button onClick={fixJson} className="border border-red-500">
+            Fix JSON
+          </Button>
+        </div>
+      )}
+      <CodeMirror
+        value={paintData}
+        theme="none"
+        extensions={extensions}
+        onChange={handleOnChange}
+        height="100%"
+        style={{ height: "100%" }}
+        basicSetup={{
+          lineNumbers: showLineNumbers,
+          highlightActiveLineGutter: showActiveLineHighlight,
+          highlightSpecialChars: true,
+          foldGutter: true,
+          drawSelection: true,
+          dropCursor: true,
+          allowMultipleSelections: true,
+          indentOnInput: true,
+          syntaxHighlighting: true,
+          bracketMatching: true,
+          closeBrackets: true,
+          autocompletion: true,
+          rectangularSelection: true,
+          crosshairCursor: true,
+          highlightActiveLine: showActiveLineHighlight,
+          highlightSelectionMatches: true,
+          closeBracketsKeymap: true,
+          searchKeymap: true,
+          foldKeymap: true,
+          completionKeymap: true,
+          lintKeymap: true,
+        }}
+      />
+    </div>
   );
 }
 

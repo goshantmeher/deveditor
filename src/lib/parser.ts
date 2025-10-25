@@ -1,5 +1,4 @@
 import json5 from "json5";
-import JSON5 from "json5";
 
 export interface JsonParseResult {
   success: boolean;
@@ -7,15 +6,28 @@ export interface JsonParseResult {
   error?: string;
 }
 
+export const parseJson5 = (jsonString: string): JsonParseResult => {
+  try {
+    // Try standard JSON first (faster)
+    const data = JSON.parse(jsonString);
+    return { success: true, data };
+  } catch (error) {
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Invalid JSON",
+    };
+  }
+};
+
 export const parseJson = (jsonString: string): JsonParseResult => {
   try {
     // Try standard JSON first (faster)
-    const data = json5.parse(jsonString);
+    const data = JSON.parse(jsonString);
     return { success: true, data };
   } catch (error) {
     // Fall back to JSON5 for relaxed syntax (unquoted keys, trailing commas, etc.)
     try {
-      const data = JSON5.parse(jsonString);
+      const data = json5.parse(jsonString);
       return { success: true, data };
     } catch {
       return {
@@ -28,10 +40,10 @@ export const parseJson = (jsonString: string): JsonParseResult => {
 
 export const stringifyJson = (
   data: unknown,
-  pretty: boolean = true
+  indentLevel: number = 2
 ): string => {
   try {
-    return JSON.stringify(data, null, pretty ? 2 : 0);
+    return JSON.stringify(data, null, indentLevel);
   } catch (error) {
     throw new Error(
       error instanceof Error ? error.message : "Failed to stringify JSON"
