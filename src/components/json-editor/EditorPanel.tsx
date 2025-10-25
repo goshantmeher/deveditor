@@ -10,7 +10,8 @@ import SearchButton from "@/components/SearchButton";
 import ImportButton from "@/components/ImportButton";
 import Editor from "@/components/editor/Editor";
 import { EditorPanelProps } from "@/types/editor";
-import { EDITOR_TYPES, EditorType } from "@/constants/editor";
+import { EDITOR_TYPES, EditorType, FORMAT_STATES, FormatState } from "@/constants/editor";
+
 
 export function EditorPanel({
   data,
@@ -19,9 +20,17 @@ export function EditorPanel({
   onConfigChange,
   showFullControls = true,
 }: EditorPanelProps) {
+
+
+  // Determine which button should be highlighted
+  const isExpanded = config.formatState === FORMAT_STATES.EXPANDED;
+  const isCollapsed = config.formatState === FORMAT_STATES.COLLAPSED;
+  const isMinified = config.formatState === FORMAT_STATES.MINIFIED;
+  const isStandard = config.formatState === FORMAT_STATES.STANDARD;
+
   const handleEditorTypeChange = (value: string) => {
     if (value) {
-      onConfigChange({ ...config, active: value as EditorType });
+      onConfigChange({ ...config, editorType: value as EditorType });
     }
   };
 
@@ -30,12 +39,17 @@ export function EditorPanel({
   };
 
   const handleImportClick = () => {
-    onConfigChange({ ...config, active: EDITOR_TYPES.text });
+    onConfigChange({ ...config, editorType: EDITOR_TYPES.text });
   };
 
+  const handleEditorFormatChange = (value: FormatState) => {
+    onConfigChange({ ...config, formatState: value });
+  }
+  console.log(config);
+
   return (
-    <div className="w-full md:flex-1">
-      <Editor data={data} onChange={onDataChange} type={config.active}>
+    <div className="w-full md:flex-1 md:basis-0 md:min-w-0">
+      <Editor data={data} onChange={onDataChange} config={config}>
         {showFullControls ? (
           <>
             <ToggleGroup
@@ -54,18 +68,26 @@ export function EditorPanel({
             </ToggleGroup>
             <div className="flex justify-between items-center w-full pl-2">
               <div className="flex items-center">
-                <ExpandButton onClick={() => console.log("Expand clicked")} />
-                <CollapseButton
-                  onClick={() => console.log("Collapse clicked")}
-                />
-                <JusifyButton
-                  onClick={() => console.log("Justify clicked")}
-                  title="Remove whitespace and indentation"
-                />
-                <BracesButton
-                  onClick={() => console.log("Braces clicked")}
+                {config.editorFormatOptions.includes(FORMAT_STATES.EXPANDED) ? <ExpandButton
+                  onClick={() => handleEditorFormatChange(FORMAT_STATES.EXPANDED)}
+                  title="Expand"
+                  variant={isExpanded ? "default" : "ghost"}
+                /> : null}
+                {config.editorFormatOptions.includes(FORMAT_STATES.COLLAPSED) ? <CollapseButton
+                  onClick={() => handleEditorFormatChange(FORMAT_STATES.COLLAPSED)}
+                  title="Collapse"
+                  variant={isCollapsed ? "default" : "ghost"}
+                /> : null}
+                {config.editorFormatOptions.includes(FORMAT_STATES.MINIFIED) ? <JusifyButton
+                  onClick={() => handleEditorFormatChange(FORMAT_STATES.MINIFIED)}
+                  title="Minify"
+                  variant={isMinified ? "default" : "ghost"}
+                /> : null}
+                {config.editorFormatOptions.includes(FORMAT_STATES.STANDARD) ? <BracesButton
+                  onClick={() => handleEditorFormatChange(FORMAT_STATES.STANDARD)}
                   title="Format"
-                />
+                  variant={isStandard ? "default" : "ghost"}
+                /> : null}
               </div>
               <div className="flex items-center">
                 <SearchButton onClick={() => console.log("Search clicked")} />

@@ -1,7 +1,9 @@
-import { EditorType } from "@/constants/editor";
+import { EditorType, FormatState } from "@/constants/editor";
 
 export interface EditorConfig {
-  active: EditorType;
+  editorType: EditorType;
+  formatState: FormatState;
+  editorFormatOptions: FormatState[];
 }
 
 export interface EditorPanelProps {

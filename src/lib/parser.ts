@@ -1,3 +1,5 @@
+import JSON5 from 'json5';
+
 export interface JsonParseResult {
   success: boolean;
   data?: unknown;
@@ -6,13 +8,20 @@ export interface JsonParseResult {
 
 export const parseJson = (jsonString: string): JsonParseResult => {
   try {
+    // Try standard JSON first (faster)
     const data = JSON.parse(jsonString);
     return { success: true, data };
   } catch (error) {
-    return {
-      success: false,
-      error: error instanceof Error ? error.message : "Invalid JSON",
-    };
+    // Fall back to JSON5 for relaxed syntax (unquoted keys, trailing commas, etc.)
+    try {
+      const data = JSON5.parse(jsonString);
+      return { success: true, data };
+    } catch {
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : "Invalid JSON",
+      };
+    }
   }
 };
 
