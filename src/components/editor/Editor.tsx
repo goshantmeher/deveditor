@@ -1,7 +1,7 @@
 import React from "react";
 import JSONEditor from "./json-editor";
 import TextEditor from "./text-editor";
-import { EDITOR_TYPES, EditorType } from "@/constants/editor";
+import { EDITOR_TYPES } from "@/constants/editor";
 import { EditorConfig } from "@/types/editor";
 
 interface EditorProps {
