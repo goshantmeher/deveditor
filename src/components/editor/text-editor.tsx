@@ -28,12 +28,14 @@ interface TextEditorProps {
   onChange: (newData: unknown) => void;
   config: EditorConfig;
   comparisonData?: unknown;
+  onErrorPanelChange?: (errorPanel: React.ReactNode) => void;
 }
 function TextEditor({
   data,
   onChange,
   config,
   comparisonData,
+  onErrorPanelChange,
 }: TextEditorProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
@@ -92,6 +94,40 @@ function TextEditor({
     }
   }, [errorPosition]);
 
+  // Fix JSON callback
+  const fixJson = React.useCallback(() => {
+    try {
+      const repaired = jsonrepair(data as string);
+      const result = parseJson(repaired);
+      if (result.success) {
+        setError(null);
+        setErrorPosition(null);
+        setAutoFixDisabled(false);
+        onChange(result.data);
+      } else {
+        console.error("Failed to parse repaired JSON:", result.error);
+        setError(result.error || "Unknown parsing error");
+        const errorPos = parseErrorPosition(result.error || "", repaired);
+        if (errorPos) {
+          setErrorPosition(errorPos);
+        }
+        setAutoFixDisabled(true);
+      }
+    } catch (err) {
+      const errorMessage =
+        err instanceof Error ? err.message : "Auto-fix failed";
+      setError(`Auto-fix failed: ${errorMessage}`);
+      const errorPos = parseErrorPosition(
+        errorMessage,
+        typeof data === "string" ? (data as string) : undefined
+      );
+      if (errorPos) {
+        setErrorPosition(errorPos);
+      }
+      setAutoFixDisabled(true);
+    }
+  }, [data, onChange, parseErrorPosition]);
+
   // Auto-jump to error when errorPosition changes (helps when value updates first)
   React.useEffect(() => {
     if (!mounted || !errorPosition) return;
@@ -100,6 +136,43 @@ function TextEditor({
     }, 0);
     return () => window.clearTimeout(id);
   }, [mounted, errorPosition, navigateToError]);
+
+  // Notify parent about error panel changes
+  React.useEffect(() => {
+    if (!mounted || !onErrorPanelChange) return;
+
+    if (error) {
+      onErrorPanelChange(
+        <div className="p-2 bg-red-100 text-red-800 border border-red-400 mb-2 flex justify-between items-center">
+          <span>{error}</span>
+          <div className="flex gap-2">
+            {errorPosition && (
+              <Button onClick={navigateToError} variant="ghost" size="sm">
+                {errorPosition.line
+                  ? `Go to Line ${errorPosition.line}`
+                  : "Go to Error"}
+              </Button>
+            )}
+            {!autoFixDisabled && (
+              <Button onClick={fixJson} size="sm" variant={"ghost"}>
+                Fix JSON
+              </Button>
+            )}
+          </div>
+        </div>
+      );
+    } else {
+      onErrorPanelChange(null);
+    }
+  }, [
+    mounted,
+    error,
+    errorPosition,
+    autoFixDisabled,
+    navigateToError,
+    fixJson,
+    onErrorPanelChange,
+  ]);
 
   // Unfold all code when entering compare mode
   React.useEffect(() => {
@@ -248,38 +321,6 @@ function TextEditor({
   if (!mounted) {
     return null;
   }
-  const fixJson = () => {
-    try {
-      const repaired = jsonrepair(data as string);
-      const result = parseJson(repaired);
-      if (result.success) {
-        setError(null);
-        setErrorPosition(null);
-        setAutoFixDisabled(false);
-        onChange(result.data);
-      } else {
-        console.error("Failed to parse repaired JSON:", result.error);
-        setError(result.error || "Unknown parsing error");
-        const errorPos = parseErrorPosition(result.error || "", repaired);
-        if (errorPos) {
-          setErrorPosition(errorPos);
-        }
-        setAutoFixDisabled(true);
-      }
-    } catch (err) {
-      const errorMessage =
-        err instanceof Error ? err.message : "Auto-fix failed";
-      setError(`Auto-fix failed: ${errorMessage}`);
-      const errorPos = parseErrorPosition(
-        errorMessage,
-        typeof data === "string" ? (data as string) : undefined
-      );
-      if (errorPos) {
-        setErrorPosition(errorPos);
-      }
-      setAutoFixDisabled(true);
-    }
-  };
 
   const isMinified = config.formatState === FORMAT_STATES.MINIFIED;
 
@@ -288,25 +329,6 @@ function TextEditor({
 
   return (
     <div className="h-full w-full">
-      {error && (
-        <div className="p-2 bg-red-100 text-red-800 border border-red-400 mb-2 flex justify-between items-center">
-          <span>{error}</span>
-          <div className="flex gap-2">
-            {errorPosition && (
-              <Button onClick={navigateToError} variant="ghost" size="sm">
-                {errorPosition.line
-                  ? `Go to Line ${errorPosition.line}`
-                  : "Go to Error"}
-              </Button>
-            )}
-            {!autoFixDisabled && (
-              <Button onClick={fixJson} size="sm" variant={"ghost"}>
-                Fix JSON
-              </Button>
-            )}
-          </div>
-        </div>
-      )}
       <CodeMirror
         ref={editorRef}
         value={paintData}

@@ -10,6 +10,8 @@ interface EditorProps {
   config: EditorConfig;
   children?: React.ReactNode;
   comparisonData?: unknown;
+  searchPanel?: React.ReactNode;
+  errorPanel?: React.ReactNode;
 }
 function Editor({
   data,
@@ -17,15 +19,47 @@ function Editor({
   config,
   children,
   comparisonData,
+  searchPanel,
 }: EditorProps) {
+  const [searchPanelHeight, setSearchPanelHeight] = React.useState(0);
+  const [errorPanelHeight, setErrorPanelHeight] = React.useState(0);
+  const [internalErrorPanel, setInternalErrorPanel] =
+    React.useState<React.ReactNode>(null);
+  const searchPanelRef = React.useRef<HTMLDivElement>(null);
+  const errorPanelRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (searchPanelRef.current) {
+      setSearchPanelHeight(searchPanelRef.current.offsetHeight);
+    } else {
+      setSearchPanelHeight(0);
+    }
+  }, [searchPanel]);
+
+  React.useEffect(() => {
+    if (errorPanelRef.current) {
+      setErrorPanelHeight(errorPanelRef.current.offsetHeight);
+    } else {
+      setErrorPanelHeight(0);
+    }
+  }, [internalErrorPanel]);
+
+  const editorHeight = `calc(100% - ${
+    40 + searchPanelHeight + errorPanelHeight
+  }px)`;
+
   return (
     <>
       <div className="w-full h-10 flex pl-2 pr-2 items-center bg-card border-b border-border">
         {children}
       </div>
+      {searchPanel && <div ref={searchPanelRef}>{searchPanel}</div>}
+      {internalErrorPanel && (
+        <div ref={errorPanelRef}>{internalErrorPanel}</div>
+      )}
       <div
         style={{
-          height: "calc(100% - 40px)",
+          height: editorHeight,
           overflowY: "auto",
         }}
       >
@@ -37,6 +71,7 @@ function Editor({
             onChange={onChange}
             config={config}
             comparisonData={comparisonData}
+            onErrorPanelChange={setInternalErrorPanel}
           />
         )}
       </div>

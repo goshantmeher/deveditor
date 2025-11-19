@@ -120,6 +120,8 @@ export function JsonEditorView() {
             )
           }
           comparisonData={isComparing ? rightEditor.data : undefined}
+          originalData={leftEditor.originalDataRef.current}
+          onOriginalDataChange={leftEditor.updateOriginalData}
         />
 
         <EditorActions
@@ -143,6 +145,8 @@ export function JsonEditorView() {
             )
           }
           comparisonData={isComparing ? leftEditor.data : undefined}
+          originalData={rightEditor.originalDataRef.current}
+          onOriginalDataChange={rightEditor.updateOriginalData}
         />
       </div>
     </div>

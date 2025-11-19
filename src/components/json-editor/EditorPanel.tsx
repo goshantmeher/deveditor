@@ -9,6 +9,7 @@ import BracesButton from "@/components/BracesButton";
 import SearchButton from "@/components/SearchButton";
 import ImportButton from "@/components/ImportButton";
 import Editor from "@/components/editor/Editor";
+import { SearchPanel } from "@/components/json-editor/SearchPanel";
 import { EditorPanelProps } from "@/types/editor";
 import {
   EDITOR_TYPES,
@@ -16,6 +17,9 @@ import {
   FORMAT_STATES,
   FormatState,
 } from "@/constants/editor";
+import { filterJsonByPath } from "@/lib/json-filter";
+import { parseJson, stringifyJson } from "@/lib/parser";
+import { INDENT_LEVELS } from "@/constants/editor";
 
 export function EditorPanel({
   data,
@@ -23,12 +27,17 @@ export function EditorPanel({
   config,
   onConfigChange,
   comparisonData,
+  originalData,
+  onOriginalDataChange,
 }: EditorPanelProps) {
   // Determine which button should be highlighted
   const isExpanded = config.formatState === FORMAT_STATES.EXPANDED;
   const isCollapsed = config.formatState === FORMAT_STATES.COLLAPSED;
   const isMinified = config.formatState === FORMAT_STATES.MINIFIED;
   const isStandard = config.formatState === FORMAT_STATES.STANDARD;
+
+  // Search is only available when not in minified mode
+  const canSearch = !isMinified;
 
   const handleEditorTypeChange = (value: string) => {
     if (value) {
@@ -47,10 +56,91 @@ export function EditorPanel({
   const handleEditorFormatChange = (value: FormatState) => {
     // If switching to minified and in compare mode, turn off compare mode
     if (value === FORMAT_STATES.MINIFIED && config.compareMode) {
-      onConfigChange({ ...config, formatState: value, compareMode: false });
+      onConfigChange({
+        ...config,
+        formatState: value,
+        compareMode: false,
+        searchOpen: false,
+      });
     } else {
       onConfigChange({ ...config, formatState: value });
     }
+  };
+
+  const handleSearchClick = () => {
+    if (!canSearch) {
+      // Auto-switch from minified to standard format
+      onConfigChange({
+        ...config,
+        formatState: FORMAT_STATES.STANDARD,
+        searchOpen: true,
+      });
+    } else {
+      onConfigChange({ ...config, searchOpen: !config.searchOpen });
+    }
+  };
+
+  const handleSearch = (query: string) => {
+    // Parse the data (could be string or object)
+    let parsedData: unknown;
+    let parsedOriginal: unknown;
+
+    if (typeof data === "string") {
+      const result = parseJson(data);
+      if (!result.success) {
+        console.error("Cannot filter invalid JSON");
+        return;
+      }
+      parsedData = result.data;
+    } else {
+      parsedData = data;
+    }
+
+    // Store original data if not already stored
+    if (!config.filterPath && onOriginalDataChange) {
+      onOriginalDataChange(data);
+    }
+
+    // Parse original data for filtering
+    if (originalData !== undefined) {
+      if (typeof originalData === "string") {
+        const result = parseJson(originalData as string);
+        if (!result.success) {
+          console.error("Cannot filter invalid JSON");
+          return;
+        }
+        parsedOriginal = result.data;
+      } else {
+        parsedOriginal = originalData;
+      }
+    } else {
+      parsedOriginal = parsedData;
+    }
+
+    // Filter the data
+    const filteredData = filterJsonByPath(parsedOriginal, query);
+
+    if (filteredData !== null && filteredData !== undefined) {
+      // Convert back to string with appropriate formatting
+      const indent = isStandard
+        ? INDENT_LEVELS.STANDARD
+        : INDENT_LEVELS.EXPANDED;
+      const formattedString = stringifyJson(filteredData, indent);
+      onDataChange(formattedString);
+      onConfigChange({ ...config, filterPath: query });
+    }
+  };
+
+  const handleClearFilter = () => {
+    // Restore original data
+    if (originalData !== undefined) {
+      onDataChange(originalData);
+    }
+    onConfigChange({ ...config, filterPath: undefined });
+  };
+
+  const handleCloseSearch = () => {
+    onConfigChange({ ...config, searchOpen: false });
   };
 
   return (
@@ -60,6 +150,16 @@ export function EditorPanel({
         onChange={onDataChange}
         config={config}
         comparisonData={comparisonData}
+        searchPanel={
+          config.searchOpen ? (
+            <SearchPanel
+              onSearch={handleSearch}
+              onClear={handleClearFilter}
+              onClose={handleCloseSearch}
+              currentFilter={config.filterPath}
+            />
+          ) : undefined
+        }
       >
         <>
           <ToggleGroup
@@ -116,7 +216,10 @@ export function EditorPanel({
               ) : null}
             </div>
             <div className="flex items-center">
-              <SearchButton onClick={() => console.log("Search clicked")} />
+              <SearchButton
+                onClick={handleSearchClick}
+                variant={config.searchOpen ? "default" : "ghost"}
+              />
               <ImportButton
                 onImport={handleImport}
                 dataType="json"
