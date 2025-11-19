@@ -182,6 +182,11 @@ function TextEditor({
       return pendingText;
     }
 
+    // If autoFix is disabled, show data as raw string without any processing
+    if (config.autoFix === false) {
+      return typeof data === "string" ? data : JSON.stringify(data, null, 2);
+    }
+
     let tempData = data;
 
     // If data is a string, try to parse it (supports JSON5 syntax)
@@ -214,7 +219,13 @@ function TextEditor({
         return stringifyJson(tempData, INDENT_LEVELS.STANDARD);
     }
     return stringifyJson(tempData, INDENT_LEVELS.STANDARD);
-  }, [data, config.formatState, parseErrorPosition, pendingText]);
+  }, [
+    data,
+    config.formatState,
+    config.autoFix,
+    parseErrorPosition,
+    pendingText,
+  ]);
 
   const handleOnChange = React.useCallback((value: string) => {
     // Any user change re-enables the Fix JSON button
@@ -227,6 +238,15 @@ function TextEditor({
   React.useEffect(() => {
     if (pendingText === null) return;
     const id = window.setTimeout(() => {
+      // If autoFix is disabled, keep text as-is without any parsing
+      if (config.autoFix === false) {
+        setError(null);
+        setErrorPosition(null);
+        onChange(pendingText);
+        setPendingText(null);
+        return;
+      }
+
       const result = parseJson(pendingText);
       if (result.success) {
         setError(null);
@@ -245,7 +265,7 @@ function TextEditor({
       setPendingText(null);
     }, PARSE_DEBOUNCE_MS);
     return () => window.clearTimeout(id);
-  }, [pendingText, onChange, parseErrorPosition]);
+  }, [pendingText, onChange, parseErrorPosition, config.autoFix]);
 
   // Configure extensions including line wrapping and theme
   const extensions = useMemo(() => {

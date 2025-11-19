@@ -26,6 +26,7 @@ export const DEFAULT_TEXT_EDITOR_CONFIG = {
   formatState: FORMAT_STATES.STANDARD,
   editorFormatOptions: [FORMAT_STATES.MINIFIED, FORMAT_STATES.STANDARD],
   compareMode: false,
+  autoFix: true,
 };
 
 export const DEFAULT_JSON_EDITOR_CONFIG = {

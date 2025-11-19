@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from "react";
 import { EditorPanel } from "./EditorPanel";
 import { EditorActions } from "./EditorActions";
+import { EditorStats } from "./EditorStats";
 import { useEditorState } from "@/hooks/useEditorState";
 import { useEditorActions } from "@/hooks/useEditorActions";
 import {
@@ -106,6 +107,9 @@ export function JsonEditorView() {
 
   return (
     <div className="w-full h-full flex flex-col">
+      {isComparing && (
+        <EditorStats leftData={leftEditor.data} rightData={rightEditor.data} />
+      )}
       <div className="flex flex-col md:flex-row w-full h-full">
         <EditorPanel
           data={leftEditor.data}

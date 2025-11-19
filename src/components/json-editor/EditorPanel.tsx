@@ -8,6 +8,7 @@ import JusifyButton from "@/components/JustifiyButton";
 import BracesButton from "@/components/BracesButton";
 import SearchButton from "@/components/SearchButton";
 import ImportButton from "@/components/ImportButton";
+import AutoFixToggle from "@/components/AutoFixToggle";
 import Editor from "@/components/editor/Editor";
 import { SearchPanel } from "@/components/json-editor/SearchPanel";
 import { EditorPanelProps } from "@/types/editor";
@@ -143,6 +144,10 @@ export function EditorPanel({
     onConfigChange({ ...config, searchOpen: false });
   };
 
+  const handleAutoFixToggle = () => {
+    onConfigChange({ ...config, autoFix: !config.autoFix });
+  };
+
   return (
     <div className="w-full md:flex-1 md:basis-0 md:min-w-0">
       <Editor
@@ -216,6 +221,12 @@ export function EditorPanel({
               ) : null}
             </div>
             <div className="flex items-center">
+              {config.editorType === EDITOR_TYPES.text && (
+                <AutoFixToggle
+                  enabled={config.autoFix ?? true}
+                  onToggle={handleAutoFixToggle}
+                />
+              )}
               <SearchButton
                 onClick={handleSearchClick}
                 variant={config.searchOpen ? "default" : "ghost"}
