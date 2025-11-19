@@ -228,7 +228,7 @@ export function createDiffDecorationsPlugin(diffs: DiffLine[]) {
       }
       buildDecorations(view: EditorView) {
         const doc = view.state.doc;
-        const decos: any[] = [];
+        const decos = [];
 
         for (const diff of diffs) {
           if (diff.type === "unchanged") continue;
