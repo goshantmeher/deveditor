@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { EditorConfig } from "@/types/editor";
 
 interface EditorStateConfig {
@@ -6,13 +6,28 @@ interface EditorStateConfig {
   initialConfig: EditorConfig;
 }
 
-export function useEditorState({ initialData, initialConfig }: EditorStateConfig) {
+export function useEditorState({
+  initialData,
+  initialConfig,
+}: EditorStateConfig) {
   const [data, setData] = useState<unknown>(initialData);
   const [config, setConfig] = useState<EditorConfig>(initialConfig);
+  const originalDataRef = useRef<unknown>(initialData);
 
   const updateConfig = (newConfig: EditorConfig) => {
-    setConfig({ ...config, ...newConfig });
-  }; 
+    setConfig((prevConfig) => ({ ...prevConfig, ...newConfig }));
+  };
 
-  return { data, setData, config, updateConfig };
+  const updateOriginalData = (newData: unknown) => {
+    originalDataRef.current = newData;
+  };
+
+  return {
+    data,
+    setData,
+    config,
+    updateConfig,
+    originalDataRef,
+    updateOriginalData,
+  };
 }
