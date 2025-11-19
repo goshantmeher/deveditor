@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import ExpandButton from "@/components/ExpandButton";
 import CollapseButton from "@/components/CollapseButton";
 import JusifyButton from "@/components/JustifiyButton";
@@ -12,12 +11,7 @@ import AutoFixToggle from "@/components/AutoFixToggle";
 import Editor from "@/components/editor/Editor";
 import { SearchPanel } from "@/components/json-editor/SearchPanel";
 import { EditorPanelProps } from "@/types/editor";
-import {
-  EDITOR_TYPES,
-  EditorType,
-  FORMAT_STATES,
-  FormatState,
-} from "@/constants/editor";
+import { EDITOR_TYPES, FORMAT_STATES, FormatState } from "@/constants/editor";
 import { filterJsonByPath } from "@/lib/json-filter";
 import { parseJson, stringifyJson } from "@/lib/parser";
 import { INDENT_LEVELS } from "@/constants/editor";
@@ -40,11 +34,11 @@ export function EditorPanel({
   // Search is only available when not in minified mode
   const canSearch = !isMinified;
 
-  const handleEditorTypeChange = (value: string) => {
-    if (value) {
-      onConfigChange({ ...config, editorType: value as EditorType });
-    }
-  };
+  // const handleEditorTypeChange = (value: string) => {
+  //   if (value) {
+  //     onConfigChange({ ...config, editorType: value as EditorType });
+  //   }
+  // };
 
   const handleImport = (newData: unknown) => {
     onDataChange(newData);
@@ -167,7 +161,7 @@ export function EditorPanel({
         }
       >
         <>
-          <ToggleGroup
+          {/* <ToggleGroup
             type="single"
             size="sm"
             value={config.editorType}
@@ -180,7 +174,7 @@ export function EditorPanel({
             <ToggleGroupItem value="json" aria-label="Toggle tree">
               <span>tree</span>
             </ToggleGroupItem>
-          </ToggleGroup>
+          </ToggleGroup> */}
           <div className="flex justify-between items-center w-full pl-2">
             <div className="flex items-center">
               {config.editorFormatOptions.includes(FORMAT_STATES.EXPANDED) ? (
