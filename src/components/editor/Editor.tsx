@@ -9,8 +9,15 @@ interface EditorProps {
   onChange: (newData: string | unknown) => void;
   config: EditorConfig;
   children?: React.ReactNode;
+  comparisonData?: unknown;
 }
-function Editor({ data, onChange, config, children }: EditorProps) {
+function Editor({
+  data,
+  onChange,
+  config,
+  children,
+  comparisonData,
+}: EditorProps) {
   return (
     <>
       <div className="w-full h-10 flex pl-2 pr-2 items-center bg-card border-b border-border">
@@ -24,7 +31,14 @@ function Editor({ data, onChange, config, children }: EditorProps) {
       >
         {config.editorType === EDITOR_TYPES.json && <JSONEditor data={data} />}
 
-        {config.editorType === EDITOR_TYPES.text && <TextEditor data={data} onChange={onChange} config={config} />}
+        {config.editorType === EDITOR_TYPES.text && (
+          <TextEditor
+            data={data}
+            onChange={onChange}
+            config={config}
+            comparisonData={comparisonData}
+          />
+        )}
       </div>
     </>
   );

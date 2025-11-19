@@ -11,20 +11,30 @@ import { json } from "@codemirror/lang-json";
 import { Button } from "../ui/button";
 import { jsonrepair } from "jsonrepair";
 import { EditorSelection } from "@codemirror/state";
+import { unfoldAll } from "@codemirror/language";
 import {
   errorDecorationsTheme,
   parseErrorPosition as parseErrorPosUtil,
   createErrorDecorationsPlugin,
   createErrorGutterExtension,
   errorGutterTheme,
+  diffDecorationsTheme,
+  createDiffDecorationsPlugin,
 } from "@/lib/editor-error";
+import { getLineDiffs } from "@/lib/json-compare";
 
 interface TextEditorProps {
   data: unknown;
   onChange: (newData: unknown) => void;
   config: EditorConfig;
+  comparisonData?: unknown;
 }
-function TextEditor({ data, onChange, config }: TextEditorProps) {
+function TextEditor({
+  data,
+  onChange,
+  config,
+  comparisonData,
+}: TextEditorProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
@@ -91,15 +101,27 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
     return () => window.clearTimeout(id);
   }, [mounted, errorPosition, navigateToError]);
 
+  // Unfold all code when entering compare mode
+  React.useEffect(() => {
+    if (!mounted || !config.compareMode) return;
+
+    const view = editorRef.current?.view;
+    if (!view) return;
+
+    // Unfold all folded code sections
+    unfoldAll(view);
+  }, [mounted, config.compareMode]);
+
   const paintData = useMemo(() => {
+    // When actively editing, show the pending text being typed
+    if (pendingText !== null) {
+      return pendingText;
+    }
+
     let tempData = data;
 
     // If data is a string, try to parse it (supports JSON5 syntax)
     if (typeof data === "string") {
-      // When actively editing, avoid double parsing here; let debounced effect handle errors
-      if (pendingText !== null) {
-        return data as string;
-      }
       const result = parseJson(data);
       if (result.success) {
         tempData = result.data;
@@ -192,12 +214,36 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
     [error, errorPosition]
   );
 
+  // Calculate diffs if in compare mode
+  const diffLines = useMemo(() => {
+    if (!config.compareMode || !comparisonData) return null;
+
+    try {
+      const { left } = getLineDiffs(data, comparisonData);
+      // Return the diff for this editor (we're showing "data" in this editor)
+      // Map LineDiff[] to DiffLine[] (remove the content property)
+      return left.map(({ lineNumber, type }) => ({ lineNumber, type }));
+    } catch (err) {
+      console.error("Error calculating diffs:", err);
+      return null;
+    }
+  }, [config.compareMode, data, comparisonData]);
+
+  const diffPlugin = useMemo(
+    () =>
+      diffLines && config.compareMode
+        ? createDiffDecorationsPlugin(diffLines)
+        : null,
+    [diffLines, config.compareMode]
+  );
+
   const allExtensions = useMemo(() => {
     let exts = extensions;
     if (errorPlugin) exts = [...exts, errorPlugin];
     if (gutterExt) exts = [...exts, gutterExt, errorGutterTheme];
+    if (diffPlugin) exts = [...exts, diffPlugin, diffDecorationsTheme];
     return exts;
-  }, [extensions, errorPlugin, gutterExt]);
+  }, [extensions, errorPlugin, gutterExt, diffPlugin]);
 
   if (!mounted) {
     return null;
@@ -267,6 +313,7 @@ function TextEditor({ data, onChange, config }: TextEditorProps) {
         theme="none"
         extensions={allExtensions}
         onChange={handleOnChange}
+        editable={!config.compareMode}
         height="100%"
         style={{ height: "100%" }}
         basicSetup={{

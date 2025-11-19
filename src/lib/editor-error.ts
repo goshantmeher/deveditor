@@ -33,6 +33,35 @@ export const errorGutterTheme = EditorView.baseTheme({
   },
 });
 
+// Diff highlighting themes for compare mode
+export const diffDecorationsTheme = EditorView.baseTheme({
+  ".cm-diffLine-added": {
+    backgroundColor: "rgba(34, 197, 94, 0.15)",
+    borderLeft: "3px solid #22c55e",
+  },
+  ".cm-diffLine-removed": {
+    backgroundColor: "rgba(239, 68, 68, 0.15)",
+    borderLeft: "3px solid #ef4444",
+  },
+  ".cm-diffLine-modified": {
+    backgroundColor: "rgba(234, 179, 8, 0.15)",
+    borderLeft: "3px solid #eab308",
+  },
+  ".cm-diffChar-added": {
+    backgroundColor: "rgba(34, 197, 94, 0.25)",
+    fontWeight: "500",
+  },
+  ".cm-diffChar-removed": {
+    backgroundColor: "rgba(239, 68, 68, 0.25)",
+    fontWeight: "500",
+    textDecoration: "line-through",
+  },
+  ".cm-diffChar-modified": {
+    backgroundColor: "rgba(234, 179, 8, 0.25)",
+    fontWeight: "500",
+  },
+});
+
 export function getLineColFromIndex(text: string, index: number) {
   let line = 1;
   let column = 1;
@@ -172,4 +201,66 @@ export function createErrorGutterExtension(
       return builder.finish();
     },
   });
+}
+
+// Diff decoration types
+export type DiffType = "added" | "removed" | "modified" | "unchanged";
+
+export interface DiffLine {
+  lineNumber: number;
+  type: DiffType;
+}
+
+/**
+ * Create a plugin to decorate lines with diff highlighting
+ */
+export function createDiffDecorationsPlugin(diffs: DiffLine[]) {
+  return ViewPlugin.fromClass(
+    class {
+      decorations: DecorationSet;
+      constructor(view: EditorView) {
+        this.decorations = this.buildDecorations(view);
+      }
+      update(update: ViewUpdate) {
+        if (update.docChanged || update.viewportChanged) {
+          this.decorations = this.buildDecorations(update.view);
+        }
+      }
+      buildDecorations(view: EditorView) {
+        const doc = view.state.doc;
+        const decos: any[] = [];
+
+        for (const diff of diffs) {
+          if (diff.type === "unchanged") continue;
+
+          const lineNumber = Math.max(1, Math.min(diff.lineNumber, doc.lines));
+          const line = doc.line(lineNumber);
+
+          let className = "";
+          switch (diff.type) {
+            case "added":
+              className = "cm-diffLine-added";
+              break;
+            case "removed":
+              className = "cm-diffLine-removed";
+              break;
+            case "modified":
+              className = "cm-diffLine-modified";
+              break;
+          }
+
+          if (className) {
+            decos.push(
+              Decoration.line({ attributes: { class: className } }).range(
+                line.from
+              )
+            );
+          }
+        }
+
+        return Decoration.set(decos);
+      }
+    },
+    { decorations: (v) => v.decorations }
+  );
 }

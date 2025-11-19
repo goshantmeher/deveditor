@@ -10,17 +10,20 @@ import SearchButton from "@/components/SearchButton";
 import ImportButton from "@/components/ImportButton";
 import Editor from "@/components/editor/Editor";
 import { EditorPanelProps } from "@/types/editor";
-import { EDITOR_TYPES, EditorType, FORMAT_STATES, FormatState } from "@/constants/editor";
-
+import {
+  EDITOR_TYPES,
+  EditorType,
+  FORMAT_STATES,
+  FormatState,
+} from "@/constants/editor";
 
 export function EditorPanel({
   data,
   onDataChange,
   config,
   onConfigChange,
+  comparisonData,
 }: EditorPanelProps) {
-
-
   // Determine which button should be highlighted
   const isExpanded = config.formatState === FORMAT_STATES.EXPANDED;
   const isCollapsed = config.formatState === FORMAT_STATES.COLLAPSED;
@@ -42,64 +45,87 @@ export function EditorPanel({
   };
 
   const handleEditorFormatChange = (value: FormatState) => {
-    onConfigChange({ ...config, formatState: value });
-  }
+    // If switching to minified and in compare mode, turn off compare mode
+    if (value === FORMAT_STATES.MINIFIED && config.compareMode) {
+      onConfigChange({ ...config, formatState: value, compareMode: false });
+    } else {
+      onConfigChange({ ...config, formatState: value });
+    }
+  };
 
   return (
     <div className="w-full md:flex-1 md:basis-0 md:min-w-0">
-      <Editor data={data} onChange={onDataChange} config={config}>
-        
-          <>
-            <ToggleGroup
-              type="single"
-              size="sm"
-              defaultValue="text"
-              variant="outline"
-              onValueChange={handleEditorTypeChange}
-            >
-              <ToggleGroupItem value="text" aria-label="Toggle text">
-                <span>text</span>
-              </ToggleGroupItem>
-              <ToggleGroupItem value="json" aria-label="Toggle tree">
-                <span>tree</span>
-              </ToggleGroupItem>
-            </ToggleGroup>
-            <div className="flex justify-between items-center w-full pl-2">
-              <div className="flex items-center">
-                {config.editorFormatOptions.includes(FORMAT_STATES.EXPANDED) ? <ExpandButton
-                  onClick={() => handleEditorFormatChange(FORMAT_STATES.EXPANDED)}
+      <Editor
+        data={data}
+        onChange={onDataChange}
+        config={config}
+        comparisonData={comparisonData}
+      >
+        <>
+          <ToggleGroup
+            type="single"
+            size="sm"
+            value={config.editorType}
+            variant="outline"
+            onValueChange={handleEditorTypeChange}
+          >
+            <ToggleGroupItem value="text" aria-label="Toggle text">
+              <span>text</span>
+            </ToggleGroupItem>
+            <ToggleGroupItem value="json" aria-label="Toggle tree">
+              <span>tree</span>
+            </ToggleGroupItem>
+          </ToggleGroup>
+          <div className="flex justify-between items-center w-full pl-2">
+            <div className="flex items-center">
+              {config.editorFormatOptions.includes(FORMAT_STATES.EXPANDED) ? (
+                <ExpandButton
+                  onClick={() =>
+                    handleEditorFormatChange(FORMAT_STATES.EXPANDED)
+                  }
                   title="Expand"
                   variant={isExpanded ? "default" : "ghost"}
-                /> : null}
-                {config.editorFormatOptions.includes(FORMAT_STATES.COLLAPSED) ? <CollapseButton
-                  onClick={() => handleEditorFormatChange(FORMAT_STATES.COLLAPSED)}
+                />
+              ) : null}
+              {config.editorFormatOptions.includes(FORMAT_STATES.COLLAPSED) ? (
+                <CollapseButton
+                  onClick={() =>
+                    handleEditorFormatChange(FORMAT_STATES.COLLAPSED)
+                  }
                   title="Collapse"
                   variant={isCollapsed ? "default" : "ghost"}
-                /> : null}
-                {config.editorFormatOptions.includes(FORMAT_STATES.MINIFIED) ? <JusifyButton
-                  onClick={() => handleEditorFormatChange(FORMAT_STATES.MINIFIED)}
+                />
+              ) : null}
+              {config.editorFormatOptions.includes(FORMAT_STATES.MINIFIED) ? (
+                <JusifyButton
+                  onClick={() =>
+                    handleEditorFormatChange(FORMAT_STATES.MINIFIED)
+                  }
                   title="Minify"
                   variant={isMinified ? "default" : "ghost"}
-                /> : null}
-                {config.editorFormatOptions.includes(FORMAT_STATES.STANDARD) ? <BracesButton
-                  onClick={() => handleEditorFormatChange(FORMAT_STATES.STANDARD)}
+                />
+              ) : null}
+              {config.editorFormatOptions.includes(FORMAT_STATES.STANDARD) ? (
+                <BracesButton
+                  onClick={() =>
+                    handleEditorFormatChange(FORMAT_STATES.STANDARD)
+                  }
                   title="Format"
                   variant={isStandard ? "default" : "ghost"}
-                /> : null}
-              </div>
-              <div className="flex items-center">
-                <SearchButton onClick={() => console.log("Search clicked")} />
-                <ImportButton
-                  onImport={handleImport}
-                  dataType="json"
-                  onImportClick={handleImportClick}
                 />
-              </div>
+              ) : null}
             </div>
-          </>
-        
+            <div className="flex items-center">
+              <SearchButton onClick={() => console.log("Search clicked")} />
+              <ImportButton
+                onImport={handleImport}
+                dataType="json"
+                onImportClick={handleImportClick}
+              />
+            </div>
+          </div>
+        </>
       </Editor>
     </div>
   );
 }
-

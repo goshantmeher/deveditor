@@ -6,13 +6,16 @@ interface EditorStateConfig {
   initialConfig: EditorConfig;
 }
 
-export function useEditorState({ initialData, initialConfig }: EditorStateConfig) {
+export function useEditorState({
+  initialData,
+  initialConfig,
+}: EditorStateConfig) {
   const [data, setData] = useState<unknown>(initialData);
   const [config, setConfig] = useState<EditorConfig>(initialConfig);
 
   const updateConfig = (newConfig: EditorConfig) => {
-    setConfig({ ...config, ...newConfig });
-  }; 
+    setConfig((prevConfig) => ({ ...prevConfig, ...newConfig }));
+  };
 
   return { data, setData, config, updateConfig };
 }

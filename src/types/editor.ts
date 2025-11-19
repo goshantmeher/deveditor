@@ -4,6 +4,7 @@ export interface EditorConfig {
   editorType: EditorType;
   formatState: FormatState;
   editorFormatOptions: FormatState[];
+  compareMode?: boolean;
 }
 
 export interface EditorPanelProps {
@@ -12,5 +13,5 @@ export interface EditorPanelProps {
   config: EditorConfig;
   onConfigChange: (config: EditorConfig) => void;
   showFullControls?: boolean;
+  comparisonData?: unknown; // Data from the other panel for diff comparison
 }
-
