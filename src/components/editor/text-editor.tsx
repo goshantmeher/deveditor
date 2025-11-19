@@ -128,15 +128,6 @@ function TextEditor({
     }
   }, [data, onChange, parseErrorPosition]);
 
-  // Auto-jump to error when errorPosition changes (helps when value updates first)
-  React.useEffect(() => {
-    if (!mounted || !errorPosition) return;
-    const id = window.setTimeout(() => {
-      navigateToError();
-    }, 0);
-    return () => window.clearTimeout(id);
-  }, [mounted, errorPosition, navigateToError]);
-
   // Notify parent about error panel changes
   React.useEffect(() => {
     if (!mounted || !onErrorPanelChange) return;

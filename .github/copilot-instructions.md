@@ -80,7 +80,8 @@ Configuration in `components.json` uses "new-york" style with path aliases (`@/c
 
 - **Utility-first**: Use Tailwind classes with `cn()` helper from `src/lib/utils.ts` for conditional class merging
 - **Theme integration**: All components use `next-themes` - check `mounted` state before rendering theme-dependent content (prevents hydration mismatch)
-- **Layout calculations**: Height constraints like `calc(100% - 40px)` for editor content below toolbars (see `Editor.tsx`)
+- **Layout calculations**: Dynamic height constraints in `Editor.tsx` account for header (40px), search panel, and error panel heights to prevent page scroll
+- **Responsive panels**: Search and error panels use `justify-between` layout with grouped buttons for consistent alignment
 
 ### TypeScript Usage
 
@@ -95,6 +96,7 @@ Configuration in `components.json` uses "new-york" style with path aliases (`@/c
 - **Memoization**: Use `useMemo` for derived/formatted data (see `paintData` in text-editor)
 - **Callback stability**: `useCallback` for functions passed as props
 - **Pending text pattern**: Text editor uses `pendingText` state to show immediate typing feedback before debounced validation
+- **Original data tracking**: `useEditorState` includes `originalDataRef` for preserving unfiltered data during search operations
 
 ## External Dependencies
 
@@ -147,20 +149,55 @@ const handleCompare = () => {
 
 ### Error Handling in Editors
 
-Always provide user-facing error messages with actionable fixes:
+Error panels are rendered dynamically and adjust editor height automatically:
 
 ```typescript
-// From text-editor.tsx - show error banner with navigation and auto-fix
-{
-  error && (
-    <div className="p-2 bg-red-100 text-red-800">
-      <span>{error}</span>
-      <Button onClick={navigateToError}>Go to Line {errorPosition.line}</Button>
-      <Button onClick={fixJson}>Fix JSON</Button>
-    </div>
-  );
-}
+// From text-editor.tsx - error panel managed by parent Editor component
+React.useEffect(() => {
+  if (error) {
+    onErrorPanelChange(
+      <div className="p-2 bg-red-100 text-red-800 border border-red-400 mb-2 flex justify-between items-center">
+        <span>{error}</span>
+        <div className="flex gap-2">
+          <Button onClick={navigateToError}>
+            Go to Line {errorPosition.line}
+          </Button>
+          <Button onClick={fixJson}>Fix JSON</Button>
+        </div>
+      </div>
+    );
+  } else {
+    onErrorPanelChange(null);
+  }
+}, [error, errorPosition, autoFixDisabled]);
 ```
+
+- **Dynamic height**: Editor component calculates combined height of error and search panels to prevent page scroll
+- **Responsive layout**: Editor content shrinks when panels appear, maintaining fixed viewport height
+
+### JSON Search/Filter Mode
+
+Search functionality allows filtering JSON data by property path:
+
+```typescript
+// From EditorPanel.tsx - search/filter logic
+const handleSearch = (query: string) => {
+  // Parse JSON string to object
+  const parsedData = parseJson(data);
+  // Filter by path (e.g., "favorites.books" or "address.details")
+  const filteredData = filterJsonByPath(parsedData, query);
+  // Convert back to formatted string
+  onDataChange(stringifyJson(filteredData, INDENT_LEVELS.STANDARD));
+};
+```
+
+- **Path-based filtering**: `src/lib/json-filter.ts` provides `filterJsonByPath()` for extracting nested data
+- **Supported syntax**: Dot notation (`favorites.books`) and array indexing (`favorites.books[0]`)
+- **Original data preservation**: `useEditorState` hook uses `originalDataRef` to store unfiltered data
+- **Clear filter**: Restores original data when clearing search
+- **Format mode restriction**: Search disabled in minified mode - auto-switches to standard format when activated
+- **Independent per panel**: Each editor maintains its own search state and filtered data
+- **Search panel UI**: `SearchPanel.tsx` provides text input, search/clear buttons, positioned below header toolbar
 
 ### Format State Transitions
 
