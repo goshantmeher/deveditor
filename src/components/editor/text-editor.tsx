@@ -176,6 +176,29 @@ function TextEditor({
     unfoldAll(view);
   }, [mounted, config.compareMode]);
 
+  // Convert data to formatted string when autoFix is toggled off
+  const prevAutoFix = React.useRef(config.autoFix);
+  React.useEffect(() => {
+    if (!mounted) return;
+
+    // Check if autoFix was just turned off
+    if (prevAutoFix.current !== false && config.autoFix === false) {
+      // If data is an object, convert it to a formatted string once
+      if (typeof data !== "string") {
+        const indent =
+          config.formatState === FORMAT_STATES.MINIFIED
+            ? INDENT_LEVELS.MINIFIED
+            : config.formatState === FORMAT_STATES.EXPANDED
+            ? INDENT_LEVELS.EXPANDED
+            : INDENT_LEVELS.STANDARD;
+        const formatted = stringifyJson(data, indent);
+        onChange(formatted);
+      }
+    }
+
+    prevAutoFix.current = config.autoFix;
+  }, [mounted, config.autoFix, data, config.formatState, onChange]);
+
   const paintData = useMemo(() => {
     // When actively editing, show the pending text being typed
     if (pendingText !== null) {
@@ -184,7 +207,17 @@ function TextEditor({
 
     // If autoFix is disabled, show data as raw string without any processing
     if (config.autoFix === false) {
-      return typeof data === "string" ? data : JSON.stringify(data, null, 2);
+      if (typeof data === "string") {
+        return data;
+      }
+      // If data is an object, stringify with current format state indentation
+      const indent =
+        config.formatState === FORMAT_STATES.MINIFIED
+          ? INDENT_LEVELS.MINIFIED
+          : config.formatState === FORMAT_STATES.EXPANDED
+          ? INDENT_LEVELS.EXPANDED
+          : INDENT_LEVELS.STANDARD;
+      return stringifyJson(data, indent);
     }
 
     let tempData = data;
