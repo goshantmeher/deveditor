@@ -103,7 +103,20 @@ function TextEditor({
         setError(null);
         setErrorPosition(null);
         setAutoFixDisabled(false);
-        onChange(result.data);
+
+        // Apply current format state indentation
+        let formatted: string;
+        if (config.formatState === FORMAT_STATES.MINIFIED) {
+          // For minified, use no spacing at all
+          formatted = JSON.stringify(result.data);
+        } else {
+          const indent =
+            config.formatState === FORMAT_STATES.EXPANDED
+              ? INDENT_LEVELS.EXPANDED
+              : INDENT_LEVELS.STANDARD;
+          formatted = stringifyJson(result.data, indent);
+        }
+        onChange(formatted);
       } else {
         console.error("Failed to parse repaired JSON:", result.error);
         setError(result.error || "Unknown parsing error");
@@ -126,7 +139,7 @@ function TextEditor({
       }
       setAutoFixDisabled(true);
     }
-  }, [data, onChange, parseErrorPosition]);
+  }, [data, onChange, parseErrorPosition, config.formatState]);
 
   // Notify parent about error panel changes
   React.useEffect(() => {
@@ -176,28 +189,37 @@ function TextEditor({
     unfoldAll(view);
   }, [mounted, config.compareMode]);
 
-  // Convert data to formatted string when autoFix is toggled off
-  const prevAutoFix = React.useRef(config.autoFix);
+  // Reformat data when format state changes
   React.useEffect(() => {
     if (!mounted) return;
 
-    // Check if autoFix was just turned off
-    if (prevAutoFix.current !== false && config.autoFix === false) {
-      // If data is an object, convert it to a formatted string once
-      if (typeof data !== "string") {
-        const indent =
-          config.formatState === FORMAT_STATES.MINIFIED
-            ? INDENT_LEVELS.MINIFIED
-            : config.formatState === FORMAT_STATES.EXPANDED
-            ? INDENT_LEVELS.EXPANDED
-            : INDENT_LEVELS.STANDARD;
-        const formatted = stringifyJson(data, indent);
-        onChange(formatted);
-      }
+    // Parse current data
+    const currentData = typeof data === "string" ? data : JSON.stringify(data);
+    const result = parseJson(currentData);
+
+    if (!result.success) {
+      // Don't reformat invalid JSON
+      return;
     }
 
-    prevAutoFix.current = config.autoFix;
-  }, [mounted, config.autoFix, data, config.formatState, onChange]);
+    // Determine what the formatted output should be
+    let expectedFormat: string;
+    if (config.formatState === FORMAT_STATES.MINIFIED) {
+      expectedFormat = JSON.stringify(result.data);
+    } else {
+      const indent =
+        config.formatState === FORMAT_STATES.EXPANDED
+          ? INDENT_LEVELS.EXPANDED
+          : INDENT_LEVELS.STANDARD;
+      expectedFormat = stringifyJson(result.data, indent);
+    }
+
+    // Only update if the format actually changed
+    if (currentData !== expectedFormat) {
+      onChange(expectedFormat);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mounted, config.formatState]);
 
   const paintData = useMemo(() => {
     // When actively editing, show the pending text being typed
@@ -205,60 +227,23 @@ function TextEditor({
       return pendingText;
     }
 
-    // If autoFix is disabled, show data as raw string without any processing
-    if (config.autoFix === false) {
-      if (typeof data === "string") {
-        return data;
-      }
-      // If data is an object, stringify with current format state indentation
-      const indent =
-        config.formatState === FORMAT_STATES.MINIFIED
-          ? INDENT_LEVELS.MINIFIED
-          : config.formatState === FORMAT_STATES.EXPANDED
-          ? INDENT_LEVELS.EXPANDED
-          : INDENT_LEVELS.STANDARD;
-      return stringifyJson(data, indent);
-    }
-
-    let tempData = data;
-
-    // If data is a string, try to parse it (supports JSON5 syntax)
+    // If data is a string, show it as-is (could be invalid JSON being edited)
     if (typeof data === "string") {
-      const result = parseJson(data);
-      if (result.success) {
-        tempData = result.data;
-      } else {
-        console.error("Failed to parse string as JSON:", result.error);
-        // Keep as string if parsing fails
-        setError(result.error || "Unknown parsing error");
-        const errorPos = parseErrorPosition(result.error || "", data as string);
-        if (errorPos) {
-          setErrorPosition(errorPos);
-        }
-        return data as string;
-      }
+      return data;
     }
 
-    switch (config.formatState) {
-      case FORMAT_STATES.EXPANDED:
-        return stringifyJson(tempData, INDENT_LEVELS.EXPANDED);
-      case FORMAT_STATES.COLLAPSED:
-        return stringifyJson(tempData, INDENT_LEVELS.EXPANDED);
-      case FORMAT_STATES.MINIFIED:
-        return stringifyJson(tempData, INDENT_LEVELS.MINIFIED);
-      case FORMAT_STATES.STANDARD:
-        return stringifyJson(tempData, INDENT_LEVELS.STANDARD);
-      case FORMAT_STATES.DEFAULT:
-        return stringifyJson(tempData, INDENT_LEVELS.STANDARD);
+    // If data is an object, stringify with current format state indentation
+    if (config.formatState === FORMAT_STATES.MINIFIED) {
+      // For minified, use no spacing at all
+      return JSON.stringify(data);
     }
-    return stringifyJson(tempData, INDENT_LEVELS.STANDARD);
-  }, [
-    data,
-    config.formatState,
-    config.autoFix,
-    parseErrorPosition,
-    pendingText,
-  ]);
+
+    const indent =
+      config.formatState === FORMAT_STATES.EXPANDED
+        ? INDENT_LEVELS.EXPANDED
+        : INDENT_LEVELS.STANDARD;
+    return stringifyJson(data, indent);
+  }, [data, config.formatState, pendingText]);
 
   const handleOnChange = React.useCallback((value: string) => {
     // Any user change re-enables the Fix JSON button
@@ -267,38 +252,32 @@ function TextEditor({
     setPendingText(value);
   }, []);
 
-  // Debounced parsing effect
+  // Debounced validation effect (no auto-parsing, only validation)
   React.useEffect(() => {
     if (pendingText === null) return;
     const id = window.setTimeout(() => {
-      // If autoFix is disabled, keep text as-is without any parsing
-      if (config.autoFix === false) {
-        setError(null);
-        setErrorPosition(null);
-        onChange(pendingText);
-        setPendingText(null);
-        return;
-      }
-
       const result = parseJson(pendingText);
+
       if (result.success) {
+        // Valid JSON - clear errors but keep as string
         setError(null);
         setErrorPosition(null);
-        onChange(result.data);
       } else {
+        // Invalid JSON - show error
         console.warn("JSON parse error during edit:", result.error);
         setError(result.error || "Unknown parsing error");
         const errorPos = parseErrorPosition(result.error || "", pendingText);
         if (errorPos) {
           setErrorPosition(errorPos);
         }
-        // Keep as string for editing
-        onChange(pendingText);
       }
+
+      // Always keep as string - never auto-convert to object
+      onChange(pendingText);
       setPendingText(null);
     }, PARSE_DEBOUNCE_MS);
     return () => window.clearTimeout(id);
-  }, [pendingText, onChange, parseErrorPosition, config.autoFix]);
+  }, [pendingText, onChange, parseErrorPosition]);
 
   // Configure extensions including line wrapping and theme
   const extensions = useMemo(() => {
