@@ -28,8 +28,11 @@ const initialConfig =
 ### JSON Parsing Strategy
 
 - **Two-tier fallback**: `parseJson()` tries `JSON.parse()` first, then `json5.parse()` for relaxed syntax (see `src/lib/parser.ts`)
+  - Standard JSON: Strict RFC 8259 compliance
+  - JSON5 fallback: Allows trailing commas, unquoted keys, single quotes, comments
 - **Error handling**: Uses `jsonrepair` library for auto-fix functionality in text-editor
 - **Debounced validation**: Text editor debounces parsing by 200ms to avoid excessive re-renders during typing
+- **Return structure**: All parsing functions return `{ success: boolean, data?: unknown, error?: string }` for consistent error handling
 
 ### CodeMirror Integration
 
@@ -55,10 +58,17 @@ const initialConfig =
 ### Running the App
 
 ```bash
-npm run dev --turbopack  # Next.js 15 with Turbopack
-npm run build            # Static export to /out
-npm run lint             # ESLint
+npm run dev --turbopack  # Next.js 15 with Turbopack (default dev mode)
+npm run build            # Static export to /out directory
+npm run start            # Serve production build locally
+npm run lint             # ESLint validation
 ```
+
+### Git Workflow
+
+- **Pre-commit hooks**: Husky runs `lint-staged` automatically on commit
+- **Lint-staged config**: Auto-runs `eslint --fix` on `.ts/.tsx` files and triggers build validation
+- **Important**: Commits will fail if ESLint errors exist or build fails
 
 ### Adding shadcn/ui Components
 
@@ -66,7 +76,7 @@ npm run lint             # ESLint
 npx shadcn@latest add <component-name>
 ```
 
-Configuration in `components.json` uses "new-york" style with path aliases (`@/components`, `@/lib`, etc.)
+Configuration in `components.json` uses "new-york" style with path aliases (`@/components`, `@/lib`, `@/hooks` etc.)
 
 ## Project-Specific Conventions
 
@@ -85,9 +95,10 @@ Configuration in `components.json` uses "new-york" style with path aliases (`@/c
 
 ### TypeScript Usage
 
-- **Strict mode enabled**: All files require explicit types
-- **Path aliases**: Use `@/` for imports from `src/` directory
+- **Strict mode enabled**: All files require explicit types (`strict: true` in tsconfig.json)
+- **Path aliases**: Use `@/` for imports from `src/` directory (configured in both tsconfig.json and components.json)
 - **Const assertions**: Constants use `as const` for type narrowing (e.g., `EDITOR_TYPES`, `FORMAT_STATES`)
+- **Type-safe constants**: Editor types and states exported as both const objects and derived TypeScript types
 
 ### State Management
 
