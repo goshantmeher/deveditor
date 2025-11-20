@@ -19,6 +19,7 @@ function ExpandButton(props: ExpandButtonProps) {
               className="cursor-pointer"
               size="sm"
               onClick={props.onClick}
+              aria-label={props.title || "Expand"}
             >
               <UnfoldVertical />
             </Button>

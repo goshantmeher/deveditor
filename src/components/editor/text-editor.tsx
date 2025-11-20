@@ -29,6 +29,7 @@ interface TextEditorProps {
   config: EditorConfig;
   comparisonData?: unknown;
   onErrorPanelChange?: (errorPanel: React.ReactNode) => void;
+  ariaLabel?: string;
 }
 function TextEditor({
   data,
@@ -36,6 +37,7 @@ function TextEditor({
   config,
   comparisonData,
   onErrorPanelChange,
+  ariaLabel,
 }: TextEditorProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
@@ -279,10 +281,20 @@ function TextEditor({
     return () => window.clearTimeout(id);
   }, [pendingText, onChange, parseErrorPosition]);
 
-  // Configure extensions including line wrapping and theme
+  // Configure extensions including line wrapping, theme and accessibility label
   const extensions = useMemo(() => {
     const themeExtension = theme === "dark" ? vscodeDark : vscodeLight;
-    const baseExtensions = [EditorView.lineWrapping, themeExtension];
+    const labelExtension = EditorView.contentAttributes.of({
+      "aria-label": `${ariaLabel || "JSON code editor"}${
+        config.compareMode ? " (compare mode)" : ""
+      }`,
+      role: "textbox",
+    });
+    const baseExtensions = [
+      EditorView.lineWrapping,
+      themeExtension,
+      labelExtension,
+    ];
 
     if (
       config.formatState !== FORMAT_STATES.MINIFIED &&
@@ -295,7 +307,7 @@ function TextEditor({
     baseExtensions.push(errorDecorationsTheme);
 
     return baseExtensions;
-  }, [theme, config.formatState]);
+  }, [theme, config.formatState, ariaLabel, config.compareMode]);
 
   const errorPlugin = useMemo(
     () => (errorPosition ? createErrorDecorationsPlugin(errorPosition) : null),
@@ -361,6 +373,7 @@ function TextEditor({
         editable={!config.compareMode}
         height="100%"
         style={{ height: "100%" }}
+        aria-label={ariaLabel || "JSON code editor"}
         basicSetup={{
           lineNumbers: showLineNumbers,
           highlightActiveLineGutter: showActiveLineHighlight,

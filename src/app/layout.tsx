@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://deveditor.io"),
+  metadataBase: new URL("https://www.deveditor.io"),
   title: {
     default: "DevEditor - Developer Tools Collection",
     template: "%s | DevEditor",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://deveditor.io",
+    url: "https://www.deveditor.io",
     title: "DevEditor - Developer Tools Collection",
     description:
       "A comprehensive collection of free online developer tools including JSON viewer, JSON formatter, CSS playground, Base64 encoder, JWT decoder and more.",
@@ -111,7 +111,7 @@ export default function RootLayout({
     alternateName: "Developer Tools Collection",
     description:
       "A comprehensive collection of free online developer tools including JSON viewer, CSS playground, Base64 encoder, JWT decoder and more.",
-    url: "https://deveditor.io",
+    url: "https://www.deveditor.io",
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Web Browser",
     offers: {

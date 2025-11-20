@@ -19,6 +19,7 @@ function JusifyButton(props: JusifyButtonProps) {
               className="cursor-pointer"
               size="sm"
               onClick={props.onClick}
+              aria-label={props.title || "Justify"}
             >
               <AlignJustify />
             </Button>

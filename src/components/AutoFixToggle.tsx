@@ -18,6 +18,7 @@ function AutoFixToggle({ enabled, onToggle }: AutoFixToggleProps) {
             className="cursor-pointer"
             size="sm"
             onClick={onToggle}
+            aria-label={enabled ? "Auto-fix enabled" : "Auto-fix disabled"}
           >
             <Sparkles className={enabled ? "" : "opacity-50"} />
           </Button>

@@ -57,7 +57,12 @@ export function SearchPanel({
             Clear Filter
           </Button>
         )}
-        <Button onClick={onClose} size="sm" variant="ghost">
+        <Button
+          onClick={onClose}
+          size="sm"
+          variant="ghost"
+          aria-label="Close search panel"
+        >
           <X className="h-4 w-4" />
         </Button>
       </div>

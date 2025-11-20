@@ -30,6 +30,7 @@ export function EditorActions({
         className="cursor-pointer"
         size="sm"
         onClick={onCopyToRight}
+        aria-label="Copy to right panel"
       >
         Copy <ArrowBigRightDash />
       </Button>
@@ -43,6 +44,7 @@ export function EditorActions({
               size="sm"
               onClick={onCompare}
               disabled={!canCompare}
+              aria-label={isComparing ? "Exit compare mode" : "Compare JSON"}
             >
               <GitCompare />
             </Button>
@@ -58,6 +60,7 @@ export function EditorActions({
         className="cursor-pointer"
         size="sm"
         onClick={onCopyToLeft}
+        aria-label="Copy to left panel"
       >
         <ArrowBigLeftDash /> Copy
       </Button>

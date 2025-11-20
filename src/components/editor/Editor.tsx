@@ -12,6 +12,7 @@ interface EditorProps {
   comparisonData?: unknown;
   searchPanel?: React.ReactNode;
   errorPanel?: React.ReactNode;
+  ariaLabel?: string;
 }
 function Editor({
   data,
@@ -20,6 +21,7 @@ function Editor({
   children,
   comparisonData,
   searchPanel,
+  ariaLabel,
 }: EditorProps) {
   const [searchPanelHeight, setSearchPanelHeight] = React.useState(0);
   const [errorPanelHeight, setErrorPanelHeight] = React.useState(0);
@@ -63,7 +65,9 @@ function Editor({
           overflowY: "auto",
         }}
       >
-        {config.editorType === EDITOR_TYPES.json && <JSONEditor data={data} />}
+        {config.editorType === EDITOR_TYPES.json && (
+          <JSONEditor data={data} ariaLabel={ariaLabel} />
+        )}
 
         {config.editorType === EDITOR_TYPES.text && (
           <TextEditor
@@ -72,6 +76,7 @@ function Editor({
             config={config}
             comparisonData={comparisonData}
             onErrorPanelChange={setInternalErrorPanel}
+            ariaLabel={ariaLabel}
           />
         )}
       </div>

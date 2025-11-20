@@ -19,6 +19,7 @@ function SearchButton(props: SearchButtonProps) {
               className="cursor-pointer"
               size="sm"
               onClick={props.onClick}
+              aria-label={props.title || "Search"}
             >
               <Search />
             </Button>

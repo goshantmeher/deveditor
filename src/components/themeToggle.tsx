@@ -18,7 +18,7 @@ function ThemeToggle() {
 
   return (
     <Toggle
-      aria-label="Toggle italic"
+      aria-label="Toggle theme"
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
       className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200 cursor-pointer"
     >

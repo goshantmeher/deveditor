@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/private/", "/admin/"],
     },
-    sitemap: "https://deveditor.io/sitemap.xml",
+    sitemap: "https://www.deveditor.io/sitemap.xml",
   };
 }
