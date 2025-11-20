@@ -67,7 +67,8 @@ export default function Home() {
         <header className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Developer Tools</h1>
           <p className="text-muted-foreground text-lg mb-8">
-            A collection of useful tools for developers
+            Free online developer tools for JSON formatting, CSS testing, Base64
+            encoding, JWT decoding, and more. No registration required.
           </p>
 
           {/* Search Bar */}
@@ -168,9 +169,9 @@ export default function Home() {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <div className="flex items-center gap-1">
               <Heart className="h-4 w-4 text-red-500" />
-              <span>Built by you</span>
+              <span>Built by Human</span>
             </div>
-            <span aria-hidden="true">|</span>
+            {/* <span aria-hidden="true">|</span>
             <Link
               href="#"
               className="hover:text-foreground transition-colors"
@@ -185,7 +186,7 @@ export default function Home() {
               aria-label="Send feedback"
             >
               Feedback
-            </Link>
+            </Link> */}
           </div>
         </footer>
       </div>

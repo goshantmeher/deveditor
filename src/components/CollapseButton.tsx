@@ -19,6 +19,7 @@ function CollapseButton(props: CollapseButtonProps) {
               className="cursor-pointer"
               size="sm"
               onClick={props.onClick}
+              aria-label={props.title || "Collapse"}
             >
               <FoldVertical />
             </Button>

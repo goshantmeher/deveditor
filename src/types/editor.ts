@@ -18,4 +18,5 @@ export interface EditorPanelProps {
   comparisonData?: unknown; // Data from the other panel for diff comparison
   originalData?: unknown; // Original unfiltered data for search functionality
   onOriginalDataChange?: (data: unknown) => void; // Update original data reference
+  panelLabel?: string; // Accessible label for the panel/editor content
 }

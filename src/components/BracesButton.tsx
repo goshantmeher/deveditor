@@ -19,6 +19,7 @@ function BracesButton(props: BracesButtonProps) {
               className="cursor-pointer"
               size="sm"
               onClick={props.onClick}
+              aria-label={props.title || "Braces"}
             >
               <Braces />
             </Button>

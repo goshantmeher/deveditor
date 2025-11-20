@@ -41,6 +41,32 @@ export function JsonEditorView() {
     rightEditor.setData
   );
 
+  // Add JSON Editor specific structured data
+  const jsonEditorSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "JSON Viewer & Editor",
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Web Browser",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    featureList: [
+      "Format JSON",
+      "Validate JSON",
+      "Minify JSON",
+      "Beautify JSON",
+      "Compare JSON files",
+      "Search JSON data",
+      "Fix JSON errors",
+      "Tree view and text view",
+    ],
+    description:
+      "Free online JSON viewer, formatter, and validator. Beautify, minify, and validate JSON data instantly.",
+  };
+
   const updateConfig = (
     oldConfig: EditorConfig,
     newConfig: EditorConfig,
@@ -114,6 +140,12 @@ export function JsonEditorView() {
 
   return (
     <div className="w-full h-full flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonEditorSchema),
+        }}
+      />
       {isComparing && (
         <EditorStats leftData={leftEditor.data} rightData={rightEditor.data} />
       )}
@@ -133,6 +165,7 @@ export function JsonEditorView() {
           comparisonData={isComparing ? rightEditor.data : undefined}
           originalData={leftEditor.originalDataRef.current}
           onOriginalDataChange={leftEditor.updateOriginalData}
+          panelLabel="Left JSON editor"
         />
 
         <EditorActions
@@ -158,6 +191,7 @@ export function JsonEditorView() {
           comparisonData={isComparing ? leftEditor.data : undefined}
           originalData={rightEditor.originalDataRef.current}
           onOriginalDataChange={rightEditor.updateOriginalData}
+          panelLabel="Right JSON editor"
         />
       </div>
     </div>

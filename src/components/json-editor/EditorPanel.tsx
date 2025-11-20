@@ -23,6 +23,7 @@ export function EditorPanel({
   comparisonData,
   originalData,
   onOriginalDataChange,
+  panelLabel,
 }: EditorPanelProps) {
   // Determine which button should be highlighted
   const isExpanded = config.formatState === FORMAT_STATES.EXPANDED;
@@ -144,6 +145,7 @@ export function EditorPanel({
         onChange={onDataChange}
         config={config}
         comparisonData={comparisonData}
+        ariaLabel={panelLabel}
         searchPanel={
           config.searchOpen ? (
             <SearchPanel

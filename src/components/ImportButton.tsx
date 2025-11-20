@@ -24,7 +24,7 @@ function ImportButton({
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const getFileExtension = (filename: string): string => {
-    return filename.toLowerCase().split('.').pop() || '';
+    return filename.toLowerCase().split(".").pop() || "";
   };
 
   const getAcceptedFileType = (): string => {
@@ -65,17 +65,18 @@ function ImportButton({
           default:
             throw new Error(`Unsupported file type: ${dataType}`);
         }
-        
+
         onImport(newData);
-        
+
         // Reset the input so the same file can be imported again
         if (fileInputRef.current) {
-          fileInputRef.current.value = '';
+          fileInputRef.current.value = "";
         }
       } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : "Invalid file format";
+        const errorMessage =
+          error instanceof Error ? error.message : "Invalid file format";
         console.error("File import error:", error);
-        
+
         if (onError) {
           onError(error instanceof Error ? error : new Error(errorMessage));
         } else {
@@ -100,6 +101,7 @@ function ImportButton({
             variant={variant}
             size="sm"
             onClick={handleImportClick}
+            aria-label={title}
           >
             <FileInput />
           </Button>
