@@ -7,7 +7,6 @@ export interface EditorConfig {
   compareMode?: boolean;
   searchOpen?: boolean;
   filterPath?: string;
-  autoFix?: boolean;
 }
 
 export interface EditorPanelProps {

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import ThemeToggle from "@/components/themeToggle";
 import BrandLogo from "@/components/brandLogo";
+import HeaderActions from "@/components/HeaderActions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -188,9 +188,7 @@ export default function RootLayout({
               <BrandLogo />
             </div>
 
-            <div className="flex items-center gap-4">
-              <ThemeToggle />
-            </div>
+            <HeaderActions />
           </header>
           {children}
         </ThemeProvider>

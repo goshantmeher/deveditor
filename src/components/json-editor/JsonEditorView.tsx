@@ -6,6 +6,7 @@ import { EditorActions } from "./EditorActions";
 import { EditorStats } from "./EditorStats";
 import { useEditorState } from "@/hooks/useEditorState";
 import { useEditorActions } from "@/hooks/useEditorActions";
+import { usePersistence } from "@/contexts/PersistenceContext";
 import {
   DEFAULT_JSON_DATA,
   DEFAULT_JSON_EDITOR_CONFIG,
@@ -16,13 +17,19 @@ import {
 import { EditorConfig } from "@/types/editor";
 
 export function JsonEditorView() {
+  const { isPersistenceEnabled } = usePersistence();
+
   const leftEditor = useEditorState({
     initialData: DEFAULT_JSON_DATA,
     initialConfig: DEFAULT_TEXT_EDITOR_CONFIG,
+    storageKey: "json-editor-left-data",
+    persistenceEnabled: isPersistenceEnabled,
   });
   const rightEditor = useEditorState({
     initialData: DEFAULT_JSON_DATA,
     initialConfig: DEFAULT_TEXT_EDITOR_CONFIG,
+    storageKey: "json-editor-right-data",
+    persistenceEnabled: isPersistenceEnabled,
   });
 
   const [isComparing, setIsComparing] = useState(false);
