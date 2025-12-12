@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from './ui/button';
 import { FoldVertical } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';

@@ -18,23 +18,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
          changeFrequency: 'monthly',
          priority: 0.8,
       },
-      {
-         url: `${baseUrl}/css-playground`,
-         lastModified: new Date(),
-         changeFrequency: 'monthly',
-         priority: 0.8,
-      },
-      {
-         url: `${baseUrl}/base64-encoder`,
-         lastModified: new Date(),
-         changeFrequency: 'monthly',
-         priority: 0.8,
-      },
-      {
-         url: `${baseUrl}/jwt-decoder`,
-         lastModified: new Date(),
-         changeFrequency: 'monthly',
-         priority: 0.8,
-      },
    ];
 }

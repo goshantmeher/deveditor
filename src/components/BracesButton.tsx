@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from './ui/button';
 import { Braces } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
