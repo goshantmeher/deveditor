@@ -9,7 +9,7 @@ interface CollapseButtonProps {
 }
 function CollapseButton(props: CollapseButtonProps) {
    return (
-      <>
+      <div className="collapse-button-wrapper">
          <Tooltip>
             <TooltipTrigger asChild>
                <div>
@@ -28,7 +28,7 @@ function CollapseButton(props: CollapseButtonProps) {
                <p>{props.title || 'Collapse'}</p>
             </TooltipContent>
          </Tooltip>
-      </>
+      </div>
    );
 }
 

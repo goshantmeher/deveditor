@@ -24,7 +24,7 @@ export function EditorActions({
    canCompare,
 }: EditorActionsProps) {
    return (
-      <div className="flex flex-col gap-2 w-full md:w-[100px] md:max-w-[100px] items-center justify-center bg-card border-l border-r border-border">
+      <div className="editor-actions-panel flex flex-col gap-2 w-full md:w-[100px] md:max-w-[100px] items-center justify-center bg-card border-l border-r border-border">
          <Button
             variant="ghost"
             className="cursor-pointer"

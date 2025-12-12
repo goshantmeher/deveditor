@@ -9,7 +9,7 @@ interface ExpandButtonProps {
 }
 function ExpandButton(props: ExpandButtonProps) {
    return (
-      <>
+      <div className="expand-button-wrapper">
          <Tooltip>
             <TooltipTrigger asChild>
                <div>
@@ -28,7 +28,7 @@ function ExpandButton(props: ExpandButtonProps) {
                <p>{props.title || 'Expand'}</p>
             </TooltipContent>
          </Tooltip>
-      </>
+      </div>
    );
 }
 

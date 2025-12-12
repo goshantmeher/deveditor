@@ -12,7 +12,7 @@ function JSONEditor({ data, ariaLabel }: JSONEditorProps) {
       <div
          role="tree"
          aria-label={ariaLabel || 'JSON tree editor'}
-         className="w-full h-full"
+         className="json-tree-editor-container w-full h-full"
       >
          <JsonEditor data={data} className="w-full h-full" maxWidth={'100%'} />
       </div>

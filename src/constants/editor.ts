@@ -31,7 +31,7 @@ export const DEFAULT_TEXT_EDITOR_CONFIG = {
 export const DEFAULT_JSON_EDITOR_CONFIG = {
    ...DEFAULT_EDITOR_CONFIG,
    formatState: FORMAT_STATES.NONE,
-   editorFormatOptions: [FORMAT_STATES.EXPANDED, FORMAT_STATES.COLLAPSED],
+   editorFormatOptions: [],
    editorType: EDITOR_TYPES.json,
    compareMode: false,
 };

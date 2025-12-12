@@ -96,32 +96,34 @@ function ImportButton({
    };
 
    return (
-      <Tooltip>
-         <TooltipTrigger asChild>
-            <div>
-               <Button
-                  variant={variant}
-                  size="sm"
-                  onClick={handleImportClick}
-                  aria-label={title}
-               >
-                  <FileInput />
-               </Button>
+      <div className="import-button-wrapper">
+         <Tooltip>
+            <TooltipTrigger asChild>
+               <div>
+                  <Button
+                     variant={variant}
+                     size="sm"
+                     onClick={handleImportClick}
+                     aria-label={title}
+                  >
+                     <FileInput />
+                  </Button>
 
-               <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept={getAcceptedFileType()}
-                  onChange={handleFileSelect}
-                  className="hidden"
-                  aria-label="File input"
-               />
-            </div>
-         </TooltipTrigger>
-         <TooltipContent>
-            <p>{title}</p>
-         </TooltipContent>
-      </Tooltip>
+                  <input
+                     ref={fileInputRef}
+                     type="file"
+                     accept={getAcceptedFileType()}
+                     onChange={handleFileSelect}
+                     className="hidden"
+                     aria-label="File input"
+                  />
+               </div>
+            </TooltipTrigger>
+            <TooltipContent>
+               <p>{title}</p>
+            </TooltipContent>
+         </Tooltip>
+      </div>
    );
 }
 

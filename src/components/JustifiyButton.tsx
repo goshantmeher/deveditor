@@ -9,7 +9,7 @@ interface JusifyButtonProps {
 }
 function JusifyButton(props: JusifyButtonProps) {
    return (
-      <>
+      <div className="justify-button-wrapper">
          <Tooltip>
             <TooltipTrigger asChild>
                <div>
@@ -28,7 +28,7 @@ function JusifyButton(props: JusifyButtonProps) {
                <p>{props.title || 'Justify'}</p>
             </TooltipContent>
          </Tooltip>
-      </>
+      </div>
    );
 }
 

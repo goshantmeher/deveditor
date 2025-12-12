@@ -14,7 +14,7 @@ export function filterJsonByPath(data: unknown, path: string): unknown {
 
    for (const part of parts) {
       // Handle array notation like "items[0]"
-      const arrayMatch = part.match(/^([^\[]+)\[(\d+)\]$/);
+      const arrayMatch = part.match(/^([^[]+)\[(\d+)]$/);
 
       if (arrayMatch) {
          const [, key, index] = arrayMatch;

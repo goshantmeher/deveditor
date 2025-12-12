@@ -9,7 +9,7 @@ interface SearchButtonProps {
 }
 function SearchButton(props: SearchButtonProps) {
    return (
-      <>
+      <div className="search-button-wrapper">
          <Tooltip>
             <TooltipTrigger asChild>
                <div>
@@ -28,7 +28,7 @@ function SearchButton(props: SearchButtonProps) {
                <p>{props.title || 'Search'}</p>
             </TooltipContent>
          </Tooltip>
-      </>
+      </div>
    );
 }
 

@@ -18,7 +18,7 @@ export default function BrandLogo() {
    const currentTheme = theme === 'system' ? systemTheme : theme;
 
    return (
-      <Link href="/" className="flex items-center gap-2">
+      <Link href="/" className="brand-logo-link flex items-center gap-2">
          <Image
             src={currentTheme === 'dark' ? '/logoDark.svg' : '/logoLight.svg'}
             alt="DevEditor Logo"

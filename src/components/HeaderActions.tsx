@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import SettingsButton from './SettingsButton';
 import InfoButton from './InfoButton';
-import JsonEditorInfo from './json-editor/JsonEditorInfo';
+import JsonEditorInfo from './json-editor/docs/JsonEditorInfo';
 import { PersistenceProvider } from '@/contexts/PersistenceContext';
 
 export default function HeaderActions() {
@@ -14,7 +14,7 @@ export default function HeaderActions() {
    if (isJsonEditor) {
       return (
          <PersistenceProvider>
-            <div className="flex items-center gap-2">
+            <div className="header-actions-container flex items-center gap-2">
                <InfoButton title="JSON Editor Guide">
                   <JsonEditorInfo />
                </InfoButton>
@@ -25,7 +25,7 @@ export default function HeaderActions() {
    }
 
    return (
-      <div className="flex items-center gap-2">
+      <div className="header-actions-container flex items-center gap-2">
          <SettingsButton showPersistenceOption={false} />
       </div>
    );

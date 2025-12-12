@@ -148,7 +148,7 @@ export function JsonEditorView() {
    }, [canCompare, isComparing, leftEditor, rightEditor]);
 
    return (
-      <div className="w-full h-full flex flex-col">
+      <div className="json-editor-view-wrapper w-full h-full flex flex-col">
          <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{

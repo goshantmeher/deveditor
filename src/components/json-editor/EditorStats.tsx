@@ -32,7 +32,7 @@ export function EditorStats({ leftData, rightData }: EditorStatsProps) {
    }, [leftData, rightData]);
 
    return (
-      <div className="px-3 py-1.5 bg-muted/50 border-b border-border text-xs text-muted-foreground flex gap-4 justify-center">
+      <div className="editor-stats-panel px-3 py-1.5 bg-muted/50 border-b border-border text-xs text-muted-foreground flex gap-4 justify-center">
          <span className="text-green-600 dark:text-green-400">
             +{stats.addedLines} added
          </span>

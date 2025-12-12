@@ -52,7 +52,7 @@ function Editor({
 
    return (
       <>
-         <div className="w-full h-10 flex pl-2 pr-2 items-center bg-card border-b border-border">
+         <div className="editor-toolbar w-full h-10 flex pl-2 pr-2 items-center bg-card border-b border-border">
             {children}
          </div>
          {searchPanel && <div ref={searchPanelRef}>{searchPanel}</div>}
@@ -60,6 +60,7 @@ function Editor({
             <div ref={errorPanelRef}>{internalErrorPanel}</div>
          )}
          <div
+            className="editor-content-wrapper"
             style={{
                height: editorHeight,
                overflowY: 'auto',

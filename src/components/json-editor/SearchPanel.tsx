@@ -38,7 +38,7 @@ export function SearchPanel({
    };
 
    return (
-      <div className="p-2 bg-background border-b border-border mb-2 flex justify-between items-center gap-2">
+      <div className="search-panel-wrapper p-2 bg-background border-b border-border flex justify-between items-center gap-2">
          <Input
             type="text"
             placeholder="e.g., favorites.books or favorites"

@@ -139,7 +139,7 @@ export function EditorPanel({
    };
 
    return (
-      <div className="w-full md:flex-1 md:basis-0 md:min-w-0">
+      <div className="editor-panel-container w-full md:flex-1 md:basis-0 md:min-w-0">
          <Editor
             data={data}
             onChange={onDataChange}
@@ -172,30 +172,8 @@ export function EditorPanel({
               <span>tree</span>
             </ToggleGroupItem>
           </ToggleGroup> */}
-               <div className="flex justify-between items-center w-full pl-2">
+               <div className="editor-toolbar-content flex justify-between items-center w-full pl-2">
                   <div className="flex items-center">
-                     {config.editorFormatOptions.includes(
-                        FORMAT_STATES.EXPANDED
-                     ) ? (
-                        <ExpandButton
-                           onClick={() =>
-                              handleEditorFormatChange(FORMAT_STATES.EXPANDED)
-                           }
-                           title="Expand"
-                           variant={isExpanded ? 'default' : 'ghost'}
-                        />
-                     ) : null}
-                     {config.editorFormatOptions.includes(
-                        FORMAT_STATES.COLLAPSED
-                     ) ? (
-                        <CollapseButton
-                           onClick={() =>
-                              handleEditorFormatChange(FORMAT_STATES.COLLAPSED)
-                           }
-                           title="Collapse"
-                           variant={isCollapsed ? 'default' : 'ghost'}
-                        />
-                     ) : null}
                      {config.editorFormatOptions.includes(
                         FORMAT_STATES.MINIFIED
                      ) ? (
@@ -218,6 +196,29 @@ export function EditorPanel({
                            variant={isStandard ? 'default' : 'ghost'}
                         />
                      ) : null}
+
+                     {isStandard && (
+                        <>
+                           <ExpandButton
+                              onClick={() =>
+                                 handleEditorFormatChange(
+                                    FORMAT_STATES.EXPANDED
+                                 )
+                              }
+                              title="Expand"
+                              variant={isExpanded ? 'default' : 'ghost'}
+                           />
+                           <CollapseButton
+                              onClick={() =>
+                                 handleEditorFormatChange(
+                                    FORMAT_STATES.COLLAPSED
+                                 )
+                              }
+                              title="Collapse"
+                              variant={isCollapsed ? 'default' : 'ghost'}
+                           />
+                        </>
+                     )}
                   </div>
                   <div className="flex items-center">
                      <SearchButton

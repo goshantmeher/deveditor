@@ -9,7 +9,7 @@ interface BracesButtonProps {
 }
 function BracesButton(props: BracesButtonProps) {
    return (
-      <>
+      <div className="braces-button-wrapper">
          <Tooltip>
             <TooltipTrigger asChild>
                <div>
@@ -28,7 +28,7 @@ function BracesButton(props: BracesButtonProps) {
                <p>{props.title || 'Braces'}</p>
             </TooltipContent>
          </Tooltip>
-      </>
+      </div>
    );
 }
 

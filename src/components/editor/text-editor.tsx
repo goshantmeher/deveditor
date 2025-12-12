@@ -372,7 +372,7 @@ function TextEditor({
    const showActiveLineHighlight = !isMinified;
 
    return (
-      <div className="h-full w-full">
+      <div className="text-editor-container h-full w-full">
          <CodeMirror
             ref={editorRef}
             value={paintData}
