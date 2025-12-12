@@ -1,39 +1,39 @@
 export const EDITOR_TYPES = {
-  json: "json",
-  text: "text",
+   json: 'json',
+   text: 'text',
 } as const;
 
 export type EditorType = (typeof EDITOR_TYPES)[keyof typeof EDITOR_TYPES];
 
 export const FORMAT_STATES = {
-  EXPANDED: "expanded",
-  COLLAPSED: "collapsed",
-  MINIFIED: "minified",
-  STANDARD: "standard",
-  DEFAULT: "default",
-  NONE: "none",
+   EXPANDED: 'expanded',
+   COLLAPSED: 'collapsed',
+   MINIFIED: 'minified',
+   STANDARD: 'standard',
+   DEFAULT: 'default',
+   NONE: 'none',
 } as const;
 
 export type FormatState = (typeof FORMAT_STATES)[keyof typeof FORMAT_STATES];
 
 export const DEFAULT_EDITOR_CONFIG = {
-  editorType: EDITOR_TYPES.text,
-  formatState: FORMAT_STATES.STANDARD,
+   editorType: EDITOR_TYPES.text,
+   formatState: FORMAT_STATES.STANDARD,
 } as const;
 
 export const DEFAULT_TEXT_EDITOR_CONFIG = {
-  ...DEFAULT_EDITOR_CONFIG,
-  formatState: FORMAT_STATES.STANDARD,
-  editorFormatOptions: [FORMAT_STATES.MINIFIED, FORMAT_STATES.STANDARD],
-  compareMode: false,
+   ...DEFAULT_EDITOR_CONFIG,
+   formatState: FORMAT_STATES.STANDARD,
+   editorFormatOptions: [FORMAT_STATES.MINIFIED, FORMAT_STATES.STANDARD],
+   compareMode: false,
 };
 
 export const DEFAULT_JSON_EDITOR_CONFIG = {
-  ...DEFAULT_EDITOR_CONFIG,
-  formatState: FORMAT_STATES.NONE,
-  editorFormatOptions: [FORMAT_STATES.EXPANDED, FORMAT_STATES.COLLAPSED],
-  editorType: EDITOR_TYPES.json,
-  compareMode: false,
+   ...DEFAULT_EDITOR_CONFIG,
+   formatState: FORMAT_STATES.NONE,
+   editorFormatOptions: [FORMAT_STATES.EXPANDED, FORMAT_STATES.COLLAPSED],
+   editorType: EDITOR_TYPES.json,
+   compareMode: false,
 };
 
 export const DEFAULT_JSON_DATA = `{
@@ -65,8 +65,8 @@ export const DEFAULT_JSON_DATA = `{
 `;
 
 export const INDENT_LEVELS = {
-  EXPANDED: 4, // More spacious
-  STANDARD: 2, // Normal formatting
-  COMPACT: 1, // More condensed
-  MINIFIED: 0, // No whitespace
+   EXPANDED: 4, // More spacious
+   STANDARD: 2, // Normal formatting
+   COMPACT: 1, // More condensed
+   MINIFIED: 0, // No whitespace
 } as const;

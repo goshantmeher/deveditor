@@ -1,22 +1,21 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
 export function useEditorActions(
-  leftData: unknown,
-  rightData: unknown,
-  setLeftData: (data: unknown) => void,
-  setRightData: (data: unknown) => void
+   leftData: unknown,
+   rightData: unknown,
+   setLeftData: (data: unknown) => void,
+   setRightData: (data: unknown) => void
 ) {
-  const copyToRight = useCallback(() => {
-    setRightData(leftData);
-  }, [leftData, setRightData]);
+   const copyToRight = useCallback(() => {
+      setRightData(leftData);
+   }, [leftData, setRightData]);
 
-  const copyToLeft = useCallback(() => {
-    setLeftData(rightData);
-  }, [rightData, setLeftData]);
+   const copyToLeft = useCallback(() => {
+      setLeftData(rightData);
+   }, [rightData, setLeftData]);
 
-  return {
-    copyToRight,
-    copyToLeft,
-  };
+   return {
+      copyToRight,
+      copyToLeft,
+   };
 }
-
