@@ -39,10 +39,22 @@ export const metadata: Metadata = {
    },
 };
 
+import { JsonEditorSeoContent } from '@/components/json-editor/docs/JsonEditorSeoContent';
+
 export default function Page() {
    return (
       <PersistenceProvider>
-         <JsonEditorView />
+         <div className="flex flex-col">
+            {/* The main editor viewport */}
+            <div className="h-[calc(100vh-72px)] shrink-0">
+               <JsonEditorView />
+            </div>
+
+            {/* SEO Content directly in the DOM, below the fold */}
+            <div className="mt-8 border-t border-border/10 pt-8 pb-12">
+               <JsonEditorSeoContent />
+            </div>
+         </div>
       </PersistenceProvider>
    );
 }
