@@ -1,36 +1,28 @@
-Business Source License 1.1
+DevEditor Non-Commercial Source License
 
 Licensor: Goshant Meher, Deveditor.io
 
 Licensed Work: Deveditor.io (the "Software")
 
-License Date: 24 July 2025
-
-Change Date: 
-
 --------------------------------------------------------------------------------
 
 1. Grant of Rights:
 
-The Licensor grants you the right to view, modify, and contribute to the source code of the Software, subject to the following limitations.
+The Licensor grants you the free right to view, modify, and self-host the source code of the Software, subject to the following limitations.
 
 2. Use Limitation:
 
-You may use, modify, and distribute the Software for non-commercial purposes only. **You may not use the Software or any derivative work to provide a hosted service or commercial product.** Commercial use requires a separate commercial license from the Licensor.
+You may use, modify, and distribute the Software for personal and non-commercial purposes only. You may not use the Software, or any derivative work, to provide a hosted service, a commercial product, or to generate revenue. Any commercial use requires a separate commercial license explicitly granted by the Licensor.
 
 3. Contributions:
 
 By contributing to this project, you grant the Licensor the irrevocable right to use, modify, license, and commercially distribute your contributions as part of the Software, without any obligation to pay or credit you.
 
-4. Change Date:
-
-On the Change Date, this license will automatically convert to the open-source [Apache 2.0 License] unless otherwise stated by the Licensor.
-
-5. Termination:
+4. Termination:
 
 If you violate this license, your rights to the Software are automatically terminated.
 
-6. Disclaimer:
+5. Disclaimer:
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. THE LICENSOR DISCLAIMS ALL LIABILITY FOR DAMAGES RESULTING FROM THE USE OF THE SOFTWARE.
 

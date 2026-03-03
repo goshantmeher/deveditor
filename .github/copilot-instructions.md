@@ -20,16 +20,16 @@ When switching editor types in `JsonEditorView.tsx`, configs reset to defaults v
 ```typescript
 // See src/components/json-editor/JsonEditorView.tsx lines 17-25
 const initialConfig =
-  newConfig.editorType === EDITOR_TYPES.text
-    ? DEFAULT_TEXT_EDITOR_CONFIG
-    : DEFAULT_JSON_EDITOR_CONFIG;
+   newConfig.editorType === EDITOR_TYPES.text
+      ? DEFAULT_TEXT_EDITOR_CONFIG
+      : DEFAULT_JSON_EDITOR_CONFIG;
 ```
 
 ### JSON Parsing Strategy
 
 - **Two-tier fallback**: `parseJson()` tries `JSON.parse()` first, then `json5.parse()` for relaxed syntax (see `src/lib/parser.ts`)
-  - Standard JSON: Strict RFC 8259 compliance
-  - JSON5 fallback: Allows trailing commas, unquoted keys, single quotes, comments
+   - Standard JSON: Strict RFC 8259 compliance
+   - JSON5 fallback: Allows trailing commas, unquoted keys, single quotes, comments
 - **Error handling**: Uses `jsonrepair` library for auto-fix functionality in text-editor
 - **Debounced validation**: Text editor debounces parsing by 200ms to avoid excessive re-renders during typing
 - **Return structure**: All parsing functions return `{ success: boolean, data?: unknown, error?: string }` for consistent error handling
@@ -37,21 +37,20 @@ const initialConfig =
 ### CodeMirror Integration
 
 - **Text Editor** (`src/components/editor/text-editor.tsx`):
-
-  - Uses `@uiw/react-codemirror` with VS Code themes (`vscodeDark`/`vscodeLight`)
-  - Custom error decoration system in `src/lib/editor-error.ts` with inline error markers and gutter icons
-  - Error navigation: `parseErrorPosition()` extracts line/column from error messages, `navigateToError()` scrolls to errors
-  - **Diff highlighting**: Compare mode uses `createDiffDecorationsPlugin()` to show added (green), removed (red), and modified (yellow) lines
-  - **Read-only in compare mode**: `editable={!config.compareMode}` disables editing during comparison
-  - **Auto-unfold**: Uses `unfoldAll()` from CodeMirror to expand all folded sections when entering compare mode
-  - Line wrapping enabled via `EditorView.lineWrapping`
-  - Conditional features: Line numbers/highlighting disabled in minified mode
-  - Code folding: Built-in CodeMirror foldGutter for collapsible JSON structures
-  - **Immediate typing feedback**: `paintData` memo returns `pendingText` immediately when user types, preventing reset issues
+   - Uses `@uiw/react-codemirror` with VS Code themes (`vscodeDark`/`vscodeLight`)
+   - Custom error decoration system in `src/lib/editor-error.ts` with inline error markers and gutter icons
+   - Error navigation: `parseErrorPosition()` extracts line/column from error messages, `navigateToError()` scrolls to errors
+   - **Diff highlighting**: Compare mode uses `createDiffDecorationsPlugin()` to show added (green), removed (red), and modified (yellow) lines
+   - **Read-only in compare mode**: `editable={!config.compareMode}` disables editing during comparison
+   - **Auto-unfold**: Uses `unfoldAll()` from CodeMirror to expand all folded sections when entering compare mode
+   - Line wrapping enabled via `EditorView.lineWrapping`
+   - Conditional features: Line numbers/highlighting disabled in minified mode
+   - Code folding: Built-in CodeMirror foldGutter for collapsible JSON structures
+   - **Immediate typing feedback**: `paintData` memo returns `pendingText` immediately when user types, preventing reset issues
 
 - **JSON Editor** (`src/components/editor/json-editor.tsx`):
-  - Uses `json-edit-react` library for tree view
-  - Read-only implementation (no onChange handler)
+   - Uses `json-edit-react` library for tree view
+   - Read-only implementation (no onChange handler)
 
 ## Development Workflows
 
@@ -193,12 +192,12 @@ Search functionality allows filtering JSON data by property path:
 ```typescript
 // From EditorPanel.tsx - search/filter logic
 const handleSearch = (query: string) => {
-  // Parse JSON string to object
-  const parsedData = parseJson(data);
-  // Filter by path (e.g., "favorites.books" or "address.details")
-  const filteredData = filterJsonByPath(parsedData, query);
-  // Convert back to formatted string
-  onDataChange(stringifyJson(filteredData, INDENT_LEVELS.STANDARD));
+   // Parse JSON string to object
+   const parsedData = parseJson(data);
+   // Filter by path (e.g., "favorites.books" or "address.details")
+   const filteredData = filterJsonByPath(parsedData, query);
+   // Convert back to formatted string
+   onDataChange(stringifyJson(filteredData, INDENT_LEVELS.STANDARD));
 };
 ```
 
