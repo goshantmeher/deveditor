@@ -7,7 +7,9 @@ import JusifyButton from '@/components/JustifiyButton';
 import BracesButton from '@/components/BracesButton';
 import SearchButton from '@/components/SearchButton';
 import ImportButton from '@/components/ImportButton';
+import ExportButton from '@/components/ExportButton';
 import Editor from '@/components/editor/Editor';
+import { EditorHandle } from '@/components/editor/text-editor';
 import { SearchPanel } from '@/components/json-editor/SearchPanel';
 import { EditorPanelProps } from '@/types/editor';
 import { EDITOR_TYPES, FORMAT_STATES, FormatState } from '@/constants/editor';
@@ -25,6 +27,8 @@ export function EditorPanel({
    onOriginalDataChange,
    panelLabel,
 }: EditorPanelProps) {
+   const editorRef = React.useRef<EditorHandle>(null);
+
    // Determine which button should be highlighted
    const isExpanded = config.formatState === FORMAT_STATES.EXPANDED;
    const isCollapsed = config.formatState === FORMAT_STATES.COLLAPSED;
@@ -56,9 +60,20 @@ export function EditorPanel({
             formatState: value,
             compareMode: false,
             searchOpen: false,
+            formatVersion: (config.formatVersion || 0) + 1,
+         });
+      } else if (value === config.formatState) {
+         // Same format state clicked again — bump formatVersion to force re-format
+         onConfigChange({
+            ...config,
+            formatVersion: (config.formatVersion || 0) + 1,
          });
       } else {
-         onConfigChange({ ...config, formatState: value });
+         onConfigChange({
+            ...config,
+            formatState: value,
+            formatVersion: (config.formatVersion || 0) + 1,
+         });
       }
    };
 
@@ -138,9 +153,56 @@ export function EditorPanel({
       onConfigChange({ ...config, searchOpen: false });
    };
 
+   const handleExpand = () => {
+      // If currently minified, switch to standard format first
+      if (config.formatState === FORMAT_STATES.MINIFIED) {
+         onConfigChange({
+            ...config,
+            formatState: FORMAT_STATES.STANDARD,
+            formatVersion: (config.formatVersion || 0) + 1,
+         });
+      }
+      // Force re-format in case content is stale, then expand
+      if (config.formatState !== FORMAT_STATES.MINIFIED) {
+         onConfigChange({
+            ...config,
+            formatState: FORMAT_STATES.EXPANDED,
+            formatVersion: (config.formatVersion || 0) + 1,
+         });
+      }
+      // Let the reformat effect run, then unfold via a short delay
+      setTimeout(() => {
+         editorRef.current?.expandAll();
+      }, 50);
+   };
+
+   const handleCollapse = () => {
+      // If currently minified, switch to standard format first
+      if (config.formatState === FORMAT_STATES.MINIFIED) {
+         onConfigChange({
+            ...config,
+            formatState: FORMAT_STATES.STANDARD,
+            formatVersion: (config.formatVersion || 0) + 1,
+         });
+      }
+      // Force re-format in case content is stale
+      if (config.formatState !== FORMAT_STATES.MINIFIED) {
+         onConfigChange({
+            ...config,
+            formatState: FORMAT_STATES.STANDARD,
+            formatVersion: (config.formatVersion || 0) + 1,
+         });
+      }
+      // Let the reformat effect run, then fold via a short delay
+      setTimeout(() => {
+         editorRef.current?.collapseAll();
+      }, 50);
+   };
+
    return (
       <div className="editor-panel-container w-full md:flex-1 md:basis-0 md:min-w-0">
          <Editor
+            ref={editorRef}
             data={data}
             onChange={onDataChange}
             config={config}
@@ -197,23 +259,15 @@ export function EditorPanel({
                         />
                      ) : null}
 
-                     {isStandard && (
+                     {!isMinified && config.editorType === EDITOR_TYPES.text && (
                         <>
                            <ExpandButton
-                              onClick={() =>
-                                 handleEditorFormatChange(
-                                    FORMAT_STATES.EXPANDED
-                                 )
-                              }
+                              onClick={handleExpand}
                               title="Expand"
                               variant={isExpanded ? 'default' : 'ghost'}
                            />
                            <CollapseButton
-                              onClick={() =>
-                                 handleEditorFormatChange(
-                                    FORMAT_STATES.COLLAPSED
-                                 )
-                              }
+                              onClick={handleCollapse}
                               title="Collapse"
                               variant={isCollapsed ? 'default' : 'ghost'}
                            />
@@ -230,6 +284,7 @@ export function EditorPanel({
                         dataType="json"
                         onImportClick={handleImportClick}
                      />
+                     <ExportButton data={data} />
                   </div>
                </div>
             </>

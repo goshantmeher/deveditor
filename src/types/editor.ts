@@ -7,6 +7,7 @@ export interface EditorConfig {
    compareMode?: boolean;
    searchOpen?: boolean;
    filterPath?: string;
+   formatVersion?: number; // Incremented to force re-format even when formatState hasn't changed
 }
 
 export interface EditorPanelProps {

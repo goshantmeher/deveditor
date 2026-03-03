@@ -23,6 +23,8 @@ export function SearchPanel({
    const handleSearch = () => {
       if (searchQuery.trim()) {
          onSearch(searchQuery.trim());
+      } else {
+         onClear();
       }
    };
 
