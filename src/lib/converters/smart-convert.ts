@@ -61,7 +61,9 @@ export async function smartConvert(
    }
 
    // Main-thread conversion (either small payload or worker fallback)
-   const converter = getConverter(formatKey as 'json' | 'yaml' | 'csv' | 'xml' | 'toml');
+   const converter = getConverter(
+      formatKey as 'json' | 'yaml' | 'csv' | 'xml' | 'toml'
+   );
    if (!converter) {
       throw new Error(`No converter registered for format: ${formatKey}`);
    }

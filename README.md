@@ -13,7 +13,9 @@ DevEditor is a growing collection of lightweight, client-side utilities designed
 ## ✨ Features
 
 ### 🧩 JSON Viewer & Editor (Active)
+
 A powerful tool to handle your JSON data with ease:
+
 - **Validation**: Instant feedback on JSON syntax errors.
 - **Repair**: Automatically fixes common JSON mistakes (thanks to `jsonrepair`).
 - **Formatting**: Pretty-print or minify your JSON in one click.
@@ -23,6 +25,7 @@ A powerful tool to handle your JSON data with ease:
 - **Customizable**: Multiple themes (VS Code Dark, etc.), adjustable font sizes, and more.
 
 ### 🚀 Coming Soon
+
 - **🎨 CSS Playground**: Experiment with CSS properties and animations in real-time.
 - **⚙️ Base64 Encoder/Decoder**: Quickly convert strings and files to/from Base64.
 - **🔐 JWT Decoder**: Safely decode and inspect JSON Web Tokens.
@@ -50,12 +53,14 @@ A powerful tool to handle your JSON data with ease:
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/goshantmeher/deveditor.git
    cd deveditor
    ```
 
 2. Install dependencies:
+
    ```bash
    yarn install
    ```
@@ -74,6 +79,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Adding Shadcn Components
 
 To add new UI components, use the shadcn CLI:
+
 ```bash
 npx shadcn@latest add [component-name]
 ```
@@ -81,9 +87,11 @@ npx shadcn@latest add [component-name]
 ### Static Export
 
 The project is configured for static export. To build the project:
+
 ```bash
 yarn build
 ```
+
 The output will be in the `/out` directory.
 
 ### Serving the Build Locally

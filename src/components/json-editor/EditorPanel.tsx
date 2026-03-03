@@ -259,20 +259,21 @@ export function EditorPanel({
                         />
                      ) : null}
 
-                     {!isMinified && config.editorType === EDITOR_TYPES.text && (
-                        <>
-                           <ExpandButton
-                              onClick={handleExpand}
-                              title="Expand"
-                              variant={isExpanded ? 'default' : 'ghost'}
-                           />
-                           <CollapseButton
-                              onClick={handleCollapse}
-                              title="Collapse"
-                              variant={isCollapsed ? 'default' : 'ghost'}
-                           />
-                        </>
-                     )}
+                     {!isMinified &&
+                        config.editorType === EDITOR_TYPES.text && (
+                           <>
+                              <ExpandButton
+                                 onClick={handleExpand}
+                                 title="Expand"
+                                 variant={isExpanded ? 'default' : 'ghost'}
+                              />
+                              <CollapseButton
+                                 onClick={handleCollapse}
+                                 title="Collapse"
+                                 variant={isCollapsed ? 'default' : 'ghost'}
+                              />
+                           </>
+                        )}
                   </div>
                   <div className="flex items-center">
                      <SearchButton

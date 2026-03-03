@@ -145,8 +145,7 @@ function ExportButton({
          setIsDialogOpen(false);
          setFileName('data');
       } catch (err) {
-         const msg =
-            err instanceof Error ? err.message : 'Export failed';
+         const msg = err instanceof Error ? err.message : 'Export failed';
          setExportError(msg);
          console.error('Export error:', err);
       } finally {

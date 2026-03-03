@@ -97,8 +97,7 @@ function ImportButton({
                try {
                   newData = JSON.parse(content);
                } catch (e) {
-                  const msg =
-                     e instanceof Error ? e.message : 'Invalid JSON';
+                  const msg = e instanceof Error ? e.message : 'Invalid JSON';
                   throw new Error(`Invalid JSON file: ${msg}`);
                }
             } else {
@@ -129,9 +128,7 @@ function ImportButton({
          console.error('File import error:', error);
 
          if (onError) {
-            onError(
-               error instanceof Error ? error : new Error(errorMessage)
-            );
+            onError(error instanceof Error ? error : new Error(errorMessage));
          } else {
             alert(errorMessage);
          }
@@ -181,11 +178,7 @@ function ImportButton({
                </div>
             </TooltipTrigger>
             <TooltipContent>
-               <p>
-                  {isImporting && importStatus
-                     ? importStatus
-                     : title}
-               </p>
+               <p>{isImporting && importStatus ? importStatus : title}</p>
             </TooltipContent>
          </Tooltip>
       </div>

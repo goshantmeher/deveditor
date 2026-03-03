@@ -189,22 +189,14 @@ export default function Home() {
                      <Heart className="h-4 w-4 text-red-500" />
                      <span>Built by Human</span>
                   </div>
-                  {/* <span aria-hidden="true">|</span>
-            <Link
-              href="#"
-              className="hover:text-foreground transition-colors"
-              aria-label="View source code on GitHub"
-            >
-              GitHub
-            </Link>
-            <span aria-hidden="true">|</span>
-            <Link
-              href="#"
-              className="hover:text-foreground transition-colors"
-              aria-label="Send feedback"
-            >
-              Feedback
-            </Link> */}
+                  <span aria-hidden="true">|</span>
+                  <Link
+                     href="/about"
+                     className="hover:text-foreground transition-colors"
+                     aria-label="About DevEditor"
+                  >
+                     About
+                  </Link>
                </div>
             </footer>
          </div>
