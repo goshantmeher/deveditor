@@ -15,11 +15,12 @@ interface GeneratorPreviewProps {
 export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = 'transparent' }: GeneratorPreviewProps) {
    const [activeTab, setActiveTab] = React.useState<'css' | 'tailwind'>('css');
    const [copied, setCopied] = React.useState(false);
-   const [debouncedSrcDoc, setDebouncedSrcDoc] = React.useState('');
+   
+   const iframeRef = React.useRef<HTMLIFrameElement>(null);
+   const [iframeLoaded, setIframeLoaded] = React.useState(false);
+   const lastHtmlRef = React.useRef(html);
 
-   // Debounce updating the iframe contents to prevent thrashing/freezing while adjusting sliders
-   React.useEffect(() => {
-      const src = `<!DOCTYPE html>
+   const initialSrcDoc = React.useMemo(() => `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -31,21 +32,42 @@ export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = '
       display: flex;
       align-items: center;
       justify-content: center;
-      background: ${bodyBg};
       font-family: system-ui, sans-serif;
     }
-    ${css}
   </style>
+  <style id="dynamic-style"></style>
 </head>
-<body>${html}</body>
-</html>`;
+<body>
+  <div id="preview-wrapper"></div>
+</body>
+</html>`, []);
 
-      const t = setTimeout(() => {
-         setDebouncedSrcDoc(src);
-      }, 10);
+   React.useEffect(() => {
+      const iframe = iframeRef.current;
+      if (!iframe) return;
 
-      return () => clearTimeout(t);
-   }, [css, html, bodyBg]);
+      const doc = iframe.contentDocument || iframe.contentWindow?.document;
+      if (!doc || doc.readyState === 'loading') return;
+
+      try {
+         doc.body.style.background = bodyBg;
+         
+         const styleEl = doc.getElementById('dynamic-style');
+         if (styleEl) {
+            styleEl.textContent = css;
+         }
+
+         const wrapper = doc.getElementById('preview-wrapper');
+         if (wrapper) {
+            if (wrapper.innerHTML === '' || lastHtmlRef.current !== html) {
+               wrapper.innerHTML = html;
+               lastHtmlRef.current = html;
+            }
+         }
+      } catch {
+         // Ignore potential cross-origin errors during unloading
+      }
+   }, [css, html, bodyBg, iframeLoaded]);
 
    const handleCopy = async () => {
       try {
@@ -69,7 +91,9 @@ export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = '
             }}
          >
             <iframe
-               srcDoc={debouncedSrcDoc}
+               ref={iframeRef}
+               srcDoc={initialSrcDoc}
+               onLoad={() => setIframeLoaded(true)}
                title="Generator Preview"
                className="border-0 rounded-lg"
                style={{
@@ -78,7 +102,7 @@ export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = '
                   minHeight: '200px',
                   backgroundColor: 'transparent',
                }}
-               sandbox="allow-scripts"
+               sandbox="allow-scripts allow-same-origin"
             />
          </div>
 

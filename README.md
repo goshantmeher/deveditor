@@ -108,6 +108,33 @@ This project is licensed under the **Business Source License 1.1** - see the [LI
 
 ---
 
+## 💖 Supporters & Sponsors
+
+DevEditor.io is made possible thanks to the generous support of the community.
+
+### 🏆 Gold & Silver Sponsors
+| Sponsor | Level | Link |
+| :--- | :--- | :--- |
+| Your Company Logo | Gold Partner | [Become a Sponsor](https://github.com/sponsors/goshantmeher) |
+| Your Name/Logo | Silver Sponsor | [Become a Sponsor](https://github.com/sponsors/goshantmeher) |
+
+---
+
+### 🛡️ Internal Champions
+*These amazing teams and individuals support the project while self-hosting DevEditor internally:*
+
+* **Your Name/Company** — [Support the project](https://github.com/sponsors/goshantmeher)
+* *Waiting for our first champion...*
+
+---
+
+### ☕ Coffee & Power Users
+*A huge thank you to everyone fueling the development of DevEditor one cup at a time!*
+
+[See all supporters on my sponsorship page](https://github.com/sponsors/goshantmeher)
+
+---
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
