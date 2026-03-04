@@ -3,38 +3,36 @@ import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-   title: 'CSS Playground - Test & Experiment with CSS Online',
+   title: 'CSS Playground - Test & Experiment with CSS & Tailwind Online',
    description:
-      'Free online CSS playground with live preview. Write HTML and CSS side-by-side and see results instantly. Includes preset templates for buttons, cards, flexbox, grid, animations, glassmorphism, and more.',
+      'Free online CSS playground with live preview. Write HTML & CSS side-by-side or use visual generators for Tailwind CSS objects (Box Shadow, Flexbox, Gradients, etc.). See results instantly.',
    keywords: [
       'CSS playground',
       'CSS editor',
+      'Tailwind generator',
+      'Tailwind CSS playground',
       'CSS live preview',
-      'CSS tester',
       'online CSS editor',
       'CSS sandbox',
-      'CSS experiment',
+      'CSS visual editor',
+      'flexbox generator',
+      'css grid generator',
+      'tailwind shadow generator',
+      'css animations',
       'learn CSS',
-      'CSS flexbox',
-      'CSS grid',
-      'CSS animations',
-      'glassmorphism CSS',
-      'CSS gradients',
-      'HTML CSS editor',
-      'CSS code playground',
    ],
    openGraph: {
-      title: 'CSS Playground - Test & Experiment with CSS Online',
+      title: 'CSS Playground - Visual Editor & Tailwind Generator',
       description:
-         'Free online CSS playground with live preview. Write HTML and CSS side-by-side and see results instantly. Includes preset templates and responsive viewport testing.',
+         'Free online CSS playground with live preview. Edit HTML/CSS or use interactive visual generators to build Flexbox, Grid, Transform, Box Shadow, and output raw CSS or Tailwind classes.',
       url: 'https://www.deveditor.io/css-playground',
       type: 'website',
    },
    twitter: {
       card: 'summary_large_image',
-      title: 'CSS Playground - Test & Experiment with CSS Online',
+      title: 'CSS Playground & Tailwind Generator',
       description:
-         'Free online CSS playground with live preview. Write HTML and CSS side-by-side and see results instantly.',
+         'Free online playground with visual CSS generators. Edit HTML/CSS side-by-side or build Tailwind classes instantly.',
    },
    alternates: {
       canonical: 'https://www.deveditor.io/css-playground',

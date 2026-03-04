@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       template: '%s | DevEditor',
    },
    description:
-      'A comprehensive collection of free online developer tools including JSON viewer, CSS playground, Base64 encoder, JWT decoder and more. Built for developers, by developers.',
+      'A comprehensive collection of free online developer tools including JSON viewer, CSS & Tailwind playground with visual generators, Base64 encoder, JWT decoder and more. Built for developers, by developers.',
    keywords: [
       'developer tools',
       'online tools',
@@ -34,6 +34,9 @@ export const metadata: Metadata = {
       'JSON minifier',
       'JSON playground',
       'CSS playground',
+      'Tailwind CSS generator',
+      'CSS visual editor',
+      'CSS generator',
       'Base64 encoder',
       'JWT decoder',
       'web development',
@@ -66,7 +69,7 @@ export const metadata: Metadata = {
       url: 'https://www.deveditor.io',
       title: 'DevEditor - Developer Tools Collection',
       description:
-         'A comprehensive collection of free online developer tools including JSON viewer, JSON formatter, CSS playground, Base64 encoder, JWT decoder and more.',
+         'A comprehensive collection of free online developer tools including JSON viewer, JSON formatter, CSS playground, Tailwind generators, Base64 encoder, JWT decoder and more.',
       siteName: 'DevEditor',
       images: [
          {
@@ -81,7 +84,7 @@ export const metadata: Metadata = {
       card: 'summary_large_image',
       title: 'DevEditor - Developer Tools Collection',
       description:
-         'A comprehensive collection of free online developer tools including JSON viewer, JSON formatter, CSS playground, Base64 encoder, JWT decoder and more.',
+         'A comprehensive collection of free online developer tools including JSON viewer, CSS visual editors, Tailwind tools, JWT decoder and more.',
       images: ['/twitter-image.png'],
       creator: '@deveditor',
    },
