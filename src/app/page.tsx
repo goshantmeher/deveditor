@@ -33,7 +33,7 @@ const tools = [
       description: 'Encode and decode Base64 strings',
       icon: '⚙️',
       href: '/base64-encoder',
-      available: false,
+      available: true,
    },
    {
       title: 'JWT Decoder',
