@@ -57,7 +57,7 @@ Please follow the project's code style and folder structure.
 
 By contributing, you agree that:
 
-- Your contribution will be licensed under the project’s [Business Source License](./LICENSE)
+- Your contribution will be licensed under the project’s [DevEditor Non-Commercial Source License](./LICENSE).
 - The project owner ([@goshantmeher](https://github.com/goshantmeher)) retains the right to use, monetize, and distribute the code commercially
 - You will be credited as a contributor, but all commercial rights remain with the project owner
 
@@ -68,6 +68,8 @@ By contributing, you agree that:
 If you're unsure about something or want to discuss before contributing:
 
 - Open an issue
-- Or reach out via [mehergoshant@gmail.com or contact form](https://forms.gle/iKfAFpMuX4rJzUsx5)
+```markdown
+- Or reach out via [mehergoshant@gmail.com](mailto:mehergoshant@gmail.com) or the [contact form](https://forms.gle/iKfAFpMuX4rJzUsx5)
+```
 
 Thanks for being part of the DevEditor community! 💙

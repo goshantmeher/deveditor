@@ -23,10 +23,10 @@ const tools = [
    },
    {
       title: 'CSS Playground',
-      description: 'Test and experiment with CSS',
+      description: 'Test & generate CSS or Tailwind features',
       icon: '🎨',
       href: '/css-playground',
-      available: false,
+      available: true,
    },
    {
       title: 'Base64 Encoder',
