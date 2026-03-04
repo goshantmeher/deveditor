@@ -26,7 +26,7 @@ const tools = [
       description: 'Test and experiment with CSS',
       icon: '🎨',
       href: '/css-playground',
-      available: false,
+      available: true,
    },
    {
       title: 'Base64 Encoder',
