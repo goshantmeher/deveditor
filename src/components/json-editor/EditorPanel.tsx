@@ -200,7 +200,7 @@ export function EditorPanel({
    };
 
    return (
-      <div className="editor-panel-container w-full md:flex-1 md:basis-0 md:min-w-0">
+      <div className="editor-panel-container w-full min-h-[400px] flex flex-col md:flex-1 md:basis-0 md:min-w-0 md:min-h-0">
          <Editor
             ref={editorRef}
             data={data}

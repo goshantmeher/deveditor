@@ -83,9 +83,9 @@ export function BoxShadowGenerator() {
    const html = '<div class="box"></div>';
 
    return (
-      <div className="flex flex-col md:flex-row h-full min-h-0">
+      <div className="flex flex-col md:flex-row h-full min-h-0 overflow-y-auto md:overflow-hidden">
          {/* Controls */}
-         <div className="md:w-[320px] shrink-0 overflow-y-auto border-r border-border/30 p-4 space-y-4">
+         <div className="w-full md:w-[320px] shrink-0 overflow-y-auto border-b md:border-b-0 md:border-r border-border/30 p-4 space-y-4">
             <ControlGroup title="Preview">
                <ControlColor
                   label="Background"
@@ -186,7 +186,7 @@ export function BoxShadowGenerator() {
          </div>
 
          {/* Preview */}
-         <div className="flex-1 min-h-0">
+         <div className="flex-1 min-h-[500px] md:min-h-0 w-full">
             <GeneratorPreview
                css={css}
                html={html}

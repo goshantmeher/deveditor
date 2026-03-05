@@ -66,8 +66,8 @@ export function GridGenerator() {
    const tailwind = `<div class="grid grid-cols-[repeat(${columns},_${colUnit.replace(' ', '_')})] grid-rows-[repeat(${rows},_${rowUnit === 'auto' ? 'auto' : rowUnit.replace(' ', '_')})] gap-[${gap}px] p-5 w-full">\n  <!-- items -->\n  <div class="rounded-xl flex items-center justify-center font-bold text-[13px] text-white ${rowUnit === 'auto' ? `min-h-[${itemSize}px]` : ''}">...</div>\n</div>`;
 
    return (
-      <div className="flex flex-col md:flex-row h-full min-h-0">
-         <div className="md:w-[320px] shrink-0 overflow-y-auto border-r border-border/30 p-4 space-y-4">
+      <div className="flex flex-col md:flex-row h-full min-h-0 overflow-y-auto md:overflow-hidden">
+         <div className="w-full md:w-[320px] shrink-0 overflow-y-auto border-b md:border-b-0 md:border-r border-border/30 p-4 space-y-4">
             <ControlGroup title="Preview">
                <ControlColor
                   label="Background"
@@ -142,7 +142,7 @@ export function GridGenerator() {
             </ControlGroup>
          </div>
 
-         <div className="flex-1 min-h-0">
+         <div className="flex-1 min-h-[500px] md:min-h-0 w-full">
             <GeneratorPreview
                css={css}
                html={`<div class="grid-container">\n  ${html}\n</div>`}
