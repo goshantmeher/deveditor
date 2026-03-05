@@ -81,7 +81,7 @@
 
 > Privacy-first tools — the killer selling point is "nothing leaves your browser."
 
-- [ ] **JWT Debugger** — Decode Header, Payload, Signature. Show `iat`/`exp` timestamps in human-readable format. Validate structure (not signature, which needs the secret).
+- [x] **JWT Debugger** — Decode Header, Payload, Signature. Show `iat`/`exp` timestamps in human-readable format. Validate structure (not signature, which needs the secret).
    - ✅ Feasible: JWT is just 3 Base64-encoded JSON segments separated by dots
    - Priority: ⭐⭐⭐⭐⭐ (the #1 tool backend devs Google for)
 

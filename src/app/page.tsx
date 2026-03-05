@@ -134,7 +134,8 @@ const categories: Category[] = [
                'Decode JWT header, payload & signature. Inspect timestamps & claims.',
             icon: '🔐',
             href: '/jwt-decoder',
-            status: 'coming-soon',
+            status: 'available',
+            isNew: true,
             tags: ['jwt', 'token', 'decode', 'auth', 'bearer'],
          },
          {
