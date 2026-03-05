@@ -253,6 +253,24 @@ const categories: Category[] = [
             status: 'planned',
             tags: ['font', 'google fonts', 'pair', 'typography', 'preview'],
          },
+         {
+            title: 'Theme Generator',
+            description:
+               'Generate comprehensive UI themes (Tailwind/CSS tokens). Evaluate and export JSON automatically.',
+            icon: '🖌️',
+            href: '/theme-generator',
+            status: 'planned',
+            tags: ['theme', 'colors', 'tailwind', 'json', 'export'],
+         },
+         {
+            title: 'SVG to React Converter',
+            description:
+               'Paste raw SVG code and get clean, camelCase React/JSX components instantly.',
+            icon: '⚛️',
+            href: '/svg-to-react',
+            status: 'planned',
+            tags: ['svg', 'react', 'jsx', 'convert', 'camelcase'],
+         },
       ],
    },
    {
@@ -388,6 +406,114 @@ const categories: Category[] = [
             status: 'planned',
             tags: ['qr', 'qrcode', 'barcode', 'generate'],
          },
+         {
+            title: 'PDF Resume Builder',
+            description:
+               'A free, fully customizable resume builder with layout options and no paywalls.',
+            icon: '📄',
+            href: '/pdf-resume',
+            status: 'planned',
+            tags: ['pdf', 'resume', 'cv', 'builder', 'free'],
+         },
+         {
+            title: 'Merge PDF',
+            description:
+               'Combine multiple PDF files into one continuous document entirely in your browser.',
+            icon: '📑',
+            href: '/merge-pdf',
+            status: 'planned',
+            tags: ['pdf', 'merge', 'combine', 'join'],
+         },
+         {
+            title: 'Split PDF',
+            description:
+               'Cut a single PDF into multiple chunks or individual page files locally.',
+            icon: '✂️',
+            href: '/split-pdf',
+            status: 'planned',
+            tags: ['pdf', 'split', 'cut', 'pages', 'extract'],
+         },
+         {
+            title: 'Copy PDF Content',
+            description:
+               'Extract textual content natively out of a PDF document to copy to clipboard.',
+            icon: '📋',
+            href: '/copy-pdf',
+            status: 'planned',
+            tags: ['pdf', 'extract', 'text', 'copy', 'content'],
+         },
+         {
+            title: 'PDF to Word (Doc)',
+            description:
+               'Convert a PDF document into an editable Word Document format.',
+            icon: '📝',
+            href: '/pdf-to-doc',
+            status: 'planned',
+            tags: ['pdf', 'word', 'doc', 'docx', 'convert'],
+         },
+         {
+            title: 'Word (Doc) to PDF',
+            description:
+               'Convert an editable Word Document into a static PDF format.',
+            icon: '🔄',
+            href: '/doc-to-pdf',
+            status: 'planned',
+            tags: ['word', 'doc', 'docx', 'pdf', 'convert'],
+         },
+         {
+            title: 'Add Pages to PDF',
+            description:
+               'Insert additional blank pages or merge pages from another PDF into an existing one.',
+            icon: '➕',
+            href: '/add-pdf-pages',
+            status: 'planned',
+            tags: ['pdf', 'add', 'insert', 'pages', 'merge'],
+         },
+         {
+            title: 'Webcam Image Filter Booth',
+            description:
+               'Capture webcam images and instantly apply CSS/local filters without any server uploads.',
+            icon: '📸',
+            href: '/webcam-filters',
+            status: 'planned',
+            tags: ['webcam', 'image', 'camera', 'filter', 'capture'],
+         },
+         {
+            title: 'Audio/Video Format Converter',
+            description:
+               'Convert media files in the browser natively (FFmpeg.wasm). Transform WebM to MP4 instantly.',
+            icon: '🎞️',
+            href: '/media-converter',
+            status: 'planned',
+            tags: ['video', 'audio', 'ffmpeg', 'mp4', 'webm', 'mp3'],
+         },
+         {
+            title: 'GIF Creator',
+            description:
+               'Stitch a sequence of images or a short video clip into an animated GIF.',
+            icon: '🎞️',
+            href: '/gif-creator',
+            status: 'planned',
+            tags: ['gif', 'video', 'animation', 'create', 'image'],
+         },
+         {
+            title: 'Meme Generator',
+            description:
+               'Upload images, overlay impact font, drag to position, and download.',
+            icon: '😂',
+            href: '/meme-generator',
+            status: 'planned',
+            tags: ['meme', 'generator', 'image', 'text', 'font'],
+         },
+         {
+            title: 'SVG Editor & Animator',
+            description:
+               'Visually edit paths and create multi-stage CSS/SMIL animations for SVG objects.',
+            icon: '✒️',
+            href: '/svg-editor',
+            status: 'planned',
+            tags: ['svg', 'editor', 'animate', 'vector', 'edit'],
+         },
       ],
    },
    {
@@ -430,6 +556,24 @@ const categories: Category[] = [
             href: '/number-base',
             status: 'planned',
             tags: ['binary', 'octal', 'decimal', 'hex', 'base', 'convert'],
+         },
+         {
+            title: 'Base64 File Encoder/Decoder',
+            description:
+               'Drag and drop files to convert directly to string, or decode strings back to downloads.',
+            icon: '🔤',
+            href: '/base64-file',
+            status: 'planned',
+            tags: ['base64', 'file', 'encode', 'decode', 'string'],
+         },
+         {
+            title: 'Markdown to HTML Converter',
+            description:
+               'Parse, sanitize, and convert raw Markdown into rich, safe HTML output strings.',
+            icon: '📝',
+            href: '/markdown-to-html',
+            status: 'planned',
+            tags: ['markdown', 'md', 'html', 'convert', 'markup'],
          },
       ],
    },

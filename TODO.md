@@ -141,6 +141,14 @@
    - Priority: ⭐⭐⭐
    - 💡 Added by review
 
+- [ ] **Theme Generator** — Generate comprehensive UI color themes (Tailwind configs or CSS tokens) from a primary color. Show beautiful sample UI automatically updated with the colors, and allow copying export as JSON or CSS.
+   - ✅ Feasible: Native client-side color math (HSL/Oklch interpolations) + React state previews.
+   - Priority: ⭐⭐⭐⭐⭐
+
+- [ ] **SVG to React/JSX Converter** — Paste raw SVG code, output clean React/JSX components mapping all snake-case/kebab-case attributes directly to proper camelCase JSX attributes instantly.
+   - ✅ Feasible: Fast string parsing and AST walking using something like `hast-util-to-jsx-runtime`.
+   - Priority: ⭐⭐⭐⭐
+
 ---
 
 ## 🏗️ Category 4: Architecture & Logic
@@ -211,6 +219,56 @@
    - Priority: ⭐⭐⭐
    - 💡 Added by review
 
+- [ ] **PDF Resume Builder & Generator** — A genuinely free, fully customizable resume builder avoiding paywalls.
+   - 💡 **Context**: Most resume builders online act free but add paywalls at download or severely restrict layouts. This tool will allow users to freely compose sections, dictate exact placement, customize content styles, and select from a list of clean, professional default format templates. 
+   - ✅ Feasible: Can be built using `react-pdf` for robust client-side rendering or `html2pdf.js`.
+   - Priority: ⭐⭐⭐⭐⭐
+   - 💡 Added by user request
+
+- [ ] **Merge PDF** — Combine multiple PDF files into one continuous document.
+   - ✅ Feasible: Entirely client-side using `pdf-lib`.
+   - Priority: ⭐⭐⭐⭐
+
+- [ ] **Split PDF** — Cut a single PDF into multiple chunks or individual page files.
+   - ✅ Feasible: Entirely client-side using `pdf-lib` to create new documents from copied pages.
+   - Priority: ⭐⭐⭐⭐
+
+- [ ] **Copy PDF Content** — Extract textual content out of a PDF document to copy to clipboard.
+   - ⚠️ Partially feasible: Requires `pdf.js` by Mozilla parsing logic. Can be heavy.
+   - Priority: ⭐⭐⭐
+
+- [ ] **PDF to Doc (Word)** — Convert a PDF into an editable Word Document format.
+   - ❌ **Difficult**: Writing clean `.docx` from complex PDF styling natively in browser js is notoriously imperfect. May require simple extraction mapping or a light background worker.
+   - Priority: ⭐⭐
+
+- [ ] **Doc to PDF** — Convert a Word Document into a static PDF format.
+   - ⚠️ Partially feasible: Can parse docx via text extraction but losing styles, OR render simple HTML to PDF. Robust conversion usually requires headless server-side browsers or APIs.
+   - Priority: ⭐⭐
+
+- [ ] **Add Pages to PDF** — Insert additional blank pages or merge pages from a second PDF into a specific index of an existing PDF.
+   - ✅ Feasible: Client-side using `pdf-lib`'s `insertPage()` methods natively.
+   - Priority: ⭐⭐⭐
+
+- [ ] **Webcam Image Filter Booth** — Capture an image directly from the user's webcam and apply various CSS/JS image filters (contrast, brightness, sepia, vintage) on the fly, allowing local download.
+   - ✅ Feasible: Natively supported using `navigator.mediaDevices.getUserMedia` and `<canvas>` 2D context filtering.
+   - Priority: ⭐⭐⭐⭐
+
+- [ ] **Audio/Video Format Converter** — Convert media files natively directly in the browser. Example: WebM to MP4, WAV to MP3.
+   - ✅ Feasible: Possible entirely client-side using WebAssembly port `ffmpeg.wasm`.
+   - Priority: ⭐⭐⭐⭐⭐
+
+- [ ] **GIF Creator / Video to GIF** — Stitch sequence of images or a short video clip into an animated GIF.
+   - ✅ Feasible: Use client-side `gif.js` or `ffmpeg.wasm`.
+   - Priority: ⭐⭐⭐⭐
+
+- [ ] **Meme Generator** — Upload base image, overlay top/bottom impact font text, drag and drop text placement, and export.
+   - ✅ Feasible: Classic `<canvas>` image rendering + `fillText` over it.
+   - Priority: ⭐⭐⭐
+
+- [ ] **SVG Editor & Animator** — Visually edit paths and create multi-stage CSS/SMIL animations for SVG objects.
+   - ⚠️ Partially feasible / Complex: An extremely complex UI for full vector editing, however simpler timeline integrations for CSS keyframes on SVG layers are possible using libraries like `fabric.js` or `framer-motion`.
+   - Priority: ⭐⭐⭐
+
 ---
 
 ## 📊 Category 6: Data & Format Converters (NEW — Added by Review)
@@ -233,6 +291,14 @@
    - ✅ Feasible: Native `parseInt()` and `Number.toString(base)`
    - Priority: ⭐⭐⭐
    - 💡 Added by review
+
+- [ ] **Base64 File Encoder/Decoder** — Drag and drop any file to encode it directly into a Base64 string, or paste a Base64 string to download the original file securely.
+   - ✅ Feasible: Using browser `FileReader` API and `readAsDataURL()`.
+   - Priority: ⭐⭐⭐⭐
+
+- [ ] **Markdown to HTML Converter** — Convert raw markdown to sanitized HTML output and rich preview instantly.
+   - ✅ Feasible: Native client mapping using `marked` and `DOMPurify`.
+   - Priority: ⭐⭐⭐⭐
 
 ---
 
