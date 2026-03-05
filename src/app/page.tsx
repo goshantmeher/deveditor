@@ -1,13 +1,7 @@
 'use client';
 
 import { Input } from '@/components/ui/input';
-import {
-   Search,
-   ExternalLink,
-   Heart,
-   Shield,
-   ChevronDown,
-} from 'lucide-react';
+import { Search, ExternalLink, Heart, Shield, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
 
@@ -44,7 +38,8 @@ const categories: Category[] = [
       tools: [
          {
             title: 'Base64 Encoder',
-            description: 'Encode & decode text, files, and images to Base64. Generate data URIs.',
+            description:
+               'Encode & decode text, files, and images to Base64. Generate data URIs.',
             icon: '⚙️',
             href: '/base64-encoder',
             status: 'available',
@@ -52,15 +47,18 @@ const categories: Category[] = [
          },
          {
             title: 'Case Converter',
-            description: 'Toggle between camelCase, snake_case, kebab-case, PascalCase, and more.',
+            description:
+               'Toggle between camelCase, snake_case, kebab-case, PascalCase, and more.',
             icon: '🔠',
             href: '/case-converter',
-            status: 'planned',
+            status: 'available',
+            isNew: true,
             tags: ['case', 'camelcase', 'snake', 'kebab', 'pascal'],
          },
          {
             title: 'URL Encoder / Decoder',
-            description: 'Encode & decode URI components, parse & rebuild query parameters.',
+            description:
+               'Encode & decode URI components, parse & rebuild query parameters.',
             icon: '🔗',
             href: '/url-encoder',
             status: 'planned',
@@ -68,7 +66,8 @@ const categories: Category[] = [
          },
          {
             title: 'Text Diff Checker',
-            description: 'Side-by-side visual comparison of two text blocks with change highlighting.',
+            description:
+               'Side-by-side visual comparison of two text blocks with change highlighting.',
             icon: '📝',
             href: '/text-diff',
             status: 'planned',
@@ -76,7 +75,8 @@ const categories: Category[] = [
          },
          {
             title: 'Markdown Previewer',
-            description: 'Split-screen Markdown editor with live rendered HTML preview.',
+            description:
+               'Split-screen Markdown editor with live rendered HTML preview.',
             icon: '📖',
             href: '/markdown-previewer',
             status: 'planned',
@@ -84,7 +84,8 @@ const categories: Category[] = [
          },
          {
             title: 'List / Array Converter',
-            description: 'Convert text columns to JSON arrays, SQL IN clauses, or CSV strings.',
+            description:
+               'Convert text columns to JSON arrays, SQL IN clauses, or CSV strings.',
             icon: '📋',
             href: '/list-converter',
             status: 'planned',
@@ -92,7 +93,8 @@ const categories: Category[] = [
          },
          {
             title: 'HTML Entity Converter',
-            description: 'Convert symbols to HTML entities and back. Handles &amp;, &lt;, &gt; etc.',
+            description:
+               'Convert symbols to HTML entities and back. Handles &amp;, &lt;, &gt; etc.',
             icon: '🏷️',
             href: '/html-entities',
             status: 'planned',
@@ -100,7 +102,8 @@ const categories: Category[] = [
          },
          {
             title: 'Lorem Ipsum Generator',
-            description: 'Generate placeholder text — paragraphs, sentences, or words.',
+            description:
+               'Generate placeholder text — paragraphs, sentences, or words.',
             icon: '📄',
             href: '/lorem-ipsum',
             status: 'planned',
@@ -108,7 +111,8 @@ const categories: Category[] = [
          },
          {
             title: 'Word / Character Counter',
-            description: 'Count characters, words, lines, byte size, and estimated reading time.',
+            description:
+               'Count characters, words, lines, byte size, and estimated reading time.',
             icon: '🔢',
             href: '/word-counter',
             status: 'planned',
@@ -125,7 +129,8 @@ const categories: Category[] = [
       tools: [
          {
             title: 'JWT Debugger',
-            description: 'Decode JWT header, payload & signature. Inspect timestamps & claims.',
+            description:
+               'Decode JWT header, payload & signature. Inspect timestamps & claims.',
             icon: '🔐',
             href: '/jwt-decoder',
             status: 'coming-soon',
@@ -133,7 +138,8 @@ const categories: Category[] = [
          },
          {
             title: 'Hash Generator',
-            description: 'Generate MD5, SHA-1, SHA-256, SHA-512 hashes using Web Crypto API.',
+            description:
+               'Generate MD5, SHA-1, SHA-256, SHA-512 hashes using Web Crypto API.',
             icon: '🔑',
             href: '/hash-generator',
             status: 'planned',
@@ -141,7 +147,8 @@ const categories: Category[] = [
          },
          {
             title: 'Password Generator',
-            description: 'Create strong passwords with customizable length, symbols, and strength meter.',
+            description:
+               'Create strong passwords with customizable length, symbols, and strength meter.',
             icon: '🛡️',
             href: '/password-generator',
             status: 'planned',
@@ -149,7 +156,8 @@ const categories: Category[] = [
          },
          {
             title: 'UUID / ULID Generator',
-            description: 'Generate v4 UUIDs and ULIDs in batches. Copy single or bulk.',
+            description:
+               'Generate v4 UUIDs and ULIDs in batches. Copy single or bulk.',
             icon: '🆔',
             href: '/uuid-generator',
             status: 'planned',
@@ -157,7 +165,8 @@ const categories: Category[] = [
          },
          {
             title: 'Bcrypt Tester',
-            description: 'Hash strings with Bcrypt and verify if a plaintext matches a hash.',
+            description:
+               'Hash strings with Bcrypt and verify if a plaintext matches a hash.',
             icon: '🧪',
             href: '/bcrypt-tester',
             status: 'planned',
@@ -165,7 +174,8 @@ const categories: Category[] = [
          },
          {
             title: 'RSA Key Pair Generator',
-            description: 'Generate public/private RSA key pairs locally in your browser.',
+            description:
+               'Generate public/private RSA key pairs locally in your browser.',
             icon: '🗝️',
             href: '/rsa-keygen',
             status: 'planned',
@@ -182,15 +192,24 @@ const categories: Category[] = [
       tools: [
          {
             title: 'CSS Playground',
-            description: 'Test & generate CSS or Tailwind features with live preview.',
+            description:
+               'Test & generate CSS or Tailwind features with live preview.',
             icon: '🎨',
             href: '/css-playground',
             status: 'available',
-            tags: ['css', 'tailwind', 'playground', 'generator', 'shadow', 'gradient'],
+            tags: [
+               'css',
+               'tailwind',
+               'playground',
+               'generator',
+               'shadow',
+               'gradient',
+            ],
          },
          {
             title: 'Color Converter & Palette',
-            description: 'Convert HEX, RGB, HSL, CMYK. WCAG contrast checker & palette generator.',
+            description:
+               'Convert HEX, RGB, HSL, CMYK. WCAG contrast checker & palette generator.',
             icon: '🌈',
             href: '/color-converter',
             status: 'planned',
@@ -198,7 +217,8 @@ const categories: Category[] = [
          },
          {
             title: 'SVG Optimizer',
-            description: 'Minify SVG code — strip metadata, comments, and unnecessary attributes.',
+            description:
+               'Minify SVG code — strip metadata, comments, and unnecessary attributes.',
             icon: '✂️',
             href: '/svg-optimizer',
             status: 'planned',
@@ -206,7 +226,8 @@ const categories: Category[] = [
          },
          {
             title: 'Favicon Generator',
-            description: 'Upload a PNG and generate all standard favicon sizes (16px to 512px).',
+            description:
+               'Upload a PNG and generate all standard favicon sizes (16px to 512px).',
             icon: '⭐',
             href: '/favicon-generator',
             status: 'planned',
@@ -214,7 +235,8 @@ const categories: Category[] = [
          },
          {
             title: 'Tailwind CSS Lookup',
-            description: 'Search Tailwind classes → CSS output. Paste CSS → get Tailwind equivalent.',
+            description:
+               'Search Tailwind classes → CSS output. Paste CSS → get Tailwind equivalent.',
             icon: '🌬️',
             href: '/tailwind-lookup',
             status: 'planned',
@@ -222,7 +244,8 @@ const categories: Category[] = [
          },
          {
             title: 'Font Pair Previewer',
-            description: 'Preview Google Font combinations with customizable sample text and sizes.',
+            description:
+               'Preview Google Font combinations with customizable sample text and sizes.',
             icon: '🔡',
             href: '/font-pair',
             status: 'planned',
@@ -239,7 +262,8 @@ const categories: Category[] = [
       tools: [
          {
             title: 'JSON Viewer / Editor',
-            description: 'Format, validate, and explore JSON data with tree view.',
+            description:
+               'Format, validate, and explore JSON data with tree view.',
             icon: '🧩',
             href: '/json-editor',
             status: 'available',
@@ -247,7 +271,8 @@ const categories: Category[] = [
          },
          {
             title: 'RegEx Tester',
-            description: 'Live regex match highlighting, capture groups, and cheat sheet.',
+            description:
+               'Live regex match highlighting, capture groups, and cheat sheet.',
             icon: '🔍',
             href: '/regex-tester',
             status: 'planned',
@@ -255,7 +280,8 @@ const categories: Category[] = [
          },
          {
             title: 'Cron Expression Parser',
-            description: 'Convert cron syntax to plain English. Show next scheduled run times.',
+            description:
+               'Convert cron syntax to plain English. Show next scheduled run times.',
             icon: '⏰',
             href: '/cron-parser',
             status: 'planned',
@@ -263,7 +289,8 @@ const categories: Category[] = [
          },
          {
             title: 'JSON → TypeScript / Go Schema',
-            description: 'Paste JSON → generate TypeScript interfaces, Go structs, or Zod schemas.',
+            description:
+               'Paste JSON → generate TypeScript interfaces, Go structs, or Zod schemas.',
             icon: '📐',
             href: '/json-to-schema',
             status: 'planned',
@@ -271,7 +298,8 @@ const categories: Category[] = [
          },
          {
             title: 'Unix Timestamp Converter',
-            description: 'Convert epoch timestamps ↔ human-readable dates. Relative time display.',
+            description:
+               'Convert epoch timestamps ↔ human-readable dates. Relative time display.',
             icon: '🕐',
             href: '/unix-timestamp',
             status: 'planned',
@@ -279,7 +307,8 @@ const categories: Category[] = [
          },
          {
             title: 'YAML ↔ JSON Converter',
-            description: 'Bidirectional YAML/JSON conversion with syntax validation.',
+            description:
+               'Bidirectional YAML/JSON conversion with syntax validation.',
             icon: '🔄',
             href: '/yaml-json',
             status: 'planned',
@@ -287,7 +316,8 @@ const categories: Category[] = [
          },
          {
             title: 'JSON Path / jq Playground',
-            description: 'Query JSON data with JSONPath or jq-like expressions. Live results.',
+            description:
+               'Query JSON data with JSONPath or jq-like expressions. Live results.',
             icon: '🎯',
             href: '/json-path',
             status: 'planned',
@@ -295,7 +325,8 @@ const categories: Category[] = [
          },
          {
             title: 'ASCII Art Text Generator',
-            description: 'Turn text into large ASCII art headers for code comments.',
+            description:
+               'Turn text into large ASCII art headers for code comments.',
             icon: '🎭',
             href: '/ascii-art',
             status: 'planned',
@@ -312,7 +343,8 @@ const categories: Category[] = [
       tools: [
          {
             title: 'Image Converter / Crop / Resize',
-            description: 'Crop, resize, and convert images between PNG, JPEG, WebP, AVIF.',
+            description:
+               'Crop, resize, and convert images between PNG, JPEG, WebP, AVIF.',
             icon: '🖼️',
             href: '/image-converter',
             status: 'coming-soon',
@@ -320,7 +352,8 @@ const categories: Category[] = [
          },
          {
             title: 'Image Compressor',
-            description: 'Compress JPEG/PNG/WebP with adjustable quality. Before/after comparison.',
+            description:
+               'Compress JPEG/PNG/WebP with adjustable quality. Before/after comparison.',
             icon: '📦',
             href: '/image-compressor',
             status: 'planned',
@@ -328,7 +361,8 @@ const categories: Category[] = [
          },
          {
             title: 'SVG → PNG / JPEG Converter',
-            description: 'Render SVG onto canvas and export as raster image at custom resolution.',
+            description:
+               'Render SVG onto canvas and export as raster image at custom resolution.',
             icon: '🔲',
             href: '/svg-to-png',
             status: 'planned',
@@ -336,7 +370,8 @@ const categories: Category[] = [
          },
          {
             title: 'EXIF Data Viewer / Remover',
-            description: 'Read and strip metadata from photos — GPS, camera info, and more.',
+            description:
+               'Read and strip metadata from photos — GPS, camera info, and more.',
             icon: '📷',
             href: '/exif-remover',
             status: 'planned',
@@ -344,7 +379,8 @@ const categories: Category[] = [
          },
          {
             title: 'QR Code Generator',
-            description: 'Generate QR codes from text/URLs. Customize colors and size.',
+            description:
+               'Generate QR codes from text/URLs. Customize colors and size.',
             icon: '📱',
             href: '/qr-generator',
             status: 'planned',
@@ -361,7 +397,8 @@ const categories: Category[] = [
       tools: [
          {
             title: 'CSV ↔ JSON Converter',
-            description: 'Parse CSV to JSON objects/arrays and back. Handle headers & delimiters.',
+            description:
+               'Parse CSV to JSON objects/arrays and back. Handle headers & delimiters.',
             icon: '📊',
             href: '/csv-json',
             status: 'planned',
@@ -385,7 +422,8 @@ const categories: Category[] = [
          },
          {
             title: 'Number Base Converter',
-            description: 'Convert between binary, octal, decimal, and hexadecimal.',
+            description:
+               'Convert between binary, octal, decimal, and hexadecimal.',
             icon: '🔢',
             href: '/number-base',
             status: 'planned',
@@ -397,7 +435,11 @@ const categories: Category[] = [
 
 // ── Flatten for search ───────────────────────────────────────
 const allTools = categories.flatMap((cat) =>
-   cat.tools.map((tool) => ({ ...tool, categoryId: cat.id, categoryTitle: cat.title }))
+   cat.tools.map((tool) => ({
+      ...tool,
+      categoryId: cat.id,
+      categoryTitle: cat.title,
+   }))
 );
 
 // ── Status badge config ──────────────────────────────────────
@@ -426,7 +468,9 @@ const accentMap: Record<string, string> = {
 // ── Component ────────────────────────────────────────────────
 export default function Home() {
    const [searchQuery, setSearchQuery] = useState('');
-   const [collapsedCategories, setCollapsedCategories] = useState<Set<string>>(new Set());
+   const [collapsedCategories, setCollapsedCategories] = useState<Set<string>>(
+      new Set()
+   );
 
    const toggleCategory = (id: string) => {
       setCollapsedCategories((prev) => {
@@ -464,12 +508,14 @@ export default function Home() {
          .filter((cat) => toolsByCategory.has(cat.id))
          .map((cat) => ({
             ...cat,
-            tools: (toolsByCategory.get(cat.id) || []),
+            tools: toolsByCategory.get(cat.id) || [],
          }));
    }, [isSearching, filteredTools]);
 
    const totalToolCount = allTools.length;
-   const availableCount = allTools.filter((t) => t.status === 'available').length;
+   const availableCount = allTools.filter(
+      (t) => t.status === 'available'
+   ).length;
 
    return (
       <div className="min-h-screen bg-background">
@@ -480,7 +526,8 @@ export default function Home() {
                   Developer Tools
                </h1>
                <p className="text-muted-foreground text-base md:text-lg mb-2 max-w-2xl mx-auto">
-                  Free, open-source developer tools — {availableCount} available, {totalToolCount - availableCount} more on the way.
+                  Free, open-source developer tools — {availableCount}{' '}
+                  available, {totalToolCount - availableCount} more on the way.
                   <br className="hidden sm:block" />
                   No registration. No ads.
                </p>
@@ -518,7 +565,11 @@ export default function Home() {
                         ? 'No tools found'
                         : `${filteredTools.length} tool${filteredTools.length === 1 ? '' : 's'} found`}
                      {' for '}
-                     &quot;<span className="font-medium text-foreground">{searchQuery}</span>&quot;
+                     &quot;
+                     <span className="font-medium text-foreground">
+                        {searchQuery}
+                     </span>
+                     &quot;
                   </p>
                )}
             </header>
@@ -526,15 +577,21 @@ export default function Home() {
             {/* ── Categories ───────────────────────────── */}
             <main className="space-y-6 mb-12">
                {filteredCategories.map((category) => {
-                  const isCollapsed = !isSearching && collapsedCategories.has(category.id);
-                  const accent = accentMap[category.accentColor] || accentMap.blue;
-                  const catAvailable = category.tools.filter((t) => t.status === 'available').length;
+                  const isCollapsed =
+                     !isSearching && collapsedCategories.has(category.id);
+                  const accent =
+                     accentMap[category.accentColor] || accentMap.blue;
+                  const catAvailable = category.tools.filter(
+                     (t) => t.status === 'available'
+                  ).length;
 
                   return (
                      <section key={category.id} className="group">
                         {/* Category Header */}
                         <button
-                           onClick={() => !isSearching && toggleCategory(category.id)}
+                           onClick={() =>
+                              !isSearching && toggleCategory(category.id)
+                           }
                            className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border bg-gradient-to-r ${accent} transition-all hover:opacity-90 ${
                               isSearching ? 'cursor-default' : 'cursor-pointer'
                            }`}
@@ -551,9 +608,12 @@ export default function Home() {
                            <div className="flex items-center gap-2">
                               <span className="text-[10px] text-muted-foreground tabular-nums">
                                  {catAvailable > 0 && (
-                                    <span className="text-emerald-400 mr-1">{catAvailable} live</span>
+                                    <span className="text-emerald-400 mr-1">
+                                       {catAvailable} live
+                                    </span>
                                  )}
-                                 {category.tools.length} tool{category.tools.length === 1 ? '' : 's'}
+                                 {category.tools.length} tool
+                                 {category.tools.length === 1 ? '' : 's'}
                               </span>
                               {!isSearching && (
                                  <ChevronDown

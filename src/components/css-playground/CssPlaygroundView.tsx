@@ -43,7 +43,9 @@ export function CssPlaygroundView() {
          const storedHtml = localStorage.getItem(STORAGE_KEY_HTML);
          const storedCss = localStorage.getItem(STORAGE_KEY_CSS);
          const storedPreset = localStorage.getItem(STORAGE_KEY_PRESET);
-         const storedMode = localStorage.getItem(STORAGE_KEY_MODE) as PlaygroundMode | null;
+         const storedMode = localStorage.getItem(
+            STORAGE_KEY_MODE
+         ) as PlaygroundMode | null;
 
          if (storedHtml) {
             setHtmlContent(storedHtml);
@@ -135,7 +137,9 @@ export function CssPlaygroundView() {
       <div className="css-playground-wrapper w-full h-full flex flex-col">
          <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(cssPlaygroundSchema) }}
+            dangerouslySetInnerHTML={{
+               __html: JSON.stringify(cssPlaygroundSchema),
+            }}
          />
 
          {/* Mode Toggle + Toolbar Row */}

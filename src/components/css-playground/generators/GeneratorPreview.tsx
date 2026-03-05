@@ -12,15 +12,22 @@ interface GeneratorPreviewProps {
    bodyBg?: string;
 }
 
-export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = 'transparent' }: GeneratorPreviewProps) {
+export function GeneratorPreview({
+   css,
+   html,
+   tailwind,
+   previewStyle,
+   bodyBg = 'transparent',
+}: GeneratorPreviewProps) {
    const [activeTab, setActiveTab] = React.useState<'css' | 'tailwind'>('css');
    const [copied, setCopied] = React.useState(false);
-   
+
    const iframeRef = React.useRef<HTMLIFrameElement>(null);
    const [iframeLoaded, setIframeLoaded] = React.useState(false);
    const lastHtmlRef = React.useRef(html);
 
-   const initialSrcDoc = React.useMemo(() => `<!DOCTYPE html>
+   const initialSrcDoc = React.useMemo(
+      () => `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -40,7 +47,9 @@ export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = '
 <body>
   <div id="preview-wrapper"></div>
 </body>
-</html>`, []);
+</html>`,
+      []
+   );
 
    React.useEffect(() => {
       const iframe = iframeRef.current;
@@ -51,7 +60,7 @@ export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = '
 
       try {
          doc.body.style.background = bodyBg;
-         
+
          const styleEl = doc.getElementById('dynamic-style');
          if (styleEl) {
             styleEl.textContent = css;
@@ -71,7 +80,7 @@ export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = '
 
    const handleCopy = async () => {
       try {
-         const textToCopy = activeTab === 'css' ? css : (tailwind || '');
+         const textToCopy = activeTab === 'css' ? css : tailwind || '';
          await navigator.clipboard.writeText(textToCopy);
          setCopied(true);
          setTimeout(() => setCopied(false), 2000);
@@ -86,7 +95,8 @@ export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = '
          <div
             className="flex-1 flex items-center justify-center overflow-auto p-4 min-h-[200px]"
             style={{
-               background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+               background:
+                  'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
                ...previewStyle,
             }}
          >
@@ -110,14 +120,14 @@ export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = '
          <div className="border-t border-border/30">
             <div className="flex items-center justify-between px-3 py-1 bg-muted/20 border-b border-border/20">
                <div className="flex gap-4">
-                  <button 
+                  <button
                      className={`text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-colors ${activeTab === 'css' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
                      onClick={() => setActiveTab('css')}
                   >
                      Generated CSS
                   </button>
                   {tailwind && (
-                     <button 
+                     <button
                         className={`text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-colors ${activeTab === 'tailwind' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
                         onClick={() => setActiveTab('tailwind')}
                      >

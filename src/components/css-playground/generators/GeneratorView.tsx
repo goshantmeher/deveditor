@@ -26,13 +26,55 @@ export interface GeneratorConfig {
 }
 
 const GENERATORS: GeneratorConfig[] = [
-   { id: 'box-shadow', name: 'Box Shadow', icon: '🎭', description: 'Multi-layer box shadows', component: BoxShadowGenerator },
-   { id: 'border-radius', name: 'Border Radius', icon: '⬡', description: 'Corner rounding controls', component: BorderRadiusGenerator },
-   { id: 'gradient', name: 'Gradient', icon: '🌈', description: 'Linear, radial & conic gradients', component: GradientGenerator },
-   { id: 'flexbox', name: 'Flexbox', icon: '📐', description: 'Flex container & items', component: FlexboxGenerator },
-   { id: 'grid', name: 'CSS Grid', icon: '🔲', description: 'Grid columns, rows & gap', component: GridGenerator },
-   { id: 'transform', name: 'Transform', icon: '🔄', description: 'Rotate, scale, skew & translate', component: TransformGenerator },
-   { id: 'animation', name: 'Animation', icon: '✨', description: 'Keyframe animations and timings', component: AnimationGenerator },
+   {
+      id: 'box-shadow',
+      name: 'Box Shadow',
+      icon: '🎭',
+      description: 'Multi-layer box shadows',
+      component: BoxShadowGenerator,
+   },
+   {
+      id: 'border-radius',
+      name: 'Border Radius',
+      icon: '⬡',
+      description: 'Corner rounding controls',
+      component: BorderRadiusGenerator,
+   },
+   {
+      id: 'gradient',
+      name: 'Gradient',
+      icon: '🌈',
+      description: 'Linear, radial & conic gradients',
+      component: GradientGenerator,
+   },
+   {
+      id: 'flexbox',
+      name: 'Flexbox',
+      icon: '📐',
+      description: 'Flex container & items',
+      component: FlexboxGenerator,
+   },
+   {
+      id: 'grid',
+      name: 'CSS Grid',
+      icon: '🔲',
+      description: 'Grid columns, rows & gap',
+      component: GridGenerator,
+   },
+   {
+      id: 'transform',
+      name: 'Transform',
+      icon: '🔄',
+      description: 'Rotate, scale, skew & translate',
+      component: TransformGenerator,
+   },
+   {
+      id: 'animation',
+      name: 'Animation',
+      icon: '✨',
+      description: 'Keyframe animations and timings',
+      component: AnimationGenerator,
+   },
 ];
 
 export function GeneratorView() {
@@ -47,7 +89,11 @@ export function GeneratorView() {
             {/* Dropdown selector */}
             <DropdownMenu>
                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs font-medium">
+                  <Button
+                     variant="outline"
+                     size="sm"
+                     className="h-7 gap-1.5 text-xs font-medium"
+                  >
                      <span>{active.icon}</span>
                      <span className="hidden sm:inline">{active.name}</span>
                      <ChevronDown className="h-3 w-3 opacity-60" />
@@ -62,8 +108,12 @@ export function GeneratorView() {
                      >
                         <span className="text-base">{gen.icon}</span>
                         <div className="flex flex-col">
-                           <span className="text-sm font-medium">{gen.name}</span>
-                           <span className="text-xs text-muted-foreground">{gen.description}</span>
+                           <span className="text-sm font-medium">
+                              {gen.name}
+                           </span>
+                           <span className="text-xs text-muted-foreground">
+                              {gen.description}
+                           </span>
                         </div>
                      </DropdownMenuItem>
                   ))}
