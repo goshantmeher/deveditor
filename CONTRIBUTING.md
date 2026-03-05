@@ -68,6 +68,7 @@ By contributing, you agree that:
 If you're unsure about something or want to discuss before contributing:
 
 - Open an issue
+
 ```markdown
 - Or reach out via [mehergoshant@gmail.com](mailto:mehergoshant@gmail.com) or the [contact form](https://forms.gle/iKfAFpMuX4rJzUsx5)
 ```

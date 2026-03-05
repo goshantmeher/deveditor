@@ -11,10 +11,30 @@ type Base64Tab = 'text' | 'file' | 'urlsafe';
 
 const STORAGE_KEY_TAB = 'base64-encoder-active-tab';
 
-const tabs: { id: Base64Tab; label: string; icon: React.ReactNode; description: string }[] = [
-   { id: 'text', label: 'Text', icon: <Type className="h-3.5 w-3.5" />, description: 'Encode & decode plain text' },
-   { id: 'file', label: 'File / Image', icon: <FileUp className="h-3.5 w-3.5" />, description: 'Encode files & preview images' },
-   { id: 'urlsafe', label: 'URL-safe', icon: <Shield className="h-3.5 w-3.5" />, description: 'URL-safe Base64 variant' },
+const tabs: {
+   id: Base64Tab;
+   label: string;
+   icon: React.ReactNode;
+   description: string;
+}[] = [
+   {
+      id: 'text',
+      label: 'Text',
+      icon: <Type className="h-3.5 w-3.5" />,
+      description: 'Encode & decode plain text',
+   },
+   {
+      id: 'file',
+      label: 'File / Image',
+      icon: <FileUp className="h-3.5 w-3.5" />,
+      description: 'Encode files & preview images',
+   },
+   {
+      id: 'urlsafe',
+      label: 'URL-safe',
+      icon: <Shield className="h-3.5 w-3.5" />,
+      description: 'URL-safe Base64 variant',
+   },
 ];
 
 export function Base64EncoderView() {
@@ -28,7 +48,9 @@ export function Base64EncoderView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const stored = localStorage.getItem(STORAGE_KEY_TAB) as Base64Tab | null;
+         const stored = localStorage.getItem(
+            STORAGE_KEY_TAB
+         ) as Base64Tab | null;
          if (stored && ['text', 'file', 'urlsafe'].includes(stored)) {
             setActiveTab(stored);
          }

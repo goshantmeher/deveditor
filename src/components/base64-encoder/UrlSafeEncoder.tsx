@@ -97,7 +97,9 @@ export function UrlSafeEncoder() {
       setDirection((prev) => (prev === 'encode' ? 'decode' : 'encode'));
       setInput('');
       setOutput('');
-      setTimeout(() => { isUserSwitch.current = false; }, 100);
+      setTimeout(() => {
+         isUserSwitch.current = false;
+      }, 100);
    }, []);
 
    const handleSwapContent = useCallback(() => {
@@ -105,7 +107,9 @@ export function UrlSafeEncoder() {
       isUserSwitch.current = true;
       setDirection((prev) => (prev === 'encode' ? 'decode' : 'encode'));
       setInput(newInput);
-      setTimeout(() => { isUserSwitch.current = false; }, 100);
+      setTimeout(() => {
+         isUserSwitch.current = false;
+      }, 100);
    }, [output]);
 
    const handleCopy = useCallback(async () => {
@@ -123,18 +127,21 @@ export function UrlSafeEncoder() {
    const outputBytes = new globalThis.TextEncoder().encode(output).length;
 
    // Compute diff display for standard vs URL-safe
-   const standardPreview = direction === 'encode' && output
-      ? (() => {
-         try {
-            const bytes = new globalThis.TextEncoder().encode(input);
-            let binary = '';
-            for (let i = 0; i < bytes.length; i++) {
-               binary += String.fromCharCode(bytes[i]);
-            }
-            return btoa(binary);
-         } catch { return ''; }
-      })()
-      : '';
+   const standardPreview =
+      direction === 'encode' && output
+         ? (() => {
+              try {
+                 const bytes = new globalThis.TextEncoder().encode(input);
+                 let binary = '';
+                 for (let i = 0; i < bytes.length; i++) {
+                    binary += String.fromCharCode(bytes[i]);
+                 }
+                 return btoa(binary);
+              } catch {
+                 return '';
+              }
+           })()
+         : '';
 
    return (
       <div className="flex flex-col h-full">
@@ -197,13 +204,18 @@ export function UrlSafeEncoder() {
             <div className="flex flex-col md:w-1/2 min-h-0 border-r border-border/30">
                <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                     <div className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-emerald-400/80' : 'bg-amber-400/80'}`} />
+                     <div
+                        className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-emerald-400/80' : 'bg-amber-400/80'}`}
+                     />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        {direction === 'encode' ? 'Plain Text' : 'URL-safe Base64'}
+                        {direction === 'encode'
+                           ? 'Plain Text'
+                           : 'URL-safe Base64'}
                      </span>
                   </div>
                   <span className="text-[10px] text-muted-foreground">
-                     {input.length > 0 && `${input.length} chars · ${formatBytes(inputBytes)}`}
+                     {input.length > 0 &&
+                        `${input.length} chars · ${formatBytes(inputBytes)}`}
                   </span>
                </div>
                <textarea
@@ -223,9 +235,13 @@ export function UrlSafeEncoder() {
             <div className="flex flex-col md:w-1/2 min-h-0">
                <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                     <div className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-blue-400/80' : 'bg-green-400/80'}`} />
+                     <div
+                        className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-blue-400/80' : 'bg-green-400/80'}`}
+                     />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        {direction === 'encode' ? 'URL-safe Base64' : 'Decoded Text'}
+                        {direction === 'encode'
+                           ? 'URL-safe Base64'
+                           : 'Decoded Text'}
                      </span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -266,7 +282,9 @@ export function UrlSafeEncoder() {
                {/* Standard vs URL-safe comparison */}
                {standardPreview && standardPreview !== output && (
                   <div className="border-t border-border/20 px-4 py-2 bg-muted/10">
-                     <span className="text-[10px] text-muted-foreground uppercase tracking-wider block mb-1">Standard Base64 (for comparison)</span>
+                     <span className="text-[10px] text-muted-foreground uppercase tracking-wider block mb-1">
+                        Standard Base64 (for comparison)
+                     </span>
                      <pre className="text-xs font-mono text-muted-foreground/70 break-all whitespace-pre-wrap">
                         {standardPreview}
                      </pre>

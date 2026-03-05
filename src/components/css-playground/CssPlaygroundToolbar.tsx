@@ -82,7 +82,7 @@ ${htmlContent}
       : null;
 
    return (
-      <div className="flex items-center justify-between px-3 py-1.5 border-b border-border/50 bg-muted/30 shrink-0 gap-2 flex-wrap">
+      <div className="flex items-center justify-between px-3 py-1.5 border-b md:border-b-0 border-border/50 bg-muted/30 shrink-0 gap-2 overflow-x-auto w-full">
          {/* Left: Presets */}
          <div className="flex items-center gap-2">
             <DropdownMenu>

@@ -43,7 +43,9 @@ export function CssPlaygroundView() {
          const storedHtml = localStorage.getItem(STORAGE_KEY_HTML);
          const storedCss = localStorage.getItem(STORAGE_KEY_CSS);
          const storedPreset = localStorage.getItem(STORAGE_KEY_PRESET);
-         const storedMode = localStorage.getItem(STORAGE_KEY_MODE) as PlaygroundMode | null;
+         const storedMode = localStorage.getItem(
+            STORAGE_KEY_MODE
+         ) as PlaygroundMode | null;
 
          if (storedHtml) {
             setHtmlContent(storedHtml);
@@ -135,34 +137,36 @@ export function CssPlaygroundView() {
       <div className="css-playground-wrapper w-full h-full flex flex-col">
          <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(cssPlaygroundSchema) }}
+            dangerouslySetInnerHTML={{
+               __html: JSON.stringify(cssPlaygroundSchema),
+            }}
          />
 
          {/* Mode Toggle + Toolbar Row */}
-         <div className="flex items-center border-b border-border/50 bg-muted/30 shrink-0">
+         <div className="flex flex-col md:flex-row items-center border-b border-border/50 bg-muted/30 shrink-0">
             {/* Mode Toggle */}
-            <div className="flex items-center border-r border-border/30 px-2 py-1.5 shrink-0">
-               <div className="flex rounded-lg bg-muted/50 p-0.5">
+            <div className="flex items-center md:border-r border-border/30 px-2 py-1.5 shrink-0 w-full md:w-auto border-b md:border-b-0 justify-center flex-row">
+               <div className="flex rounded-lg bg-muted/50 p-0.5 w-full md:w-auto max-w-[300px] justify-center mx-auto md:mx-0">
                   <button
                      onClick={() => setMode('editor')}
-                     className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-medium transition-all ${
+                     className={`flex-1 md:flex-none flex justify-center items-center gap-1.5 px-3 py-1.5 rounded-md text-sm md:text-xs font-medium transition-all ${
                         mode === 'editor'
                            ? 'bg-background text-foreground shadow-sm'
                            : 'text-muted-foreground hover:text-foreground'
                      }`}
                   >
-                     <Code2 className="h-3.5 w-3.5" />
+                     <Code2 className="h-4 w-4 md:h-3.5 md:w-3.5" />
                      Editor
                   </button>
                   <button
                      onClick={() => setMode('generator')}
-                     className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-medium transition-all ${
+                     className={`flex-1 md:flex-none flex justify-center items-center gap-1.5 px-3 py-1.5 rounded-md text-sm md:text-xs font-medium transition-all ${
                         mode === 'generator'
                            ? 'bg-background text-foreground shadow-sm'
                            : 'text-muted-foreground hover:text-foreground'
                      }`}
                   >
-                     <Sliders className="h-3.5 w-3.5" />
+                     <Sliders className="h-4 w-4 md:h-3.5 md:w-3.5" />
                      Generator
                   </button>
                </div>
@@ -170,7 +174,7 @@ export function CssPlaygroundView() {
 
             {/* Editor toolbar (only shown in editor mode) */}
             {mode === 'editor' && (
-               <div className="flex-1 min-w-0">
+               <div className="flex-1 w-full md:w-auto min-w-0">
                   <CssPlaygroundToolbar
                      onPresetSelect={handlePresetSelect}
                      htmlContent={htmlContent}
@@ -192,9 +196,9 @@ export function CssPlaygroundView() {
 
          {/* Content */}
          {mode === 'editor' ? (
-            <div className="flex-1 flex flex-col md:flex-row min-h-0">
+            <div className="flex-1 flex flex-col md:flex-row min-h-0 overflow-y-auto md:overflow-hidden">
                {/* HTML Editor Pane */}
-               <div className="flex flex-col md:w-1/3 min-h-0 border-r border-border/30">
+               <div className="flex flex-col w-full min-h-[300px] md:min-h-0 md:w-1/3 border-b md:border-b-0 md:border-r border-border/30 shrink-0 md:shrink">
                   <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0">
                      <div className="flex items-center gap-2">
                         <div className="w-2.5 h-2.5 rounded-full bg-orange-400/80" />
@@ -213,7 +217,7 @@ export function CssPlaygroundView() {
                </div>
 
                {/* CSS Editor Pane */}
-               <div className="flex flex-col md:w-1/3 min-h-0 border-r border-border/30">
+               <div className="flex flex-col w-full min-h-[300px] md:min-h-0 md:w-1/3 border-b md:border-b-0 md:border-r border-border/30 shrink-0 md:shrink">
                   <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0">
                      <div className="flex items-center gap-2">
                         <div className="w-2.5 h-2.5 rounded-full bg-blue-400/80" />
@@ -232,7 +236,7 @@ export function CssPlaygroundView() {
                </div>
 
                {/* Live Preview Pane */}
-               <div className="flex flex-col md:w-1/3 min-h-0">
+               <div className="flex flex-col w-full min-h-[400px] md:min-h-0 md:w-1/3 shrink-0 md:shrink">
                   <LivePreview
                      htmlContent={debouncedHtml}
                      cssContent={debouncedCss}

@@ -161,7 +161,7 @@ export function JsonEditorView() {
                rightData={rightEditor.data}
             />
          )}
-         <div className="flex flex-col md:flex-row w-full h-full">
+         <div className="flex flex-col md:flex-row w-full h-full min-h-0">
             <EditorPanel
                data={leftEditor.data}
                onDataChange={leftEditor.setData}

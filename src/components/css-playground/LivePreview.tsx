@@ -57,8 +57,8 @@ export function LivePreview({ htmlContent, cssContent }: LivePreviewProps) {
          className={`flex flex-col h-full ${isFullscreen ? 'fixed inset-0 z-50 bg-background' : ''}`}
       >
          {/* Preview Controls */}
-         <div className="flex items-center justify-between px-3 py-1.5 border-b border-border/50 bg-muted/30 shrink-0">
-            <div className="flex items-center gap-1.5">
+         <div className="flex items-center justify-between gap-2 px-3 py-1.5 border-b border-border/50 bg-muted/30 shrink-0 overflow-x-auto w-full">
+            <div className="flex items-center gap-1.5 shrink-0">
                <span className="text-xs font-semibold text-muted-foreground mr-1.5 hidden sm:inline">
                   Preview
                </span>

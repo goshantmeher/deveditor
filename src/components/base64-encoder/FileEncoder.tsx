@@ -1,7 +1,16 @@
 'use client';
 
 import React, { useState, useCallback, useRef } from 'react';
-import { Copy, Check, Upload, X, FileIcon, Image as ImageIcon, Code, FileText } from 'lucide-react';
+import {
+   Copy,
+   Check,
+   Upload,
+   X,
+   FileIcon,
+   Image as ImageIcon,
+   Code,
+   FileText,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 function formatBytes(bytes: number): string {
@@ -88,9 +97,7 @@ export function FileEncoder() {
       if (fileInputRef.current) fileInputRef.current.value = '';
    }, []);
 
-   const cssSnippet = file
-      ? `background-image: url(${file.dataUri});`
-      : '';
+   const cssSnippet = file ? `background-image: url(${file.dataUri});` : '';
 
    const htmlSnippet = file
       ? `<img src="${file.dataUri}" alt="${file.name}" />`
@@ -115,12 +122,18 @@ export function FileEncoder() {
                   }`}
                   onClick={() => fileInputRef.current?.click()}
                >
-                  <div className={`p-3 rounded-full transition-colors ${isDragOver ? 'bg-primary/15' : 'bg-muted/30'}`}>
-                     <Upload className={`h-6 w-6 ${isDragOver ? 'text-primary' : 'text-muted-foreground'}`} />
+                  <div
+                     className={`p-3 rounded-full transition-colors ${isDragOver ? 'bg-primary/15' : 'bg-muted/30'}`}
+                  >
+                     <Upload
+                        className={`h-6 w-6 ${isDragOver ? 'text-primary' : 'text-muted-foreground'}`}
+                     />
                   </div>
                   <div className="text-center">
                      <p className="text-sm font-medium text-foreground">
-                        {isProcessing ? 'Processing...' : 'Drop a file here or click to browse'}
+                        {isProcessing
+                           ? 'Processing...'
+                           : 'Drop a file here or click to browse'}
                      </p>
                      <p className="text-xs text-muted-foreground mt-1">
                         Any file type · Images will show a preview
@@ -154,16 +167,37 @@ export function FileEncoder() {
                         ) : (
                            <FileIcon className="h-4 w-4 text-blue-400 shrink-0" />
                         )}
-                        <span className="text-sm font-medium text-foreground truncate">{file.name}</span>
+                        <span className="text-sm font-medium text-foreground truncate">
+                           {file.name}
+                        </span>
                      </div>
 
                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground mt-1">
-                        <span>Type: <span className="text-foreground/80">{file.type}</span></span>
-                        <span>Size: <span className="text-foreground/80">{formatBytes(file.size)}</span></span>
                         <span>
-                           Base64: <span className="text-foreground/80">{formatBytes(file.base64.length)}</span>
+                           Type:{' '}
+                           <span className="text-foreground/80">
+                              {file.type}
+                           </span>
+                        </span>
+                        <span>
+                           Size:{' '}
+                           <span className="text-foreground/80">
+                              {formatBytes(file.size)}
+                           </span>
+                        </span>
+                        <span>
+                           Base64:{' '}
+                           <span className="text-foreground/80">
+                              {formatBytes(file.base64.length)}
+                           </span>
                            <span className="ml-1 text-amber-400">
-                              (+{Math.round(((file.base64.length - file.size) / file.size) * 100)}%)
+                              (+
+                              {Math.round(
+                                 ((file.base64.length - file.size) /
+                                    file.size) *
+                                    100
+                              )}
+                              %)
                            </span>
                         </span>
                      </div>

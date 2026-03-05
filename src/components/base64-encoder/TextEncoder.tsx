@@ -15,7 +15,11 @@ function isValidBase64(str: string): boolean {
    return /^[A-Za-z0-9+/]*={0,2}$/.test(cleaned) && cleaned.length % 4 === 0;
 }
 
-function encodeText(text: string, charset: Charset, wrapLines: boolean): string {
+function encodeText(
+   text: string,
+   charset: Charset,
+   wrapLines: boolean
+): string {
    try {
       let bytes: Uint8Array;
 
@@ -187,7 +191,9 @@ export function TextEncoder() {
 
             {/* Charset */}
             <div className="flex items-center gap-1.5">
-               <span className="text-[10px] text-muted-foreground uppercase tracking-wider">Charset</span>
+               <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
+                  Charset
+               </span>
                <select
                   value={charset}
                   onChange={(e) => setCharset(e.target.value as Charset)}
@@ -234,13 +240,16 @@ export function TextEncoder() {
             <div className="flex flex-col md:w-1/2 min-h-0 border-r border-border/30">
                <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                     <div className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-emerald-400/80' : 'bg-amber-400/80'}`} />
+                     <div
+                        className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-emerald-400/80' : 'bg-amber-400/80'}`}
+                     />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                         {direction === 'encode' ? 'Plain Text' : 'Base64 Input'}
                      </span>
                   </div>
                   <span className="text-[10px] text-muted-foreground">
-                     {input.length > 0 && `${input.length} chars · ${formatBytes(inputBytes)}`}
+                     {input.length > 0 &&
+                        `${input.length} chars · ${formatBytes(inputBytes)}`}
                   </span>
                </div>
                <textarea
@@ -260,9 +269,13 @@ export function TextEncoder() {
             <div className="flex flex-col md:w-1/2 min-h-0">
                <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                     <div className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-blue-400/80' : 'bg-green-400/80'}`} />
+                     <div
+                        className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-blue-400/80' : 'bg-green-400/80'}`}
+                     />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        {direction === 'encode' ? 'Base64 Output' : 'Decoded Text'}
+                        {direction === 'encode'
+                           ? 'Base64 Output'
+                           : 'Decoded Text'}
                      </span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -271,7 +284,12 @@ export function TextEncoder() {
                            {output.length} chars · {formatBytes(outputBytes)}
                            {direction === 'encode' && inputBytes > 0 && (
                               <span className="ml-1 text-amber-400">
-                                 (+{Math.round(((outputBytes - inputBytes) / inputBytes) * 100)}%)
+                                 (+
+                                 {Math.round(
+                                    ((outputBytes - inputBytes) / inputBytes) *
+                                       100
+                                 )}
+                                 %)
                               </span>
                            )}
                         </span>

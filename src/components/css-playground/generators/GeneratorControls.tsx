@@ -24,19 +24,22 @@ export function ControlSlider({
    return (
       <div className="flex flex-col gap-1">
          <div className="flex items-center justify-between">
-            <label className="text-xs font-medium text-muted-foreground">{label}</label>
+            <label className="text-xs font-medium text-muted-foreground">
+               {label}
+            </label>
             <span className="text-xs font-mono text-primary/80 bg-primary/5 px-1.5 py-0.5 rounded">
-               {value}{unit}
+               {value}
+               {unit}
             </span>
          </div>
          <div className="relative flex items-center h-4">
             {/* The visible baseline track */}
             <div className="absolute left-0 right-0 h-1 bg-border/50 rounded-full pointer-events-none" />
-            
+
             {/* The active progress track (optional, could just be the thumb, but makes it look better) */}
-            <div 
-               className="absolute left-0 h-1 bg-primary/40 rounded-full pointer-events-none" 
-               style={{ width: `${((value - min) / (max - min)) * 100}%` }} 
+            <div
+               className="absolute left-0 h-1 bg-primary/40 rounded-full pointer-events-none"
+               style={{ width: `${((value - min) / (max - min)) * 100}%` }}
             />
 
             <input
@@ -69,9 +72,13 @@ interface ControlColorProps {
 export function ControlColor({ label, value, onChange }: ControlColorProps) {
    return (
       <div className="flex items-center justify-between">
-         <label className="text-xs font-medium text-muted-foreground">{label}</label>
+         <label className="text-xs font-medium text-muted-foreground">
+            {label}
+         </label>
          <div className="flex items-center gap-2">
-            <span className="text-xs font-mono text-muted-foreground">{value}</span>
+            <span className="text-xs font-mono text-muted-foreground">
+               {value}
+            </span>
             <input
                type="color"
                value={value}
@@ -94,7 +101,9 @@ interface ControlToggleProps {
 export function ControlToggle({ label, value, onChange }: ControlToggleProps) {
    return (
       <div className="flex items-center justify-between">
-         <label className="text-xs font-medium text-muted-foreground">{label}</label>
+         <label className="text-xs font-medium text-muted-foreground">
+            {label}
+         </label>
          <button
             onClick={() => onChange(!value)}
             className={`relative w-9 h-5 rounded-full transition-colors ${
@@ -118,10 +127,17 @@ interface ControlSelectProps {
    options: { value: string; label: string }[];
 }
 
-export function ControlSelect({ label, value, onChange, options }: ControlSelectProps) {
+export function ControlSelect({
+   label,
+   value,
+   onChange,
+   options,
+}: ControlSelectProps) {
    return (
       <div className="flex flex-col gap-1">
-         <label className="text-xs font-medium text-muted-foreground">{label}</label>
+         <label className="text-xs font-medium text-muted-foreground">
+            {label}
+         </label>
          <div className="flex flex-wrap gap-1">
             {options.map((opt) => (
                <button
@@ -152,9 +168,7 @@ export function ControlGroup({ title, children }: ControlGroupProps) {
          <h4 className="text-xs font-semibold text-foreground/70 uppercase tracking-wider border-b border-border/20 pb-1">
             {title}
          </h4>
-         <div className="space-y-3">
-            {children}
-         </div>
+         <div className="space-y-3">{children}</div>
       </div>
    );
 }
