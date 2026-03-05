@@ -57,7 +57,7 @@
    - ✅ Feasible: Pure string replace or DOM-based escaping
    - Priority: ⭐⭐⭐
 
-- [ ] **Text Diff Checker** — Side-by-side visual diff of two text blocks (line-level + character-level highlighting)
+- [x] **Text Diff Checker** — Side-by-side visual diff of two text blocks (line-level + character-level highlighting)
    - ✅ Feasible: Use the `diff-match-patch` library (~14 KB) or build from scratch
    - Priority: ⭐⭐⭐⭐⭐
 

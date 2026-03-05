@@ -70,7 +70,8 @@ const categories: Category[] = [
                'Side-by-side visual comparison of two text blocks with change highlighting.',
             icon: '📝',
             href: '/text-diff',
-            status: 'planned',
+            status: 'available',
+            isNew: true,
             tags: ['diff', 'compare', 'text', 'merge'],
          },
          {
