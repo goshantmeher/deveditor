@@ -214,7 +214,8 @@ const categories: Category[] = [
                'Convert HEX, RGB, HSL, CMYK. WCAG contrast checker & palette generator.',
             icon: '🌈',
             href: '/color-converter',
-            status: 'planned',
+            status: 'available',
+            isNew: true,
             tags: ['color', 'hex', 'rgb', 'hsl', 'palette', 'contrast', 'wcag'],
          },
          {
