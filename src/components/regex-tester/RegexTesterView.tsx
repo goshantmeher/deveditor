@@ -402,10 +402,10 @@ export function RegexTesterView() {
    };
 
    return (
-      <div className="flex flex-col h-full w-full bg-background tracking-normal">
+      <div className="flex flex-col h-full w-full bg-background border border-border rounded-xl shadow-sm tracking-normal overflow-hidden">
          {/* Top Toolbar: Pattern & Flags */}
-         <div className="flex flex-col border-b border-border bg-muted/10 z-20">
-            <div className="flex items-center justify-between px-4 py-2 border-b border-border/50 bg-background/50 backdrop-blur-sm">
+         <div className="flex flex-col border-b border-border bg-background z-20">
+            <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-background">
                <div className="flex items-center gap-2">
                   <Braces className="w-4 h-4 text-indigo-500" />
                   <h1 className="text-sm font-semibold">RegEx Tester</h1>
@@ -413,7 +413,7 @@ export function RegexTesterView() {
                </div>
                <div className="flex items-center gap-3">
                   {result && !result.error && (
-                     <div className="text-xs text-muted-foreground font-mono bg-muted px-2 py-0.5 rounded-full">
+                     <div className="text-xs text-muted-foreground font-mono bg-background border border-border/50 px-2 py-0.5 rounded-full">
                         {result.matches?.length || 0} match
                         {result.matches?.length === 1 ? '' : 'es'}
                         <span className="opacity-50 ml-1">({result.executionTimeMs?.toFixed(1) || 0}ms)</span>
@@ -424,7 +424,7 @@ export function RegexTesterView() {
 
             <div className="p-4 flex flex-col md:flex-row gap-4 items-start md:items-center relative">
                <div className="flex-1 flex w-full relative group">
-                  <div className="flex items-center px-3 bg-muted border border-r-0 border-border rounded-l-md text-muted-foreground font-mono text-lg select-none">
+                  <div className="flex items-center px-3 bg-background border border-r-0 border-border rounded-l-md text-muted-foreground font-mono text-lg select-none">
                      /
                   </div>
                   <Input
@@ -435,7 +435,7 @@ export function RegexTesterView() {
                      spellCheck={false}
                   />
                   <div className="flex gap-0 relative">
-                     <div className="flex items-center px-1 bg-muted border border-border border-l-0 text-muted-foreground font-mono text-lg select-none">
+                     <div className="flex items-center px-1 bg-background border border-border border-l-0 text-muted-foreground font-mono text-lg select-none">
                         /
                      </div>
                      <Input
@@ -450,7 +450,7 @@ export function RegexTesterView() {
                </div>
 
                {/* Quick Flags */}
-               <div className="flex gap-1 bg-muted p-1 rounded-md shrink-0 border border-border/50">
+               <div className="flex gap-1 bg-background p-1 rounded-md shrink-0 border border-border">
                   {['g', 'i', 'm', 's'].map((f) => (
                      <Tooltip key={f}>
                         <TooltipTrigger asChild>
@@ -489,7 +489,7 @@ export function RegexTesterView() {
          <div className="flex-1 flex flex-col lg:flex-row min-h-0 bg-background divide-y lg:divide-y-0 lg:divide-x divide-border overflow-y-auto lg:overflow-hidden">
             {/* Left: Test String */}
             <div className="flex-1 lg:flex-4 flex flex-col min-h-[200px] lg:min-h-0 relative group isolate">
-               <div className="flex items-center justify-between px-4 py-2 border-b border-border/50 bg-background/95 backdrop-blur z-20">
+               <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-background/95 backdrop-blur z-20">
                   <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Test String</span>
                   <Button
                      variant="ghost"
@@ -525,8 +525,8 @@ export function RegexTesterView() {
             </div>
 
             {/* Middle: Match Results */}
-            <div className="flex-1 lg:flex-3 flex flex-col min-h-[180px] lg:min-h-0 bg-muted/5 z-10">
-               <div className="flex items-center justify-between px-4 py-2 border-b border-border/50 bg-background/95 backdrop-blur shrink-0 z-20">
+            <div className="flex-1 lg:flex-3 flex flex-col min-h-[180px] lg:min-h-0 bg-background z-10">
+               <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-background/95 backdrop-blur shrink-0 z-20">
                   <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
                      Match Results
                   </span>
@@ -543,7 +543,7 @@ export function RegexTesterView() {
                            key={idx}
                            className="bg-background border border-border rounded-lg shadow-sm overflow-hidden text-sm"
                         >
-                           <div className="bg-muted px-3 py-1.5 border-b border-border flex items-center justify-between">
+                           <div className="bg-background px-3 py-1.5 border-b border-border flex items-center justify-between">
                               <span className="font-bold text-xs text-foreground">Match {idx + 1}</span>
                               <span className="text-[10px] text-muted-foreground font-mono bg-background px-1.5 py-0.5 rounded border border-border/50">
                                  {match.index}-{match.index + match.length}
@@ -657,7 +657,7 @@ export function RegexTesterView() {
                                  <p className="text-[11px] text-muted-foreground mb-2 leading-relaxed">
                                     {libOpts.description}
                                  </p>
-                                 <code className="block text-[10px] font-mono text-muted-foreground break-all bg-muted p-1.5 rounded line-clamp-2">
+                                 <code className="block text-[10px] font-mono text-muted-foreground break-all bg-background border border-border/50 p-1.5 rounded line-clamp-2">
                                     /{libOpts.pattern}/{libOpts.flags}
                                  </code>
                               </div>

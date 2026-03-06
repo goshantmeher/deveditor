@@ -79,11 +79,11 @@ function evaluateRegex(request: RegexRequest): RegexResponse {
          matches,
          executionTimeMs: end - start,
       };
-   } catch (error: any) {
+   } catch (error) {
       const end = performance.now();
       return {
          id,
-         error: error.message || 'Error executing regular expression',
+         error: (error as Error).message || 'Error executing regular expression',
          executionTimeMs: end - start,
       };
    }

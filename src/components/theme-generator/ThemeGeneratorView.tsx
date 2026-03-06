@@ -369,7 +369,7 @@ export function ThemeGeneratorView() {
    const primaryHsl = hexToHsl(primaryHex);
 
    return (
-      <div className="flex flex-col h-full w-full bg-background overflow-hidden">
+      <div className="flex flex-col h-full w-full bg-background border border-border rounded-xl shadow-sm overflow-hidden">
          {/* Toolbar */}
          <div className="flex flex-wrap items-center justify-between gap-2 px-4 md:px-6 py-3 border-b border-border bg-muted/10 shrink-0">
             <div className="flex items-center gap-2">

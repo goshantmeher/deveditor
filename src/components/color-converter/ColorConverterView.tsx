@@ -107,11 +107,11 @@ export function ColorConverterView() {
    );
 
    return (
-      <div className="flex flex-col h-full w-full bg-background overflow-hidden">
+      <div className="flex flex-col h-full w-full bg-background border border-border rounded-xl shadow-sm overflow-hidden">
          {/* Toolbar */}
-         <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-muted/20 shrink-0">
+         <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-background shrink-0">
             <div className="flex items-center gap-2">
-               <Palette className="w-5 h-5 text-indigo-500" />
+               <Palette className="w-5 h-5 text-brand" />
                <h1 className="text-base font-bold tracking-tight">Color Converter & Palette</h1>
             </div>
             <div className="flex items-center gap-3">
@@ -141,11 +141,11 @@ export function ColorConverterView() {
 
          <div className="flex-1 flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-border overflow-hidden">
             {/* Left Panel: Inputs & Conversions */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-8 bg-background/50 backdrop-blur-sm">
+            <div className="flex-1 overflow-y-auto p-6 space-y-8 bg-background">
                {/* Color Input */}
                <section className="space-y-4">
                   <div className="flex items-center justify-between">
-                     <h2 className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                     <h2 className="text-label font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                         <Pipette className="w-3 h-3" /> Select Color
                      </h2>
                   </div>
@@ -166,7 +166,7 @@ export function ColorConverterView() {
                            <Input
                               value={hex.replace('#', '')}
                               onChange={(e) => handleHexChange('#' + e.target.value)}
-                              className="pl-9 font-mono text-base tracking-wider uppercase h-11 border-border/60 focus:border-indigo-500/50"
+                              className="pl-9 font-mono text-base tracking-wider uppercase h-11 border-border/60 focus:border-brand/50"
                               spellCheck={false}
                            />
                            <Button
@@ -176,7 +176,7 @@ export function ColorConverterView() {
                               onClick={() => copyToClipboard(hex, 'hex')}
                            >
                               {copiedField === 'hex' ? (
-                                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                                 <CheckCircle2 className="w-4 h-4 text-success" />
                               ) : (
                                  <Copy className="w-4 h-4" />
                               )}
@@ -188,13 +188,13 @@ export function ColorConverterView() {
 
                {/* Conversion Grid */}
                <section className="space-y-6">
-                  <h2 className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Conversions</h2>
+                  <h2 className="text-label font-bold uppercase tracking-widest text-muted-foreground">Conversions</h2>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                      {/* RGB */}
-                     <div className="space-y-3 p-4 rounded-xl border border-border/50 bg-muted/5">
+                     <div className="space-y-3 p-4 rounded-xl border border-border">
                         <div className="flex items-center justify-between">
-                           <span className="text-xs font-bold text-indigo-400">RGB</span>
+                           <span className="text-label font-bold text-brand">RGB</span>
                            <Button
                               variant="ghost"
                               size="sm"
@@ -220,9 +220,9 @@ export function ColorConverterView() {
                      </div>
 
                      {/* HSL */}
-                     <div className="space-y-3 p-4 rounded-xl border border-border/50 bg-muted/5">
+                     <div className="space-y-3 p-4 rounded-xl border border-border">
                         <div className="flex items-center justify-between">
-                           <span className="text-xs font-bold text-emerald-400">HSL</span>
+                           <span className="text-label font-bold text-success">HSL</span>
                            <Button
                               variant="ghost"
                               size="sm"
@@ -253,9 +253,9 @@ export function ColorConverterView() {
                      </div>
 
                      {/* CMYK */}
-                     <div className="space-y-3 p-4 rounded-xl border border-border/50 bg-muted/5 sm:col-span-2">
+                     <div className="space-y-3 p-4 rounded-xl border border-border bg-background sm:col-span-2">
                         <div className="flex items-center justify-between">
-                           <span className="text-xs font-bold text-rose-400">CMYK</span>
+                           <span className="text-label font-bold text-rose-500">CMYK</span>
                            <Button
                               variant="ghost"
                               size="sm"
@@ -291,14 +291,14 @@ export function ColorConverterView() {
             </div>
 
             {/* Right Panel: Contrast & Palette */}
-            <div className="flex-1 overflow-y-auto bg-muted/10 p-6 space-y-8">
+            <div className="flex-1 overflow-y-auto bg-background p-6 space-y-8">
                {/* Contrast Checker */}
                <section className="space-y-6">
                   <div className="flex items-center justify-between">
-                     <h2 className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                     <h2 className="text-label font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                         <Contrast className="w-3.5 h-3.5" /> Contrast Checker
                      </h2>
-                     <span className="text-[10px] text-muted-foreground bg-muted px-2 py-0.5 rounded-full font-medium">
+                     <span className="text-tiny text-muted-foreground bg-background border border-border/50 px-2 py-0.5 rounded-full font-medium">
                         WCAG 2.1
                      </span>
                   </div>
@@ -319,9 +319,9 @@ export function ColorConverterView() {
                      {/* Controls */}
                      <div className="space-y-4">
                         <div className="space-y-2">
-                           <label className="text-[10px] font-bold uppercase text-muted-foreground tracking-tight flex items-center justify-between">
+                           <label className="text-tiny font-bold uppercase text-muted-foreground tracking-tight flex items-center justify-between">
                               Background Color
-                              <span className="font-mono text-[9px] text-foreground/60">{bgColor.toUpperCase()}</span>
+                              <span className="font-mono text-tiny text-foreground/60">{bgColor.toUpperCase()}</span>
                            </label>
                            <div className="flex gap-2">
                               <input
@@ -350,10 +350,10 @@ export function ColorConverterView() {
                               {Object.entries(wcag).map(([key, pass]) => (
                                  <div
                                     key={key}
-                                    className={`px-2 py-0.5 rounded text-[9px] font-black uppercase transition-colors ${
+                                    className={`px-2 py-0.5 rounded text-tiny font-black uppercase transition-colors ${
                                        pass
-                                          ? 'bg-emerald-500/15 text-emerald-500 border border-emerald-500/20'
-                                          : 'bg-red-500/15 text-red-500 border border-red-500/20'
+                                          ? 'bg-success/15 text-success border border-success/20'
+                                          : 'bg-destructive/15 text-destructive border border-destructive/20'
                                     }`}
                                  >
                                     {key === 'largeAa'
@@ -372,7 +372,7 @@ export function ColorConverterView() {
                {/* Palette Generator */}
                <section className="space-y-6">
                   <div className="flex items-center justify-between">
-                     <h2 className="text-xs font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                     <h2 className="text-label font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                         <Palette className="w-3.5 h-3.5" /> Harmony Palettes
                      </h2>
                   </div>

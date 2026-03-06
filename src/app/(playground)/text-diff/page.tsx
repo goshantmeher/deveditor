@@ -18,7 +18,7 @@ export default function TextDiffPage() {
          </div>
 
          {/* SEO Content directly in the DOM, below the fold */}
-         <div className="mt-8 border-t border-border/10 pt-12 pb-16 bg-muted/5">
+         <div className="mt-8 border-t border-border/10 pt-12 pb-16 bg-background">
             <TextDiffSeoContent />
          </div>
       </div>

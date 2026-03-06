@@ -49,10 +49,10 @@ export function TextDiffView() {
    };
 
    return (
-      <div className="flex flex-col h-full w-full overflow-y-auto md:overflow-hidden">
+      <div className="flex flex-col h-full w-full bg-background border border-border rounded-xl shadow-sm overflow-y-auto md:overflow-hidden relative">
          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoSchema) }} />
          {/* Toolbar */}
-         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 border-b border-border bg-muted/20 shrink-0">
+         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 border-b border-border bg-background shrink-0">
             <div className="flex items-center gap-2">
                <Tabs
                   value={viewType}
@@ -94,7 +94,7 @@ export function TextDiffView() {
                   variant="outline"
                   size="sm"
                   onClick={handleSwap}
-                  className="gap-2 text-xs flex-1 sm:flex-none h-9 hover:bg-muted"
+                  className="gap-2 text-xs flex-1 sm:flex-none h-9 bg-background border border-border hover:bg-muted"
                   title="Swap original and modified text"
                >
                   <RefreshCcw className="w-3.5 h-3.5" />
@@ -126,7 +126,7 @@ export function TextDiffView() {
                   placeholder="Paste original text here..."
                   className="flex-1 resize-none border-0 focus-visible:ring-0 p-4 pt-8 rounded-none font-mono text-sm leading-6 shadow-none"
                />
-               <div className="px-3 py-1.5 border-t border-border/50 bg-muted/10 text-[10px] text-muted-foreground flex justify-between shrink-0">
+               <div className="px-3 py-1.5 border-t border-border bg-background text-[10px] text-muted-foreground flex justify-between shrink-0">
                   <span>{oldText.length} chars</span>
                   <span>{oldText.split('\n').length} lines</span>
                </div>
@@ -144,7 +144,7 @@ export function TextDiffView() {
                   placeholder="Paste modified text here..."
                   className="flex-1 resize-none border-0 focus-visible:ring-0 p-4 pt-8 rounded-none font-mono text-sm leading-6 shadow-none bg-blue-50/10 dark:bg-blue-900/5 placeholder:text-muted-foreground/60"
                />
-               <div className="px-3 py-1.5 border-t border-border/50 bg-muted/10 text-[10px] text-muted-foreground flex justify-between shrink-0">
+               <div className="px-3 py-1.5 border-t border-border bg-background text-[10px] text-muted-foreground flex justify-between shrink-0">
                   <span>{newText.length} chars</span>
                   <span>{newText.split('\n').length} lines</span>
                </div>
@@ -153,7 +153,7 @@ export function TextDiffView() {
 
          {/* Output / Diff Result view */}
          <div className="flex-1 flex flex-col min-h-[400px] md:min-h-0 overflow-y-auto bg-card">
-            <div className="px-4 py-2 border-b border-border/50 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 sticky top-0 bg-background/95 backdrop-blur z-20 shrink-0">
+            <div className="px-4 py-2 border-b border-border flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 sticky top-0 bg-background/95 backdrop-blur z-20 shrink-0">
                <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-start">
                   <div className="flex items-center gap-2">
                      <FileType2 className="w-4 h-4 text-primary" />

@@ -107,11 +107,11 @@ export function FileEncoder() {
                   className={`flex flex-col items-center justify-center gap-3 p-8 rounded-xl border-2 border-dashed transition-all cursor-pointer ${
                      isDragOver
                         ? 'border-primary bg-primary/5 scale-[1.01]'
-                        : 'border-border/40 hover:border-border/60 bg-muted/5'
+                        : 'border-border/40 hover:border-border/60 bg-background'
                   }`}
                   onClick={() => fileInputRef.current?.click()}
                >
-                  <div className={`p-3 rounded-full transition-colors ${isDragOver ? 'bg-primary/15' : 'bg-muted/30'}`}>
+                  <div className={`p-3 rounded-full transition-colors ${isDragOver ? 'bg-primary/15' : 'bg-background border border-border/20'}`}>
                      <Upload className={`h-6 w-6 ${isDragOver ? 'text-primary' : 'text-muted-foreground'}`} />
                   </div>
                   <div className="text-center">
@@ -231,7 +231,7 @@ function OutputSection({
 }) {
    return (
       <div className="border-b border-border/20">
-         <div className="flex items-center justify-between px-4 py-1.5 bg-muted/15">
+         <div className="flex items-center justify-between px-4 py-1.5 bg-background">
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                {icon}
                {label}
@@ -250,7 +250,7 @@ function OutputSection({
                )}
             </Button>
          </div>
-         <pre className="p-3 text-xs font-mono text-muted-foreground overflow-auto max-h-[160px] bg-muted/5 whitespace-pre-wrap break-all">
+         <pre className="p-3 text-xs font-mono text-muted-foreground overflow-auto max-h-[160px] bg-background whitespace-pre-wrap break-all border-t border-border/10">
             <code>{value}</code>
          </pre>
       </div>

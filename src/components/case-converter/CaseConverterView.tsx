@@ -3,6 +3,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Copy, Check, ArrowRightLeft, Type } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { CaseType, convertMultilineText } from '@/lib/case-converter-utils';
 
@@ -110,33 +111,32 @@ export function CaseConverterView() {
    };
 
    return (
-      <div className="w-full h-full flex flex-col">
+      <div className="w-full h-full flex flex-col bg-background border border-border rounded-xl shadow-sm overflow-hidden relative">
          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(caseSchema) }} />
 
          {/* Toolbar */}
-         <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-b border-border/50 bg-muted/30 shrink-0">
+         <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-b border-border bg-background shrink-0">
             <div className="flex items-center gap-1.5 mr-2">
-               <Type className="h-4 w-4 text-emerald-500" />
+               <Type className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">Format To:</span>
             </div>
 
-            <div className="flex-1 overflow-x-auto min-w-[200px] flex items-center">
-               <div className="flex gap-1.5 pb-1 md:pb-0">
-                  {CASE_OPTIONS.map((opt) => (
-                     <button
-                        key={opt.value}
-                        onClick={() => setTargetCase(opt.value)}
-                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all whitespace-nowrap border ${
-                           targetCase === opt.value
-                              ? 'bg-emerald-500/15 text-emerald-500 border-emerald-500/30 shadow-sm'
-                              : 'bg-background text-muted-foreground border-border/40 hover:text-foreground hover:border-border/60'
-                        }`}
-                        title={`Format as ${opt.example}`}
-                     >
-                        {opt.label}
-                     </button>
-                  ))}
-               </div>
+            <div className="flex-1 min-w-[200px] flex items-center">
+               <Select value={targetCase} onValueChange={(val: string) => setTargetCase(val as CaseType)}>
+                  <SelectTrigger className="w-full max-w-[280px] h-9 bg-background">
+                     <SelectValue placeholder="Select Format" />
+                  </SelectTrigger>
+                  <SelectContent>
+                     {CASE_OPTIONS.map((opt) => (
+                        <SelectItem key={opt.value} value={opt.value}>
+                           <span className="flex items-center justify-between w-full">
+                              <span>{opt.label}</span>
+                              <span className="text-muted-foreground ml-4 hidden sm:inline-block">({opt.example})</span>
+                           </span>
+                        </SelectItem>
+                     ))}
+                  </SelectContent>
+               </Select>
             </div>
 
             {/* Swap Button */}
@@ -155,12 +155,12 @@ export function CaseConverterView() {
          {/* Editor Panels */}
          <div className="flex-1 flex flex-col md:flex-row min-h-0 bg-background">
             {/* Input Panel */}
-            <div className="flex flex-col md:w-1/2 min-h-[300px] md:min-h-0 border-b md:border-b-0 md:border-r border-border/30">
-               <div className="px-3 py-2 border-b border-border/30 bg-muted/10 shrink-0 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+            <div className="flex flex-col md:w-1/2 min-h-[300px] md:min-h-0 border-b md:border-b-0 md:border-r border-border">
+               <div className="px-3 py-2 border-b min-h-12 border-border bg-background shrink-0 flex items-center justify-between">
+                  <span className="text-label font-semibold text-muted-foreground uppercase tracking-wider">
                      Input Text
                   </span>
-                  <div className="flex items-center gap-3 text-[10px] text-muted-foreground">
+                  <div className="flex items-center gap-3 text-tiny text-muted-foreground">
                      {inputLines > 0 && (
                         <span>
                            {inputLines} {inputLines === 1 ? 'line' : 'lines'}
@@ -188,9 +188,9 @@ export function CaseConverterView() {
 
             {/* Output Panel */}
             <div className="flex flex-col md:w-1/2 min-h-[300px] md:min-h-0 relative">
-               <div className="px-3 py-2 border-b border-border/30 bg-muted/10 shrink-0 flex items-center justify-between">
+               <div className="px-3 py-2 min-h-12 border-b border-border bg-background shrink-0 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-500 font-mono border border-emerald-500/20">
+                     <span className="text-tiny px-1.5 py-0.5 rounded bg-brand/10 text-brand font-mono border border-brand/20">
                         {targetCase}
                      </span>
                   </div>
@@ -207,8 +207,8 @@ export function CaseConverterView() {
                      >
                         {copied ? (
                            <>
-                              <Check className="h-3 w-3 text-emerald-500" />
-                              <span className="text-emerald-500">Copied!</span>
+                              <Check className="h-3 w-3 text-success" />
+                              <span className="text-success">Copied!</span>
                            </>
                         ) : (
                            <>
@@ -223,7 +223,7 @@ export function CaseConverterView() {
                   value={output}
                   readOnly
                   placeholder="Converted output will appear here..."
-                  className="flex-1 w-full p-4 bg-muted/5 text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/30"
+                  className="flex-1 w-full p-4 bg-background text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/30"
                   spellCheck={false}
                />
             </div>

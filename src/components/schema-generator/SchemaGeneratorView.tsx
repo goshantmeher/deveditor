@@ -96,11 +96,11 @@ export function SchemaGeneratorView() {
    const currentFormat = FORMATS.find((f) => f.id === format)!;
 
    return (
-      <div className="flex flex-col h-full w-full bg-background overflow-hidden">
+      <div className="flex flex-col h-full w-full bg-background border border-border rounded-xl shadow-sm overflow-hidden">
          {/* Toolbar */}
          <div className="flex flex-wrap items-center justify-between gap-2 px-4 md:px-6 py-3 border-b border-border bg-muted/10 shrink-0">
             <div className="flex items-center gap-2">
-               <FileCode2 className="w-5 h-5 text-blue-500" />
+               <FileCode2 className="w-5 h-5 text-indigo-500" />
                <h1 className="text-sm font-bold tracking-tight">JSON → Schema Generator</h1>
             </div>
 
@@ -128,7 +128,7 @@ export function SchemaGeneratorView() {
          </div>
 
          {/* Format Tabs */}
-         <div className="flex items-center gap-1 px-4 md:px-6 py-2 border-b border-border/50 bg-muted/5 shrink-0 overflow-x-auto">
+         <div className="flex items-center gap-1 px-4 md:px-6 py-2 border-b border-border bg-muted/5 shrink-0 overflow-x-auto">
             {FORMATS.map((f) => (
                <Tooltip key={f.id}>
                   <TooltipTrigger asChild>
@@ -155,7 +155,7 @@ export function SchemaGeneratorView() {
          <div className="flex-1 flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-border overflow-y-auto lg:overflow-hidden">
             {/* Left: JSON Input */}
             <div className="h-[50vh] flex-none lg:h-auto lg:flex-1 flex flex-col overflow-hidden">
-               <div className="flex items-center justify-between px-4 py-2 border-b border-border/30 bg-muted/5 shrink-0">
+               <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-muted/5 shrink-0">
                   <div className="flex items-center gap-2">
                      <Braces className="w-3.5 h-3.5 text-amber-400" />
                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">
@@ -223,7 +223,7 @@ export function SchemaGeneratorView() {
 
             {/* Right: Generated Output */}
             <div className="h-[50vh] flex-none lg:h-auto lg:flex-1 flex flex-col overflow-hidden">
-               <div className="flex items-center justify-between px-4 py-2 border-b border-border/30 bg-muted/5 shrink-0">
+               <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-muted/5 shrink-0">
                   <div className="flex items-center gap-2">
                      <FileCode2 className="w-3.5 h-3.5 text-indigo-400" />
                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">

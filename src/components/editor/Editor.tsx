@@ -45,7 +45,7 @@ const Editor = React.forwardRef<EditorHandle | null, EditorProps>(function Edito
 
    return (
       <div className="flex flex-col flex-1 min-h-0 w-full">
-         <div className="editor-toolbar shrink-0 w-full h-10 flex pl-2 pr-2 items-center bg-card border-b border-border">
+         <div className="editor-toolbar shrink-0 w-full h-10 flex pl-2 pr-2 items-center bg-muted/10 border-b border-border">
             {children}
          </div>
          {searchPanel && (

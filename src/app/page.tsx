@@ -362,11 +362,13 @@ const categories: Category[] = [
          },
          {
             title: 'QR Code Generator',
-            description: 'Generate QR codes from text/URLs. Customize colors and size.',
+            description:
+               'Generate high-quality, customizable QR codes with custom colors, size, and error correction. Export as PNG or SVG.',
             icon: '📱',
             href: '/qr-generator',
-            status: 'planned',
-            tags: ['qr', 'qrcode', 'barcode', 'generate'],
+            status: 'available',
+            isNew: true,
+            tags: ['qr', 'qrcode', 'svg', 'branding'],
          },
          {
             title: 'PDF Resume Builder',
@@ -543,7 +545,7 @@ const statusConfig: Record<ToolStatus, { label: string; className: string }> = {
    },
    planned: {
       label: 'Planned',
-      className: 'bg-muted/40 text-muted-foreground border-border/40',
+      className: 'bg-background text-muted-foreground border-border/40',
    },
 };
 
@@ -631,7 +633,7 @@ export default function Home() {
                   <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                   <Input
                      placeholder="Search all tools..."
-                     className="pl-10 h-11 text-sm bg-muted/20 border-border/40 focus:border-primary/50"
+                     className="pl-10 h-11 text-sm bg-background border-border/40 focus:border-primary/50"
                      value={searchQuery}
                      onChange={(e) => setSearchQuery(e.target.value)}
                      aria-label="Search developer tools"
@@ -739,8 +741,8 @@ function ToolCard({ tool }: { tool: Tool }) {
          title={`${tool.title}\n${tool.description}`}
          className={`flex items-center gap-3 px-3 py-2.5 rounded-lg border transition-all h-full ${
             tool.status === 'available'
-               ? 'border-border/40 bg-muted/10 hover:bg-muted/25 hover:border-border/60 cursor-pointer'
-               : 'border-border/20 bg-muted/5 opacity-70'
+               ? 'border-border bg-background hover:bg-muted/10 hover:border-border/60 cursor-pointer shadow-sm hover:shadow-md'
+               : 'border-border/20 bg-background/50 opacity-70'
          }`}
       >
          {/* Icon */}

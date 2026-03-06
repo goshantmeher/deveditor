@@ -44,11 +44,11 @@ export function JwtDecoderView() {
    const sub = payload?.sub as string | undefined;
 
    return (
-      <div className="flex flex-col h-full w-full bg-background tracking-normal">
+      <div className="flex flex-col h-full w-full bg-background border border-border rounded-xl shadow-sm tracking-normal overflow-hidden">
          {/* Top Toolbar */}
-         <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-muted/20">
+         <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-background">
             <div className="flex items-center gap-2">
-               <ShieldAlert className="w-4 h-4 text-emerald-500" />
+               <ShieldAlert className="w-4 h-4 text-indigo-500" />
                <h1 className="text-sm font-semibold">JWT Debugger</h1>
                <span className="hidden sm:inline text-xs text-muted-foreground ml-2">
                   Client-side only. Does not verify signatures.
@@ -68,7 +68,7 @@ export function JwtDecoderView() {
          <div className="flex-1 flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-border min-h-0">
             {/* Left Panel: Encoded Input */}
             <div className="flex-1 flex flex-col min-h-[300px] md:min-h-0 bg-background group">
-               <div className="flex items-center justify-between px-4 py-2 border-b border-border/50 sticky top-0 bg-background/95 backdrop-blur z-10">
+               <div className="flex items-center justify-between px-4 py-2 border-b border-border sticky top-0 bg-background/95 backdrop-blur z-10">
                   <span className="text-sm font-medium">
                      Encoded Token <span className="text-xs text-muted-foreground ml-1">(Paste here)</span>
                   </span>
@@ -84,7 +84,7 @@ export function JwtDecoderView() {
                      </Button>
                   </div>
                </div>
-               <div className="flex-1 relative p-4 bg-muted/5 font-mono text-sm leading-relaxed overflow-y-auto">
+               <div className="flex-1 relative p-4 bg-background font-mono text-sm leading-relaxed overflow-y-auto">
                   {/* Colored visual layout overlaying textarea mechanics */}
                   <div className="absolute inset-0 pointer-events-none p-4 whitespace-pre-wrap break-all pr-5 pt-4">
                      {decoded.headerRaw && <span className="text-red-500 dark:text-red-400">{decoded.headerRaw}</span>}
@@ -108,7 +108,7 @@ export function JwtDecoderView() {
 
             {/* Right Panel: Decoded Output */}
             <div className="flex-1 flex flex-col min-h-0 bg-background overflow-y-auto w-full max-w-full">
-               <div className="flex items-center justify-between px-4 py-2 border-b border-border/50 sticky top-0 bg-background/95 backdrop-blur z-10 w-full shrink-0">
+               <div className="flex items-center justify-between px-4 py-2 border-b border-border sticky top-0 bg-background/95 backdrop-blur z-10 w-full shrink-0">
                   <span className="text-sm font-medium">Decoded Payload</span>
                </div>
 
@@ -119,7 +119,7 @@ export function JwtDecoderView() {
                         <span className="text-xs font-bold uppercase tracking-wider text-red-500 dark:text-red-400">
                            Header
                         </span>
-                        <span className="text-[10px] text-muted-foreground font-mono bg-muted px-1.5 py-0.5 rounded">
+                        <span className="text-[10px] text-muted-foreground font-mono bg-background border border-border/50 px-1.5 py-0.5 rounded">
                            Algorithm & Token Type
                         </span>
                      </div>
@@ -148,7 +148,7 @@ export function JwtDecoderView() {
                         <span className="text-xs font-bold uppercase tracking-wider text-purple-500 dark:text-purple-400">
                            Payload
                         </span>
-                        <span className="text-[10px] text-muted-foreground font-mono bg-muted px-1.5 py-0.5 rounded">
+                        <span className="text-[10px] text-muted-foreground font-mono bg-background border border-border/50 px-1.5 py-0.5 rounded">
                            Data
                         </span>
                      </div>
@@ -173,7 +173,7 @@ export function JwtDecoderView() {
                      {/* Claims Inspector */}
                      {payload && (iat || exp || sub || nbf) && (
                         <div className="border border-border/50 rounded-lg overflow-hidden mt-4">
-                           <div className="px-3 py-2 bg-muted/30 border-b border-border/50 flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                           <div className="px-3 py-2 bg-background border-b border-border/50 flex items-center gap-2 text-xs font-medium text-muted-foreground">
                               <FileJson className="w-3.5 h-3.5" /> Known Claims
                            </div>
                            <div className="divide-y divide-border/30 text-sm">
@@ -253,7 +253,7 @@ export function JwtDecoderView() {
                         <span className="text-xs font-bold uppercase tracking-wider text-cyan-500 dark:text-cyan-400">
                            Signature
                         </span>
-                        <span className="text-[10px] text-muted-foreground font-mono bg-muted px-1.5 py-0.5 rounded">
+                        <span className="text-[10px] text-muted-foreground font-mono bg-background border border-border/50 px-1.5 py-0.5 rounded">
                            Verify Signature
                         </span>
                      </div>

@@ -37,15 +37,15 @@ export function validateRegex(pattern: string, flags: string): string | null {
    try {
       new RegExp(pattern, flags);
       return null;
-   } catch (err: any) {
-      return err.message || 'Invalid regular expression';
+   } catch (err) {
+      return (err as Error).message || 'Invalid regular expression';
    }
 }
 
 /**
  * Creates a debounced function
  */
-export function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
+export function debounce<T extends (...args: never[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
    let timeoutId: NodeJS.Timeout | null = null;
 
    return function (...args: Parameters<T>) {

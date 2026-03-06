@@ -68,13 +68,13 @@ ${htmlContent}
    const activePreset = activePresetId ? CSS_PRESETS.find((p) => p.id === activePresetId) : null;
 
    return (
-      <div className="flex items-center justify-between px-3 py-1.5 border-b md:border-b-0 border-border/50 bg-muted/30 shrink-0 gap-2 overflow-x-auto w-full">
+      <div className="flex items-center justify-between px-3 py-1.5 border-b md:border-b-0 border-border/50 bg-muted/10 shrink-0 gap-2 overflow-x-auto w-full">
          {/* Left: Presets */}
          <div className="flex items-center gap-2">
             <DropdownMenu>
                <DropdownMenuTrigger asChild>
                   <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs font-medium">
-                     <Paintbrush className="h-3.5 w-3.5" />
+                     <Paintbrush className="h-3.5 w-3.5 text-indigo-500" />
                      <span className="hidden sm:inline">{activePreset ? activePreset.name : 'Templates'}</span>
                      <ChevronDown className="h-3 w-3 opacity-60" />
                   </Button>

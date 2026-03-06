@@ -45,7 +45,7 @@ export function LivePreview({ htmlContent, cssContent }: LivePreviewProps) {
    return (
       <div className={`flex flex-col h-full ${isFullscreen ? 'fixed inset-0 z-50 bg-background' : ''}`}>
          {/* Preview Controls */}
-         <div className="flex items-center justify-between gap-2 px-3 py-1.5 border-b border-border/50 bg-muted/30 shrink-0 overflow-x-auto w-full">
+         <div className="flex items-center justify-between gap-2 px-3 py-1.5 border-b border-border/50 bg-muted/10 shrink-0 overflow-x-auto w-full">
             <div className="flex items-center gap-1.5 shrink-0">
                <span className="text-xs font-semibold text-muted-foreground mr-1.5 hidden sm:inline">Preview</span>
                {/* Viewport Size Toggles */}
@@ -57,7 +57,7 @@ export function LivePreview({ htmlContent, cssContent }: LivePreviewProps) {
                               onClick={() => setViewport(size)}
                               className={`px-1.5 py-0.5 rounded text-xs transition-colors ${
                                  viewport === size
-                                    ? 'bg-primary/15 text-primary font-medium'
+                                    ? 'bg-indigo-500/10 text-indigo-500 font-medium'
                                     : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                               }`}
                               aria-label={`${VIEWPORT_SIZES[size].label} viewport`}

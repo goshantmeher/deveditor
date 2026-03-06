@@ -41,6 +41,7 @@
 | Color Converter & Palette            | `/color-converter` | ✅ Live |
 | Theme Generator                      | `/theme-generator` | ✅ Live |
 | JSON → Schema Generator              | `/json-to-schema`  | ✅ Live |
+| QR Code Generator                    | `/qr-generator`    | ✅ Live |
 
 ---
 
@@ -216,7 +217,7 @@
    - ✅ Feasible: Parse EXIF manually from JPEG binary or use lightweight `exif-js`
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **QR Code Generator** — Generate QR codes from text/URLs. Customize colors, size, error correction level. Download as PNG/SVG.
+- [x] **QR Code Generator** — Generate QR codes from text/URLs. Customize colors, size, error correction level. Download as PNG/SVG.
    - ✅ Feasible: Use `qrcode` library or implement Reed-Solomon encoding
    - Priority: ⭐⭐⭐⭐⭐
    - 💡 Added by review

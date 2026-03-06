@@ -82,11 +82,11 @@ export function Base64EncoderView() {
    };
 
    return (
-      <div className="base64-encoder-wrapper w-full h-full flex flex-col">
+      <div className="base64-encoder-wrapper w-full h-full flex flex-col bg-background border border-border rounded-xl overflow-hidden relative shadow-sm">
          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(base64Schema) }} />
 
          {/* Tab Navigation */}
-         <div className="flex items-center border-b border-border/50 bg-muted/30 shrink-0">
+         <div className="flex items-center border-b border-border bg-background shrink-0 px-2 py-1">
             <div className="flex items-center gap-1 px-2 py-1.5">
                {tabs.map((tab) => (
                   <button
