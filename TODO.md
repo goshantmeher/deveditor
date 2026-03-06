@@ -34,6 +34,10 @@
 | JSON Viewer/Editor                   | `/json-editor`    | ✅ Live |
 | CSS Playground (Editor + Generators) | `/css-playground` | ✅ Live |
 | Base64 Encoder/Decoder               | `/base64-encoder` | ✅ Live |
+| Case Converter                       | `/case-converter` | ✅ Live |
+| Text Diff Checker                    | `/text-diff`      | ✅ Live |
+| JWT Debugger                         | `/jwt-debugger`   | ✅ Live |
+| RegEx Tester                         | `/regex-tester`   | ✅ Live |
 
 ---
 
@@ -159,7 +163,7 @@
    - ✅ Feasible: Pure parsing logic, no external dependencies needed
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **RegEx Tester** — Live regex match highlighting, capture groups display, regex cheat sheet, common patterns library
+- [x] **RegEx Tester** — Live regex match highlighting, capture groups display, regex cheat sheet, common patterns library
    - ✅ Feasible: Native `RegExp` object. UI is the main work.
    - Priority: ⭐⭐⭐⭐⭐
 
@@ -364,5 +368,5 @@ Based on impact, bookmark potential, and effort required:
 
 ---
 
-> **Last updated:** 2026-03-05
-> **Total tools planned:** ~35 (3 built, ~32 remaining)
+> **Last updated:** 2026-03-07
+> **Total tools planned:** ~35 (7 built, ~28 remaining)

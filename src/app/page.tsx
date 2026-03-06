@@ -296,7 +296,8 @@ const categories: Category[] = [
                'Live regex match highlighting, capture groups, and cheat sheet.',
             icon: '🔍',
             href: '/regex-tester',
-            status: 'planned',
+            status: 'available',
+            isNew: true,
             tags: ['regex', 'regular expression', 'match', 'pattern'],
          },
          {
