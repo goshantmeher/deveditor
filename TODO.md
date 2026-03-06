@@ -38,6 +38,8 @@
 | Text Diff Checker                    | `/text-diff`      | ✅ Live |
 | JWT Debugger                         | `/jwt-debugger`   | ✅ Live |
 | RegEx Tester                         | `/regex-tester`   | ✅ Live |
+| Color Converter & Palette            | `/color-converter` | ✅ Live |
+| Theme Generator                      | `/theme-generator` | ✅ Live |
 
 ---
 
@@ -115,7 +117,7 @@
 
 > Complementing the existing CSS Playground.
 
-- [ ] **Color Converter & Palette** — Convert between HEX, RGB, HSL, CMYK. WCAG contrast checker. Generate complementary/analogous palettes.
+- [x] **Color Converter & Palette** — Convert between HEX, RGB, HSL, CMYK. WCAG contrast checker. Generate complementary/analogous palettes.
    - ✅ Feasible: Pure math conversions, Canvas for color picker
    - Priority: ⭐⭐⭐⭐⭐
 
@@ -145,7 +147,7 @@
    - Priority: ⭐⭐⭐
    - 💡 Added by review
 
-- [ ] **Theme Generator** — Generate comprehensive UI color themes (Tailwind configs or CSS tokens) from a primary color. Show beautiful sample UI automatically updated with the colors, and allow copying export as JSON or CSS.
+- [x] **Theme Generator** — Generate comprehensive UI color themes (Tailwind configs or CSS tokens) from a primary color. Show beautiful sample UI automatically updated with the colors, and allow copying export as JSON or CSS.
    - ✅ Feasible: Native client-side color math (HSL/Oklch interpolations) + React state previews.
    - Priority: ⭐⭐⭐⭐⭐
 
@@ -369,4 +371,4 @@ Based on impact, bookmark potential, and effort required:
 ---
 
 > **Last updated:** 2026-03-07
-> **Total tools planned:** ~35 (7 built, ~28 remaining)
+> **Total tools planned:** ~35 (9 built, ~26 remaining)

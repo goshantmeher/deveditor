@@ -260,7 +260,8 @@ const categories: Category[] = [
                'Generate comprehensive UI themes (Tailwind/CSS tokens). Evaluate and export JSON automatically.',
             icon: '🖌️',
             href: '/theme-generator',
-            status: 'planned',
+            status: 'available',
+            isNew: true,
             tags: ['theme', 'colors', 'tailwind', 'json', 'export'],
          },
          {
