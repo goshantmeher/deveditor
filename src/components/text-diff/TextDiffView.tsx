@@ -8,9 +8,13 @@ import { Split, AlignLeft, RefreshCcw, FileType2, RotateCcw } from 'lucide-react
 import { DiffViewer, DiffStats } from './DiffViewer';
 
 export function TextDiffView() {
-   const [oldText, setOldText] = useState('This is some default text.\n\nYou can change it however you like!\nIt supports multi-line testing.');
-   const [newText, setNewText] = useState('This is some modified text.\n\nYou can adjust it however you prefer!\nIt supports multi-line tests as well.');
-   
+   const [oldText, setOldText] = useState(
+      'This is some default text.\n\nYou can change it however you like!\nIt supports multi-line testing.'
+   );
+   const [newText, setNewText] = useState(
+      'This is some modified text.\n\nYou can adjust it however you prefer!\nIt supports multi-line tests as well.'
+   );
+
    const [viewType, setViewType] = useState<'split' | 'unified'>('split');
    const [mode, setMode] = useState<'char' | 'word'>('word');
    const [stats, setStats] = useState<DiffStats | null>(null);
@@ -33,7 +37,8 @@ export function TextDiffView() {
       applicationCategory: 'DeveloperApplication',
       operatingSystem: 'Web Browser',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      description: 'Side-by-side visual comparison of two text blocks with character and word-level change highlighting.',
+      description:
+         'Side-by-side visual comparison of two text blocks with character and word-level change highlighting.',
       featureList: [
          'Character-level text diff',
          'Word-level text diff',
@@ -45,10 +50,7 @@ export function TextDiffView() {
 
    return (
       <div className="flex flex-col h-full w-full overflow-y-auto md:overflow-hidden">
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(seoSchema) }}
-         />
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoSchema) }} />
          {/* Toolbar */}
          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 border-b border-border bg-muted/20 shrink-0">
             <div className="flex items-center gap-2">
@@ -114,7 +116,9 @@ export function TextDiffView() {
          <div className="flex flex-col md:flex-row h-[500px] md:h-64 shrink-0 border-b border-border divide-y md:divide-y-0 md:divide-x divide-border">
             <div className="flex-1 flex flex-col min-h-0 bg-background relative group">
                <div className="absolute top-2 right-4 flex items-center justify-between pointer-events-none z-10 w-full px-4">
-                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest bg-background/80 px-1 backdrop-blur-sm rounded">Original Text</span>
+                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest bg-background/80 px-1 backdrop-blur-sm rounded">
+                     Original Text
+                  </span>
                </div>
                <Textarea
                   value={oldText}
@@ -127,10 +131,12 @@ export function TextDiffView() {
                   <span>{oldText.split('\n').length} lines</span>
                </div>
             </div>
-            
+
             <div className="flex-1 flex flex-col min-h-0 bg-background relative group">
                <div className="absolute top-2 right-4 flex items-center justify-between pointer-events-none z-10 w-full px-4">
-                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest bg-background/80 px-1 backdrop-blur-sm rounded">Modified Text</span>
+                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest bg-background/80 px-1 backdrop-blur-sm rounded">
+                     Modified Text
+                  </span>
                </div>
                <Textarea
                   value={newText}
@@ -154,27 +160,47 @@ export function TextDiffView() {
                      <span className="text-sm font-semibold tracking-tight">Diff Result</span>
                   </div>
                </div>
-               
+
                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full sm:w-auto gap-2 sm:gap-4 text-xs pb-1 sm:pb-0 overflow-x-auto hide-scrollbar">
                   {stats && (
                      <div className="flex items-center gap-3 shrink-0 sm:border-r border-border/50 sm:pr-4">
-                        <span className="text-muted-foreground"><span className="text-foreground font-medium">{stats.wordsAdded + stats.wordsRemoved}</span> words diff</span>
-                        <span className="text-muted-foreground"><span className="text-foreground font-medium">{stats.charsAdded + stats.charsRemoved}</span> chars diff</span>
+                        <span className="text-muted-foreground">
+                           <span className="text-foreground font-medium">{stats.wordsAdded + stats.wordsRemoved}</span>{' '}
+                           words diff
+                        </span>
+                        <span className="text-muted-foreground">
+                           <span className="text-foreground font-medium">{stats.charsAdded + stats.charsRemoved}</span>{' '}
+                           chars diff
+                        </span>
                      </div>
                   )}
                   <div className="flex items-center gap-4 shrink-0">
                      <div className="flex items-center gap-1.5">
-                        <div className="w-2.5 h-2.5 rounded-sm bg-red-400/40" /> 
-                        <span>Removed {stats && <span className="text-muted-foreground font-medium tabular-nums ml-0.5">({stats.charsRemoved})</span>}</span>
+                        <div className="w-2.5 h-2.5 rounded-sm bg-red-400/40" />
+                        <span>
+                           Removed{' '}
+                           {stats && (
+                              <span className="text-muted-foreground font-medium tabular-nums ml-0.5">
+                                 ({stats.charsRemoved})
+                              </span>
+                           )}
+                        </span>
                      </div>
                      <div className="flex items-center gap-1.5">
-                        <div className="w-2.5 h-2.5 rounded-sm bg-green-400/40" /> 
-                        <span>Added {stats && <span className="text-muted-foreground font-medium tabular-nums ml-0.5">({stats.charsAdded})</span>}</span>
+                        <div className="w-2.5 h-2.5 rounded-sm bg-green-400/40" />
+                        <span>
+                           Added{' '}
+                           {stats && (
+                              <span className="text-muted-foreground font-medium tabular-nums ml-0.5">
+                                 ({stats.charsAdded})
+                              </span>
+                           )}
+                        </span>
                      </div>
                   </div>
                </div>
             </div>
-            
+
             <div className="flex-1 overflow-x-auto min-h-0 bg-background/50 outline outline-border/50">
                {oldText === '' && newText === '' ? (
                   <div className="h-full flex flex-col items-center justify-center text-muted-foreground">
@@ -182,7 +208,13 @@ export function TextDiffView() {
                      <p className="text-sm">Enter text above to see diff comparisons</p>
                   </div>
                ) : (
-                  <DiffViewer oldText={oldText} newText={newText} mode={mode} viewType={viewType} onStatsChange={setStats} />
+                  <DiffViewer
+                     oldText={oldText}
+                     newText={newText}
+                     mode={mode}
+                     viewType={viewType}
+                     onStatsChange={setStats}
+                  />
                )}
             </div>
          </div>

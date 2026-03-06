@@ -31,8 +31,7 @@ export const metadata: Metadata = {
    twitter: {
       card: 'summary_large_image',
       title: 'Base64 Encoder & Decoder',
-      description:
-         'Free online Base64 tool. Encode text, files, and images. Generate data URIs and URL-safe Base64.',
+      description: 'Free online Base64 tool. Encode text, files, and images. Generate data URIs and URL-safe Base64.',
    },
    alternates: {
       canonical: 'https://www.deveditor.io/base64-encoder',

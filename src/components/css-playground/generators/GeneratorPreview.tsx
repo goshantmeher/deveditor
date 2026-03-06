@@ -12,13 +12,7 @@ interface GeneratorPreviewProps {
    bodyBg?: string;
 }
 
-export function GeneratorPreview({
-   css,
-   html,
-   tailwind,
-   previewStyle,
-   bodyBg = 'transparent',
-}: GeneratorPreviewProps) {
+export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = 'transparent' }: GeneratorPreviewProps) {
    const [activeTab, setActiveTab] = React.useState<'css' | 'tailwind'>('css');
    const [copied, setCopied] = React.useState(false);
 
@@ -95,8 +89,7 @@ export function GeneratorPreview({
          <div
             className="flex-1 flex items-center justify-center overflow-auto p-4 min-h-[200px]"
             style={{
-               background:
-                  'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+               background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
                ...previewStyle,
             }}
          >
@@ -135,12 +128,7 @@ export function GeneratorPreview({
                      </button>
                   )}
                </div>
-               <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-6 gap-1 text-xs"
-                  onClick={handleCopy}
-               >
+               <Button variant="ghost" size="sm" className="h-6 gap-1 text-xs" onClick={handleCopy}>
                   {copied ? (
                      <>
                         <Check className="h-3 w-3 text-green-500" />

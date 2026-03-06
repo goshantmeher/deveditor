@@ -15,13 +15,10 @@ import { registerConverter, type FormatConverter } from './index';
  */
 function stripNulls(obj: unknown): unknown {
    if (obj === null || obj === undefined) return undefined;
-   if (Array.isArray(obj))
-      return obj.map(stripNulls).filter((v) => v !== undefined);
+   if (Array.isArray(obj)) return obj.map(stripNulls).filter((v) => v !== undefined);
    if (typeof obj === 'object') {
       const result: Record<string, unknown> = {};
-      for (const [key, value] of Object.entries(
-         obj as Record<string, unknown>
-      )) {
+      for (const [key, value] of Object.entries(obj as Record<string, unknown>)) {
          const stripped = stripNulls(value);
          if (stripped !== undefined) {
             result[key] = stripped;
@@ -39,9 +36,7 @@ const tomlConverter: FormatConverter = {
 
    fromJson(data: unknown): string {
       if (typeof data !== 'object' || data === null || Array.isArray(data)) {
-         throw new Error(
-            'TOML export requires JSON to be a plain object (not an array or primitive)'
-         );
+         throw new Error('TOML export requires JSON to be a plain object (not an array or primitive)');
       }
 
       // Strip nulls since TOML doesn't support them

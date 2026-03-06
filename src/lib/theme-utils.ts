@@ -47,9 +47,13 @@ export interface GeneratedTheme {
 // ── Color Math ────────────────────────────────────────────────
 
 function hslToHex(h: number, s: number, l: number): string {
-   h /= 360; s /= 100; l /= 100;
+   h /= 360;
+   s /= 100;
+   l /= 100;
    let r: number, g: number, b: number;
-   if (s === 0) { r = g = b = l; } else {
+   if (s === 0) {
+      r = g = b = l;
+   } else {
       const hue2rgb = (p: number, q: number, t: number) => {
          if (t < 0) t += 1;
          if (t > 1) t -= 1;
@@ -72,7 +76,9 @@ function hslToHex(h: number, s: number, l: number): string {
 }
 
 export function hexToHsl(hex: string): { h: number; s: number; l: number } {
-   let r = 0, g = 0, b = 0;
+   let r = 0,
+      g = 0,
+      b = 0;
    const clean = hex.replace('#', '');
    if (clean.length === 3) {
       r = parseInt(clean[0] + clean[0], 16);
@@ -83,21 +89,35 @@ export function hexToHsl(hex: string): { h: number; s: number; l: number } {
       g = parseInt(clean.substring(2, 4), 16);
       b = parseInt(clean.substring(4, 6), 16);
    }
-   r /= 255; g /= 255; b /= 255;
-   const max = Math.max(r, g, b), min = Math.min(r, g, b);
-   let h = 0, s = 0;
+   r /= 255;
+   g /= 255;
+   b /= 255;
+   const max = Math.max(r, g, b),
+      min = Math.min(r, g, b);
+   let h = 0,
+      s = 0;
    const l = (max + min) / 2;
    if (max !== min) {
       const d = max - min;
       s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
       switch (max) {
-         case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-         case g: h = (b - r) / d + 2; break;
-         case b: h = (r - g) / d + 4; break;
+         case r:
+            h = (g - b) / d + (g < b ? 6 : 0);
+            break;
+         case g:
+            h = (b - r) / d + 2;
+            break;
+         case b:
+            h = (r - g) / d + 4;
+            break;
       }
       h /= 6;
    }
-   return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+   return {
+      h: Math.round(h * 360),
+      s: Math.round(s * 100),
+      l: Math.round(l * 100),
+   };
 }
 
 function clamp(val: number, min: number, max: number) {
@@ -109,8 +129,17 @@ function clamp(val: number, min: number, max: number) {
 function generateScale(h: number, s: number): ThemeScale {
    // map scale levels to lightness values
    const lightnesses: Record<keyof ThemeScale, number> = {
-      50: 97, 100: 94, 200: 86, 300: 77, 400: 66,
-      500: 55, 600: 45, 700: 37, 800: 29, 900: 21, 950: 13,
+      50: 97,
+      100: 94,
+      200: 86,
+      300: 77,
+      400: 66,
+      500: 55,
+      600: 45,
+      700: 37,
+      800: 29,
+      900: 21,
+      950: 13,
    };
    const scale: Record<string, string> = {};
    for (const [key, l] of Object.entries(lightnesses)) {
@@ -205,12 +234,20 @@ export function generateTheme(primaryHex: string, mode: 'dark' | 'light' = 'dark
 
 export function exportAsCSS(theme: GeneratedTheme): string {
    const tokens = [
-      theme.primary, theme.secondary, theme.accent,
-      theme.background, theme.foreground,
-      theme.muted, theme.mutedForeground,
-      theme.card, theme.cardForeground,
+      theme.primary,
+      theme.secondary,
+      theme.accent,
+      theme.background,
+      theme.foreground,
+      theme.muted,
+      theme.mutedForeground,
+      theme.card,
+      theme.cardForeground,
       theme.border,
-      theme.destructive, theme.success, theme.warning, theme.info,
+      theme.destructive,
+      theme.success,
+      theme.warning,
+      theme.info,
    ];
    const lines = [`:root {`];
    for (const t of tokens) {
@@ -272,20 +309,25 @@ ${scaleEntries}
 export function exportAsJSON(theme: GeneratedTheme): string {
    const obj: Record<string, string> = {};
    const tokens = [
-      theme.primary, theme.secondary, theme.accent,
-      theme.background, theme.foreground,
-      theme.muted, theme.mutedForeground,
-      theme.card, theme.cardForeground,
+      theme.primary,
+      theme.secondary,
+      theme.accent,
+      theme.background,
+      theme.foreground,
+      theme.muted,
+      theme.mutedForeground,
+      theme.card,
+      theme.cardForeground,
       theme.border,
-      theme.destructive, theme.success, theme.warning, theme.info,
+      theme.destructive,
+      theme.success,
+      theme.warning,
+      theme.info,
    ];
    for (const t of tokens) {
       const name = t.label.toLowerCase().replace(/\s+/g, '-');
       obj[name] = t.hex;
    }
    obj['primary-scale'] = JSON.stringify(theme.primaryScale);
-   return JSON.stringify(
-      { ...obj, 'primary-scale': theme.primaryScale },
-      null, 2
-   );
+   return JSON.stringify({ ...obj, 'primary-scale': theme.primaryScale }, null, 2);
 }

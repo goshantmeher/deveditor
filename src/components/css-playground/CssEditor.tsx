@@ -48,11 +48,7 @@ export function CssEditor({ value, onChange, ariaLabel }: CssEditorProps) {
    }
 
    return (
-      <div
-         className="h-full w-full"
-         role="region"
-         aria-label={ariaLabel || 'CSS Editor'}
-      >
+      <div className="h-full w-full" role="region" aria-label={ariaLabel || 'CSS Editor'}>
          <CodeMirror
             value={value}
             onChange={onChange}

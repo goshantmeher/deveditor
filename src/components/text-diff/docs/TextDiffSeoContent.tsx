@@ -1,10 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-   Accordion,
-   AccordionContent,
-   AccordionItem,
-   AccordionTrigger,
-} from '@/components/ui/accordion';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export function TextDiffSeoContent() {
    const faqs = [
@@ -42,8 +37,8 @@ export function TextDiffSeoContent() {
                Text Diff Checker & Comparison Tool — Compare Code & Documents Inline
             </h2>
             <p className="text-muted-foreground max-w-3xl mx-auto">
-               Find exactly what changed between two versions of text files, code snippets, or articles. 
-               Instantly spot character and word-level modifications without your data ever leaving your browser.
+               Find exactly what changed between two versions of text files, code snippets, or articles. Instantly spot
+               character and word-level modifications without your data ever leaving your browser.
             </p>
          </div>
 
@@ -56,14 +51,14 @@ export function TextDiffSeoContent() {
                </CardHeader>
                <CardContent className="text-sm text-muted-foreground space-y-4">
                   <p>
-                     When collaborating on articles, managing configuration files manually, or 
-                     reviewing raw code dumps, it can be nearly impossible to spot a single missing 
-                     semicolon or a slightly rephrased sentence by the naked eye.
+                     When collaborating on articles, managing configuration files manually, or reviewing raw code dumps,
+                     it can be nearly impossible to spot a single missing semicolon or a slightly rephrased sentence by
+                     the naked eye.
                   </p>
                   <p>
-                     Text difference checkers utilize complex semantic algorithmic matching to 
-                     parse two unstructured blocks of string and extract exactly which individual 
-                     character clusters were added, deleted, or left intact.
+                     Text difference checkers utilize complex semantic algorithmic matching to parse two unstructured
+                     blocks of string and extract exactly which individual character clusters were added, deleted, or
+                     left intact.
                   </p>
                </CardContent>
             </Card>
@@ -76,32 +71,26 @@ export function TextDiffSeoContent() {
                </CardHeader>
                <CardContent className="text-sm text-muted-foreground space-y-4">
                   <p>
-                     As developers, we often handle sensitive environment variables, proprietary 
-                     algorithm configurations, and private user keys. Sending this data to a remote 
-                     server solely to compare revisions creates severe security vulnerabilities.
+                     As developers, we often handle sensitive environment variables, proprietary algorithm
+                     configurations, and private user keys. Sending this data to a remote server solely to compare
+                     revisions creates severe security vulnerabilities.
                   </p>
                   <p>
-                     Our Text Diff Checker is strictly <strong>100% Client-Side</strong>. We leverage modern 
-                     browser capabilities to perform heavy difference computations right on your local 
-                     machine without needing a backend server API pipeline.
+                     Our Text Diff Checker is strictly <strong>100% Client-Side</strong>. We leverage modern browser
+                     capabilities to perform heavy difference computations right on your local machine without needing a
+                     backend server API pipeline.
                   </p>
                </CardContent>
             </Card>
          </div>
 
          <div className="max-w-3xl mx-auto bg-card rounded-xl border border-border/50 p-6 shadow-sm mb-8">
-            <h3 className="text-xl font-semibold mb-6 text-center">
-               Frequently Asked Questions
-            </h3>
+            <h3 className="text-xl font-semibold mb-6 text-center">Frequently Asked Questions</h3>
             <Accordion type="single" collapsible className="w-full">
                {faqs.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>
-                     <AccordionTrigger className="text-left font-medium">
-                        {faq.question}
-                     </AccordionTrigger>
-                     <AccordionContent className="text-muted-foreground leading-relaxed">
-                        {faq.answer}
-                     </AccordionContent>
+                     <AccordionTrigger className="text-left font-medium">{faq.question}</AccordionTrigger>
+                     <AccordionContent className="text-muted-foreground leading-relaxed">{faq.answer}</AccordionContent>
                   </AccordionItem>
                ))}
             </Accordion>

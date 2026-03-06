@@ -38,13 +38,8 @@ export function CaseConverterView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedCase = localStorage.getItem(
-            STORAGE_KEY_CASE
-         ) as CaseType | null;
-         if (
-            storedCase &&
-            CASE_OPTIONS.some((opt) => opt.value === storedCase)
-         ) {
+         const storedCase = localStorage.getItem(STORAGE_KEY_CASE) as CaseType | null;
+         if (storedCase && CASE_OPTIONS.some((opt) => opt.value === storedCase)) {
             setTargetCase(storedCase);
          }
 
@@ -57,12 +52,7 @@ export function CaseConverterView() {
 
    // Save state to localStorage on change
    useEffect(() => {
-      if (
-         typeof window === 'undefined' ||
-         !isPersistenceEnabled ||
-         !isInitialized.current
-      )
-         return;
+      if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
       localStorage.setItem(STORAGE_KEY_CASE, targetCase);
       localStorage.setItem(STORAGE_KEY_INPUT, input);
    }, [targetCase, input, isPersistenceEnabled]);
@@ -121,18 +111,13 @@ export function CaseConverterView() {
 
    return (
       <div className="w-full h-full flex flex-col">
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(caseSchema) }}
-         />
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(caseSchema) }} />
 
          {/* Toolbar */}
          <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-b border-border/50 bg-muted/30 shrink-0">
             <div className="flex items-center gap-1.5 mr-2">
                <Type className="h-4 w-4 text-emerald-500" />
-               <span className="text-sm font-semibold text-foreground">
-                  Format To:
-               </span>
+               <span className="text-sm font-semibold text-foreground">Format To:</span>
             </div>
 
             <div className="flex-1 overflow-x-auto min-w-[200px] flex items-center">
@@ -211,9 +196,7 @@ export function CaseConverterView() {
                   </div>
                   <div className="flex items-center gap-3">
                      {outputLength > 0 && (
-                        <span className="text-[10px] text-muted-foreground">
-                           {outputLength} chars
-                        </span>
+                        <span className="text-[10px] text-muted-foreground">{outputLength} chars</span>
                      )}
                      <Button
                         variant="ghost"

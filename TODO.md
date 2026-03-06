@@ -29,17 +29,18 @@
 
 ## ✅ Already Built
 
-| Tool                                 | Route             | Status  |
-| ------------------------------------ | ----------------- | ------- |
-| JSON Viewer/Editor                   | `/json-editor`    | ✅ Live |
-| CSS Playground (Editor + Generators) | `/css-playground` | ✅ Live |
-| Base64 Encoder/Decoder               | `/base64-encoder` | ✅ Live |
-| Case Converter                       | `/case-converter` | ✅ Live |
-| Text Diff Checker                    | `/text-diff`      | ✅ Live |
-| JWT Debugger                         | `/jwt-debugger`   | ✅ Live |
-| RegEx Tester                         | `/regex-tester`   | ✅ Live |
+| Tool                                 | Route              | Status  |
+| ------------------------------------ | ------------------ | ------- |
+| JSON Viewer/Editor                   | `/json-editor`     | ✅ Live |
+| CSS Playground (Editor + Generators) | `/css-playground`  | ✅ Live |
+| Base64 Encoder/Decoder               | `/base64-encoder`  | ✅ Live |
+| Case Converter                       | `/case-converter`  | ✅ Live |
+| Text Diff Checker                    | `/text-diff`       | ✅ Live |
+| JWT Debugger                         | `/jwt-debugger`    | ✅ Live |
+| RegEx Tester                         | `/regex-tester`    | ✅ Live |
 | Color Converter & Palette            | `/color-converter` | ✅ Live |
 | Theme Generator                      | `/theme-generator` | ✅ Live |
+| JSON → Schema Generator              | `/json-to-schema`  | ✅ Live |
 
 ---
 
@@ -169,7 +170,7 @@
    - ✅ Feasible: Native `RegExp` object. UI is the main work.
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **JSON ↔ TypeScript/Go/Rust Schema Generator** — Paste JSON → generate TypeScript interfaces, Go structs, Rust structs, Zod schemas, JSON Schema
+- [x] **JSON ↔ TypeScript/Go/Rust Schema Generator** — Paste JSON → generate TypeScript interfaces, Go structs, Rust structs, Zod schemas, JSON Schema
    - ✅ Feasible: Parse JSON, infer types, generate code strings. Pure logic.
    - Priority: ⭐⭐⭐⭐⭐
 
@@ -226,7 +227,7 @@
    - 💡 Added by review
 
 - [ ] **PDF Resume Builder & Generator** — A genuinely free, fully customizable resume builder avoiding paywalls.
-   - 💡 **Context**: Most resume builders online act free but add paywalls at download or severely restrict layouts. This tool will allow users to freely compose sections, dictate exact placement, customize content styles, and select from a list of clean, professional default format templates. 
+   - 💡 **Context**: Most resume builders online act free but add paywalls at download or severely restrict layouts. This tool will allow users to freely compose sections, dictate exact placement, customize content styles, and select from a list of clean, professional default format templates.
    - ✅ Feasible: Can be built using `react-pdf` for robust client-side rendering or `html2pdf.js`.
    - Priority: ⭐⭐⭐⭐⭐
    - 💡 Added by user request
@@ -371,4 +372,4 @@ Based on impact, bookmark potential, and effort required:
 ---
 
 > **Last updated:** 2026-03-07
-> **Total tools planned:** ~35 (9 built, ~26 remaining)
+> **Total tools planned:** ~35 (10 built, ~25 remaining)

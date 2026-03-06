@@ -12,21 +12,11 @@ interface ControlSliderProps {
    unit?: string;
 }
 
-export function ControlSlider({
-   label,
-   value,
-   onChange,
-   min,
-   max,
-   step = 1,
-   unit = 'px',
-}: ControlSliderProps) {
+export function ControlSlider({ label, value, onChange, min, max, step = 1, unit = 'px' }: ControlSliderProps) {
    return (
       <div className="flex flex-col gap-1">
          <div className="flex items-center justify-between">
-            <label className="text-xs font-medium text-muted-foreground">
-               {label}
-            </label>
+            <label className="text-xs font-medium text-muted-foreground">{label}</label>
             <span className="text-xs font-mono text-primary/80 bg-primary/5 px-1.5 py-0.5 rounded">
                {value}
                {unit}
@@ -72,13 +62,9 @@ interface ControlColorProps {
 export function ControlColor({ label, value, onChange }: ControlColorProps) {
    return (
       <div className="flex items-center justify-between">
-         <label className="text-xs font-medium text-muted-foreground">
-            {label}
-         </label>
+         <label className="text-xs font-medium text-muted-foreground">{label}</label>
          <div className="flex items-center gap-2">
-            <span className="text-xs font-mono text-muted-foreground">
-               {value}
-            </span>
+            <span className="text-xs font-mono text-muted-foreground">{value}</span>
             <input
                type="color"
                value={value}
@@ -101,14 +87,10 @@ interface ControlToggleProps {
 export function ControlToggle({ label, value, onChange }: ControlToggleProps) {
    return (
       <div className="flex items-center justify-between">
-         <label className="text-xs font-medium text-muted-foreground">
-            {label}
-         </label>
+         <label className="text-xs font-medium text-muted-foreground">{label}</label>
          <button
             onClick={() => onChange(!value)}
-            className={`relative w-9 h-5 rounded-full transition-colors ${
-               value ? 'bg-primary' : 'bg-muted'
-            }`}
+            className={`relative w-9 h-5 rounded-full transition-colors ${value ? 'bg-primary' : 'bg-muted'}`}
          >
             <span
                className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-transform shadow-sm ${
@@ -127,17 +109,10 @@ interface ControlSelectProps {
    options: { value: string; label: string }[];
 }
 
-export function ControlSelect({
-   label,
-   value,
-   onChange,
-   options,
-}: ControlSelectProps) {
+export function ControlSelect({ label, value, onChange, options }: ControlSelectProps) {
    return (
       <div className="flex flex-col gap-1">
-         <label className="text-xs font-medium text-muted-foreground">
-            {label}
-         </label>
+         <label className="text-xs font-medium text-muted-foreground">{label}</label>
          <div className="flex flex-wrap gap-1">
             {options.map((opt) => (
                <button

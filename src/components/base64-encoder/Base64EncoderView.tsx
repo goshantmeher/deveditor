@@ -48,9 +48,7 @@ export function Base64EncoderView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const stored = localStorage.getItem(
-            STORAGE_KEY_TAB
-         ) as Base64Tab | null;
+         const stored = localStorage.getItem(STORAGE_KEY_TAB) as Base64Tab | null;
          if (stored && ['text', 'file', 'urlsafe'].includes(stored)) {
             setActiveTab(stored);
          }
@@ -85,10 +83,7 @@ export function Base64EncoderView() {
 
    return (
       <div className="base64-encoder-wrapper w-full h-full flex flex-col">
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(base64Schema) }}
-         />
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(base64Schema) }} />
 
          {/* Tab Navigation */}
          <div className="flex items-center border-b border-border/50 bg-muted/30 shrink-0">

@@ -47,10 +47,7 @@ export function tokenizeWords(input: string): string[] {
 /**
  * Converts an array of lower-cased words into the specified case.
  */
-export function convertWordsToCase(
-   words: string[],
-   targetCase: CaseType
-): string {
+export function convertWordsToCase(words: string[], targetCase: CaseType): string {
    if (!words.length) return '';
 
    switch (targetCase) {
@@ -102,10 +99,7 @@ function capitalize(word: string): string {
 /**
  * Processes a multiline string line by line.
  */
-export function convertMultilineText(
-   text: string,
-   targetCase: CaseType
-): string {
+export function convertMultilineText(text: string, targetCase: CaseType): string {
    if (!text) return '';
    return text
       .split('\n')

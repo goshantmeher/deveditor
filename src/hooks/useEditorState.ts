@@ -16,18 +16,11 @@ export function useEditorState({
    persistenceEnabled = true,
 }: EditorStateConfig) {
    // Always call the hook, but only use it if storageKey is provided
-   const [storedData, setStoredData] = useLocalStorage(
-      storageKey || 'unused',
-      initialData
-   );
+   const [storedData, setStoredData] = useLocalStorage(storageKey || 'unused', initialData);
 
-   const [data, setData] = useState<unknown>(
-      storageKey && persistenceEnabled ? storedData : initialData
-   );
+   const [data, setData] = useState<unknown>(storageKey && persistenceEnabled ? storedData : initialData);
    const [config, setConfig] = useState<EditorConfig>(initialConfig);
-   const originalDataRef = useRef<unknown>(
-      storageKey && persistenceEnabled ? storedData : initialData
-   );
+   const originalDataRef = useRef<unknown>(storageKey && persistenceEnabled ? storedData : initialData);
 
    // Sync data with localStorage when it changes (only if storageKey is provided and persistence is enabled)
    useEffect(() => {

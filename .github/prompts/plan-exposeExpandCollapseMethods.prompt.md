@@ -181,8 +181,7 @@ const handleCollapse = () => {
 **Recommendation:** Option C — Add conditional rendering in EditorPanel:
 
 ```typescript
-const showExpandCollapseButtons =
-   config.editorType === EDITOR_TYPES.text && isStandard;
+const showExpandCollapseButtons = config.editorType === EDITOR_TYPES.text && isStandard;
 ```
 
 ### 2. Timeout in collapseAll

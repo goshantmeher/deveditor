@@ -19,11 +19,7 @@ export interface LineDiff {
 /**
  * Deep comparison of two JSON objects to identify differences
  */
-export function compareJsonObjects(
-   left: unknown,
-   right: unknown,
-   path: string = ''
-): JsonDiff[] {
+export function compareJsonObjects(left: unknown, right: unknown, path: string = ''): JsonDiff[] {
    const diffs: JsonDiff[] = [];
 
    // Handle null/undefined cases
@@ -99,9 +95,7 @@ export function compareJsonObjects(
             leftValue: leftObj[key],
          });
       } else {
-         diffs.push(
-            ...compareJsonObjects(leftObj[key], rightObj[key], newPath)
-         );
+         diffs.push(...compareJsonObjects(leftObj[key], rightObj[key], newPath));
       }
    }
 
@@ -111,10 +105,7 @@ export function compareJsonObjects(
 /**
  * Convert JSON diffs to line-based diffs for CodeMirror highlighting
  */
-export function getLineDiffs(
-   leftData: unknown,
-   rightData: unknown
-): { left: LineDiff[]; right: LineDiff[] } {
+export function getLineDiffs(leftData: unknown, rightData: unknown): { left: LineDiff[]; right: LineDiff[] } {
    // Parse and stringify both sides to ensure consistent formatting
    let leftObj: unknown;
    let rightObj: unknown;
@@ -208,11 +199,7 @@ function buildPathToLineMap(obj: unknown): Map<string, number[]> {
 
    // Simple heuristic: find lines containing keys and map them to paths
    // This is approximate and works for basic cases
-   function traverse(
-      current: unknown,
-      path: string,
-      startLine: number
-   ): number {
+   function traverse(current: unknown, path: string, startLine: number): number {
       if (current === null || current === undefined) return startLine;
 
       if (typeof current !== 'object') return startLine;
@@ -224,8 +211,7 @@ function buildPathToLineMap(obj: unknown): Map<string, number[]> {
 
             // For array items, we need to find the line where this item appears
             // Look for the value itself in the lines
-            const itemStr =
-               typeof item === 'object' ? '' : JSON.stringify(item);
+            const itemStr = typeof item === 'object' ? '' : JSON.stringify(item);
 
             for (let i = currentLine; i < lines.length; i++) {
                const line = lines[i].trim();

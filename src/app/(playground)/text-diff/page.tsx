@@ -6,14 +6,7 @@ export const metadata: Metadata = {
    title: 'Text Diff Checker | Code & Content Comparison Tool',
    description:
       'Compare text blocks side-by-side to find differences instantly. Find character and word-level diffs with visual highlighting.',
-   keywords: [
-      'text diff',
-      'diff checker',
-      'compare text',
-      'file diff',
-      'difference checker',
-      'developer tools',
-   ],
+   keywords: ['text diff', 'diff checker', 'compare text', 'file diff', 'difference checker', 'developer tools'],
 };
 
 export default function TextDiffPage() {

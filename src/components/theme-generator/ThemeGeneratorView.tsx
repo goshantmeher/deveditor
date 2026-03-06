@@ -1,18 +1,27 @@
 'use client';
 
 import React, { useState, useMemo, useCallback } from 'react';
-import { 
-   generateTheme, 
-   hexToHsl, 
-   exportAsCSS, 
-   exportAsTailwind, 
-   exportAsJSON, 
+import {
+   generateTheme,
+   hexToHsl,
+   exportAsCSS,
+   exportAsTailwind,
+   exportAsJSON,
    GeneratedTheme,
-   ThemeColor
+   ThemeColor,
 } from '@/lib/theme-utils';
-import { 
-   Copy, CheckCircle2, RefreshCw, Palette, Sun, Moon, 
-   Download, Code2, Braces, FileJson, Eye
+import {
+   Copy,
+   CheckCircle2,
+   RefreshCw,
+   Palette,
+   Sun,
+   Moon,
+   Download,
+   Code2,
+   Braces,
+   FileJson,
+   Eye,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -21,18 +30,18 @@ import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip
 
 // ── Preset colors ────────────────────────────────────────────
 const PRESETS = [
-   { name: 'Indigo',    hex: '#6366F1' },
-   { name: 'Emerald',   hex: '#10B981' },
-   { name: 'Rose',      hex: '#F43F5E' },
-   { name: 'Amber',     hex: '#F59E0B' },
-   { name: 'Cyan',      hex: '#06B6D4' },
-   { name: 'Violet',    hex: '#8B5CF6' },
-   { name: 'Orange',    hex: '#F97316' },
-   { name: 'Teal',      hex: '#14B8A6' },
-   { name: 'Fuchsia',   hex: '#D946EF' },
-   { name: 'Sky',       hex: '#0EA5E9' },
-   { name: 'Lime',      hex: '#84CC16' },
-   { name: 'Slate',     hex: '#64748B' },
+   { name: 'Indigo', hex: '#6366F1' },
+   { name: 'Emerald', hex: '#10B981' },
+   { name: 'Rose', hex: '#F43F5E' },
+   { name: 'Amber', hex: '#F59E0B' },
+   { name: 'Cyan', hex: '#06B6D4' },
+   { name: 'Violet', hex: '#8B5CF6' },
+   { name: 'Orange', hex: '#F97316' },
+   { name: 'Teal', hex: '#14B8A6' },
+   { name: 'Fuchsia', hex: '#D946EF' },
+   { name: 'Sky', hex: '#0EA5E9' },
+   { name: 'Lime', hex: '#84CC16' },
+   { name: 'Slate', hex: '#64748B' },
 ];
 
 // ── Color Swatch Component ───────────────────────────────────
@@ -45,7 +54,9 @@ function ColorSwatch({ color, onClick, compact }: { color: ThemeColor; onClick?:
          await navigator.clipboard.writeText(color.hex);
          setCopied(true);
          setTimeout(() => setCopied(false), 1500);
-      } catch { /* ignore */ }
+      } catch {
+         /* ignore */
+      }
    };
 
    if (compact) {
@@ -72,7 +83,7 @@ function ColorSwatch({ color, onClick, compact }: { color: ThemeColor; onClick?:
 
    return (
       <div className="group relative flex items-center gap-3 p-3 rounded-xl border border-border/30 bg-card/50 hover:bg-card transition-all hover:shadow-sm">
-         <button 
+         <button
             className="w-12 h-12 rounded-lg shadow-inner border border-white/10 shrink-0 transition-transform hover:scale-110 cursor-pointer"
             style={{ backgroundColor: color.hex }}
             onClick={copy}
@@ -81,13 +92,12 @@ function ColorSwatch({ color, onClick, compact }: { color: ThemeColor; onClick?:
          <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between gap-2">
                <span className="text-xs font-bold text-foreground">{color.label}</span>
-               <button 
-                  onClick={copy} 
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-               >
-                  {copied 
-                     ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> 
-                     : <Copy className="w-3.5 h-3.5" />}
+               <button onClick={copy} className="text-muted-foreground hover:text-foreground transition-colors">
+                  {copied ? (
+                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  ) : (
+                     <Copy className="w-3.5 h-3.5" />
+                  )}
                </button>
             </div>
             <div className="text-[10px] font-mono text-muted-foreground mt-0.5">{color.hex}</div>
@@ -100,19 +110,34 @@ function ColorSwatch({ color, onClick, compact }: { color: ThemeColor; onClick?:
 // ── Sample UI Preview ────────────────────────────────────────
 function ThemePreview({ theme }: { theme: GeneratedTheme }) {
    return (
-      <div 
-         className="rounded-2xl overflow-hidden border-2 border-border/20 shadow-xl" 
-         style={{ backgroundColor: theme.background.hex, color: theme.foreground.hex }}
+      <div
+         className="rounded-2xl overflow-hidden border-2 border-border/20 shadow-xl"
+         style={{
+            backgroundColor: theme.background.hex,
+            color: theme.foreground.hex,
+         }}
       >
          {/* Fake top bar */}
-         <div className="flex items-center px-4 py-3 border-b" style={{ borderColor: theme.border.hex, backgroundColor: theme.card.hex }}>
+         <div
+            className="flex items-center px-4 py-3 border-b"
+            style={{
+               borderColor: theme.border.hex,
+               backgroundColor: theme.card.hex,
+            }}
+         >
             <div className="flex gap-1.5 mr-4">
                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: theme.destructive.hex }} />
                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: theme.warning.hex }} />
                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: theme.success.hex }} />
             </div>
             <div className="flex-1 flex items-center justify-center">
-               <div className="text-[11px] font-semibold px-3 py-0.5 rounded-md" style={{ backgroundColor: theme.muted.hex, color: theme.mutedForeground.hex }}>
+               <div
+                  className="text-[11px] font-semibold px-3 py-0.5 rounded-md"
+                  style={{
+                     backgroundColor: theme.muted.hex,
+                     color: theme.mutedForeground.hex,
+                  }}
+               >
                   preview.app
                </div>
             </div>
@@ -124,24 +149,45 @@ function ThemePreview({ theme }: { theme: GeneratedTheme }) {
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-md" style={{ backgroundColor: theme.primary.hex }} />
-                  <span className="text-xs font-bold" style={{ color: theme.foreground.hex }}>MyApp</span>
+                  <span className="text-xs font-bold" style={{ color: theme.foreground.hex }}>
+                     MyApp
+                  </span>
                </div>
                <div className="flex gap-3">
-                  <span className="text-[10px]" style={{ color: theme.mutedForeground.hex }}>Home</span>
-                  <span className="text-[10px]" style={{ color: theme.mutedForeground.hex }}>Features</span>
-                  <span className="text-[10px] font-bold" style={{ color: theme.primary.hex }}>Pricing</span>
+                  <span className="text-[10px]" style={{ color: theme.mutedForeground.hex }}>
+                     Home
+                  </span>
+                  <span className="text-[10px]" style={{ color: theme.mutedForeground.hex }}>
+                     Features
+                  </span>
+                  <span className="text-[10px] font-bold" style={{ color: theme.primary.hex }}>
+                     Pricing
+                  </span>
                </div>
             </div>
 
             {/* Hero */}
             <div className="p-4 rounded-xl text-center" style={{ backgroundColor: theme.muted.hex }}>
-               <h3 className="text-sm font-bold mb-1" style={{ color: theme.foreground.hex }}>Welcome to the App</h3>
-               <p className="text-[10px] mb-3" style={{ color: theme.mutedForeground.hex }}>Build amazing things with this theme</p>
+               <h3 className="text-sm font-bold mb-1" style={{ color: theme.foreground.hex }}>
+                  Welcome to the App
+               </h3>
+               <p className="text-[10px] mb-3" style={{ color: theme.mutedForeground.hex }}>
+                  Build amazing things with this theme
+               </p>
                <div className="flex justify-center gap-2">
-                  <button className="px-3 py-1 rounded-md text-[10px] font-bold text-white" style={{ backgroundColor: theme.primary.hex }}>
+                  <button
+                     className="px-3 py-1 rounded-md text-[10px] font-bold text-white"
+                     style={{ backgroundColor: theme.primary.hex }}
+                  >
                      Get Started
                   </button>
-                  <button className="px-3 py-1 rounded-md text-[10px] font-medium border" style={{ borderColor: theme.border.hex, color: theme.foreground.hex }}>
+                  <button
+                     className="px-3 py-1 rounded-md text-[10px] font-medium border"
+                     style={{
+                        borderColor: theme.border.hex,
+                        color: theme.foreground.hex,
+                     }}
+                  >
                      Learn More
                   </button>
                </div>
@@ -154,40 +200,100 @@ function ThemePreview({ theme }: { theme: GeneratedTheme }) {
                   { title: 'Pending', value: '142', color: theme.warning.hex },
                   { title: 'Errors', value: '3', color: theme.destructive.hex },
                ].map((stat) => (
-                  <div 
+                  <div
                      key={stat.title}
-                     className="p-2.5 rounded-lg border" 
-                     style={{ backgroundColor: theme.card.hex, borderColor: theme.border.hex }}
+                     className="p-2.5 rounded-lg border"
+                     style={{
+                        backgroundColor: theme.card.hex,
+                        borderColor: theme.border.hex,
+                     }}
                   >
-                     <div className="text-[9px] font-medium mb-1" style={{ color: theme.mutedForeground.hex }}>{stat.title}</div>
-                     <div className="text-sm font-bold" style={{ color: stat.color }}>{stat.value}</div>
+                     <div className="text-[9px] font-medium mb-1" style={{ color: theme.mutedForeground.hex }}>
+                        {stat.title}
+                     </div>
+                     <div className="text-sm font-bold" style={{ color: stat.color }}>
+                        {stat.value}
+                     </div>
                   </div>
                ))}
             </div>
 
             {/* Alert badges */}
             <div className="flex flex-wrap gap-1.5">
-               <span className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white" style={{ backgroundColor: theme.primary.hex }}>Primary</span>
-               <span className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white" style={{ backgroundColor: theme.secondary.hex }}>Secondary</span>
-               <span className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white" style={{ backgroundColor: theme.accent.hex }}>Accent</span>
-               <span className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white" style={{ backgroundColor: theme.info.hex }}>Info</span>
-               <span className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white" style={{ backgroundColor: theme.success.hex }}>Success</span>
-               <span className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white" style={{ backgroundColor: theme.warning.hex }}>Warning</span>
-               <span className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white" style={{ backgroundColor: theme.destructive.hex }}>Destructive</span>
+               <span
+                  className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white"
+                  style={{ backgroundColor: theme.primary.hex }}
+               >
+                  Primary
+               </span>
+               <span
+                  className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white"
+                  style={{ backgroundColor: theme.secondary.hex }}
+               >
+                  Secondary
+               </span>
+               <span
+                  className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white"
+                  style={{ backgroundColor: theme.accent.hex }}
+               >
+                  Accent
+               </span>
+               <span
+                  className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white"
+                  style={{ backgroundColor: theme.info.hex }}
+               >
+                  Info
+               </span>
+               <span
+                  className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white"
+                  style={{ backgroundColor: theme.success.hex }}
+               >
+                  Success
+               </span>
+               <span
+                  className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white"
+                  style={{ backgroundColor: theme.warning.hex }}
+               >
+                  Warning
+               </span>
+               <span
+                  className="px-2 py-0.5 rounded-full text-[9px] font-bold text-white"
+                  style={{ backgroundColor: theme.destructive.hex }}
+               >
+                  Destructive
+               </span>
             </div>
 
             {/* Form preview */}
-            <div className="p-3 rounded-lg border" style={{ backgroundColor: theme.card.hex, borderColor: theme.border.hex }}>
-               <div className="text-[10px] font-bold mb-2" style={{ color: theme.foreground.hex }}>Quick Settings</div>
+            <div
+               className="p-3 rounded-lg border"
+               style={{
+                  backgroundColor: theme.card.hex,
+                  borderColor: theme.border.hex,
+               }}
+            >
+               <div className="text-[10px] font-bold mb-2" style={{ color: theme.foreground.hex }}>
+                  Quick Settings
+               </div>
                <div className="space-y-2">
-                  <div className="flex items-center justify-between p-2 rounded" style={{ backgroundColor: theme.muted.hex }}>
-                     <span className="text-[10px]" style={{ color: theme.foreground.hex }}>Dark Mode</span>
+                  <div
+                     className="flex items-center justify-between p-2 rounded"
+                     style={{ backgroundColor: theme.muted.hex }}
+                  >
+                     <span className="text-[10px]" style={{ color: theme.foreground.hex }}>
+                        Dark Mode
+                     </span>
                      <div className="w-7 h-4 rounded-full relative" style={{ backgroundColor: theme.primary.hex }}>
                         <div className="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow" />
                      </div>
                   </div>
-                  <div className="flex items-center justify-between p-2 rounded" style={{ backgroundColor: theme.muted.hex }}>
-                     <span className="text-[10px]" style={{ color: theme.foreground.hex }}>Notifications</span>
+                  <div
+                     className="flex items-center justify-between p-2 rounded"
+                     style={{ backgroundColor: theme.muted.hex }}
+                  >
+                     <span className="text-[10px]" style={{ color: theme.foreground.hex }}>
+                        Notifications
+                     </span>
                      <div className="w-7 h-4 rounded-full relative" style={{ backgroundColor: theme.border.hex }}>
                         <div className="absolute left-0.5 top-0.5 w-3 h-3 bg-white/60 rounded-full shadow" />
                      </div>
@@ -214,7 +320,11 @@ export function ThemeGeneratorView() {
    }, []);
 
    const randomColor = useCallback(() => {
-      const hex = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+      const hex =
+         '#' +
+         Math.floor(Math.random() * 16777215)
+            .toString(16)
+            .padStart(6, '0');
       setPrimaryHex(hex);
    }, []);
 
@@ -223,29 +333,38 @@ export function ThemeGeneratorView() {
          await navigator.clipboard.writeText(text);
          setCopiedField(field);
          setTimeout(() => setCopiedField(null), 2000);
-      } catch { /* ignore */ }
+      } catch {
+         /* ignore */
+      }
    }, []);
 
    const exportContent = useMemo(() => {
       switch (exportTab) {
-         case 'css': return exportAsCSS(theme);
-         case 'tailwind': return exportAsTailwind(theme);
-         case 'json': return exportAsJSON(theme);
-         default: return '';
+         case 'css':
+            return exportAsCSS(theme);
+         case 'tailwind':
+            return exportAsTailwind(theme);
+         case 'json':
+            return exportAsJSON(theme);
+         default:
+            return '';
       }
    }, [theme, exportTab]);
 
    const semanticTokens = [
-      theme.primary, theme.secondary, theme.accent,
-      theme.background, theme.foreground,
-      theme.muted, theme.mutedForeground,
-      theme.card, theme.cardForeground,
+      theme.primary,
+      theme.secondary,
+      theme.accent,
+      theme.background,
+      theme.foreground,
+      theme.muted,
+      theme.mutedForeground,
+      theme.card,
+      theme.cardForeground,
       theme.border,
    ];
 
-   const statusTokens = [
-      theme.destructive, theme.success, theme.warning, theme.info,
-   ];
+   const statusTokens = [theme.destructive, theme.success, theme.warning, theme.info];
 
    const primaryHsl = hexToHsl(primaryHex);
 
@@ -263,7 +382,9 @@ export function ThemeGeneratorView() {
                   <button
                      onClick={() => setMode('dark')}
                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
-                        mode === 'dark' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+                        mode === 'dark'
+                           ? 'bg-background text-foreground shadow-sm'
+                           : 'text-muted-foreground hover:text-foreground'
                      }`}
                   >
                      <Moon className="w-3 h-3" /> Dark
@@ -271,7 +392,9 @@ export function ThemeGeneratorView() {
                   <button
                      onClick={() => setMode('light')}
                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
-                        mode === 'light' ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+                        mode === 'light'
+                           ? 'bg-background text-foreground shadow-sm'
+                           : 'text-muted-foreground hover:text-foreground'
                      }`}
                   >
                      <Sun className="w-3 h-3" /> Light
@@ -280,18 +403,13 @@ export function ThemeGeneratorView() {
 
                <div className="h-5 w-px bg-border mx-1" />
 
-               <div 
+               <div
                   className="w-7 h-7 rounded-full border-2 border-white/20 shadow-sm cursor-help transition-transform hover:scale-110"
                   style={{ backgroundColor: primaryHex }}
                   title="Current primary color"
                />
 
-               <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="h-8 gap-1.5 text-xs font-medium"
-                  onClick={randomColor}
-               >
+               <Button variant="outline" size="sm" className="h-8 gap-1.5 text-xs font-medium" onClick={randomColor}>
                   <RefreshCw className="w-3 h-3" /> Random
                </Button>
             </div>
@@ -299,43 +417,44 @@ export function ThemeGeneratorView() {
 
          {/* Main Content */}
          <div className="flex-1 flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-border overflow-y-auto lg:overflow-hidden">
-            
             {/* Left panel: Controls + Color Tokens */}
             <div className="flex-1 lg:flex-4 overflow-y-auto p-6 space-y-6 bg-background/50">
-               
                {/* Color Picker */}
                <section className="space-y-4">
                   <h2 className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Primary Color</h2>
                   <div className="flex gap-3 items-center">
-                     <input 
-                        type="color" 
-                        value={primaryHex.length === 7 ? primaryHex : '#6366F1'} 
+                     <input
+                        type="color"
+                        value={primaryHex.length === 7 ? primaryHex : '#6366F1'}
                         onChange={(e) => handleHexInput(e.target.value)}
                         className="w-16 h-16 rounded-xl border-0 p-0 overflow-hidden cursor-pointer shadow-lg bg-transparent"
                      />
                      <div className="flex-1 space-y-2">
                         <div className="flex gap-2">
-                           <Input 
-                              value={primaryHex.replace('#', '')} 
+                           <Input
+                              value={primaryHex.replace('#', '')}
                               onChange={(e) => handleHexInput(e.target.value)}
                               className="font-mono text-sm tracking-wider uppercase h-10"
                               maxLength={6}
                               spellCheck={false}
                               placeholder="6366F1"
                            />
-                           <Button 
-                              variant="ghost" 
+                           <Button
+                              variant="ghost"
                               size="icon"
                               className="h-10 w-10 shrink-0"
                               onClick={() => copyToClipboard(primaryHex, 'primary-hex')}
                            >
-                              {copiedField === 'primary-hex' 
-                                 ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> 
-                                 : <Copy className="w-4 h-4" />}
+                              {copiedField === 'primary-hex' ? (
+                                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                              ) : (
+                                 <Copy className="w-4 h-4" />
+                              )}
                            </Button>
                         </div>
                         <div className="text-[10px] text-muted-foreground font-mono">
-                           HSL({primaryHsl.h}°, {primaryHsl.s}%, {primaryHsl.l}%)
+                           HSL({primaryHsl.h}°, {primaryHsl.s}%, {primaryHsl.l}
+                           %)
                         </div>
                      </div>
                   </div>
@@ -348,15 +467,17 @@ export function ThemeGeneratorView() {
                               <button
                                  onClick={() => setPrimaryHex(p.hex)}
                                  className={`w-7 h-7 rounded-lg border-2 transition-all hover:scale-110 ${
-                                    primaryHex.toUpperCase() === p.hex 
-                                       ? 'border-white shadow-lg scale-110' 
+                                    primaryHex.toUpperCase() === p.hex
+                                       ? 'border-white shadow-lg scale-110'
                                        : 'border-transparent hover:border-white/30'
                                  }`}
                                  style={{ backgroundColor: p.hex }}
                               />
                            </TooltipTrigger>
                            <TooltipContent side="bottom">
-                              <p className="text-xs font-medium">{p.name} — {p.hex}</p>
+                              <p className="text-xs font-medium">
+                                 {p.name} — {p.hex}
+                              </p>
                            </TooltipContent>
                         </Tooltip>
                      ))}
@@ -401,7 +522,9 @@ export function ThemeGeneratorView() {
                               </button>
                            </TooltipTrigger>
                            <TooltipContent side="bottom">
-                              <p className="text-xs font-mono">{key}: {hex}</p>
+                              <p className="text-xs font-mono">
+                                 {key}: {hex}
+                              </p>
                            </TooltipContent>
                         </Tooltip>
                      ))}
@@ -413,10 +536,16 @@ export function ThemeGeneratorView() {
             <div className="flex-1 lg:flex-5 flex flex-col overflow-hidden bg-muted/10">
                <Tabs defaultValue="preview" className="flex flex-col h-full w-full">
                   <TabsList className="w-full justify-start rounded-none border-b border-border h-auto py-0 bg-background/95 backdrop-blur shrink-0 px-2 space-x-1">
-                     <TabsTrigger value="preview" className="py-2.5 data-[state=active]:bg-muted/50 data-[state=active]:shadow-none data-[state=active]:font-semibold rounded-none gap-1.5">
+                     <TabsTrigger
+                        value="preview"
+                        className="py-2.5 data-[state=active]:bg-muted/50 data-[state=active]:shadow-none data-[state=active]:font-semibold rounded-none gap-1.5"
+                     >
                         <Eye className="w-3.5 h-3.5" /> Preview
                      </TabsTrigger>
-                     <TabsTrigger value="export" className="py-2.5 data-[state=active]:bg-muted/50 data-[state=active]:shadow-none data-[state=active]:font-semibold rounded-none gap-1.5">
+                     <TabsTrigger
+                        value="export"
+                        className="py-2.5 data-[state=active]:bg-muted/50 data-[state=active]:shadow-none data-[state=active]:font-semibold rounded-none gap-1.5"
+                     >
                         <Download className="w-3.5 h-3.5" /> Export
                      </TabsTrigger>
                   </TabsList>
@@ -433,20 +562,27 @@ export function ThemeGeneratorView() {
                   </TabsContent>
 
                   {/* Export Tab */}
-                  <TabsContent value="export" className="flex-1 flex flex-col overflow-hidden p-0 m-0 border-none outline-none">
+                  <TabsContent
+                     value="export"
+                     className="flex-1 flex flex-col overflow-hidden p-0 m-0 border-none outline-none"
+                  >
                      {/* Export format tabs */}
                      <div className="flex items-center gap-1 px-4 py-2 border-b border-border/50 bg-background/50 shrink-0">
                         {[
                            { id: 'css', label: 'CSS Variables', icon: Code2 },
-                           { id: 'tailwind', label: 'Tailwind Config', icon: Braces },
+                           {
+                              id: 'tailwind',
+                              label: 'Tailwind Config',
+                              icon: Braces,
+                           },
                            { id: 'json', label: 'JSON', icon: FileJson },
                         ].map(({ id, label, icon: Icon }) => (
                            <button
                               key={id}
                               onClick={() => setExportTab(id)}
                               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                                 exportTab === id 
-                                    ? 'bg-indigo-500/15 text-indigo-400 border border-indigo-500/20' 
+                                 exportTab === id
+                                    ? 'bg-indigo-500/15 text-indigo-400 border border-indigo-500/20'
                                     : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                               }`}
                            >
@@ -454,15 +590,21 @@ export function ThemeGeneratorView() {
                            </button>
                         ))}
                         <div className="flex-1" />
-                        <Button 
-                           variant="outline" 
-                           size="sm" 
+                        <Button
+                           variant="outline"
+                           size="sm"
                            className="h-7 gap-1.5 text-xs"
                            onClick={() => copyToClipboard(exportContent, 'export')}
                         >
-                           {copiedField === 'export' 
-                              ? <><CheckCircle2 className="w-3 h-3 text-emerald-500" /> Copied!</>
-                              : <><Copy className="w-3 h-3" /> Copy All</>}
+                           {copiedField === 'export' ? (
+                              <>
+                                 <CheckCircle2 className="w-3 h-3 text-emerald-500" /> Copied!
+                              </>
+                           ) : (
+                              <>
+                                 <Copy className="w-3 h-3" /> Copy All
+                              </>
+                           )}
                         </Button>
                      </div>
 

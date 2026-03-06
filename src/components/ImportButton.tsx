@@ -4,10 +4,7 @@ import React, { useRef, useState } from 'react';
 import { Button } from './ui/button';
 import { FileInput, Loader2 } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
-import {
-   getConverterByExtension,
-   getAllAcceptedExtensions,
-} from '@/lib/converters/setup';
+import { getConverterByExtension, getAllAcceptedExtensions } from '@/lib/converters/setup';
 import { smartConvert, formatFileSize } from '@/lib/converters/smart-convert';
 
 interface ImportButtonProps {
@@ -47,9 +44,7 @@ function ImportButton({
       return '*';
    };
 
-   const handleFileSelect = async (
-      event: React.ChangeEvent<HTMLInputElement>
-   ) => {
+   const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
       const file = event.target.files?.[0];
       if (!file) return;
 
@@ -84,10 +79,7 @@ function ImportButton({
                   .split(',')
                   .map((e) => e.trim())
                   .join(', ');
-               throw new Error(
-                  `Unsupported file format "${fileExtension || 'unknown'}". ` +
-                     `Supported: ${supported}`
-               );
+               throw new Error(`Unsupported file format "${fileExtension || 'unknown'}". ` + `Supported: ${supported}`);
             }
 
             const { key } = match;
@@ -103,28 +95,19 @@ function ImportButton({
             } else {
                // Use smart convert (auto Worker for large files, with fallback)
                try {
-                  const { result: resultStr } = await smartConvert(
-                     key,
-                     'toJson',
-                     content
-                  );
+                  const { result: resultStr } = await smartConvert(key, 'toJson', content);
                   newData = JSON.parse(resultStr);
                } catch (e) {
-                  const formatLabel =
-                     match.converter.label || key.toUpperCase();
-                  const msg =
-                     e instanceof Error ? e.message : 'Conversion failed';
-                  throw new Error(
-                     `Failed to parse ${formatLabel} file: ${msg}`
-                  );
+                  const formatLabel = match.converter.label || key.toUpperCase();
+                  const msg = e instanceof Error ? e.message : 'Conversion failed';
+                  throw new Error(`Failed to parse ${formatLabel} file: ${msg}`);
                }
             }
          }
 
          onImport(newData);
       } catch (error) {
-         const errorMessage =
-            error instanceof Error ? error.message : 'Invalid file format';
+         const errorMessage = error instanceof Error ? error.message : 'Invalid file format';
          console.error('File import error:', error);
 
          if (onError) {
@@ -160,11 +143,7 @@ function ImportButton({
                      disabled={isImporting}
                      aria-label={title}
                   >
-                     {isImporting ? (
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                     ) : (
-                        <FileInput />
-                     )}
+                     {isImporting ? <Loader2 className="h-4 w-4 animate-spin" /> : <FileInput />}
                   </Button>
 
                   <input

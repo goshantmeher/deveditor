@@ -7,15 +7,9 @@ interface PersistenceContextType {
    togglePersistence: () => void;
 }
 
-const PersistenceContext = createContext<PersistenceContextType | undefined>(
-   undefined
-);
+const PersistenceContext = createContext<PersistenceContextType | undefined>(undefined);
 
-export function PersistenceProvider({
-   children,
-}: {
-   children: React.ReactNode;
-}) {
+export function PersistenceProvider({ children }: { children: React.ReactNode }) {
    const [isPersistenceEnabled, setIsPersistenceEnabled] = useState(() => {
       if (typeof window === 'undefined') return true;
       const stored = localStorage.getItem('json-editor-persistence-enabled');
@@ -24,10 +18,7 @@ export function PersistenceProvider({
 
    useEffect(() => {
       if (typeof window !== 'undefined') {
-         localStorage.setItem(
-            'json-editor-persistence-enabled',
-            String(isPersistenceEnabled)
-         );
+         localStorage.setItem('json-editor-persistence-enabled', String(isPersistenceEnabled));
 
          // Clear stored JSON data when persistence is disabled
          if (!isPersistenceEnabled) {
@@ -42,9 +33,7 @@ export function PersistenceProvider({
    };
 
    return (
-      <PersistenceContext.Provider
-         value={{ isPersistenceEnabled, togglePersistence }}
-      >
+      <PersistenceContext.Provider value={{ isPersistenceEnabled, togglePersistence }}>
          {children}
       </PersistenceContext.Provider>
    );
@@ -53,9 +42,7 @@ export function PersistenceProvider({
 export function usePersistence() {
    const context = useContext(PersistenceContext);
    if (context === undefined) {
-      throw new Error(
-         'usePersistence must be used within a PersistenceProvider'
-      );
+      throw new Error('usePersistence must be used within a PersistenceProvider');
    }
    return context;
 }

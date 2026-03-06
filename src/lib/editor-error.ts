@@ -1,11 +1,4 @@
-import {
-   EditorView,
-   Decoration,
-   ViewPlugin,
-   ViewUpdate,
-   gutter,
-   GutterMarker,
-} from '@codemirror/view';
+import { EditorView, Decoration, ViewPlugin, ViewUpdate, gutter, GutterMarker } from '@codemirror/view';
 import type { DecorationSet } from '@codemirror/view';
 import { RangeSetBuilder } from '@codemirror/state';
 
@@ -77,10 +70,7 @@ export function getLineColFromIndex(text: string, index: number) {
    return { line, column };
 }
 
-export function parseErrorPosition(
-   errorMessage: string,
-   source?: string
-): ErrorPosition | null {
+export function parseErrorPosition(errorMessage: string, source?: string): ErrorPosition | null {
    const lineMatch = errorMessage.match(/line (\d+)/i);
    const columnMatch = errorMessage.match(/column (\d+)/i);
    if (lineMatch && columnMatch) {
@@ -122,17 +112,11 @@ export function createErrorDecorationsPlugin(errorPosition: ErrorPosition) {
             let charPos: number | null = null;
 
             if (typeof errorPosition.charIndex === 'number') {
-               const clamped = Math.max(
-                  0,
-                  Math.min(errorPosition.charIndex, doc.length)
-               );
+               const clamped = Math.max(0, Math.min(errorPosition.charIndex, doc.length));
                lineNumber = doc.lineAt(clamped).number;
                charPos = clamped;
             } else if (typeof errorPosition.line === 'number') {
-               lineNumber = Math.max(
-                  1,
-                  Math.min(errorPosition.line, doc.lines)
-               );
+               lineNumber = Math.max(1, Math.min(errorPosition.line, doc.lines));
                const line = doc.line(lineNumber);
                if (typeof errorPosition.column === 'number') {
                   const colZero = Math.max(0, errorPosition.column - 1);
@@ -145,17 +129,11 @@ export function createErrorDecorationsPlugin(errorPosition: ErrorPosition) {
             if (!lineNumber) return Decoration.none;
             const line = doc.line(lineNumber);
 
-            const decos = [
-               Decoration.line({ attributes: { class: 'cm-errorLine' } }).range(
-                  line.from
-               ),
-            ];
+            const decos = [Decoration.line({ attributes: { class: 'cm-errorLine' } }).range(line.from)];
 
             if (charPos != null) {
                const end = Math.min(charPos + 1, line.to);
-               decos.push(
-                  Decoration.mark({ class: 'cm-errorChar' }).range(charPos, end)
-               );
+               decos.push(Decoration.mark({ class: 'cm-errorChar' }).range(charPos, end));
             }
 
             return Decoration.set(decos);
@@ -178,10 +156,7 @@ class ErrorGutterMarker extends GutterMarker {
    }
 }
 
-export function createErrorGutterExtension(
-   errorPosition: ErrorPosition,
-   errorMessage: string
-) {
+export function createErrorGutterExtension(errorPosition: ErrorPosition, errorMessage: string) {
    return gutter({
       class: 'cm-error-gutter',
       markers: (view: EditorView) => {
@@ -189,10 +164,7 @@ export function createErrorGutterExtension(
          const doc = view.state.doc;
          let lineNumber: number | null = null;
          if (typeof errorPosition.charIndex === 'number') {
-            const clamped = Math.max(
-               0,
-               Math.min(errorPosition.charIndex, doc.length)
-            );
+            const clamped = Math.max(0, Math.min(errorPosition.charIndex, doc.length));
             lineNumber = doc.lineAt(clamped).number;
          } else if (typeof errorPosition.line === 'number') {
             lineNumber = Math.max(1, Math.min(errorPosition.line, doc.lines));
@@ -236,10 +208,7 @@ export function createDiffDecorationsPlugin(diffs: DiffLine[]) {
             for (const diff of diffs) {
                if (diff.type === 'unchanged') continue;
 
-               const lineNumber = Math.max(
-                  1,
-                  Math.min(diff.lineNumber, doc.lines)
-               );
+               const lineNumber = Math.max(1, Math.min(diff.lineNumber, doc.lines));
                const line = doc.line(lineNumber);
 
                let className = '';

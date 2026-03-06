@@ -15,11 +15,7 @@ function isValidBase64(str: string): boolean {
    return /^[A-Za-z0-9+/]*={0,2}$/.test(cleaned) && cleaned.length % 4 === 0;
 }
 
-function encodeText(
-   text: string,
-   charset: Charset,
-   wrapLines: boolean
-): string {
+function encodeText(text: string, charset: Charset, wrapLines: boolean): string {
    try {
       let bytes: Uint8Array;
 
@@ -114,12 +110,7 @@ export function TextEncoder() {
 
          // Auto-detect: if user pastes valid Base64 while in encode mode,
          // and it's a substantial string, switch to decode mode
-         if (
-            !isUserSwitch.current &&
-            direction === 'encode' &&
-            value.length > 8 &&
-            isValidBase64(value)
-         ) {
+         if (!isUserSwitch.current && direction === 'encode' && value.length > 8 && isValidBase64(value)) {
             setDirection('decode');
             setAutoDetected(true);
             setTimeout(() => setAutoDetected(false), 3000);
@@ -191,9 +182,7 @@ export function TextEncoder() {
 
             {/* Charset */}
             <div className="flex items-center gap-1.5">
-               <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                  Charset
-               </span>
+               <span className="text-[10px] text-muted-foreground uppercase tracking-wider">Charset</span>
                <select
                   value={charset}
                   onChange={(e) => setCharset(e.target.value as Charset)}
@@ -248,17 +237,14 @@ export function TextEncoder() {
                      </span>
                   </div>
                   <span className="text-[10px] text-muted-foreground">
-                     {input.length > 0 &&
-                        `${input.length} chars · ${formatBytes(inputBytes)}`}
+                     {input.length > 0 && `${input.length} chars · ${formatBytes(inputBytes)}`}
                   </span>
                </div>
                <textarea
                   value={input}
                   onChange={(e) => handleInputChange(e.target.value)}
                   placeholder={
-                     direction === 'encode'
-                        ? 'Type or paste text to encode...'
-                        : 'Paste Base64 string to decode...'
+                     direction === 'encode' ? 'Type or paste text to encode...' : 'Paste Base64 string to decode...'
                   }
                   className="flex-1 w-full p-4 bg-background text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/50 min-h-[200px]"
                   spellCheck={false}
@@ -273,9 +259,7 @@ export function TextEncoder() {
                         className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-blue-400/80' : 'bg-green-400/80'}`}
                      />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        {direction === 'encode'
-                           ? 'Base64 Output'
-                           : 'Decoded Text'}
+                        {direction === 'encode' ? 'Base64 Output' : 'Decoded Text'}
                      </span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -285,10 +269,7 @@ export function TextEncoder() {
                            {direction === 'encode' && inputBytes > 0 && (
                               <span className="ml-1 text-amber-400">
                                  (+
-                                 {Math.round(
-                                    ((outputBytes - inputBytes) / inputBytes) *
-                                       100
-                                 )}
+                                 {Math.round(((outputBytes - inputBytes) / inputBytes) * 100)}
                                  %)
                               </span>
                            )}

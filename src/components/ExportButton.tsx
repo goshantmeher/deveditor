@@ -4,20 +4,9 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Button } from './ui/button';
 import { FileOutput, Loader2, AlertTriangle } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
-import {
-   Dialog,
-   DialogContent,
-   DialogDescription,
-   DialogFooter,
-   DialogHeader,
-   DialogTitle,
-} from './ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from './ui/dialog';
 import { Input } from './ui/input';
-import {
-   type FormatKey,
-   getExportableFormats,
-   getConverter,
-} from '@/lib/converters/setup';
+import { type FormatKey, getExportableFormats, getConverter } from '@/lib/converters/setup';
 import {
    smartConvert,
    formatFileSize,
@@ -31,11 +20,7 @@ interface ExportButtonProps {
    title?: string;
 }
 
-function ExportButton({
-   data,
-   variant = 'ghost',
-   title = 'Export File',
-}: ExportButtonProps) {
+function ExportButton({ data, variant = 'ghost', title = 'Export File' }: ExportButtonProps) {
    const [isDialogOpen, setIsDialogOpen] = useState(false);
    const [fileName, setFileName] = useState('data');
    const [selectedFormat, setSelectedFormat] = useState<FormatKey>('json');
@@ -65,10 +50,7 @@ function ExportButton({
    }, [parsedData]);
 
    // Get all formats that can export the current data
-   const exportableFormats = useMemo(
-      () => getExportableFormats(parsedData),
-      [parsedData]
-   );
+   const exportableFormats = useMemo(() => getExportableFormats(parsedData), [parsedData]);
 
    // Get the current format's converter info
    const currentFormat = useMemo(
@@ -105,9 +87,7 @@ function ExportButton({
       setIsExporting(true);
       setExportError(null);
       setExportStatus(
-         dataSize > 500_000
-            ? `Converting ${formatFileSize(dataSize)} to ${currentFormat.converter.label}...`
-            : null
+         dataSize > 500_000 ? `Converting ${formatFileSize(dataSize)} to ${currentFormat.converter.label}...` : null
       );
 
       try {
@@ -116,11 +96,7 @@ function ExportButton({
 
          // Use smart convert (auto Worker for large files, with fallback)
          const jsonStr = JSON.stringify(parsedData);
-         const { result: content } = await smartConvert(
-            selectedFormat,
-            'fromJson',
-            jsonStr
-         );
+         const { result: content } = await smartConvert(selectedFormat, 'fromJson', jsonStr);
 
          // Build filename with correct extension
          const trimmedName = fileName.trim() || 'data';
@@ -166,12 +142,7 @@ function ExportButton({
          <Tooltip>
             <TooltipTrigger asChild>
                <div>
-                  <Button
-                     variant={variant}
-                     size="sm"
-                     onClick={() => setIsDialogOpen(true)}
-                     aria-label={title}
-                  >
+                  <Button variant={variant} size="sm" onClick={() => setIsDialogOpen(true)} aria-label={title}>
                      <FileOutput />
                   </Button>
                </div>
@@ -185,16 +156,12 @@ function ExportButton({
             <DialogContent className="sm:max-w-md">
                <DialogHeader>
                   <DialogTitle>Export File</DialogTitle>
-                  <DialogDescription>
-                     Choose a format and enter a file name for export.
-                  </DialogDescription>
+                  <DialogDescription>Choose a format and enter a file name for export.</DialogDescription>
                </DialogHeader>
 
                {/* Format Selector */}
                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">
-                     Format
-                  </label>
+                  <label className="text-sm font-medium text-foreground">Format</label>
                   <div className="flex flex-wrap gap-2">
                      {exportableFormats.map(({ key, converter, warning }) => (
                         <button
@@ -211,9 +178,7 @@ function ExportButton({
                            title={warning || undefined}
                         >
                            {converter.label}
-                           {warning && (
-                              <AlertTriangle className="inline-block ml-1 h-3 w-3 text-yellow-500" />
-                           )}
+                           {warning && <AlertTriangle className="inline-block ml-1 h-3 w-3 text-yellow-500" />}
                         </button>
                      ))}
                   </div>
@@ -239,28 +204,17 @@ function ExportButton({
                      disabled={isExporting}
                      aria-label="File name"
                   />
-                  <span className="text-sm text-muted-foreground">
-                     {currentFormat?.converter.extension || '.json'}
-                  </span>
+                  <span className="text-sm text-muted-foreground">{currentFormat?.converter.extension || '.json'}</span>
                </div>
 
                {/* Export Error */}
-               {exportError && (
-                  <p className="text-sm text-destructive">{exportError}</p>
-               )}
+               {exportError && <p className="text-sm text-destructive">{exportError}</p>}
 
                <DialogFooter>
-                  <Button
-                     variant="outline"
-                     onClick={() => setIsDialogOpen(false)}
-                     disabled={isExporting}
-                  >
+                  <Button variant="outline" onClick={() => setIsDialogOpen(false)} disabled={isExporting}>
                      Cancel
                   </Button>
-                  <Button
-                     onClick={handleExport}
-                     disabled={isExporting || !currentFormat}
-                  >
+                  <Button onClick={handleExport} disabled={isExporting || !currentFormat}>
                      {isExporting ? (
                         <>
                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />

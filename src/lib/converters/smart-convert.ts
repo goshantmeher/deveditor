@@ -53,17 +53,12 @@ export async function smartConvert(
          };
       } catch (workerError) {
          // Worker failed — fall back to main thread
-         console.warn(
-            `Web Worker conversion failed, falling back to main thread:`,
-            workerError
-         );
+         console.warn(`Web Worker conversion failed, falling back to main thread:`, workerError);
       }
    }
 
    // Main-thread conversion (either small payload or worker fallback)
-   const converter = getConverter(
-      formatKey as 'json' | 'yaml' | 'csv' | 'xml' | 'toml'
-   );
+   const converter = getConverter(formatKey as 'json' | 'yaml' | 'csv' | 'xml' | 'toml');
    if (!converter) {
       throw new Error(`No converter registered for format: ${formatKey}`);
    }

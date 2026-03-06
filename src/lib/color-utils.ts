@@ -195,7 +195,10 @@ export function getWcagRating(ratio: number) {
 /**
  * Generates palette colors
  */
-export function generatePalette(hsl: HSL, type: 'complementary' | 'analogous' | 'triadic' | 'tetradic' | 'monochromatic') {
+export function generatePalette(
+   hsl: HSL,
+   type: 'complementary' | 'analogous' | 'triadic' | 'tetradic' | 'monochromatic'
+) {
    const colors: HSL[] = [];
 
    switch (type) {

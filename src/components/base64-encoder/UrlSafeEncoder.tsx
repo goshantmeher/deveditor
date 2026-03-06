@@ -60,11 +60,7 @@ export function UrlSafeEncoder() {
             setOutput(new TextDecoder('utf-8').decode(bytes));
          }
       } catch {
-         setOutput(
-            direction === 'encode'
-               ? '⚠️ Encoding error'
-               : '⚠️ Invalid URL-safe Base64 string'
-         );
+         setOutput(direction === 'encode' ? '⚠️ Encoding error' : '⚠️ Invalid URL-safe Base64 string');
       }
    }, [input, direction]);
 
@@ -208,23 +204,18 @@ export function UrlSafeEncoder() {
                         className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-emerald-400/80' : 'bg-amber-400/80'}`}
                      />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        {direction === 'encode'
-                           ? 'Plain Text'
-                           : 'URL-safe Base64'}
+                        {direction === 'encode' ? 'Plain Text' : 'URL-safe Base64'}
                      </span>
                   </div>
                   <span className="text-[10px] text-muted-foreground">
-                     {input.length > 0 &&
-                        `${input.length} chars · ${formatBytes(inputBytes)}`}
+                     {input.length > 0 && `${input.length} chars · ${formatBytes(inputBytes)}`}
                   </span>
                </div>
                <textarea
                   value={input}
                   onChange={(e) => handleInputChange(e.target.value)}
                   placeholder={
-                     direction === 'encode'
-                        ? 'Type or paste text to encode...'
-                        : 'Paste URL-safe Base64 to decode...'
+                     direction === 'encode' ? 'Type or paste text to encode...' : 'Paste URL-safe Base64 to decode...'
                   }
                   className="flex-1 w-full p-4 bg-background text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/50 min-h-[200px]"
                   spellCheck={false}
@@ -239,9 +230,7 @@ export function UrlSafeEncoder() {
                         className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-blue-400/80' : 'bg-green-400/80'}`}
                      />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        {direction === 'encode'
-                           ? 'URL-safe Base64'
-                           : 'Decoded Text'}
+                        {direction === 'encode' ? 'URL-safe Base64' : 'Decoded Text'}
                      </span>
                   </div>
                   <div className="flex items-center gap-2">

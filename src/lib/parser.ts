@@ -38,16 +38,11 @@ export const parseJson = (jsonString: string): JsonParseResult => {
    }
 };
 
-export const stringifyJson = (
-   data: unknown,
-   indentLevel: number = 2
-): string => {
+export const stringifyJson = (data: unknown, indentLevel: number = 2): string => {
    try {
       return JSON.stringify(data, null, indentLevel);
    } catch (error) {
-      throw new Error(
-         error instanceof Error ? error.message : 'Failed to stringify JSON'
-      );
+      throw new Error(error instanceof Error ? error.message : 'Failed to stringify JSON');
    }
 };
 
@@ -65,10 +60,7 @@ export const minifyJson = (jsonString: string): string => {
    return JSON.stringify(parsed);
 };
 
-export const beautifyJson = (
-   jsonString: string,
-   indent: number = 2
-): string => {
+export const beautifyJson = (jsonString: string, indent: number = 2): string => {
    const parsed = JSON.parse(jsonString);
    return JSON.stringify(parsed, null, indent);
 };

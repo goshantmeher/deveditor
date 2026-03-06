@@ -33,7 +33,7 @@ export interface RegexResponse {
  */
 export function validateRegex(pattern: string, flags: string): string | null {
    if (!pattern) return null; // Empty pattern is treated as valid but matches nothing
-   
+
    try {
       new RegExp(pattern, flags);
       return null;
@@ -45,12 +45,9 @@ export function validateRegex(pattern: string, flags: string): string | null {
 /**
  * Creates a debounced function
  */
-export function debounce<T extends (...args: any[]) => void>(
-   func: T,
-   wait: number
-): (...args: Parameters<T>) => void {
+export function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
    let timeoutId: NodeJS.Timeout | null = null;
-   
+
    return function (...args: Parameters<T>) {
       if (timeoutId) {
          clearTimeout(timeoutId);

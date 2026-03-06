@@ -76,10 +76,7 @@ const jsonConverter: FormatConverter = {
 const converterRegistry = new Map<FormatKey, FormatConverter>();
 
 /** Register a converter for a given key. */
-export function registerConverter(
-   key: FormatKey,
-   converter: FormatConverter
-): void {
+export function registerConverter(key: FormatKey, converter: FormatConverter): void {
    converterRegistry.set(key, converter);
 }
 
@@ -94,12 +91,8 @@ export function getAllConverters(): Map<FormatKey, FormatConverter> {
 }
 
 /** Look up the correct converter for a given file extension (e.g. ".yml"). */
-export function getConverterByExtension(
-   ext: string
-): { key: FormatKey; converter: FormatConverter } | undefined {
-   const normalized = ext.toLowerCase().startsWith('.')
-      ? ext.toLowerCase()
-      : `.${ext.toLowerCase()}`;
+export function getConverterByExtension(ext: string): { key: FormatKey; converter: FormatConverter } | undefined {
+   const normalized = ext.toLowerCase().startsWith('.') ? ext.toLowerCase() : `.${ext.toLowerCase()}`;
 
    for (const [key, converter] of converterRegistry) {
       if (converter.extensions.includes(normalized)) {

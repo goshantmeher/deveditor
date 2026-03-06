@@ -2,24 +2,9 @@
 
 import React, { useState } from 'react';
 import { GeneratorPreview } from './GeneratorPreview';
-import {
-   ControlSlider,
-   ControlSelect,
-   ControlGroup,
-   ControlColor,
-} from './GeneratorControls';
+import { ControlSlider, ControlSelect, ControlGroup, ControlColor } from './GeneratorControls';
 
-const COLORS = [
-   '#7c3aed',
-   '#3b82f6',
-   '#06b6d4',
-   '#10b981',
-   '#f59e0b',
-   '#ef4444',
-   '#ec4899',
-   '#6366f1',
-   '#14b8a6',
-];
+const COLORS = ['#7c3aed', '#3b82f6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#6366f1', '#14b8a6'];
 
 export function GridGenerator() {
    const [columns, setColumns] = useState(3);
@@ -59,8 +44,7 @@ export function GridGenerator() {
 
    const html = Array.from(
       { length: clampedItems },
-      (_, i) =>
-         `<div class="grid-item" style="background:${COLORS[i % COLORS.length]}">${i + 1}</div>`
+      (_, i) => `<div class="grid-item" style="background:${COLORS[i % COLORS.length]}">${i + 1}</div>`
    ).join('\n  ');
 
    const tailwind = `<div class="grid grid-cols-[repeat(${columns},_${colUnit.replace(' ', '_')})] grid-rows-[repeat(${rows},_${rowUnit === 'auto' ? 'auto' : rowUnit.replace(' ', '_')})] gap-[${gap}px] p-5 w-full">\n  <!-- items -->\n  <div class="rounded-xl flex items-center justify-center font-bold text-[13px] text-white ${rowUnit === 'auto' ? `min-h-[${itemSize}px]` : ''}">...</div>\n</div>`;
@@ -69,38 +53,13 @@ export function GridGenerator() {
       <div className="flex flex-col md:flex-row h-full min-h-0 overflow-y-auto md:overflow-hidden">
          <div className="w-full md:w-[320px] shrink-0 overflow-y-auto border-b md:border-b-0 md:border-r border-border/30 p-4 space-y-4">
             <ControlGroup title="Preview">
-               <ControlColor
-                  label="Background"
-                  value={bodyBg}
-                  onChange={setBodyBg}
-               />
+               <ControlColor label="Background" value={bodyBg} onChange={setBodyBg} />
             </ControlGroup>
 
             <ControlGroup title="Grid Container">
-               <ControlSlider
-                  label="Columns"
-                  value={columns}
-                  onChange={setColumns}
-                  min={1}
-                  max={6}
-                  unit=""
-               />
-               <ControlSlider
-                  label="Rows"
-                  value={rows}
-                  onChange={setRows}
-                  min={1}
-                  max={6}
-                  unit=""
-               />
-               <ControlSlider
-                  label="Gap"
-                  value={gap}
-                  onChange={setGap}
-                  min={0}
-                  max={40}
-                  unit="px"
-               />
+               <ControlSlider label="Columns" value={columns} onChange={setColumns} min={1} max={6} unit="" />
+               <ControlSlider label="Rows" value={rows} onChange={setRows} min={1} max={6} unit="" />
+               <ControlSlider label="Gap" value={gap} onChange={setGap} min={0} max={40} unit="px" />
             </ControlGroup>
 
             <ControlGroup title="Column Size">

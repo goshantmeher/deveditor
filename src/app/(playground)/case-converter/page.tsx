@@ -27,8 +27,7 @@ export const metadata: Metadata = {
    twitter: {
       card: 'summary_large_image',
       title: 'Case Converter - Transform Text & Code Formats',
-      description:
-         'Free online Case Converter. Change text to camelCase, snake_case, PascalCase, and more.',
+      description: 'Free online Case Converter. Change text to camelCase, snake_case, PascalCase, and more.',
    },
    alternates: {
       canonical: 'https://www.deveditor.io/case-converter',

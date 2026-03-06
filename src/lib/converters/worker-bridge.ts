@@ -22,10 +22,7 @@ const pending = new Map<string, PendingRequest>();
 
 function getWorker(): Worker {
    if (!worker) {
-      worker = new Worker(
-         new URL('../../workers/converter.worker.ts', import.meta.url),
-         { type: 'module' }
-      );
+      worker = new Worker(new URL('../../workers/converter.worker.ts', import.meta.url), { type: 'module' });
 
       worker.onmessage = (e: MessageEvent) => {
          const { id, result, error } = e.data;
@@ -64,11 +61,7 @@ function getWorker(): Worker {
  * @returns         - For "toJson": JSON-stringified parsed result (use JSON.parse).
  *                    For "fromJson": the formatted string in the target format.
  */
-export function convertInWorker(
-   formatKey: string,
-   action: 'toJson' | 'fromJson',
-   payload: string
-): Promise<string> {
+export function convertInWorker(formatKey: string, action: 'toJson' | 'fromJson', payload: string): Promise<string> {
    return new Promise((resolve, reject) => {
       const id = `conv_${++messageId}`;
       pending.set(id, { resolve, reject });

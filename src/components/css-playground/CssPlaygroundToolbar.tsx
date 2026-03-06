@@ -1,14 +1,7 @@
 'use client';
 import { useCallback } from 'react';
 import { CSS_PRESETS, CssPreset } from '@/constants/css-playground';
-import {
-   Copy,
-   Download,
-   RotateCcw,
-   ChevronDown,
-   FileCode2,
-   Paintbrush,
-} from 'lucide-react';
+import { Copy, Download, RotateCcw, ChevronDown, FileCode2, Paintbrush } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
    DropdownMenu,
@@ -18,12 +11,7 @@ import {
    DropdownMenuSeparator,
    DropdownMenuLabel,
 } from '@/components/ui/dropdown-menu';
-import {
-   Tooltip,
-   TooltipContent,
-   TooltipProvider,
-   TooltipTrigger,
-} from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface CssPlaygroundToolbarProps {
    onPresetSelect: (preset: CssPreset) => void;
@@ -77,9 +65,7 @@ ${htmlContent}
       URL.revokeObjectURL(url);
    }, [htmlContent, cssContent]);
 
-   const activePreset = activePresetId
-      ? CSS_PRESETS.find((p) => p.id === activePresetId)
-      : null;
+   const activePreset = activePresetId ? CSS_PRESETS.find((p) => p.id === activePresetId) : null;
 
    return (
       <div className="flex items-center justify-between px-3 py-1.5 border-b md:border-b-0 border-border/50 bg-muted/30 shrink-0 gap-2 overflow-x-auto w-full">
@@ -87,39 +73,25 @@ ${htmlContent}
          <div className="flex items-center gap-2">
             <DropdownMenu>
                <DropdownMenuTrigger asChild>
-                  <Button
-                     variant="outline"
-                     size="sm"
-                     className="h-7 gap-1.5 text-xs font-medium"
-                  >
+                  <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs font-medium">
                      <Paintbrush className="h-3.5 w-3.5" />
-                     <span className="hidden sm:inline">
-                        {activePreset ? activePreset.name : 'Templates'}
-                     </span>
+                     <span className="hidden sm:inline">{activePreset ? activePreset.name : 'Templates'}</span>
                      <ChevronDown className="h-3 w-3 opacity-60" />
                   </Button>
                </DropdownMenuTrigger>
                <DropdownMenuContent align="start" className="w-56">
-                  <DropdownMenuLabel className="text-xs">
-                     Preset Templates
-                  </DropdownMenuLabel>
+                  <DropdownMenuLabel className="text-xs">Preset Templates</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   {CSS_PRESETS.map((preset) => (
                      <DropdownMenuItem
                         key={preset.id}
                         onClick={() => onPresetSelect(preset)}
-                        className={`gap-2 cursor-pointer ${
-                           activePresetId === preset.id ? 'bg-accent' : ''
-                        }`}
+                        className={`gap-2 cursor-pointer ${activePresetId === preset.id ? 'bg-accent' : ''}`}
                      >
                         <span className="text-base">{preset.icon}</span>
                         <div className="flex flex-col">
-                           <span className="text-sm font-medium">
-                              {preset.name}
-                           </span>
-                           <span className="text-xs text-muted-foreground">
-                              {preset.description}
-                           </span>
+                           <span className="text-sm font-medium">{preset.name}</span>
+                           <span className="text-xs text-muted-foreground">{preset.description}</span>
                         </div>
                      </DropdownMenuItem>
                   ))}
@@ -195,12 +167,7 @@ ${htmlContent}
             <TooltipProvider delayDuration={300}>
                <Tooltip>
                   <TooltipTrigger asChild>
-                     <Button
-                        variant="ghost"
-                        size="sm"
-                        className="h-7 gap-1.5 text-xs"
-                        onClick={exportAsHtml}
-                     >
+                     <Button variant="ghost" size="sm" className="h-7 gap-1.5 text-xs" onClick={exportAsHtml}>
                         <Download className="h-3.5 w-3.5" />
                         <span className="hidden sm:inline">Export</span>
                      </Button>

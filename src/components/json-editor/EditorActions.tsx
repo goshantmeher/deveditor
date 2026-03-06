@@ -2,11 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { ArrowBigLeftDash, ArrowBigRightDash, GitCompare } from 'lucide-react';
-import {
-   Tooltip,
-   TooltipContent,
-   TooltipTrigger,
-} from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface EditorActionsProps {
    onCopyToRight: () => void;
@@ -16,13 +12,7 @@ interface EditorActionsProps {
    canCompare: boolean;
 }
 
-export function EditorActions({
-   onCopyToRight,
-   onCopyToLeft,
-   onCompare,
-   isComparing,
-   canCompare,
-}: EditorActionsProps) {
+export function EditorActions({ onCopyToRight, onCopyToLeft, onCompare, isComparing, canCompare }: EditorActionsProps) {
    return (
       <div className="editor-actions-panel flex flex-row md:flex-col gap-2 w-full md:w-[100px] md:max-w-[100px] items-center justify-center bg-card border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-border py-2 md:py-0">
          <Button
@@ -44,9 +34,7 @@ export function EditorActions({
                      size="sm"
                      onClick={onCompare}
                      disabled={!canCompare}
-                     aria-label={
-                        isComparing ? 'Exit compare mode' : 'Compare JSON'
-                     }
+                     aria-label={isComparing ? 'Exit compare mode' : 'Compare JSON'}
                   >
                      <GitCompare />
                   </Button>

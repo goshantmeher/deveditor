@@ -1,16 +1,7 @@
 'use client';
 
 import React, { useState, useCallback, useRef } from 'react';
-import {
-   Copy,
-   Check,
-   Upload,
-   X,
-   FileIcon,
-   Image as ImageIcon,
-   Code,
-   FileText,
-} from 'lucide-react';
+import { Copy, Check, Upload, X, FileIcon, Image as ImageIcon, Code, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 function formatBytes(bytes: number): string {
@@ -99,9 +90,7 @@ export function FileEncoder() {
 
    const cssSnippet = file ? `background-image: url(${file.dataUri});` : '';
 
-   const htmlSnippet = file
-      ? `<img src="${file.dataUri}" alt="${file.name}" />`
-      : '';
+   const htmlSnippet = file ? `<img src="${file.dataUri}" alt="${file.name}" />` : '';
 
    return (
       <div className="flex flex-col h-full">
@@ -122,40 +111,23 @@ export function FileEncoder() {
                   }`}
                   onClick={() => fileInputRef.current?.click()}
                >
-                  <div
-                     className={`p-3 rounded-full transition-colors ${isDragOver ? 'bg-primary/15' : 'bg-muted/30'}`}
-                  >
-                     <Upload
-                        className={`h-6 w-6 ${isDragOver ? 'text-primary' : 'text-muted-foreground'}`}
-                     />
+                  <div className={`p-3 rounded-full transition-colors ${isDragOver ? 'bg-primary/15' : 'bg-muted/30'}`}>
+                     <Upload className={`h-6 w-6 ${isDragOver ? 'text-primary' : 'text-muted-foreground'}`} />
                   </div>
                   <div className="text-center">
                      <p className="text-sm font-medium text-foreground">
-                        {isProcessing
-                           ? 'Processing...'
-                           : 'Drop a file here or click to browse'}
+                        {isProcessing ? 'Processing...' : 'Drop a file here or click to browse'}
                      </p>
-                     <p className="text-xs text-muted-foreground mt-1">
-                        Any file type · Images will show a preview
-                     </p>
+                     <p className="text-xs text-muted-foreground mt-1">Any file type · Images will show a preview</p>
                   </div>
-                  <input
-                     ref={fileInputRef}
-                     type="file"
-                     onChange={handleFileSelect}
-                     className="hidden"
-                  />
+                  <input ref={fileInputRef} type="file" onChange={handleFileSelect} className="hidden" />
                </div>
             ) : (
                <div className="flex items-start gap-4">
                   {/* Image Preview */}
                   {file.isImage && (
                      <div className="shrink-0 w-24 h-24 rounded-lg overflow-hidden border border-border/30 bg-[conic-gradient(#80808020_25%,#80808010_25%_50%,#80808020_50%_75%,#80808010_75%)]">
-                        <img
-                           src={file.dataUri}
-                           alt={file.name}
-                           className="w-full h-full object-contain"
-                        />
+                        <img src={file.dataUri} alt={file.name} className="w-full h-full object-contain" />
                      </div>
                   )}
 
@@ -167,36 +139,21 @@ export function FileEncoder() {
                         ) : (
                            <FileIcon className="h-4 w-4 text-blue-400 shrink-0" />
                         )}
-                        <span className="text-sm font-medium text-foreground truncate">
-                           {file.name}
-                        </span>
+                        <span className="text-sm font-medium text-foreground truncate">{file.name}</span>
                      </div>
 
                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground mt-1">
                         <span>
-                           Type:{' '}
-                           <span className="text-foreground/80">
-                              {file.type}
-                           </span>
+                           Type: <span className="text-foreground/80">{file.type}</span>
                         </span>
                         <span>
-                           Size:{' '}
-                           <span className="text-foreground/80">
-                              {formatBytes(file.size)}
-                           </span>
+                           Size: <span className="text-foreground/80">{formatBytes(file.size)}</span>
                         </span>
                         <span>
-                           Base64:{' '}
-                           <span className="text-foreground/80">
-                              {formatBytes(file.base64.length)}
-                           </span>
+                           Base64: <span className="text-foreground/80">{formatBytes(file.base64.length)}</span>
                            <span className="ml-1 text-amber-400">
                               (+
-                              {Math.round(
-                                 ((file.base64.length - file.size) /
-                                    file.size) *
-                                    100
-                              )}
+                              {Math.round(((file.base64.length - file.size) / file.size) * 100)}
                               %)
                            </span>
                         </span>
@@ -204,12 +161,7 @@ export function FileEncoder() {
                   </div>
 
                   {/* Clear Button */}
-                  <Button
-                     variant="ghost"
-                     size="sm"
-                     className="h-7 w-7 p-0 shrink-0"
-                     onClick={handleClear}
-                  >
+                  <Button variant="ghost" size="sm" className="h-7 w-7 p-0 shrink-0" onClick={handleClear}>
                      <X className="h-4 w-4" />
                   </Button>
                </div>
@@ -284,12 +236,7 @@ function OutputSection({
                {icon}
                {label}
             </div>
-            <Button
-               variant="ghost"
-               size="sm"
-               className="h-6 gap-1 text-xs"
-               onClick={onCopy}
-            >
+            <Button variant="ghost" size="sm" className="h-6 gap-1 text-xs" onClick={onCopy}>
                {isCopied ? (
                   <>
                      <Check className="h-3 w-3 text-green-500" />

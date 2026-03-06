@@ -6,11 +6,7 @@ import { CssEditor } from './CssEditor';
 import { LivePreview } from './LivePreview';
 import { CssPlaygroundToolbar } from './CssPlaygroundToolbar';
 import { GeneratorView } from './generators/GeneratorView';
-import {
-   DEFAULT_HTML,
-   DEFAULT_CSS,
-   CssPreset,
-} from '@/constants/css-playground';
+import { DEFAULT_HTML, DEFAULT_CSS, CssPreset } from '@/constants/css-playground';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { Code2, Sliders } from 'lucide-react';
 
@@ -43,9 +39,7 @@ export function CssPlaygroundView() {
          const storedHtml = localStorage.getItem(STORAGE_KEY_HTML);
          const storedCss = localStorage.getItem(STORAGE_KEY_CSS);
          const storedPreset = localStorage.getItem(STORAGE_KEY_PRESET);
-         const storedMode = localStorage.getItem(
-            STORAGE_KEY_MODE
-         ) as PlaygroundMode | null;
+         const storedMode = localStorage.getItem(STORAGE_KEY_MODE) as PlaygroundMode | null;
 
          if (storedHtml) {
             setHtmlContent(storedHtml);
@@ -187,9 +181,7 @@ export function CssPlaygroundView() {
 
             {mode === 'generator' && (
                <div className="flex-1 px-3 py-1.5">
-                  <span className="text-xs text-muted-foreground">
-                     Tweak controls to generate CSS instantly
-                  </span>
+                  <span className="text-xs text-muted-foreground">Tweak controls to generate CSS instantly</span>
                </div>
             )}
          </div>
@@ -208,11 +200,7 @@ export function CssPlaygroundView() {
                      </div>
                   </div>
                   <div className="flex-1 min-h-0 overflow-hidden">
-                     <HtmlEditor
-                        value={htmlContent}
-                        onChange={handleHtmlChange}
-                        ariaLabel="HTML editor pane"
-                     />
+                     <HtmlEditor value={htmlContent} onChange={handleHtmlChange} ariaLabel="HTML editor pane" />
                   </div>
                </div>
 
@@ -227,20 +215,13 @@ export function CssPlaygroundView() {
                      </div>
                   </div>
                   <div className="flex-1 min-h-0 overflow-hidden">
-                     <CssEditor
-                        value={cssContent}
-                        onChange={handleCssChange}
-                        ariaLabel="CSS editor pane"
-                     />
+                     <CssEditor value={cssContent} onChange={handleCssChange} ariaLabel="CSS editor pane" />
                   </div>
                </div>
 
                {/* Live Preview Pane */}
                <div className="flex flex-col w-full min-h-[400px] md:min-h-0 md:w-1/3 shrink-0 md:shrink">
-                  <LivePreview
-                     htmlContent={debouncedHtml}
-                     cssContent={debouncedCss}
-                  />
+                  <LivePreview htmlContent={debouncedHtml} cssContent={debouncedCss} />
                </div>
             </div>
          ) : (
