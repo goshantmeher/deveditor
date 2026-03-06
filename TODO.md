@@ -227,7 +227,7 @@
    - Priority: ⭐⭐⭐
    - 💡 Added by review
 
-- [ ] **PDF Resume Builder & Generator** — A genuinely free, fully customizable resume builder avoiding paywalls.
+- [x] **PDF Resume Builder & Generator** — A genuinely free, fully customizable resume builder avoiding paywalls.
    - 💡 **Context**: Most resume builders online act free but add paywalls at download or severely restrict layouts. This tool will allow users to freely compose sections, dictate exact placement, customize content styles, and select from a list of clean, professional default format templates.
    - ✅ Feasible: Can be built using `react-pdf` for robust client-side rendering or `html2pdf.js`.
    - Priority: ⭐⭐⭐⭐⭐

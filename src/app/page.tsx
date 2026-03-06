@@ -375,7 +375,8 @@ const categories: Category[] = [
             description: 'A free, fully customizable resume builder with layout options and no paywalls.',
             icon: '📄',
             href: '/pdf-resume',
-            status: 'planned',
+            status: 'available',
+            isNew: true,
             tags: ['pdf', 'resume', 'cv', 'builder', 'free'],
          },
          {
