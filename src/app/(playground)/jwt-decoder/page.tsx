@@ -16,6 +16,15 @@ export const metadata: Metadata = {
       'auth token inspector',
       'client side security',
    ],
+   openGraph: {
+      title: 'JWT Debugger & Decoder | DevEditor',
+      description:
+         'Decode, examine, and debug JSON Web Tokens securely and completely client-side.',
+      url: 'https://www.deveditor.io/jwt-decoder',
+      siteName: 'DevEditor',
+      type: 'website',
+   },
+   alternates: { canonical: 'https://www.deveditor.io/jwt-decoder' },
 };
 
 export default function JwtDecoderPage() {

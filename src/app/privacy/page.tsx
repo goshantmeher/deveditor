@@ -6,6 +6,14 @@ export const metadata: Metadata = {
    title: 'Privacy Policy - DevEditor',
    description:
       'DevEditor privacy policy. Learn how we protect your data. All tools are 100% client-side — your files and content never leave your browser.',
+   openGraph: {
+      title: 'Privacy Policy - DevEditor',
+      description:
+         'All tools are 100% client-side — your files and content never leave your browser. No cookies, no tracking, no ads.',
+      url: 'https://www.deveditor.io/privacy',
+      siteName: 'DevEditor',
+      type: 'website',
+   },
    alternates: { canonical: 'https://www.deveditor.io/privacy' },
 };
 

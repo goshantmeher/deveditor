@@ -16,6 +16,15 @@ export const metadata: Metadata = {
       'color picker',
       'frontend design tools',
    ],
+   openGraph: {
+      title: 'Color Converter & Palette Generator | DevEditor',
+      description:
+         'Convert between HEX, RGB, HSL, and CMYK. Check WCAG contrast and generate color palettes instantly.',
+      url: 'https://www.deveditor.io/color-converter',
+      siteName: 'DevEditor',
+      type: 'website',
+   },
+   alternates: { canonical: 'https://www.deveditor.io/color-converter' },
 };
 
 export default function ColorConverterPage() {

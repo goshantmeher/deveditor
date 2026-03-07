@@ -15,6 +15,15 @@ export const metadata: Metadata = {
       'catastrophic backtracking',
       'browser regex',
    ],
+   openGraph: {
+      title: 'RegEx Tester & Evaluator | DevEditor',
+      description:
+         'Test, debug, and write Regular Expressions securely in your browser with real-time highlighting and safe execution.',
+      url: 'https://www.deveditor.io/regex-tester',
+      siteName: 'DevEditor',
+      type: 'website',
+   },
+   alternates: { canonical: 'https://www.deveditor.io/regex-tester' },
 };
 
 export default function RegexTesterPage() {
