@@ -112,14 +112,14 @@ export function ThemeGeneratorSeoContent() {
                      ))}
                   </ul>
                </div>
-               <div className="bg-muted/30 rounded-3xl p-8 border border-border/50">
+               <div className="bg-muted/50 rounded-3xl p-8 border border-border">
                   <div className="aspect-video bg-background rounded-2xl flex flex-col items-center justify-center border border-border/30 relative overflow-hidden group">
                      <div className="flex gap-4 mb-4">
                         <Sun className="w-8 h-8 text-amber-500/50" />
                         <Moon className="w-8 h-8 text-indigo-500/50" />
                      </div>
-                     <Sparkles className="w-16 h-16 text-indigo-500/10 group-hover:scale-110 transition-transform duration-500" />
-                     <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/5 to-transparent pointer-events-none" />
+                     <Sparkles className="w-16 h-16 text-indigo-500/25 group-hover:text-indigo-500/40 group-hover:scale-110 transition-all duration-500" />
+                     <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/15 to-transparent pointer-events-none" />
                   </div>
                </div>
             </div>

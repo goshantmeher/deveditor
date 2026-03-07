@@ -132,20 +132,20 @@ export function CssPlaygroundSeoContent() {
                      ))}
                   </ul>
                </div>
-               <div className="bg-muted/30 rounded-3xl p-8 border border-border/50">
-                  <div className="aspect-video bg-background rounded-2xl flex items-center justify-center border border-border/30 relative overflow-hidden group">
-                     <Layers className="w-24 h-24 text-indigo-500/10 group-hover:scale-110 transition-transform duration-500" />
-                     <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/5 to-transparent pointer-events-none" />
+               <div className="bg-muted/50 rounded-3xl p-8 border border-border">
+                  <div className="aspect-video bg-background rounded-2xl flex items-center justify-center border border-border/50 relative overflow-hidden group">
+                     <Layers className="w-24 h-24 text-indigo-500/25 group-hover:text-indigo-500/40 group-hover:scale-110 transition-all duration-500" />
+                     <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/15 to-transparent pointer-events-none" />
                   </div>
                </div>
             </div>
 
             {/* Generator Mode */}
             <div className="grid md:grid-cols-2 gap-12 items-center lg:flex-row-reverse">
-               <div className="bg-muted/30 rounded-3xl p-8 border border-border/50 md:order-last">
-                  <div className="aspect-video bg-background rounded-2xl flex items-center justify-center border border-border/30 relative overflow-hidden group">
-                     <MousePointer2 className="w-24 h-24 text-sky-500/10 group-hover:scale-110 transition-transform duration-500" />
-                     <div className="absolute inset-0 bg-linear-to-tr from-sky-500/5 to-transparent pointer-events-none" />
+               <div className="bg-muted/50 rounded-3xl p-8 border border-border md:order-last">
+                  <div className="aspect-video bg-background rounded-2xl flex items-center justify-center border border-border/50 relative overflow-hidden group">
+                     <MousePointer2 className="w-24 h-24 text-sky-500/25 group-hover:text-sky-500/40 group-hover:scale-110 transition-all duration-500" />
+                     <div className="absolute inset-0 bg-linear-to-tr from-sky-500/15 to-transparent pointer-events-none" />
                   </div>
                </div>
                <div className="space-y-6">

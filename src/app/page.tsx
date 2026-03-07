@@ -86,7 +86,8 @@ const categories: Category[] = [
             description: 'Convert text columns to JSON arrays, SQL IN clauses, or CSV strings.',
             icon: '📋',
             href: '/list-converter',
-            status: 'planned',
+            status: 'available',
+            isNew: true,
             tags: ['list', 'array', 'json', 'sql', 'csv'],
          },
          {

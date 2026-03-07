@@ -219,7 +219,7 @@ export function ResumeBuilderSeoContent() {
                   ))}
                </ul>
             </div>
-            <div className="bg-muted/30 rounded-3xl p-8 border border-border/50">
+            <div className="bg-muted/50 rounded-3xl p-8 border border-border">
                <div className="flex items-center gap-2 mb-4">
                   <Search className="w-4 h-4 text-indigo-500" />
                   <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
