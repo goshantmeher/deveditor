@@ -9,12 +9,7 @@ import { SkillsEditor } from './sections/SkillsEditor';
 import { ProjectsEditor } from './sections/ProjectsEditor';
 import { CertificationsEditor } from './sections/CertificationsEditor';
 import { CustomSectionEditor } from './sections/CustomSectionEditor';
-import {
-   Accordion,
-   AccordionContent,
-   AccordionItem,
-   AccordionTrigger,
-} from '@/components/ui/accordion';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { User, FileText, Briefcase, GraduationCap, Wrench, FolderKanban, Award, LayoutList } from 'lucide-react';
 
 interface ResumeFormProps {
@@ -40,7 +35,11 @@ export function ResumeForm({ data, onChange }: ResumeFormProps) {
             {sections.map((section) => {
                const Icon = section.icon;
                return (
-                  <AccordionItem key={section.id} value={section.id} className="border border-border rounded-lg overflow-hidden bg-background">
+                  <AccordionItem
+                     key={section.id}
+                     value={section.id}
+                     className="border border-border rounded-lg overflow-hidden bg-background"
+                  >
                      <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-muted/30 transition-colors data-[state=open]:bg-muted/20">
                         <div className="flex items-center gap-2.5">
                            <Icon className="w-4 h-4 text-indigo-500" />
@@ -70,10 +69,7 @@ export function ResumeForm({ data, onChange }: ResumeFormProps) {
                            />
                         )}
                         {section.id === 'summary' && (
-                           <SummaryEditor
-                              value={data.summary}
-                              onChange={(summary) => onChange({ ...data, summary })}
-                           />
+                           <SummaryEditor value={data.summary} onChange={(summary) => onChange({ ...data, summary })} />
                         )}
                         {section.id === 'experience' && (
                            <ExperienceEditor
@@ -88,10 +84,7 @@ export function ResumeForm({ data, onChange }: ResumeFormProps) {
                            />
                         )}
                         {section.id === 'skills' && (
-                           <SkillsEditor
-                              data={data.skills}
-                              onChange={(skills) => onChange({ ...data, skills })}
-                           />
+                           <SkillsEditor data={data.skills} onChange={(skills) => onChange({ ...data, skills })} />
                         )}
                         {section.id === 'projects' && (
                            <ProjectsEditor

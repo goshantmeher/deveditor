@@ -48,7 +48,9 @@ export function CustomSectionEditor({ data, onChange }: CustomSectionEditorProps
             <div key={entry.id} className="relative p-4 rounded-lg border border-border bg-background space-y-3">
                <div className="flex items-center justify-between">
                   <div className="space-y-1 flex-1 mr-4">
-                     <Label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Section Title</Label>
+                     <Label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                        Section Title
+                     </Label>
                      <Input
                         value={entry.title}
                         onChange={(e) => updateEntry(i, { title: e.target.value })}
@@ -56,23 +58,45 @@ export function CustomSectionEditor({ data, onChange }: CustomSectionEditorProps
                         className="h-9 text-sm"
                      />
                   </div>
-                  <Button variant="ghost" size="icon" className="h-7 w-7 text-muted-foreground hover:text-destructive mt-5" onClick={() => removeEntry(i)}>
+                  <Button
+                     variant="ghost"
+                     size="icon"
+                     className="h-7 w-7 text-muted-foreground hover:text-destructive mt-5"
+                     onClick={() => removeEntry(i)}
+                  >
                      <Trash2 className="w-3.5 h-3.5" />
                   </Button>
                </div>
 
                <div className="space-y-2">
-                  <Label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Items</Label>
+                  <Label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                     Items
+                  </Label>
                   {entry.bullets.map((bullet, bi) => (
                      <div key={bi} className="flex items-center gap-2">
                         <span className="text-muted-foreground text-xs">•</span>
-                        <Input value={bullet} onChange={(e) => updateBullet(i, bi, e.target.value)} placeholder="Enter an item..." className="h-8 text-sm flex-1" />
-                        <Button variant="ghost" size="icon" className="h-7 w-7 shrink-0 text-muted-foreground hover:text-destructive" onClick={() => removeBullet(i, bi)}>
+                        <Input
+                           value={bullet}
+                           onChange={(e) => updateBullet(i, bi, e.target.value)}
+                           placeholder="Enter an item..."
+                           className="h-8 text-sm flex-1"
+                        />
+                        <Button
+                           variant="ghost"
+                           size="icon"
+                           className="h-7 w-7 shrink-0 text-muted-foreground hover:text-destructive"
+                           onClick={() => removeBullet(i, bi)}
+                        >
                            <Trash2 className="w-3 h-3" />
                         </Button>
                      </div>
                   ))}
-                  <Button variant="ghost" size="sm" className="text-xs h-7 text-muted-foreground" onClick={() => addBullet(i)}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="text-xs h-7 text-muted-foreground"
+                     onClick={() => addBullet(i)}
+                  >
                      <Plus className="w-3 h-3 mr-1" /> Add item
                   </Button>
                </div>

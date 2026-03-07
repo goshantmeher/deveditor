@@ -472,8 +472,12 @@
    border-bottom: 1px solid hsl(var(--border));
    padding-bottom: 0.3em;
 }
-.markdown-preview h3 { font-size: 1.25rem; }
-.markdown-preview h4 { font-size: 1.1rem; }
+.markdown-preview h3 {
+   font-size: 1.25rem;
+}
+.markdown-preview h4 {
+   font-size: 1.1rem;
+}
 
 .markdown-preview p {
    margin-bottom: 1em;
@@ -488,9 +492,16 @@
    color: #a5b4fc;
 }
 
-.markdown-preview strong { font-weight: 700; }
-.markdown-preview em { font-style: italic; }
-.markdown-preview del { text-decoration: line-through; opacity: 0.7; }
+.markdown-preview strong {
+   font-weight: 700;
+}
+.markdown-preview em {
+   font-style: italic;
+}
+.markdown-preview del {
+   text-decoration: line-through;
+   opacity: 0.7;
+}
 
 .markdown-preview code {
    font-family: var(--font-geist-mono), monospace;
@@ -532,15 +543,26 @@
    margin: 0.75em 0;
 }
 
-.markdown-preview ul { list-style-type: disc; }
-.markdown-preview ol { list-style-type: decimal; }
-.markdown-preview li { margin-bottom: 0.35em; }
+.markdown-preview ul {
+   list-style-type: disc;
+}
+.markdown-preview ol {
+   list-style-type: decimal;
+}
+.markdown-preview li {
+   margin-bottom: 0.35em;
+}
 
-.markdown-preview ul li::marker { color: #6366f1; }
-.markdown-preview ol li::marker { color: #6366f1; font-weight: 600; }
+.markdown-preview ul li::marker {
+   color: #6366f1;
+}
+.markdown-preview ol li::marker {
+   color: #6366f1;
+   font-weight: 600;
+}
 
 /* Task lists */
-.markdown-preview input[type="checkbox"] {
+.markdown-preview input[type='checkbox'] {
    margin-right: 0.5em;
    accent-color: #6366f1;
 }
@@ -603,4 +625,3 @@
 .mermaid-error {
    border-color: hsl(var(--destructive) / 0.5);
 }
-

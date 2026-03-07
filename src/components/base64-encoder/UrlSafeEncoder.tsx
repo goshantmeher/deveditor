@@ -166,22 +166,30 @@ export function UrlSafeEncoder() {
                   Swap
                </button>
             )}
-         {/* Compact URL-safe info hint */}
+            {/* Compact URL-safe info hint */}
             <Tooltip>
                <TooltipTrigger asChild>
                   <span className="text-[10px] text-muted-foreground flex items-center gap-1.5 ml-1 cursor-help">
                      <Info className="h-3 w-3 shrink-0" />
                      <span>
-                        <code className="text-red-400/70 line-through">+</code><span className="mx-0.5">→</span><code className="text-green-400/70">-</code>
+                        <code className="text-red-400/70 line-through">+</code>
+                        <span className="mx-0.5">→</span>
+                        <code className="text-green-400/70">-</code>
                         <span className="mx-1.5 text-border">·</span>
-                        <code className="text-red-400/70 line-through">/</code><span className="mx-0.5">→</span><code className="text-green-400/70">_</code>
+                        <code className="text-red-400/70 line-through">/</code>
+                        <span className="mx-0.5">→</span>
+                        <code className="text-green-400/70">_</code>
                         <span className="mx-1.5 text-border">·</span>
-                        <code className="text-red-400/70 line-through">=</code><span className="mx-0.5">→</span><span className="text-green-400/70 text-[9px]">removed</span>
+                        <code className="text-red-400/70 line-through">=</code>
+                        <span className="mx-0.5">→</span>
+                        <span className="text-green-400/70 text-[9px]">removed</span>
                      </span>
                   </span>
                </TooltipTrigger>
                <TooltipContent side="bottom" className="max-w-xs text-xs">
-                  URL-safe Base64 (RFC 4648) replaces characters unsafe in URLs: <strong>+</strong> becomes <strong>-</strong>, <strong>/</strong> becomes <strong>_</strong>, and <strong>=</strong> padding is removed. Safe for URLs, query params, and filenames.
+                  URL-safe Base64 (RFC 4648) replaces characters unsafe in URLs: <strong>+</strong> becomes{' '}
+                  <strong>-</strong>, <strong>/</strong> becomes <strong>_</strong>, and <strong>=</strong> padding is
+                  removed. Safe for URLs, query params, and filenames.
                </TooltipContent>
             </Tooltip>
          </div>

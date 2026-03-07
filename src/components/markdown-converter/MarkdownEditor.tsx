@@ -21,12 +21,7 @@ import {
    Minus,
    GitBranch,
 } from 'lucide-react';
-import {
-   Tooltip,
-   TooltipContent,
-   TooltipProvider,
-   TooltipTrigger,
-} from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface MarkdownEditorProps {
    value: string;
@@ -76,7 +71,8 @@ const TOOLBAR_GROUPS: ToolbarAction[][] = [
          icon: Table,
          label: 'Table',
          type: 'insert',
-         template: '\n| Column 1 | Column 2 | Column 3 |\n|----------|----------|----------|\n| Cell 1   | Cell 2   | Cell 3   |\n| Cell 4   | Cell 5   | Cell 6   |\n',
+         template:
+            '\n| Column 1 | Column 2 | Column 3 |\n|----------|----------|----------|\n| Cell 1   | Cell 2   | Cell 3   |\n| Cell 4   | Cell 5   | Cell 6   |\n',
       },
       {
          icon: CodeSquare,
@@ -88,7 +84,8 @@ const TOOLBAR_GROUPS: ToolbarAction[][] = [
          icon: GitBranch,
          label: 'Mermaid Diagram',
          type: 'insert',
-         template: '\n```mermaid\ngraph TD\n    A[Start] --> B{Decision}\n    B -->|Yes| C[Result 1]\n    B -->|No| D[Result 2]\n```\n',
+         template:
+            '\n```mermaid\ngraph TD\n    A[Start] --> B{Decision}\n    B -->|Yes| C[Result 1]\n    B -->|No| D[Result 2]\n```\n',
       },
    ],
 ];
@@ -114,21 +111,16 @@ export function MarkdownEditor({ value, onChange }: MarkdownEditorProps) {
                const after = action.after || '';
                if (selectedText) {
                   // Wrap selected text
-                  newValue =
-                     value.substring(0, start) + before + selectedText + after + value.substring(end);
+                  newValue = value.substring(0, start) + before + selectedText + after + value.substring(end);
                   newCursorPos = start + before.length + selectedText.length + after.length;
                } else {
                   // Insert with placeholder
                   const placeholder = action.label.toLowerCase();
-                  newValue =
-                     value.substring(0, start) + before + placeholder + after + value.substring(end);
+                  newValue = value.substring(0, start) + before + placeholder + after + value.substring(end);
                   newCursorPos = start + before.length;
                   // Select the placeholder after insertion
                   setTimeout(() => {
-                     textarea.setSelectionRange(
-                        start + before.length,
-                        start + before.length + placeholder.length
-                     );
+                     textarea.setSelectionRange(start + before.length, start + before.length + placeholder.length);
                   }, 0);
                }
                break;
@@ -193,9 +185,7 @@ export function MarkdownEditor({ value, onChange }: MarkdownEditorProps) {
                            </TooltipTrigger>
                            <TooltipContent side="bottom" className="text-xs">
                               {action.label}
-                              {action.hint && (
-                                 <span className="ml-1.5 text-muted-foreground">{action.hint}</span>
-                              )}
+                              {action.hint && <span className="ml-1.5 text-muted-foreground">{action.hint}</span>}
                            </TooltipContent>
                         </Tooltip>
                      ))}

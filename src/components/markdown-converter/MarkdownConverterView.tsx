@@ -140,12 +140,7 @@ export function MarkdownConverterView() {
                <h1 className="text-sm font-semibold">Markdown Generator</h1>
             </div>
             <div className="flex items-center gap-2 flex-wrap">
-               <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-8 text-xs text-muted-foreground"
-                  onClick={handleSample}
-               >
+               <Button variant="ghost" size="sm" className="h-8 text-xs text-muted-foreground" onClick={handleSample}>
                   <BookOpen className="w-3.5 h-3.5 mr-1" />
                   Sample
                </Button>

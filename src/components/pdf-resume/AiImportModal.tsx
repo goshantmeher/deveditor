@@ -1,13 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import {
-   Dialog,
-   DialogContent,
-   DialogHeader,
-   DialogTitle,
-   DialogDescription,
-} from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Bot, Copy, Check, ArrowRight, AlertCircle, Sparkles } from 'lucide-react';
@@ -121,7 +115,14 @@ function parseAiResponse(raw: string): ResumeData {
       },
       summary: parsed.summary || '',
       experience: (parsed.experience || []).map(
-         (exp: { company?: string; role?: string; startDate?: string; endDate?: string; current?: boolean; bullets?: string[] }) => ({
+         (exp: {
+            company?: string;
+            role?: string;
+            startDate?: string;
+            endDate?: string;
+            current?: boolean;
+            bullets?: string[];
+         }) => ({
             id: generateId(),
             company: exp.company || '',
             role: exp.role || '',
@@ -132,7 +133,14 @@ function parseAiResponse(raw: string): ResumeData {
          })
       ),
       education: (parsed.education || []).map(
-         (edu: { school?: string; degree?: string; field?: string; startDate?: string; endDate?: string; gpa?: string }) => ({
+         (edu: {
+            school?: string;
+            degree?: string;
+            field?: string;
+            startDate?: string;
+            endDate?: string;
+            gpa?: string;
+         }) => ({
             id: generateId(),
             school: edu.school || '',
             degree: edu.degree || '',
@@ -142,13 +150,11 @@ function parseAiResponse(raw: string): ResumeData {
             gpa: edu.gpa || '',
          })
       ),
-      skills: (parsed.skills || []).map(
-         (skill: { category?: string; items?: string[] }) => ({
-            id: generateId(),
-            category: skill.category || '',
-            items: skill.items || [],
-         })
-      ),
+      skills: (parsed.skills || []).map((skill: { category?: string; items?: string[] }) => ({
+         id: generateId(),
+         category: skill.category || '',
+         items: skill.items || [],
+      })),
       projects: (parsed.projects || []).map(
          (proj: { name?: string; description?: string; techStack?: string; link?: string }) => ({
             id: generateId(),
@@ -204,7 +210,7 @@ export function AiImportModal({ open, onClose, onImport }: AiImportModalProps) {
 
          // Basic validation
          if (!data.personalInfo.fullName && !data.summary && data.experience.length === 0) {
-            setError('The response doesn\'t seem to contain valid resume data. Please check and try again.');
+            setError("The response doesn't seem to contain valid resume data. Please check and try again.");
             return;
          }
 
@@ -215,7 +221,9 @@ export function AiImportModal({ open, onClose, onImport }: AiImportModalProps) {
          setError(null);
          onClose();
       } catch {
-         setError('Failed to parse the AI response. Make sure it\'s valid JSON in the expected format. Copy the prompt again and try a fresh response.');
+         setError(
+            "Failed to parse the AI response. Make sure it's valid JSON in the expected format. Copy the prompt again and try a fresh response."
+         );
       }
    }, [aiResponse, onImport, onClose]);
 
@@ -237,7 +245,8 @@ export function AiImportModal({ open, onClose, onImport }: AiImportModalProps) {
                   Import Resume from AI
                </DialogTitle>
                <DialogDescription>
-                  Use any AI tool (ChatGPT, Claude, Gemini, Copilot) to generate your resume content, then paste it here.
+                  Use any AI tool (ChatGPT, Claude, Gemini, Copilot) to generate your resume content, then paste it
+                  here.
                </DialogDescription>
             </DialogHeader>
 
@@ -245,10 +254,14 @@ export function AiImportModal({ open, onClose, onImport }: AiImportModalProps) {
                <div className="space-y-4 mt-2">
                   {/* Step indicator */}
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                     <div className="w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[10px] font-bold">1</div>
+                     <div className="w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[10px] font-bold">
+                        1
+                     </div>
                      <span className="font-medium text-foreground">Copy the prompt below</span>
                      <ArrowRight className="w-3 h-3" />
-                     <div className="w-5 h-5 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-[10px] font-bold">2</div>
+                     <div className="w-5 h-5 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-[10px] font-bold">
+                        2
+                     </div>
                      <span>Paste AI response</span>
                   </div>
 
@@ -261,7 +274,13 @@ export function AiImportModal({ open, onClose, onImport }: AiImportModalProps) {
                            <ol className="text-muted-foreground space-y-1 list-decimal list-inside text-xs">
                               <li>Copy the prompt below</li>
                               <li>Paste it into any AI tool (ChatGPT, Claude, Gemini, etc.)</li>
-                              <li>Replace <code className="bg-muted px-1 rounded text-[10px]">[PASTE YOUR INFORMATION HERE]</code> with your details</li>
+                              <li>
+                                 Replace{' '}
+                                 <code className="bg-muted px-1 rounded text-[10px]">
+                                    [PASTE YOUR INFORMATION HERE]
+                                 </code>{' '}
+                                 with your details
+                              </li>
                               <li>Copy the AI&apos;s JSON response and come back here</li>
                            </ol>
                         </div>
@@ -281,12 +300,7 @@ export function AiImportModal({ open, onClose, onImport }: AiImportModalProps) {
                         Cancel
                      </Button>
                      <div className="flex items-center gap-2">
-                        <Button
-                           size="sm"
-                           variant="outline"
-                           onClick={handleCopyPrompt}
-                           className="text-xs"
-                        >
+                        <Button size="sm" variant="outline" onClick={handleCopyPrompt} className="text-xs">
                            {copied ? (
                               <>
                                  <Check className="w-3.5 h-3.5 mr-1 text-emerald-500" />
@@ -314,10 +328,14 @@ export function AiImportModal({ open, onClose, onImport }: AiImportModalProps) {
                <div className="space-y-4 mt-2">
                   {/* Step indicator */}
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                     <div className="w-5 h-5 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-[10px] font-bold">1</div>
+                     <div className="w-5 h-5 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-[10px] font-bold">
+                        1
+                     </div>
                      <span>Copy prompt</span>
                      <ArrowRight className="w-3 h-3" />
-                     <div className="w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[10px] font-bold">2</div>
+                     <div className="w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[10px] font-bold">
+                        2
+                     </div>
                      <span className="font-medium text-foreground">Paste AI response</span>
                   </div>
 
@@ -350,7 +368,10 @@ export function AiImportModal({ open, onClose, onImport }: AiImportModalProps) {
                      <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => { setStep('prompt'); setError(null); }}
+                        onClick={() => {
+                           setStep('prompt');
+                           setError(null);
+                        }}
                         className="text-xs"
                      >
                         ← Back

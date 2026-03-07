@@ -45,7 +45,10 @@ export function validateRegex(pattern: string, flags: string): string | null {
 /**
  * Creates a debounced function
  */
-export function debounce<T extends (...args: never[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
+export function debounce<T extends (...args: never[]) => void>(
+   func: T,
+   wait: number
+): (...args: Parameters<T>) => void {
    let timeoutId: NodeJS.Timeout | null = null;
 
    return function (...args: Parameters<T>) {

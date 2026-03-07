@@ -194,6 +194,20 @@
    - Priority: ⭐⭐⭐⭐
    - 💡 Added by review
 
+- [ ] **API Tester (Requires DevEditor Extension)** — A local Postman clone. Bypasses CORS restrictions using a companion open-source browser extension to safely test local and remote APIs.
+   - ✅ Feasible: UI is standard React. Network requests are proxied through a manifest v3 extension with `host_permissions: ["<all_urls>"]`.
+   - 💡 **Architecture Notes on Data Storage:** To maintain 100% privacy without a backend database:
+     - **Default Storage:** `IndexedDB` or `localStorage` for immediate, zero-login use.
+     - **Cloud Sync (Opt-in):** Add an option to "Sync to Cloud". Use frontend-only OAuth to connect to **Google Drive (drive.file scope)** or **GitHub (Secret Gists)**. 
+     - **Result:** Users get cross-device syncing of their sensitive API configurations, but all data goes directly from their browser memory to their personal, secure cloud storage. DevEditor remains completely stateless and zero-liability.
+   - Priority: ⭐⭐⭐⭐
+   - 💡 Added by review
+
+- [ ] **DNS Lookup (DoH)** — Perform DNS lookups natively in the browser using DNS-over-HTTPS (DoH) via Cloudflare/Google JSON APIs.
+   - ✅ Feasible: Pure frontend `fetch` to public DoH providers.
+   - Priority: ⭐⭐⭐
+   - 💡 Added by review
+
 ---
 
 ## 📦 Category 5: Media & Files

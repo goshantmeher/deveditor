@@ -135,7 +135,7 @@ export function MinimalTemplate({ data }: MinimalTemplateProps) {
                <View style={s.contactRow}>
                   {contactItems.map((item, i) => (
                      <View key={i} style={{ flexDirection: 'row' }}>
-                        {i > 0 && <Text style={s.contactSeparator}>  |  </Text>}
+                        {i > 0 && <Text style={s.contactSeparator}> | </Text>}
                         <Text style={s.contactItem}>{item}</Text>
                      </View>
                   ))}
@@ -222,9 +222,7 @@ export function MinimalTemplate({ data }: MinimalTemplateProps) {
                         <Text style={s.entryTitle}>{proj.name}</Text>
                         {proj.description && <Text style={s.bullet}>{proj.description}</Text>}
                         {proj.techStack && (
-                           <Text style={[s.bullet, { color: '#94a3b8', fontSize: 9 }]}>
-                              {proj.techStack}
-                           </Text>
+                           <Text style={[s.bullet, { color: '#94a3b8', fontSize: 9 }]}>{proj.techStack}</Text>
                         )}
                         {proj.link && <Text style={s.projectLink}>{proj.link}</Text>}
                      </View>
@@ -237,7 +235,10 @@ export function MinimalTemplate({ data }: MinimalTemplateProps) {
                   <Text style={s.sectionTitle}>Certifications</Text>
                   <View style={s.divider} />
                   {certifications.map((cert) => (
-                     <View key={cert.id} style={[s.entryBlock, { flexDirection: 'row', justifyContent: 'space-between' }]}>
+                     <View
+                        key={cert.id}
+                        style={[s.entryBlock, { flexDirection: 'row', justifyContent: 'space-between' }]}
+                     >
                         <View>
                            <Text style={s.entryTitle}>{cert.name}</Text>
                            {cert.issuer && <Text style={s.entrySubtitle}>{cert.issuer}</Text>}

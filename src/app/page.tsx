@@ -73,7 +73,8 @@ const categories: Category[] = [
          },
          {
             title: 'Markdown Generator',
-            description: 'Generate clean, sanitized HTML from markdown with live preview, toolbar, and Mermaid diagrams.',
+            description:
+               'Generate clean, sanitized HTML from markdown with live preview, toolbar, and Mermaid diagrams.',
             icon: '📖',
             href: '/markdown-converter',
             status: 'available',
@@ -170,6 +171,22 @@ const categories: Category[] = [
             status: 'planned',
             tags: ['rsa', 'key', 'public', 'private', 'crypto'],
          },
+         {
+            title: 'Password Strength Checker',
+            description: 'Score password entropy, check dictionary words, and estimate "time to crack" locally.',
+            icon: '💪',
+            href: '/password-strength',
+            status: 'planned',
+            tags: ['password', 'strength', 'entropy', 'zxcvbn', 'security'],
+         },
+         {
+            title: 'JavaScript Obfuscator',
+            description: 'Scramble JavaScript code for security or deobfuscate mildly obscured scripts.',
+            icon: '🕵️',
+            href: '/js-obfuscator',
+            status: 'planned',
+            tags: ['javascript', 'js', 'obfuscate', 'deobfuscate', 'security'],
+         },
       ],
    },
    {
@@ -246,6 +263,30 @@ const categories: Category[] = [
             status: 'planned',
             tags: ['svg', 'react', 'jsx', 'convert', 'camelcase'],
          },
+         {
+            title: 'OG / Meta Tag Generator',
+            description: 'Visually generate <meta> tags for Twitter, Facebook, and Google with a live preview card.',
+            icon: '🖥️',
+            href: '/meta-tag-generator',
+            status: 'planned',
+            tags: ['seo', 'meta', 'og', 'twitter', 'facebook', 'tags'],
+         },
+         {
+            title: 'Robots.txt & Sitemap Generator',
+            description: 'Generate formatted robots.txt rules and XML sitemaps to optimize search engine crawling.',
+            icon: '🤖',
+            href: '/seo-generators',
+            status: 'planned',
+            tags: ['seo', 'robots', 'sitemap', 'crawler'],
+         },
+         {
+            title: 'Code Minifier / Beautifier',
+            description: 'Instantly compress or expand HTML, CSS, and JavaScript code. Runs entirely locally.',
+            icon: '🗜️',
+            href: '/code-minifier',
+            status: 'planned',
+            tags: ['minify', 'beautify', 'compress', 'html', 'css', 'javascript'],
+         },
       ],
    },
    {
@@ -314,12 +355,46 @@ const categories: Category[] = [
             tags: ['jsonpath', 'jq', 'query', 'json', 'path'],
          },
          {
-            title: 'ASCII Art Text Generator',
-            description: 'Turn text into large ASCII art headers for code comments.',
-            icon: '🎭',
-            href: '/ascii-art',
+            title: 'JSON Compare / Diff',
+            description: 'Compare the structures and values of two JSON objects. Visualizes deeply nested differences.',
+            icon: '⚖️',
+            href: '/json-compare',
             status: 'planned',
-            tags: ['ascii', 'art', 'text', 'figlet', 'banner'],
+            tags: ['json', 'compare', 'diff', 'structure'],
+         },
+         {
+            title: 'SQL Formatter',
+            description: 'Format, beautify, and parse complex SQL queries into readable, multi-line statements.',
+            icon: '🗄️',
+            href: '/sql-formatter',
+            status: 'planned',
+            tags: ['sql', 'format', 'beautify', 'database', 'query'],
+         },
+         {
+            title: '.htaccess Redirect Generator',
+            description: 'Generate Apache/Nginx redirect rules for HTTPS, www/non-www, and custom 301 redirects.',
+            icon: '🔀',
+            href: '/htaccess-generator',
+            status: 'planned',
+            tags: ['htaccess', 'redirect', 'nginx', 'apache', '301'],
+         },
+         {
+            title: 'API Tester (Extension Required)',
+            description:
+               'A local Postman alternative. Uses an open-source companion extension to bypass browser CORS restrictions safely.',
+            icon: '📡',
+            href: '/api-tester',
+            status: 'planned',
+            tags: ['api', 'tester', 'rest', 'http', 'postman', 'cors'],
+         },
+         {
+            title: 'DNS Lookup (DoH)',
+            description:
+               'Perform quick DNS resolution (A, AAAA, MX, TXT) natively in the browser using free DNS-over-HTTPS APIs.',
+            icon: '🌍',
+            href: '/dns-lookup',
+            status: 'planned',
+            tags: ['dns', 'lookup', 'domain', 'doh', 'network'],
          },
       ],
    },
@@ -374,7 +449,8 @@ const categories: Category[] = [
          },
          {
             title: 'AI Resume Builder',
-            description: 'Import from ChatGPT, Claude, or Gemini. Pick a template, download PDF. 100% free, no paywalls.',
+            description:
+               'Import from ChatGPT, Claude, or Gemini. Pick a template, download PDF. 100% free, no paywalls.',
             icon: '📄',
             href: '/pdf-resume',
             status: 'available',
@@ -442,36 +518,12 @@ const categories: Category[] = [
             tags: ['pdf', 'add', 'insert', 'pages', 'merge'],
          },
          {
-            title: 'Webcam Image Filter Booth',
-            description: 'Capture webcam images and instantly apply CSS/local filters without any server uploads.',
-            icon: '📸',
-            href: '/webcam-filters',
-            status: 'planned',
-            tags: ['webcam', 'image', 'camera', 'filter', 'capture'],
-         },
-         {
             title: 'Audio/Video Format Converter',
             description: 'Convert media files in the browser natively (FFmpeg.wasm). Transform WebM to MP4 instantly.',
             icon: '🎞️',
             href: '/media-converter',
             status: 'planned',
             tags: ['video', 'audio', 'ffmpeg', 'mp4', 'webm', 'mp3'],
-         },
-         {
-            title: 'GIF Creator',
-            description: 'Stitch a sequence of images or a short video clip into an animated GIF.',
-            icon: '🎞️',
-            href: '/gif-creator',
-            status: 'planned',
-            tags: ['gif', 'video', 'animation', 'create', 'image'],
-         },
-         {
-            title: 'Meme Generator',
-            description: 'Upload images, overlay impact font, drag to position, and download.',
-            icon: '😂',
-            href: '/meme-generator',
-            status: 'planned',
-            tags: ['meme', 'generator', 'image', 'text', 'font'],
          },
          {
             title: 'SVG Editor & Animator',
@@ -537,6 +589,56 @@ const categories: Category[] = [
             href: '/markdown-to-html',
             status: 'planned',
             tags: ['markdown', 'md', 'html', 'convert', 'markup'],
+         },
+         {
+            title: 'Mock Data Generator',
+            description:
+               'Define a schema and generate thousands of rows of realistic dummy data in JSON or CSV format.',
+            icon: '🧪',
+            href: '/mock-data',
+            status: 'planned',
+            tags: ['mock', 'data', 'faker', 'dummy', 'json', 'csv'],
+         },
+      ],
+   },
+   {
+      id: 'misc',
+      title: 'Miscellaneous & Fun',
+      icon: '🎮',
+      description: 'Handy tools and fun extras for your downtime',
+      accentColor: 'rose',
+      tools: [
+         {
+            title: 'Meme Generator',
+            description: 'Upload images, overlay impact font, drag to position, and download.',
+            icon: '😂',
+            href: '/meme-generator',
+            status: 'planned',
+            tags: ['meme', 'generator', 'image', 'text', 'font'],
+         },
+         {
+            title: 'ASCII Art Text Generator',
+            description: 'Turn text into large ASCII art headers for code comments.',
+            icon: '🎭',
+            href: '/ascii-art',
+            status: 'planned',
+            tags: ['ascii', 'art', 'text', 'figlet', 'banner'],
+         },
+         {
+            title: 'Webcam Image Filter Booth',
+            description: 'Capture webcam images and instantly apply CSS/local filters without any server uploads.',
+            icon: '📸',
+            href: '/webcam-filters',
+            status: 'planned',
+            tags: ['webcam', 'image', 'camera', 'filter', 'capture'],
+         },
+         {
+            title: 'GIF Creator',
+            description: 'Stitch a sequence of images or a short video clip into an animated GIF.',
+            icon: '🎞️',
+            href: '/gif-creator',
+            status: 'planned',
+            tags: ['gif', 'video', 'animation', 'create', 'image'],
          },
       ],
    },
@@ -728,7 +830,6 @@ export default function Home() {
                   );
                })}
             </main>
-
          </div>
          <Footer />
       </div>

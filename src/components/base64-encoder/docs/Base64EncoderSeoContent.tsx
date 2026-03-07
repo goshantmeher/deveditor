@@ -1,11 +1,4 @@
-import {
-   ShieldCheck,
-   Zap,
-   ExternalLink,
-   Cpu,
-   Database,
-   Code2,
-} from 'lucide-react';
+import { ShieldCheck, Zap, ExternalLink, Cpu, Database, Code2 } from 'lucide-react';
 
 export function Base64EncoderSeoContent() {
    const faqSchema = {

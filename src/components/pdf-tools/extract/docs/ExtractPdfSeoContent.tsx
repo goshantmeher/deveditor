@@ -1,12 +1,4 @@
-import {
-   FileText,
-   Shield,
-   Zap,
-   Download,
-   Eye,
-   Globe,
-   MousePointerClick,
-} from 'lucide-react';
+import { FileText, Shield, Zap, Download, Eye, Globe, MousePointerClick } from 'lucide-react';
 
 const features = [
    {
@@ -19,7 +11,8 @@ const features = [
       icon: FileText,
       color: 'amber',
       title: 'New PDF from Selection',
-      description: 'Selected pages are combined into a brand new PDF document, maintaining original quality and formatting.',
+      description:
+         'Selected pages are combined into a brand new PDF document, maintaining original quality and formatting.',
    },
    {
       icon: Download,
@@ -31,7 +24,8 @@ const features = [
       icon: Shield,
       color: 'rose',
       title: 'Secure & Private',
-      description: 'Everything runs in your browser. Your PDFs never touch any server — complete data privacy guaranteed.',
+      description:
+         'Everything runs in your browser. Your PDFs never touch any server — complete data privacy guaranteed.',
    },
    {
       icon: Zap,
@@ -54,7 +48,7 @@ const faqs = [
    },
    {
       q: 'Can I extract non-consecutive pages?',
-      a: 'Yes! Click any combination of pages — they don\'t need to be consecutive. For example, select pages 1, 3, 7, and 12 to create a new PDF with just those pages.',
+      a: "Yes! Click any combination of pages — they don't need to be consecutive. For example, select pages 1, 3, 7, and 12 to create a new PDF with just those pages.",
    },
    {
       q: 'Does it preserve the original quality?',
@@ -65,7 +59,7 @@ const faqs = [
       a: 'No. All processing happens entirely in your browser. Your PDF files never leave your device.',
    },
    {
-      q: 'What\'s the difference between Extract and Split?',
+      q: "What's the difference between Extract and Split?",
       a: 'Extract lets you pick individual pages to create one new PDF. Split divides a PDF into multiple files by page ranges.',
    },
 ];
@@ -95,15 +89,21 @@ export function ExtractPdfSeoContent() {
                Extract Pages from PDF — Click, Select & Download
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-               Select specific pages from any PDF and download them as a new document. Visual page picker, instant processing, 100% client-side privacy.
+               Select specific pages from any PDF and download them as a new document. Visual page picker, instant
+               processing, 100% client-side privacy.
             </p>
          </section>
 
          {/* Features */}
          <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map((feature) => (
-               <div key={feature.title} className="bg-card p-6 rounded-2xl border border-border/50 hover:border-border transition-all duration-300 group">
-                  <div className={`w-10 h-10 bg-${feature.color}-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+               <div
+                  key={feature.title}
+                  className="bg-card p-6 rounded-2xl border border-border/50 hover:border-border transition-all duration-300 group"
+               >
+                  <div
+                     className={`w-10 h-10 bg-${feature.color}-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
                      <feature.icon className={`w-5 h-5 text-${feature.color}-500`} />
                   </div>
                   <h3 className="font-semibold mb-2">{feature.title}</h3>
@@ -117,9 +117,24 @@ export function ExtractPdfSeoContent() {
             <h2 className="text-2xl font-bold tracking-tight text-center mb-10">How to Extract PDF Pages</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                {[
-                  { step: '01', icon: Eye, title: 'Upload PDF', desc: 'Drag and drop or click to select the PDF you want to extract from.' },
-                  { step: '02', icon: MousePointerClick, title: 'Select Pages', desc: 'Click on the page numbers you want to keep. Use Select All for bulk selection.' },
-                  { step: '03', icon: Download, title: 'Download', desc: 'Click extract and download your new PDF with only the selected pages.' },
+                  {
+                     step: '01',
+                     icon: Eye,
+                     title: 'Upload PDF',
+                     desc: 'Drag and drop or click to select the PDF you want to extract from.',
+                  },
+                  {
+                     step: '02',
+                     icon: MousePointerClick,
+                     title: 'Select Pages',
+                     desc: 'Click on the page numbers you want to keep. Use Select All for bulk selection.',
+                  },
+                  {
+                     step: '03',
+                     icon: Download,
+                     title: 'Download',
+                     desc: 'Click extract and download your new PDF with only the selected pages.',
+                  },
                ].map((item) => (
                   <div key={item.step} className="text-center space-y-3">
                      <div className="text-4xl font-bold text-indigo-500/20">{item.step}</div>

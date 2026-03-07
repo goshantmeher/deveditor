@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-   Palette,
-   Sparkles,
-   Zap,
-   ShieldCheck,
-   Layout,
-   Download,
-   Sun,
-   Moon,
-} from 'lucide-react';
+import { Palette, Sparkles, Zap, ShieldCheck, Layout, Download, Sun, Moon } from 'lucide-react';
 
 export function ThemeGeneratorSeoContent() {
    const faqSchema = {

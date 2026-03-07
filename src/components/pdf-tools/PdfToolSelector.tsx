@@ -1,13 +1,7 @@
 'use client';
 
 import { useRouter, usePathname } from 'next/navigation';
-import {
-   Select,
-   SelectContent,
-   SelectItem,
-   SelectTrigger,
-   SelectValue,
-} from '@/components/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { FileText, Scissors, Copy, Layers } from 'lucide-react';
 
 const PDF_TOOLS = [
@@ -24,10 +18,7 @@ export function PdfToolSelector() {
    const currentTool = PDF_TOOLS.find((t) => pathname.startsWith(t.href)) || PDF_TOOLS[0];
 
    return (
-      <Select
-         value={currentTool.href}
-         onValueChange={(value) => router.push(value)}
-      >
+      <Select value={currentTool.href} onValueChange={(value) => router.push(value)}>
          <SelectTrigger className="h-8 w-[160px] text-xs bg-muted/30 border-border">
             <SelectValue />
          </SelectTrigger>

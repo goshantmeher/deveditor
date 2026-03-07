@@ -127,12 +127,7 @@ export function ResumeBuilderView() {
                <div className="h-5 w-px bg-border hidden md:block" />
                <TemplateSelector selected={templateId} onChange={setTemplateId} />
                <div className="h-5 w-px bg-border hidden md:block" />
-               <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-xs h-8 text-muted-foreground"
-                  onClick={handleReset}
-               >
+               <Button variant="ghost" size="sm" className="text-xs h-8 text-muted-foreground" onClick={handleReset}>
                   <RotateCcw className="w-3.5 h-3.5 mr-1" />
                   Reset
                </Button>
@@ -160,9 +155,7 @@ export function ResumeBuilderView() {
             <button
                onClick={() => setMobileView('edit')}
                className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium transition-colors ${
-                  mobileView === 'edit'
-                     ? 'text-indigo-500 border-b-2 border-indigo-500'
-                     : 'text-muted-foreground'
+                  mobileView === 'edit' ? 'text-indigo-500 border-b-2 border-indigo-500' : 'text-muted-foreground'
                }`}
             >
                <PenLine className="w-3.5 h-3.5" />
@@ -171,9 +164,7 @@ export function ResumeBuilderView() {
             <button
                onClick={() => setMobileView('preview')}
                className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium transition-colors ${
-                  mobileView === 'preview'
-                     ? 'text-indigo-500 border-b-2 border-indigo-500'
-                     : 'text-muted-foreground'
+                  mobileView === 'preview' ? 'text-indigo-500 border-b-2 border-indigo-500' : 'text-muted-foreground'
                }`}
             >
                <Eye className="w-3.5 h-3.5" />

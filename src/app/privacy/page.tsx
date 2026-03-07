@@ -136,9 +136,7 @@ export default function PrivacyPage() {
                <p className="text-muted-foreground max-w-2xl mx-auto">
                   Your data stays on your device. Always. Here&apos;s exactly how DevEditor protects your privacy.
                </p>
-               <p className="text-xs text-muted-foreground">
-                  Last updated: March 7, 2026
-               </p>
+               <p className="text-xs text-muted-foreground">Last updated: March 7, 2026</p>
             </div>
 
             {/* TL;DR Box */}
@@ -177,7 +175,10 @@ export default function PrivacyPage() {
                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                   {sections.map((s) => (
                      <li key={s.id}>
-                        <a href={`#${s.id}`} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+                        <a
+                           href={`#${s.id}`}
+                           className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
+                        >
                            <s.icon className="w-3.5 h-3.5" />
                            {s.title}
                         </a>
@@ -216,7 +217,9 @@ export default function PrivacyPage() {
                   </a>
                </p>
                <p className="text-xs text-muted-foreground">
-                  <Link href="/" className="hover:text-foreground transition-colors">← Back to DevEditor</Link>
+                  <Link href="/" className="hover:text-foreground transition-colors">
+                     ← Back to DevEditor
+                  </Link>
                </p>
             </div>
          </div>

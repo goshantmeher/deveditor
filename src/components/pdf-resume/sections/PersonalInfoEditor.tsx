@@ -44,14 +44,62 @@ export function PersonalInfoEditor({ data, onChange }: PersonalInfoEditorProps) 
 
    return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-         <Field label="Full Name" icon={User} value={data.fullName} onChange={(v) => update('fullName', v)} placeholder="John Doe" />
-         <Field label="Job Title" icon={User} value={data.title} onChange={(v) => update('title', v)} placeholder="Senior Software Engineer" />
-         <Field label="Email" icon={Mail} value={data.email} onChange={(v) => update('email', v)} placeholder="john@email.com" />
-         <Field label="Phone" icon={Phone} value={data.phone} onChange={(v) => update('phone', v)} placeholder="+1 (555) 123-4567" />
-         <Field label="Location" icon={MapPin} value={data.location} onChange={(v) => update('location', v)} placeholder="San Francisco, CA" />
-         <Field label="LinkedIn" icon={Linkedin} value={data.linkedin} onChange={(v) => update('linkedin', v)} placeholder="linkedin.com/in/johndoe" />
-         <Field label="GitHub" icon={Github} value={data.github} onChange={(v) => update('github', v)} placeholder="github.com/johndoe" />
-         <Field label="Website" icon={Globe} value={data.website} onChange={(v) => update('website', v)} placeholder="johndoe.dev" />
+         <Field
+            label="Full Name"
+            icon={User}
+            value={data.fullName}
+            onChange={(v) => update('fullName', v)}
+            placeholder="John Doe"
+         />
+         <Field
+            label="Job Title"
+            icon={User}
+            value={data.title}
+            onChange={(v) => update('title', v)}
+            placeholder="Senior Software Engineer"
+         />
+         <Field
+            label="Email"
+            icon={Mail}
+            value={data.email}
+            onChange={(v) => update('email', v)}
+            placeholder="john@email.com"
+         />
+         <Field
+            label="Phone"
+            icon={Phone}
+            value={data.phone}
+            onChange={(v) => update('phone', v)}
+            placeholder="+1 (555) 123-4567"
+         />
+         <Field
+            label="Location"
+            icon={MapPin}
+            value={data.location}
+            onChange={(v) => update('location', v)}
+            placeholder="San Francisco, CA"
+         />
+         <Field
+            label="LinkedIn"
+            icon={Linkedin}
+            value={data.linkedin}
+            onChange={(v) => update('linkedin', v)}
+            placeholder="linkedin.com/in/johndoe"
+         />
+         <Field
+            label="GitHub"
+            icon={Github}
+            value={data.github}
+            onChange={(v) => update('github', v)}
+            placeholder="github.com/johndoe"
+         />
+         <Field
+            label="Website"
+            icon={Globe}
+            value={data.website}
+            onChange={(v) => update('website', v)}
+            placeholder="johndoe.dev"
+         />
       </div>
    );
 }

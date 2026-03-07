@@ -1,31 +1,26 @@
-import {
-   Scissors,
-   Shield,
-   Zap,
-   Download,
-   Eye,
-   Globe,
-   FileText,
-} from 'lucide-react';
+import { Scissors, Shield, Zap, Download, Eye, Globe, FileText } from 'lucide-react';
 
 const features = [
    {
       icon: Scissors,
       color: 'indigo',
       title: 'Split by Page Range',
-      description: 'Define custom page ranges and split your PDF into separate files. Create as many splits as you need.',
+      description:
+         'Define custom page ranges and split your PDF into separate files. Create as many splits as you need.',
    },
    {
       icon: FileText,
       color: 'amber',
       title: 'Multiple Outputs',
-      description: 'Each page range becomes its own downloadable PDF file. Name them automatically based on page numbers.',
+      description:
+         'Each page range becomes its own downloadable PDF file. Name them automatically based on page numbers.',
    },
    {
       icon: Download,
       color: 'emerald',
       title: 'Instant Download',
-      description: 'Split files are ready instantly. Each chunk downloads automatically with no waiting or processing queue.',
+      description:
+         'Split files are ready instantly. Each chunk downloads automatically with no waiting or processing queue.',
    },
    {
       icon: Shield,
@@ -62,7 +57,7 @@ const faqs = [
    },
    {
       q: 'Is there a page limit?',
-      a: 'There\'s no hard limit. The tool handles large PDFs well since processing happens locally on your device.',
+      a: "There's no hard limit. The tool handles large PDFs well since processing happens locally on your device.",
    },
    {
       q: 'Can I split password-protected PDFs?',
@@ -95,15 +90,21 @@ export function SplitPdfSeoContent() {
                Split PDF Files by Page Range — Fast & Secure
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-               Define custom page ranges and split any PDF into separate files. Download each chunk instantly — all processing happens in your browser.
+               Define custom page ranges and split any PDF into separate files. Download each chunk instantly — all
+               processing happens in your browser.
             </p>
          </section>
 
          {/* Features */}
          <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map((feature) => (
-               <div key={feature.title} className="bg-card p-6 rounded-2xl border border-border/50 hover:border-border transition-all duration-300 group">
-                  <div className={`w-10 h-10 bg-${feature.color}-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+               <div
+                  key={feature.title}
+                  className="bg-card p-6 rounded-2xl border border-border/50 hover:border-border transition-all duration-300 group"
+               >
+                  <div
+                     className={`w-10 h-10 bg-${feature.color}-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
                      <feature.icon className={`w-5 h-5 text-${feature.color}-500`} />
                   </div>
                   <h3 className="font-semibold mb-2">{feature.title}</h3>
@@ -117,9 +118,24 @@ export function SplitPdfSeoContent() {
             <h2 className="text-2xl font-bold tracking-tight text-center mb-10">How to Split a PDF</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                {[
-                  { step: '01', icon: Eye, title: 'Upload PDF', desc: 'Drag and drop or click to select the PDF you want to split.' },
-                  { step: '02', icon: Scissors, title: 'Define Ranges', desc: 'Add page ranges for each split. E.g., pages 1-5, pages 6-10.' },
-                  { step: '03', icon: Download, title: 'Download', desc: 'Click split and each range downloads as a separate PDF.' },
+                  {
+                     step: '01',
+                     icon: Eye,
+                     title: 'Upload PDF',
+                     desc: 'Drag and drop or click to select the PDF you want to split.',
+                  },
+                  {
+                     step: '02',
+                     icon: Scissors,
+                     title: 'Define Ranges',
+                     desc: 'Add page ranges for each split. E.g., pages 1-5, pages 6-10.',
+                  },
+                  {
+                     step: '03',
+                     icon: Download,
+                     title: 'Download',
+                     desc: 'Click split and each range downloads as a separate PDF.',
+                  },
                ].map((item) => (
                   <div key={item.step} className="text-center space-y-3">
                      <div className="text-4xl font-bold text-indigo-500/20">{item.step}</div>

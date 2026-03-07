@@ -12,23 +12,40 @@ DevEditor is a growing collection of lightweight, client-side utilities designed
 
 ## ✨ Features
 
-### 🧩 JSON Viewer & Editor (Active)
+DevEditor includes a growing set of highly specialized tools organized by category. Everything runs 100% on the client.
 
-A powerful tool to handle your JSON data with ease:
+### 🔤 Text & String Manipulation
 
-- **Validation**: Instant feedback on JSON syntax errors.
-- **Repair**: Automatically fixes common JSON mistakes (thanks to `jsonrepair`).
-- **Formatting**: Pretty-print or minify your JSON in one click.
-- **Search**: Quickly find keys or values within complex structures.
-- **Stats**: View depth, item count, and size of your JSON data.
-- **Import/Export**: Drag & drop files or download your edited JSON.
-- **Customizable**: Multiple themes (VS Code Dark, etc.), adjustable font sizes, and more.
+- **Base64 Encoder**: Encode & decode text, files, and images to Base64.
+- **Case Converter**: Toggle between camelCase, snake_case, kebab-case, PascalCase, and more.
+- **Text Diff Checker**: Side-by-side visual comparison of two text blocks with change highlighting.
+- **Markdown Generator**: Generate clean HTML from markdown with live preview and Mermaid diagrams.
 
-### 🚀 Coming Soon
+### 🔐 Security & Identity
 
-- **🎨 CSS Playground**: Experiment with CSS properties and animations in real-time.
-- **⚙️ Base64 Encoder/Decoder**: Quickly convert strings and files to/from Base64.
-- **🔐 JWT Decoder**: Safely decode and inspect JSON Web Tokens.
+- **JWT Debugger**: Decode JWT header, payload & signature. Inspect timestamps & claims.
+
+### 🎨 Frontend & Design
+
+- **CSS Playground**: Test & generate CSS or Tailwind features with live preview.
+- **Color Converter & Palette**: Convert HEX, RGB, HSL, CMYK. WCAG contrast checker & palette generator.
+- **Theme Generator**: Generate UI themes (Tailwind/CSS tokens) and export JSON automatically.
+
+### 🏗️ Architecture & Logic
+
+- **JSON Viewer / Editor**: Format, validate, and explore JSON data with tree view.
+- **RegEx Tester**: Live regex match highlighting, capture groups, and cheat sheet.
+- **JSON → Schema Generator**: Paste JSON → generate TypeScript interfaces, Go structs, or Zod schemas.
+
+### 📦 Media & Files
+
+- **QR Code Generator**: Generate high-quality QR codes with custom colors and export as PNG or SVG.
+- **AI Resume Builder**: Import from ChatGPT, Claude, or Gemini. Pick a template, download PDF.
+- **PDF Tools**: Merge, Split, Extract Pages, and Copy Text from PDFs completely within the browser.
+
+### 🚀 More Tools Coming Soon
+
+- Hash Generators, Password Generators, Favicon Generators, SVG Optimizers, YAML/JSON Converters, and Media Converters!
 
 ---
 
@@ -104,7 +121,7 @@ npx serve@latest out
 
 ## 📄 License
 
-This project is licensed under the **Business Source License 1.1** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **DevEditor Non-Commercial Source License** - see the [LICENSE](LICENSE) file for details.
 
 ---
 

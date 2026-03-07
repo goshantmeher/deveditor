@@ -18,8 +18,7 @@ export const metadata: Metadata = {
    ],
    openGraph: {
       title: 'JWT Debugger & Decoder | DevEditor',
-      description:
-         'Decode, examine, and debug JSON Web Tokens securely and completely client-side.',
+      description: 'Decode, examine, and debug JSON Web Tokens securely and completely client-side.',
       url: 'https://www.deveditor.io/jwt-decoder',
       siteName: 'DevEditor',
       type: 'website',

@@ -9,12 +9,20 @@ export function Footer() {
                <Heart className="h-3.5 w-3.5 text-red-500" />
                <span>Built by Human</span>
             </div>
-            <span aria-hidden="true" className="text-border">|</span>
+            <span aria-hidden="true" className="text-border">
+               |
+            </span>
             <Link href="/about" className="hover:text-foreground transition-colors" aria-label="About DevEditor">
                About
             </Link>
-            <span aria-hidden="true" className="text-border">|</span>
-            <Link href="/privacy" className="hover:text-foreground transition-colors flex items-center gap-1" aria-label="Privacy Policy">
+            <span aria-hidden="true" className="text-border">
+               |
+            </span>
+            <Link
+               href="/privacy"
+               className="hover:text-foreground transition-colors flex items-center gap-1"
+               aria-label="Privacy Policy"
+            >
                <Shield className="h-3.5 w-3.5" />
                Privacy
             </Link>

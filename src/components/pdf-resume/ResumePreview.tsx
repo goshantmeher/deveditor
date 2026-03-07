@@ -77,10 +77,7 @@ export function ResumePreview({ data, templateId, generateOnDemand = false }: Re
 
       // Use requestIdleCallback if available to avoid blocking UI
       if ('requestIdleCallback' in window) {
-         const idleId = requestIdleCallback(
-            () => generatePdf(data, templateId),
-            { timeout: 2000 }
-         );
+         const idleId = requestIdleCallback(() => generatePdf(data, templateId), { timeout: 2000 });
          return () => cancelIdleCallback(idleId);
       } else {
          generatePdf(data, templateId);
@@ -122,11 +119,7 @@ export function ResumePreview({ data, templateId, generateOnDemand = false }: Re
       <div className="h-full w-full bg-muted/20 relative">
          {/* PDF iframe — old PDF stays visible until new one loads */}
          {pdfUrl ? (
-            <iframe
-               src={pdfUrl}
-               className="w-full h-full border-0"
-               title="Resume Preview"
-            />
+            <iframe src={pdfUrl} className="w-full h-full border-0" title="Resume Preview" />
          ) : (
             <div className="flex items-center justify-center h-full text-muted-foreground">
                <Loader2 className="w-6 h-6 animate-spin mr-2" />

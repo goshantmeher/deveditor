@@ -1,32 +1,26 @@
-import {
-   FileCode2,
-   Eye,
-   Shield,
-   Table,
-   Code2,
-   Copy,
-   CheckCircle,
-   Globe,
-} from 'lucide-react';
+import { FileCode2, Eye, Shield, Table, Code2, Copy, CheckCircle, Globe } from 'lucide-react';
 
 const features = [
    {
       icon: Eye,
       color: 'indigo',
       title: 'Live Preview',
-      description: 'See your rendered markdown updating in real-time as you type, with full GitHub-Flavored Markdown support.',
+      description:
+         'See your rendered markdown updating in real-time as you type, with full GitHub-Flavored Markdown support.',
    },
    {
       icon: Shield,
       color: 'emerald',
       title: 'XSS Safe Output',
-      description: 'All HTML output is sanitized using DOMPurify, preventing cross-site scripting vulnerabilities in your generated code.',
+      description:
+         'All HTML output is sanitized using DOMPurify, preventing cross-site scripting vulnerabilities in your generated code.',
    },
    {
       icon: Copy,
       color: 'sky',
       title: 'One-Click Copy',
-      description: 'Copy the generated HTML to your clipboard instantly. Ready to paste into your CMS, email template, or website.',
+      description:
+         'Copy the generated HTML to your clipboard instantly. Ready to paste into your CMS, email template, or website.',
    },
    {
       icon: Table,
@@ -38,7 +32,8 @@ const features = [
       icon: Code2,
       color: 'rose',
       title: 'Code Blocks',
-      description: 'Fenced code blocks with language specification are properly converted to semantic HTML code elements.',
+      description:
+         'Fenced code blocks with language specification are properly converted to semantic HTML code elements.',
    },
    {
       icon: Globe,
@@ -100,7 +95,8 @@ export function MarkdownConverterSeoContent() {
                Generate Clean HTML from Markdown Instantly
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-               Write or paste your markdown content and instantly get sanitized HTML output. Live preview, GitHub-Flavored Markdown support, and one-click copy — all running in your browser.
+               Write or paste your markdown content and instantly get sanitized HTML output. Live preview,
+               GitHub-Flavored Markdown support, and one-click copy — all running in your browser.
             </p>
          </section>
 

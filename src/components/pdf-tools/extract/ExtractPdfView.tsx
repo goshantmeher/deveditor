@@ -25,7 +25,7 @@ export function ExtractPdfView() {
          setFile({ name: f.name, data: buffer, pages });
          setSelectedPages(new Set());
       } catch {
-         setError('Failed to load PDF. Make sure it\'s a valid file.');
+         setError("Failed to load PDF. Make sure it's a valid file.");
       }
    }, []);
 
