@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function SchemaGeneratorPage() {
    return (
-      <div className="flex flex-col">
+      <div id="page-top" className="flex flex-col">
          {/* The main editor viewport */}
          <div className="min-h-[calc(100vh-72px)] lg:h-[calc(100vh-72px)] lg:max-h-[calc(100vh-72px)] shrink-0 w-full overflow-hidden bg-background">
             <SchemaGeneratorView />

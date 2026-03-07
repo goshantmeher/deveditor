@@ -1,174 +1,183 @@
-import { Layers, Shield, Zap, GripVertical, Download, Eye, Globe } from 'lucide-react';
-
-const features = [
-   {
-      icon: Layers,
-      color: 'indigo',
-      title: 'Combine Multiple PDFs',
-      description:
-         'Upload any number of PDF files and merge them into a single document. No limits on file count or total size.',
-   },
-   {
-      icon: GripVertical,
-      color: 'amber',
-      title: 'Drag to Reorder',
-      description: 'Arrange your PDFs in the exact order you want before merging. Simple drag-and-drop reordering.',
-   },
-   {
-      icon: Download,
-      color: 'emerald',
-      title: 'Instant Download',
-      description: 'Your merged PDF is ready to download immediately. No email required, no waiting for processing.',
-   },
-   {
-      icon: Shield,
-      color: 'rose',
-      title: 'Secure & Private',
-      description:
-         'All processing happens in your browser. Your PDFs are never uploaded to any server — complete privacy guaranteed.',
-   },
-   {
-      icon: Zap,
-      color: 'sky',
-      title: 'Lightning Fast',
-      description: 'Client-side processing means your PDFs are merged in seconds, regardless of your internet speed.',
-   },
-   {
-      icon: Globe,
-      color: 'violet',
-      title: '100% Free',
-      description: 'No watermarks, no file size limits, no sign-up required. Merge as many PDFs as you need.',
-   },
-];
-
-const faqs = [
-   {
-      q: 'Is there a file size limit?',
-      a: "There is no hard limit. Since processing happens in your browser, the practical limit depends on your device's memory. Most devices handle files up to 100MB+ easily.",
-   },
-   {
-      q: 'Are my PDFs uploaded to a server?',
-      a: 'No. All merging happens entirely in your browser using JavaScript. Your PDF files never leave your device.',
-   },
-   {
-      q: 'Can I reorder the pages?',
-      a: 'You can reorder entire PDF files by dragging them in the list. The pages within each PDF maintain their original order.',
-   },
-   {
-      q: 'Does it work on mobile?',
-      a: 'Yes! The tool works in any modern browser on desktop, tablet, or mobile. You can select files from your device storage.',
-   },
-   {
-      q: 'What happens to password-protected PDFs?',
-      a: 'The tool attempts to handle encrypted PDFs, but some heavily protected files may not be mergeable. Try removing the password first.',
-   },
-];
-
-const faqJsonLd = {
-   '@context': 'https://schema.org',
-   '@type': 'FAQPage',
-   mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: {
-         '@type': 'Answer',
-         text: faq.a,
-      },
-   })),
-};
+import { Layers, Shield, GripVertical, Download, Eye, Sparkles } from 'lucide-react';
+import { ScrollToTopButton } from '../../../ScrollToTopButton';
 
 export function MergePdfSeoContent() {
-   return (
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-20">
-         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+   const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+         {
+            '@type': 'Question',
+            name: 'Is there a file size limit?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: "There is no hard limit. Since processing happens in your browser, the practical limit depends on your device's memory. Most devices handle files up to 100MB+ easily.",
+            },
+         },
+         {
+            '@type': 'Question',
+            name: 'Are my PDFs uploaded to a server?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'No. All merging happens entirely in your browser using JavaScript. Your PDF files never leave your device.',
+            },
+         },
+         {
+            '@type': 'Question',
+            name: 'Can I reorder the pages?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'You can reorder entire PDF files by dragging them in the list. The pages within each PDF maintain their original order.',
+            },
+         },
+      ],
+   };
 
-         {/* Hero */}
-         <section className="max-w-4xl mx-auto text-center space-y-6 py-16">
-            <div className="inline-flex items-center gap-2 bg-indigo-500/10 text-indigo-400 px-4 py-2 rounded-full text-sm font-medium border border-indigo-500/20">
-               <Layers className="w-4 h-4" />
-               Free Online PDF Merger
+   return (
+      <article className="max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-24">
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+         {/* Hero Section */}
+         <div className="text-center space-y-6 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+               <Layers className="w-3.5 h-3.5" />
+               PDF Merger
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-               Merge PDF Files Online — Fast, Free & Secure
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
+               Merge PDF Files — <span className="text-indigo-500">Fast & Secure</span>
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
                Combine multiple PDF documents into one file instantly. Drag to reorder, click to merge. Everything runs
                in your browser — your files never leave your device.
             </p>
-         </section>
+         </div>
 
-         {/* Features */}
-         <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {features.map((feature) => (
-               <div
-                  key={feature.title}
-                  className="bg-card p-6 rounded-2xl border border-border/50 hover:border-border transition-all duration-300 group"
-               >
-                  <div
-                     className={`w-10 h-10 bg-${feature.color}-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                     <feature.icon className={`w-5 h-5 text-${feature.color}-500`} />
-                  </div>
-                  <h3 className="font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+         {/* Feature Grid */}
+         <div className="grid md:grid-cols-3 gap-8">
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Layers className="w-6 h-6 text-indigo-500" />
                </div>
-            ))}
-         </section>
-
-         {/* How It Works */}
-         <section className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold tracking-tight text-center mb-10">How to Merge PDFs</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-               {[
-                  {
-                     step: '01',
-                     icon: Eye,
-                     title: 'Upload PDFs',
-                     desc: 'Drag and drop or click to select the PDF files you want to combine.',
-                  },
-                  {
-                     step: '02',
-                     icon: GripVertical,
-                     title: 'Reorder',
-                     desc: 'Drag files to arrange them in the exact order you want.',
-                  },
-                  {
-                     step: '03',
-                     icon: Download,
-                     title: 'Merge & Download',
-                     desc: 'Click merge and download your combined PDF instantly.',
-                  },
-               ].map((item) => (
-                  <div key={item.step} className="text-center space-y-3">
-                     <div className="text-4xl font-bold text-indigo-500/20">{item.step}</div>
-                     <item.icon className="w-8 h-8 text-indigo-500 mx-auto" />
-                     <h3 className="font-semibold">{item.title}</h3>
-                     <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>
-               ))}
+               <h3 className="text-xl font-bold mb-3 text-foreground">Combine Multiple PDFs</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Upload any number of PDF files and merge them into a single document. No limits on file count or total
+                  size.
+               </p>
             </div>
-         </section>
 
-         {/* FAQ */}
-         <section className="max-w-4xl mx-auto bg-muted/20 border border-border/30 rounded-3xl p-8 md:p-12">
-            <h2 className="text-2xl font-bold tracking-tight text-center mb-8">Frequently Asked Questions</h2>
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <GripVertical className="w-6 h-6 text-emerald-500" />
+               </div>
+               <h3 className="text-xl font-bold mb-3 text-foreground">Drag to Reorder</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Arrange your PDFs in the exact order you want before merging. Simple drag-and-drop reordering.
+               </p>
+            </div>
+
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Shield className="w-6 h-6 text-amber-500" />
+               </div>
+               <h3 className="text-xl font-bold mb-3 text-foreground">100% Private</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  All processing happens in your browser. Your PDFs are never uploaded to any server — complete privacy
+                  guaranteed.
+               </p>
+            </div>
+         </div>
+
+         {/* Visual Section */}
+         <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-               {faqs.map((faq, i) => (
-                  <div key={i} className="space-y-2">
-                     <h3 className="font-semibold text-sm">{faq.q}</h3>
-                     <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">How It Works</h2>
+               <p className="text-muted-foreground leading-relaxed">
+                  Three simple steps to combine your PDFs into a single document.
+               </p>
+               <ul className="space-y-4">
+                  {[
+                     {
+                        icon: Eye,
+                        title: 'Upload PDFs',
+                        desc: 'Drag and drop or click to select the PDF files you want to combine.',
+                     },
+                     {
+                        icon: GripVertical,
+                        title: 'Rearrange Order',
+                        desc: 'Drag files to arrange them in the exact order you want.',
+                     },
+                     {
+                        icon: Download,
+                        title: 'Merge & Download',
+                        desc: 'Click merge and download your combined PDF instantly.',
+                     },
+                  ].map((item, i) => (
+                     <li key={i} className="flex gap-4">
+                        <div className="mt-1">
+                           <item.icon className="w-5 h-5 text-indigo-500" />
+                        </div>
+                        <div>
+                           <h4 className="font-bold text-foreground">{item.title}</h4>
+                           <p className="text-sm text-muted-foreground">{item.desc}</p>
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            </div>
+            <div className="bg-muted/50 rounded-3xl p-8 border border-border">
+               <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-4 h-4 text-indigo-500" />
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pro Tip</span>
+               </div>
+               <div className="prose prose-invert prose-sm">
+                  <p>
+                     Since all processing happens <strong>locally in your browser</strong>, merging speed depends on
+                     your device — not your internet connection. Even <strong>offline</strong>, the tool works
+                     perfectly.
+                  </p>
+                  <p>
+                     For <strong>large files</strong>, close other browser tabs to free up memory for smoother
+                     processing.
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         {/* FAQ Section */}
+         <div className="space-y-12 border-t border-border/50 pt-24">
+            <div className="text-center space-y-4">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  Frequently Asked Questions
+               </h2>
+               <p className="text-muted-foreground">Everything you need to know about merging PDFs.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+               {faqSchema.mainEntity.map((faq, i) => (
+                  <div key={i} className="space-y-3">
+                     <h3 className="font-bold text-foreground flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                        {faq.name}
+                     </h3>
+                     <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20">
+                        {faq.acceptedAnswer.text}
+                     </p>
                   </div>
                ))}
             </div>
-         </section>
+         </div>
 
-         {/* CTA */}
-         <section className="text-center py-12 space-y-4">
-            <h2 className="text-2xl font-bold tracking-tight">Ready to Merge?</h2>
-            <p className="text-muted-foreground max-w-lg mx-auto">
-               Scroll up and drop your PDF files. Merging is instant, secure, and completely free.
+         {/* CTA Section */}
+         <div className="bg-indigo-600 rounded-3xl p-12 text-center space-y-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
+            <h2 className="text-3xl font-bold text-white relative z-10">Ready to merge your PDFs?</h2>
+            <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
+               Upload your files and combine them instantly. No sign-up, no watermarks, total privacy.
             </p>
-         </section>
-      </div>
+            <div className="pt-4 relative z-10">
+               <ScrollToTopButton label="Scroll up to Start Merging" />
+            </div>
+         </div>
+      </article>
    );
 }

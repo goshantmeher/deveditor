@@ -1,4 +1,5 @@
-import { ShieldCheck, Zap, ExternalLink, Cpu, Database, Code2 } from 'lucide-react';
+import { Code2, Zap, ShieldCheck, Lock, ExternalLink, Cpu, Sparkles } from 'lucide-react';
+import { ScrollToTopButton } from '../../ScrollToTopButton';
 
 export function Base64EncoderSeoContent() {
    const faqSchema = {
@@ -33,138 +34,153 @@ export function Base64EncoderSeoContent() {
    };
 
    return (
-      <div className="max-w-4xl mx-auto px-6 py-16 space-y-24">
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-               __html: JSON.stringify(faqSchema),
-            }}
-         />
+      <article className="max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-24">
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
          {/* Hero Section */}
-         <section className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-               Secure & Reliable Base64 Encoding
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+         <div className="text-center space-y-6 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+               <Lock className="w-3.5 h-3.5" />
+               Encoding & Decoding
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
+               Base64 Encoder & <span className="text-indigo-500">Decoder</span>
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
                Convert binary data to text and back instantly. Support for standard, URL-safe, and data URI formats—all
                processed entirely client-side.
             </p>
-         </section>
+         </div>
 
-         {/* Features Grid */}
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4">
-               <div className="w-10 h-10 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500">
-                  <Cpu className="w-5 h-5" />
+         {/* Feature Grid */}
+         <div className="grid md:grid-cols-3 gap-8">
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Cpu className="w-6 h-6 text-indigo-500" />
                </div>
-               <h3 className="text-lg font-bold">Binary Support</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
+               <h3 className="text-xl font-bold mb-3 text-foreground">Binary Support</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
                   Easily encode images, fonts, and other binary files into portable text strings or Data URIs for
                   embedding in code.
                </p>
             </div>
 
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4">
-               <div className="w-10 h-10 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-500">
-                  <ExternalLink className="w-5 h-5" />
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <ExternalLink className="w-6 h-6 text-emerald-500" />
                </div>
-               <h3 className="text-lg font-bold">URL-Safe Mode</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
+               <h3 className="text-xl font-bold mb-3 text-foreground">URL-Safe Mode</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
                   Swap common separators with safe alternatives to ensure your tokens and segments work perfectly in web
                   routes and filenames.
                </p>
             </div>
 
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4">
-               <div className="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500">
-                  <ShieldCheck className="w-5 h-5" />
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-6 h-6 text-amber-500" />
                </div>
-               <h3 className="text-lg font-bold">Privacy First</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
+               <h3 className="text-xl font-bold mb-3 text-foreground">Privacy First</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
                   Your data is your business. All encoding and decoding logic runs locally in your browser—nothing is
                   ever uploaded.
                </p>
             </div>
          </div>
 
-         {/* Main Content Deep Dive */}
-         <div className="space-y-16">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-               <div className="space-y-6">
-                  <h3 className="text-2xl font-bold flex items-center gap-3">
-                     <Database className="w-6 h-6 text-indigo-500" />
-                     Enterprise Data Support
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                     From JWT header segments to binary image blobs, our engine handles a wide range of encoding
-                     priorities with high-performance throughput.
-                  </p>
-                  <ul className="space-y-3">
-                     {[
-                        'UTF-8, ASCII, and Latin-1 support',
-                        'Automatic padding handling',
-                        'Live preview for decoded image data',
-                        'Ready-to-use Data URI generation',
-                     ].map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm">
-                           <Zap className="w-4 h-4 text-indigo-400 shrink-0" />
-                           <span>{item}</span>
-                        </li>
-                     ))}
-                  </ul>
+         {/* Visual Section */}
+         <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">Enterprise Data Support</h2>
+               <p className="text-muted-foreground leading-relaxed">
+                  From JWT header segments to binary image blobs, our engine handles a wide range of encoding priorities
+                  with high-performance throughput.
+               </p>
+               <ul className="space-y-4">
+                  {[
+                     {
+                        icon: Code2,
+                        title: 'UTF-8, ASCII & Latin-1',
+                        desc: 'Full multi-encoding support for international and legacy character sets.',
+                     },
+                     {
+                        icon: Zap,
+                        title: 'Automatic Padding',
+                        desc: 'Handles Base64 padding characters correctly for both standard and URL-safe modes.',
+                     },
+                     {
+                        icon: Cpu,
+                        title: 'Data URI Generation',
+                        desc: 'Encode files directly into ready-to-use data: URIs for embedding in HTML and CSS.',
+                     },
+                  ].map((item, i) => (
+                     <li key={i} className="flex gap-4">
+                        <div className="mt-1">
+                           <item.icon className="w-5 h-5 text-indigo-500" />
+                        </div>
+                        <div>
+                           <h4 className="font-bold text-foreground">{item.title}</h4>
+                           <p className="text-sm text-muted-foreground">{item.desc}</p>
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            </div>
+            <div className="bg-muted/50 rounded-3xl p-8 border border-border">
+               <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-4 h-4 text-indigo-500" />
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pro Tip</span>
                </div>
-               <div className="bg-muted/50 rounded-3xl p-8 border border-border">
-                  <div className="aspect-video bg-background rounded-2xl flex items-center justify-center border border-border/50 relative overflow-hidden group">
-                     <Code2 className="w-24 h-24 text-indigo-500/25 group-hover:text-indigo-500/40 group-hover:scale-110 transition-all duration-500" />
-                     <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/15 to-transparent pointer-events-none" />
+               <div className="prose prose-invert prose-sm">
+                  <p>
+                     Use <strong>URL-Safe mode</strong> when encoding tokens for JWTs or web routes. It replaces{' '}
+                     <code className="text-indigo-400">+</code> with <code className="text-indigo-400">-</code> and{' '}
+                     <code className="text-indigo-400">/</code> with <code className="text-indigo-400">_</code> to avoid
+                     breaking URL parsers.
+                  </p>
+                  <p>
+                     For embedding small images in CSS, try the <strong>Data URI</strong> tab — it generates the
+                     complete <code className="text-indigo-400">data:image/...</code> string ready to paste.
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         {/* FAQ Section */}
+         <div className="space-y-12 border-t border-border/50 pt-24">
+            <div className="text-center space-y-4">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  Frequently Asked Questions
+               </h2>
+               <p className="text-muted-foreground">Everything you need to know about Base64 encoding.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+               {faqSchema.mainEntity.map((faq, i) => (
+                  <div key={i} className="space-y-3">
+                     <h3 className="font-bold text-foreground flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                        {faq.name}
+                     </h3>
+                     <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20">
+                        {faq.acceptedAnswer.text}
+                     </p>
                   </div>
-               </div>
+               ))}
             </div>
          </div>
 
-         {/* FAQ/Guide Section */}
-         <section className="bg-muted/20 border border-border/30 rounded-3xl p-8 md:p-12 space-y-8">
-            <h3 className="text-2xl font-bold text-center">Frequently Asked Questions</h3>
-            <div className="grid md:grid-cols-2 gap-8">
-               <div className="space-y-3">
-                  <h4 className="font-bold">What is Data URI?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     A Data URI allows you to embed files (like small icons or CSS fonts) directly into your HTML/CSS
-                     code, reducing the number of HTTP requests your site needs to make.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Standard vs URL-Safe?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Standard Base64 is used for most files and basic auth. URL-safe is preferred for tokens, web hooks,
-                     and identifiers that pass through browser address bars.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Supported File Types?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Any binary or text file under 10MB. Common types include PNG, SVG, PDF, and JSON payloads. Large
-                     files may be slower on mobile devices.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Is it private?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Absolutely. Unlike most online encoders, DevEditor processes every byte inside your browser's
-                     Javascript engine. No server interaction required.
-                  </p>
-               </div>
+         {/* CTA Section */}
+         <div className="bg-indigo-600 rounded-3xl p-12 text-center space-y-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
+            <h2 className="text-3xl font-bold text-white relative z-10">Effortless Data Transformation</h2>
+            <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
+               Encode and decode Base64 data instantly. No sign-up, no server — just paste and go.
+            </p>
+            <div className="pt-4 relative z-10">
+               <ScrollToTopButton label="Scroll up to Start Encoding" />
             </div>
-         </section>
-
-         {/* Bottom CTA */}
-         <div className="text-center space-y-6 pt-12">
-            <h3 className="text-xl font-bold italic text-muted-foreground/60 tracking-wider uppercase">
-               Effortless Data Transformation
-            </h3>
-            <div className="h-1 w-24 bg-linear-to-r from-transparent via-indigo-500/50 to-transparent mx-auto" />
          </div>
-      </div>
+      </article>
    );
 }

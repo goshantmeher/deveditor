@@ -1,5 +1,5 @@
-import React from 'react';
-import { Code2, Database, Zap, Sparkles, ShieldCheck, Cpu, Layout } from 'lucide-react';
+import { Code2, Database, Zap, ShieldCheck, Braces, Sparkles } from 'lucide-react';
+import { ScrollToTopButton } from '../../ScrollToTopButton';
 
 export function SchemaGeneratorSeoContent() {
    const faqSchema = {
@@ -8,204 +8,177 @@ export function SchemaGeneratorSeoContent() {
       mainEntity: [
          {
             '@type': 'Question',
-            name: 'Which programming languages are supported?',
+            name: 'What schema formats are supported?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'Our generator currently supports TypeScript, Go (Golang), Rust, Zod (for runtime validation), and standard JSON Schema (Draft-07).',
+               text: 'We generate JSON Schema (Draft 2020), TypeScript interfaces, Zod schemas, and Yup schemas. All formats are production-ready with proper type inference.',
             },
          },
          {
             '@type': 'Question',
-            name: 'Is my data safe?',
+            name: 'How accurate is the type inference?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'Yes. The entire conversion process happens locally in your browser. Your JSON data is never sent to any server, making it safe for production data and secrets.',
+               text: 'Our engine analyzes every value in your JSON, detecting strings, numbers, booleans, nulls, arrays, and nested objects. It handles mixed-type arrays and optional keys intelligently.',
             },
          },
          {
             '@type': 'Question',
-            name: 'How does the type inference work?',
+            name: 'Is my data private?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'The engine recursively traverses your JSON object, detecting primitives, nested maps, and arrays. When it finds arrays of objects with differing fields, it merges them into a single type with optional fields.',
-            },
-         },
-         {
-            '@type': 'Question',
-            name: 'Can I use this for complex API responses?',
-            acceptedAnswer: {
-               '@type': 'Answer',
-               text: 'Absolutely! It handles deeply nested objects, mixed-type arrays, and large payloads without any issues.',
+               text: 'Yes. All schema generation happens entirely in your browser. Your JSON data never leaves your machine.',
             },
          },
       ],
    };
 
    return (
-      <div className="max-w-4xl mx-auto px-6 py-16 space-y-24">
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-               __html: JSON.stringify(faqSchema),
-            }}
-         />
+      <article className="max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-24">
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
          {/* Hero Section */}
-         <section className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-               Instant JSON to Strongly-Typed Code
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-               Stop manually writing boilerplate interfaces. Our intelligent engine transforms your JSON into
-               production-ready models for five major formats in milliseconds.
+         <div className="text-center space-y-6 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+               <Database className="w-3.5 h-3.5" />
+               Schema Engineering
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
+               JSON to <span className="text-indigo-500">Schema</span> Generator
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+               Paste any JSON and instantly generate TypeScript interfaces, Zod schemas, JSON Schema, or Yup
+               validations. Smart type inference handles complex nested structures.
             </p>
-         </section>
+         </div>
 
-         {/* Features Grid */}
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4">
-               <div className="w-10 h-10 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500">
-                  <Cpu className="w-5 h-5" />
+         {/* Feature Grid */}
+         <div className="grid md:grid-cols-3 gap-8">
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Code2 className="w-6 h-6 text-indigo-500" />
                </div>
-               <h3 className="text-lg font-bold">Smart Inference</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
-                  Automatically detects integers, floats, nulls, and optional fields by deep-scanning nested objects and
-                  array items.
+               <h3 className="text-xl font-bold mb-3 text-foreground">Multi-Format Output</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Generate TypeScript interfaces, Zod schemas, Yup schemas, and JSON Schema with a single paste. All
+                  formats are production-ready.
                </p>
             </div>
 
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4">
-               <div className="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500">
-                  <Layout className="w-5 h-5" />
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-6 h-6 text-emerald-500" />
                </div>
-               <h3 className="text-lg font-bold">Multi-Format</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
-                  Generate idiomatic code for TypeScript, Go struct tags, Rust serde, Zod validation, and JSON Schema
-                  instantly.
+               <h3 className="text-xl font-bold mb-3 text-foreground">Smart Type Inference</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Our engine handles nested objects, arrays of mixed types, optional fields, and complex structures
+                  automatically.
                </p>
             </div>
 
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4">
-               <div className="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500">
-                  <ShieldCheck className="w-5 h-5" />
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Zap className="w-6 h-6 text-amber-500" />
                </div>
-               <h3 className="text-lg font-bold">Privacy First</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
-                  100% client-side computing. Your sensitive API payloads and database schemas never leave your local
-                  machine.
+               <h3 className="text-xl font-bold mb-3 text-foreground">Instant Generation</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Schemas are generated in real-time as you type. No submit buttons, no waiting — just paste and copy.
                </p>
             </div>
          </div>
 
-         {/* Main Content Deep Dive */}
-         <div className="space-y-16">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-               <div className="space-y-6">
-                  <h3 className="text-2xl font-bold flex items-center gap-3">
-                     <Sparkles className="w-6 h-6 text-indigo-500" />
-                     Intelligent Type Detection
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                     The library doesn't just look at the first item of an array. It inspects every element, merges
-                     differing signatures, and generates a unified model with proper optionality.
-                  </p>
-                  <ul className="space-y-3">
-                     {[
-                        'Distinguishes between Integer and Double/Float',
-                        'Automatic nested struct/interface extraction',
-                        'Native support for Go JSON omitempty tags',
-                        'Proper Rust Option<T> wrapper for nullables',
-                     ].map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm">
-                           <Zap className="w-4 h-4 text-indigo-400 shrink-0" />
-                           <span>{item}</span>
-                        </li>
-                     ))}
-                  </ul>
+         {/* Visual Section */}
+         <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">From API Response to Type Safety</h2>
+               <p className="text-muted-foreground leading-relaxed">
+                  The fastest way to add type safety to your project. Paste an API response and get production-ready
+                  types instantly.
+               </p>
+               <ul className="space-y-4">
+                  {[
+                     {
+                        icon: Braces,
+                        title: 'Nested Object Support',
+                        desc: 'Deep nesting is handled with proper named interfaces and cross-references.',
+                     },
+                     {
+                        icon: Database,
+                        title: 'Array Type Merging',
+                        desc: 'Analyzes all items in an array to produce the most accurate union type.',
+                     },
+                     {
+                        icon: Code2,
+                        title: 'Copy-Ready Output',
+                        desc: 'Generated schemas include proper imports and are ready to paste into your codebase.',
+                     },
+                  ].map((item, i) => (
+                     <li key={i} className="flex gap-4">
+                        <div className="mt-1">
+                           <item.icon className="w-5 h-5 text-indigo-500" />
+                        </div>
+                        <div>
+                           <h4 className="font-bold text-foreground">{item.title}</h4>
+                           <p className="text-sm text-muted-foreground">{item.desc}</p>
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            </div>
+            <div className="bg-muted/50 rounded-3xl p-8 border border-border">
+               <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-4 h-4 text-indigo-500" />
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pro Tip</span>
                </div>
-               <div className="bg-muted/50 rounded-3xl p-8 border border-border">
-                  <div className="aspect-video bg-background rounded-2xl flex items-center justify-center border border-border/50 relative overflow-hidden group">
-                     <Code2 className="w-24 h-24 text-indigo-500/25 group-hover:text-indigo-500/40 group-hover:scale-110 transition-all duration-500" />
-                     <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/15 to-transparent pointer-events-none" />
+               <div className="prose prose-invert prose-sm">
+                  <p>
+                     Paste your <strong>API response</strong> directly to generate a{' '}
+                     <code className="text-indigo-400">TypeScript interface</code>. Then switch to{' '}
+                     <code className="text-indigo-400">Zod</code> to get runtime validation for the same structure.
+                  </p>
+                  <p>
+                     For <strong>JSON Schema</strong>, use the output with tools like AJV for server-side validation or
+                     OpenAPI spec generation.
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         {/* FAQ Section */}
+         <div className="space-y-12 border-t border-border/50 pt-24">
+            <div className="text-center space-y-4">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  Frequently Asked Questions
+               </h2>
+               <p className="text-muted-foreground">Everything you need to know about our Schema Generator.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+               {faqSchema.mainEntity.map((faq, i) => (
+                  <div key={i} className="space-y-3">
+                     <h3 className="font-bold text-foreground flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                        {faq.name}
+                     </h3>
+                     <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20">
+                        {faq.acceptedAnswer.text}
+                     </p>
                   </div>
-               </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-12 items-center lg:flex-row-reverse">
-               <div className="bg-muted/50 rounded-3xl p-8 border border-border md:order-last">
-                  <div className="aspect-video bg-background rounded-2xl flex items-center justify-center border border-border/50 relative overflow-hidden group">
-                     <Database className="w-24 h-24 text-emerald-500/25 group-hover:text-emerald-500/40 group-hover:scale-110 transition-all duration-500" />
-                     <div className="absolute inset-0 bg-linear-to-tr from-emerald-500/15 to-transparent pointer-events-none" />
-                  </div>
-               </div>
-               <div className="space-y-6">
-                  <h3 className="text-2xl font-bold flex items-center gap-3">
-                     <Database className="w-6 h-6 text-emerald-500" />
-                     Enterprise Grade Outputs
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                     Perfect for developers building complex microservices. Whether you need strongly-typed database
-                     models or validated API endpoints, our generator handles the heavy lifting.
-                  </p>
-                  <ul className="space-y-3">
-                     {[
-                        'Clean, exported naming conventions',
-                        'Support for deep recursive nesting',
-                        'Standard Draft-07 JSON Schema validation',
-                        'Zero dependencies on the generated code',
-                     ].map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm">
-                           <Zap className="w-4 h-4 text-amber-400 shrink-0" />
-                           <span>{item}</span>
-                        </li>
-                     ))}
-                  </ul>
-               </div>
+               ))}
             </div>
          </div>
 
-         {/* FAQ/Guide Section */}
-         <section className="bg-muted/20 border border-border/30 rounded-3xl p-8 md:p-12 space-y-8">
-            <h3 className="text-2xl font-bold text-center">Frequently Asked Questions</h3>
-            <div className="grid md:grid-cols-2 gap-8">
-               <div className="space-y-3">
-                  <h4 className="font-bold">What is Smart Merging?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     When converting an array of varying objects, it identifies fields that are only present in some
-                     items and marks them as optional (`?` in TS, `omitempty` in Go, `Option` in Rust).
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Does it produce valid Rust/Go?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Yes. Our generator strictly follows idiomatic naming (PascalCase) and adds all necessary attribute
-                     macros like `#[derive(Serialize, Deserialize)]` for Rust and `` `json:"key"` `` tags for Go.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Is there a limit on JSON size?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     While there is no hard limit, very large JSON files (&gt;5MB) might cause slight browser lag during
-                     live typing. For massive files, paste them in chunks or use our debounced editor.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Why use this over manual coding?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Manual type definition is prone to typos and human error, especially in large objects. Automated
-                     generation ensures 100% accuracy between your data and your code model.
-                  </p>
-               </div>
+         {/* CTA Section */}
+         <div className="bg-indigo-600 rounded-3xl p-12 text-center space-y-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
+            <h2 className="text-3xl font-bold text-white relative z-10">Type safety starts here</h2>
+            <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
+               Paste any JSON and get production-ready schemas instantly. No login, no data limits.
+            </p>
+            <div className="pt-4 relative z-10">
+               <ScrollToTopButton label="Scroll up to Start Generating" />
             </div>
-         </section>
-
-         {/* Bottom CTA */}
-         <div className="text-center space-y-6 pt-12">
-            <h3 className="text-xl font-bold italic text-muted-foreground/60 tracking-wider uppercase">
-               Build better types with DevEditor
-            </h3>
-            <div className="h-1 w-24 bg-linear-to-r from-transparent via-indigo-500/50 to-transparent mx-auto" />
          </div>
-      </div>
+      </article>
    );
 }

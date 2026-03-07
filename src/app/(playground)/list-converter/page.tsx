@@ -42,7 +42,7 @@ import { ListConverterSeoContent } from '@/components/list-converter/docs/ListCo
 export default function Page() {
    return (
       <PersistenceProvider>
-         <div className="flex flex-col">
+         <div id="page-top" className="flex flex-col">
             {/* The main tool viewport */}
             <div className="h-[calc(100vh-72px)] shrink-0">
                <ListConverterView />

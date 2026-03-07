@@ -1,5 +1,5 @@
-import React from 'react';
-import { FileDiff, Zap, Cpu, Layers, Split } from 'lucide-react';
+import { FileDiff, Zap, Cpu, Layers, Split, Sparkles } from 'lucide-react';
+import { ScrollToTopButton } from '../../ScrollToTopButton';
 
 export function TextDiffSeoContent() {
    const faqSchema = {
@@ -34,147 +34,151 @@ export function TextDiffSeoContent() {
    };
 
    return (
-      <div className="max-w-4xl mx-auto px-6 py-16 space-y-24">
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-               __html: JSON.stringify(faqSchema),
-            }}
-         />
+      <article className="max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-24">
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
          {/* Hero Section */}
-         <section className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-               Instant & Secure Text Comparison
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+         <div className="text-center space-y-6 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+               <FileDiff className="w-3.5 h-3.5" />
+               Text Comparison
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
+               Instant & Secure <span className="text-indigo-500">Text Diff</span>
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
                Compare code, documents, and configuration files with pixel-perfect precision. Powered by
                high-performance diffing algorithms that run entirely in your browser.
             </p>
-         </section>
+         </div>
 
-         {/* View Modes Grid */}
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-card p-8 rounded-3xl border border-border/50 space-y-6 transition-all hover:border-indigo-500/30 group">
-               <div className="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-500 group-hover:scale-110 transition-transform">
-                  <Split className="w-6 h-6" />
+         {/* Feature Grid */}
+         <div className="grid md:grid-cols-3 gap-8">
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Split className="w-6 h-6 text-indigo-500" />
                </div>
-               <div className="space-y-3">
-                  <h3 className="text-xl font-bold">Side-by-Side (Split)</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     The classic developer view. Perfect for desktop screens, allowing you to see original and modified
-                     versions in parallel for easy visual tracking.
-                  </p>
-               </div>
-               <div className="pt-4 flex gap-2">
-                  <div className="h-1 w-full bg-red-500/10 rounded-full overflow-hidden">
-                     <div className="h-full w-1/3 bg-red-500/50" />
-                  </div>
-                  <div className="h-1 w-full bg-emerald-500/10 rounded-full overflow-hidden">
-                     <div className="h-full w-2/3 bg-emerald-500/50" />
-                  </div>
-               </div>
+               <h3 className="text-xl font-bold mb-3 text-foreground">Split & Unified View</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Toggle between side-by-side comparison for desktop and inline unified view for mobile. Both modes
+                  highlight changes with precision.
+               </p>
             </div>
 
-            <div className="bg-card p-8 rounded-3xl border border-border/50 space-y-6 transition-all hover:border-sky-500/30 group">
-               <div className="w-12 h-12 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-500 group-hover:scale-110 transition-transform">
-                  <Layers className="w-6 h-6" />
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Cpu className="w-6 h-6 text-emerald-500" />
                </div>
-               <div className="space-y-3">
-                  <h3 className="text-xl font-bold">Inline (Unified)</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     A streamlined, vertical layout that interleaves changes. Optimized for mobile devices and reviewing
-                     long sentences efficiently.
+               <h3 className="text-xl font-bold mb-3 text-foreground">Semantic Engine</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Our diff engine understands the structure of your text to find the most meaningful changes, not just
+                  raw character differences.
+               </p>
+            </div>
+
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Zap className="w-6 h-6 text-amber-500" />
+               </div>
+               <h3 className="text-xl font-bold mb-3 text-foreground">Multi-level Granularity</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Character-level granularity for typos, word-level matching for phrasing edits, and smart line matching
+                  for large blocks.
+               </p>
+            </div>
+         </div>
+
+         {/* Visual Section */}
+         <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">Built for Developers</h2>
+               <p className="text-muted-foreground leading-relaxed">
+                  Whether you are reviewing code changes, comparing configuration files, or checking document revisions,
+                  our diff tool has you covered.
+               </p>
+               <ul className="space-y-4">
+                  {[
+                     {
+                        icon: Layers,
+                        title: 'Whitespace Normalization',
+                        desc: 'Option to ignore whitespace changes for cleaner comparisons.',
+                     },
+                     {
+                        icon: FileDiff,
+                        title: 'Copy-Paste Workflow',
+                        desc: 'The fastest way to compare: just paste text into both panels.',
+                     },
+                     {
+                        icon: Split,
+                        title: 'Responsive Layout',
+                        desc: 'Automatically switches between split and unified based on your screen.',
+                     },
+                  ].map((item, i) => (
+                     <li key={i} className="flex gap-4">
+                        <div className="mt-1">
+                           <item.icon className="w-5 h-5 text-indigo-500" />
+                        </div>
+                        <div>
+                           <h4 className="font-bold text-foreground">{item.title}</h4>
+                           <p className="text-sm text-muted-foreground">{item.desc}</p>
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            </div>
+            <div className="bg-muted/50 rounded-3xl p-8 border border-border">
+               <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-4 h-4 text-indigo-500" />
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pro Tip</span>
+               </div>
+               <div className="prose prose-invert prose-sm">
+                  <p>
+                     Use the diff tool to compare <strong>.env files</strong> or <strong>API responses</strong> safely.
+                     Since everything is client-side, your secrets never leave your machine.
                   </p>
-               </div>
-               <div className="pt-4 space-y-1">
-                  <div className="h-1 w-full bg-red-500/10 rounded-full overflow-hidden">
-                     <div className="h-full w-1/2 bg-red-500/50" />
-                  </div>
-                  <div className="h-1 w-full bg-emerald-500/10 rounded-full overflow-hidden">
-                     <div className="h-full w-3/4 bg-emerald-500/50" />
-                  </div>
+                  <p>
+                     The tool is <strong>language-agnostic</strong> — it works perfectly for TypeScript, Python, SQL,
+                     YAML, Markdown, and any other text format.
+                  </p>
                </div>
             </div>
          </div>
 
-         {/* Main Content Deep Dive */}
-         <div className="space-y-16">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-               <div className="space-y-6">
-                  <h3 className="text-2xl font-bold flex items-center gap-3">
-                     <Cpu className="w-6 h-6 text-indigo-500" />
-                     Semantic Diff Engine
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                     We use optimized diffing algorithms that don&apos;t just look at characters, but understand the
-                     structure of your text to find the most meaningful changes.
-                  </p>
-                  <ul className="space-y-3">
-                     {[
-                        'Character-level granularity for typos',
-                        'Word-level matching for phrasing edits',
-                        'Smart line matching for large code blocks',
-                        'Automatic whitespace normalization',
-                     ].map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm">
-                           <Zap className="w-4 h-4 text-indigo-400 shrink-0" />
-                           <span>{item}</span>
-                        </li>
-                     ))}
-                  </ul>
-               </div>
-               <div className="bg-muted/50 rounded-3xl p-8 border border-border">
-                  <div className="aspect-video bg-background rounded-2xl flex items-center justify-center border border-border/50 relative overflow-hidden group">
-                     <FileDiff className="w-24 h-24 text-indigo-500/25 group-hover:text-indigo-500/40 group-hover:scale-110 transition-all duration-500" />
-                     <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/15 to-transparent pointer-events-none" />
+         {/* FAQ Section */}
+         <div className="space-y-12 border-t border-border/50 pt-24">
+            <div className="text-center space-y-4">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  Frequently Asked Questions
+               </h2>
+               <p className="text-muted-foreground">Everything you need to know about our Text Diff tool.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+               {faqSchema.mainEntity.map((faq, i) => (
+                  <div key={i} className="space-y-3">
+                     <h3 className="font-bold text-foreground flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                        {faq.name}
+                     </h3>
+                     <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20">
+                        {faq.acceptedAnswer.text}
+                     </p>
                   </div>
-               </div>
+               ))}
             </div>
          </div>
 
-         {/* FAQ/Guide Section */}
-         <section className="bg-muted/20 border border-border/30 rounded-3xl p-8 md:p-12 space-y-8">
-            <h3 className="text-2xl font-bold text-center">Frequently Asked Questions</h3>
-            <div className="grid md:grid-cols-2 gap-8">
-               <div className="space-y-3">
-                  <h4 className="font-bold">What is high-level diffing?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     It means the tool can distinguish between a small character change (like a typo) and a major block
-                     deletion, adjusting the visualization accordingly.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Can I compare binary files?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Currently, this tool is optimized for text-based formats (code, JSON, logs, prose). It does not
-                     support comparing binary files like PDFs or JPEGs directly.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Privacy for environment variables?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Yes. Since the logic is client-side, you can safely compare .env files or private keys without them
-                     ever reaching a server.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Supported Languages?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Our diff engine is language-agnostic. It works perfectly for TypeScript, Python, HTML, Markdown,
-                     and any other human-readable text format.
-                  </p>
-               </div>
+         {/* CTA Section */}
+         <div className="bg-indigo-600 rounded-3xl p-12 text-center space-y-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
+            <h2 className="text-3xl font-bold text-white relative z-10">Track every revision with confidence</h2>
+            <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
+               Start comparing text instantly. No sign-up, no data limits, total privacy.
+            </p>
+            <div className="pt-4 relative z-10">
+               <ScrollToTopButton label="Scroll up to Start Comparing" />
             </div>
-         </section>
-
-         {/* Bottom CTA */}
-         <div className="text-center space-y-6 pt-12">
-            <h3 className="text-xl font-bold italic text-muted-foreground/60 tracking-wider uppercase">
-               Track every revision with confidence
-            </h3>
-            <div className="h-1 w-24 bg-linear-to-r from-transparent via-indigo-500/50 to-transparent mx-auto" />
          </div>
-      </div>
+      </article>
    );
 }

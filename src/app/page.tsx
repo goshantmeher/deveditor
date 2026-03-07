@@ -1,7 +1,7 @@
 'use client';
 
 import { Input } from '@/components/ui/input';
-import { Search, ExternalLink, ChevronDown, Shield } from 'lucide-react';
+import { Search, ChevronDown, Shield } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import { Footer } from '@/components/Footer';
@@ -15,7 +15,7 @@ interface Tool {
    icon: string;
    href: string;
    status: ToolStatus;
-   isNew?: boolean;
+
    tags?: string[];
 }
 
@@ -51,7 +51,6 @@ const categories: Category[] = [
             icon: '🔠',
             href: '/case-converter',
             status: 'available',
-            isNew: true,
             tags: ['case', 'camelcase', 'snake', 'kebab', 'pascal'],
          },
          {
@@ -68,7 +67,6 @@ const categories: Category[] = [
             icon: '📝',
             href: '/text-diff',
             status: 'available',
-            isNew: true,
             tags: ['diff', 'compare', 'text', 'merge'],
          },
          {
@@ -78,7 +76,6 @@ const categories: Category[] = [
             icon: '📖',
             href: '/markdown-converter',
             status: 'available',
-            isNew: true,
             tags: ['markdown', 'md', 'preview', 'html', 'generator', 'mermaid'],
          },
          {
@@ -87,7 +84,6 @@ const categories: Category[] = [
             icon: '📋',
             href: '/list-converter',
             status: 'available',
-            isNew: true,
             tags: ['list', 'array', 'json', 'sql', 'csv'],
          },
          {
@@ -129,7 +125,6 @@ const categories: Category[] = [
             icon: '🔐',
             href: '/jwt-decoder',
             status: 'available',
-            isNew: true,
             tags: ['jwt', 'token', 'decode', 'auth', 'bearer'],
          },
          {
@@ -211,7 +206,6 @@ const categories: Category[] = [
             icon: '🌈',
             href: '/color-converter',
             status: 'available',
-            isNew: true,
             tags: ['color', 'hex', 'rgb', 'hsl', 'palette', 'contrast', 'wcag'],
          },
          {
@@ -253,7 +247,6 @@ const categories: Category[] = [
             icon: '🖌️',
             href: '/theme-generator',
             status: 'available',
-            isNew: true,
             tags: ['theme', 'colors', 'tailwind', 'json', 'export'],
          },
          {
@@ -311,7 +304,6 @@ const categories: Category[] = [
             icon: '🔍',
             href: '/regex-tester',
             status: 'available',
-            isNew: true,
             tags: ['regex', 'regular expression', 'match', 'pattern'],
          },
          {
@@ -328,7 +320,6 @@ const categories: Category[] = [
             icon: '📐',
             href: '/json-to-schema',
             status: 'available',
-            isNew: true,
             tags: ['json', 'typescript', 'go', 'rust', 'schema', 'interface', 'struct', 'zod'],
          },
          {
@@ -445,7 +436,6 @@ const categories: Category[] = [
             icon: '📱',
             href: '/qr-generator',
             status: 'available',
-            isNew: true,
             tags: ['qr', 'qrcode', 'svg', 'branding'],
          },
          {
@@ -455,7 +445,6 @@ const categories: Category[] = [
             icon: '📄',
             href: '/pdf-resume',
             status: 'available',
-            isNew: true,
             tags: ['pdf', 'resume', 'cv', 'builder', 'free', 'ai', 'chatgpt'],
          },
          {
@@ -464,7 +453,6 @@ const categories: Category[] = [
             icon: '📑',
             href: '/merge-pdf',
             status: 'available',
-            isNew: true,
             tags: ['pdf', 'merge', 'combine', 'join'],
          },
          {
@@ -473,7 +461,6 @@ const categories: Category[] = [
             icon: '✂️',
             href: '/split-pdf',
             status: 'available',
-            isNew: true,
             tags: ['pdf', 'split', 'cut', 'pages'],
          },
          {
@@ -482,7 +469,6 @@ const categories: Category[] = [
             icon: '📄',
             href: '/extract-pdf',
             status: 'available',
-            isNew: true,
             tags: ['pdf', 'extract', 'pages', 'select'],
          },
          {
@@ -491,7 +477,6 @@ const categories: Category[] = [
             icon: '📋',
             href: '/pdf-to-text',
             status: 'available',
-            isNew: true,
             tags: ['pdf', 'extract', 'text', 'copy', 'content'],
          },
          {
@@ -857,20 +842,16 @@ function ToolCard({ tool }: { tool: Tool }) {
          <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
                <h3 className="text-xs font-semibold text-foreground truncate">{tool.title}</h3>
-               {tool.isNew && (
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 uppercase tracking-wider shrink-0">
-                     New
-                  </span>
-               )}
             </div>
             <p className="text-[10px] text-muted-foreground leading-snug line-clamp-1 mt-0.5">{tool.description}</p>
          </div>
 
-         {/* Status Badge */}
+         {/* Status Indicator */}
          <div className="shrink-0">
             {tool.status === 'available' ? (
-               <div className="flex items-center gap-1 text-[10px] font-medium text-primary">
-                  <ExternalLink className="h-3 w-3" />
+               <div className="relative flex items-center justify-center">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <div className="absolute w-2 h-2 rounded-full bg-emerald-500 animate-ping opacity-30" />
                </div>
             ) : (
                <span

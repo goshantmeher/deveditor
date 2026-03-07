@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function JwtDecoderPage() {
    return (
-      <div className="flex flex-col">
+      <div id="page-top" className="flex flex-col">
          {/* The main editor viewport */}
          <div className="h-[calc(100vh-72px)] shrink-0 w-full max-w-[1600px] mx-auto overflow-hidden bg-background border-x border-border/40">
             <JwtDecoderView />
