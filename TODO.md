@@ -222,7 +222,7 @@
    - Priority: ⭐⭐⭐⭐⭐
    - 💡 Added by review
 
-- [ ] **PDF Page Extractor** — Extract specific pages from a PDF, merge PDFs, all client-side
+- [x] **PDF Page Extractor** — Extract specific pages from a PDF, merge PDFs, all client-side
    - ⚠️ Partially feasible: Use `pdf-lib` (~300 KB). Heavy but works entirely client-side.
    - Priority: ⭐⭐⭐
    - 💡 Added by review
@@ -233,15 +233,15 @@
    - Priority: ⭐⭐⭐⭐⭐
    - 💡 Added by user request
 
-- [ ] **Merge PDF** — Combine multiple PDF files into one continuous document.
+- [x] **Merge PDF** — Combine multiple PDF files into one continuous document.
    - ✅ Feasible: Entirely client-side using `pdf-lib`.
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Split PDF** — Cut a single PDF into multiple chunks or individual page files.
+- [x] **Split PDF** — Cut a single PDF into multiple chunks or individual page files.
    - ✅ Feasible: Entirely client-side using `pdf-lib` to create new documents from copied pages.
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Copy PDF Content** — Extract textual content out of a PDF document to copy to clipboard.
+- [x] **Copy PDF Content** — Extract textual content out of a PDF document to copy to clipboard.
    - ⚠️ Partially feasible: Requires `pdf.js` by Mozilla parsing logic. Can be heavy.
    - Priority: ⭐⭐⭐
 
