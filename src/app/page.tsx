@@ -1,7 +1,7 @@
 'use client';
 
 import { Input } from '@/components/ui/input';
-import { Search, ExternalLink, ChevronDown, Shield } from 'lucide-react';
+import { Search, ChevronDown, Shield } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import { Footer } from '@/components/Footer';
@@ -15,7 +15,7 @@ interface Tool {
    icon: string;
    href: string;
    status: ToolStatus;
-   isNew?: boolean;
+
    tags?: string[];
 }
 
@@ -51,7 +51,6 @@ const categories: Category[] = [
             icon: '🔠',
             href: '/case-converter',
             status: 'available',
-            isNew: true,
             tags: ['case', 'camelcase', 'snake', 'kebab', 'pascal'],
          },
          {
@@ -59,7 +58,7 @@ const categories: Category[] = [
             description: 'Encode & decode URI components, parse & rebuild query parameters.',
             icon: '🔗',
             href: '/url-encoder',
-            status: 'planned',
+            status: 'available',
             tags: ['url', 'uri', 'encode', 'decode', 'query'],
          },
          {
@@ -68,16 +67,15 @@ const categories: Category[] = [
             icon: '📝',
             href: '/text-diff',
             status: 'available',
-            isNew: true,
             tags: ['diff', 'compare', 'text', 'merge'],
          },
          {
             title: 'Markdown Generator',
-            description: 'Generate clean, sanitized HTML from markdown with live preview, toolbar, and Mermaid diagrams.',
+            description:
+               'Generate clean, sanitized HTML from markdown with live preview, toolbar, and Mermaid diagrams.',
             icon: '📖',
             href: '/markdown-converter',
             status: 'available',
-            isNew: true,
             tags: ['markdown', 'md', 'preview', 'html', 'generator', 'mermaid'],
          },
          {
@@ -85,7 +83,7 @@ const categories: Category[] = [
             description: 'Convert text columns to JSON arrays, SQL IN clauses, or CSV strings.',
             icon: '📋',
             href: '/list-converter',
-            status: 'planned',
+            status: 'available',
             tags: ['list', 'array', 'json', 'sql', 'csv'],
          },
          {
@@ -127,7 +125,6 @@ const categories: Category[] = [
             icon: '🔐',
             href: '/jwt-decoder',
             status: 'available',
-            isNew: true,
             tags: ['jwt', 'token', 'decode', 'auth', 'bearer'],
          },
          {
@@ -170,6 +167,22 @@ const categories: Category[] = [
             status: 'planned',
             tags: ['rsa', 'key', 'public', 'private', 'crypto'],
          },
+         {
+            title: 'Password Strength Checker',
+            description: 'Score password entropy, check dictionary words, and estimate "time to crack" locally.',
+            icon: '💪',
+            href: '/password-strength',
+            status: 'planned',
+            tags: ['password', 'strength', 'entropy', 'zxcvbn', 'security'],
+         },
+         {
+            title: 'JavaScript Obfuscator',
+            description: 'Scramble JavaScript code for security or deobfuscate mildly obscured scripts.',
+            icon: '🕵️',
+            href: '/js-obfuscator',
+            status: 'planned',
+            tags: ['javascript', 'js', 'obfuscate', 'deobfuscate', 'security'],
+         },
       ],
    },
    {
@@ -193,7 +206,6 @@ const categories: Category[] = [
             icon: '🌈',
             href: '/color-converter',
             status: 'available',
-            isNew: true,
             tags: ['color', 'hex', 'rgb', 'hsl', 'palette', 'contrast', 'wcag'],
          },
          {
@@ -235,7 +247,6 @@ const categories: Category[] = [
             icon: '🖌️',
             href: '/theme-generator',
             status: 'available',
-            isNew: true,
             tags: ['theme', 'colors', 'tailwind', 'json', 'export'],
          },
          {
@@ -245,6 +256,30 @@ const categories: Category[] = [
             href: '/svg-to-react',
             status: 'planned',
             tags: ['svg', 'react', 'jsx', 'convert', 'camelcase'],
+         },
+         {
+            title: 'OG / Meta Tag Generator',
+            description: 'Visually generate <meta> tags for Twitter, Facebook, and Google with a live preview card.',
+            icon: '🖥️',
+            href: '/meta-tag-generator',
+            status: 'planned',
+            tags: ['seo', 'meta', 'og', 'twitter', 'facebook', 'tags'],
+         },
+         {
+            title: 'Robots.txt & Sitemap Generator',
+            description: 'Generate formatted robots.txt rules and XML sitemaps to optimize search engine crawling.',
+            icon: '🤖',
+            href: '/seo-generators',
+            status: 'planned',
+            tags: ['seo', 'robots', 'sitemap', 'crawler'],
+         },
+         {
+            title: 'Code Minifier / Beautifier',
+            description: 'Instantly compress or expand HTML, CSS, and JavaScript code. Runs entirely locally.',
+            icon: '🗜️',
+            href: '/code-minifier',
+            status: 'planned',
+            tags: ['minify', 'beautify', 'compress', 'html', 'css', 'javascript'],
          },
       ],
    },
@@ -269,7 +304,6 @@ const categories: Category[] = [
             icon: '🔍',
             href: '/regex-tester',
             status: 'available',
-            isNew: true,
             tags: ['regex', 'regular expression', 'match', 'pattern'],
          },
          {
@@ -286,7 +320,6 @@ const categories: Category[] = [
             icon: '📐',
             href: '/json-to-schema',
             status: 'available',
-            isNew: true,
             tags: ['json', 'typescript', 'go', 'rust', 'schema', 'interface', 'struct', 'zod'],
          },
          {
@@ -314,12 +347,46 @@ const categories: Category[] = [
             tags: ['jsonpath', 'jq', 'query', 'json', 'path'],
          },
          {
-            title: 'ASCII Art Text Generator',
-            description: 'Turn text into large ASCII art headers for code comments.',
-            icon: '🎭',
-            href: '/ascii-art',
+            title: 'JSON Compare / Diff',
+            description: 'Compare the structures and values of two JSON objects. Visualizes deeply nested differences.',
+            icon: '⚖️',
+            href: '/json-compare',
             status: 'planned',
-            tags: ['ascii', 'art', 'text', 'figlet', 'banner'],
+            tags: ['json', 'compare', 'diff', 'structure'],
+         },
+         {
+            title: 'SQL Formatter',
+            description: 'Format, beautify, and parse complex SQL queries into readable, multi-line statements.',
+            icon: '🗄️',
+            href: '/sql-formatter',
+            status: 'planned',
+            tags: ['sql', 'format', 'beautify', 'database', 'query'],
+         },
+         {
+            title: '.htaccess Redirect Generator',
+            description: 'Generate Apache/Nginx redirect rules for HTTPS, www/non-www, and custom 301 redirects.',
+            icon: '🔀',
+            href: '/htaccess-generator',
+            status: 'planned',
+            tags: ['htaccess', 'redirect', 'nginx', 'apache', '301'],
+         },
+         {
+            title: 'API Tester (Extension Required)',
+            description:
+               'A local Postman alternative. Uses an open-source companion extension to bypass browser CORS restrictions safely.',
+            icon: '📡',
+            href: '/api-tester',
+            status: 'planned',
+            tags: ['api', 'tester', 'rest', 'http', 'postman', 'cors'],
+         },
+         {
+            title: 'DNS Lookup (DoH)',
+            description:
+               'Perform quick DNS resolution (A, AAAA, MX, TXT) natively in the browser using free DNS-over-HTTPS APIs.',
+            icon: '🌍',
+            href: '/dns-lookup',
+            status: 'planned',
+            tags: ['dns', 'lookup', 'domain', 'doh', 'network'],
          },
       ],
    },
@@ -369,16 +436,15 @@ const categories: Category[] = [
             icon: '📱',
             href: '/qr-generator',
             status: 'available',
-            isNew: true,
             tags: ['qr', 'qrcode', 'svg', 'branding'],
          },
          {
             title: 'AI Resume Builder',
-            description: 'Import from ChatGPT, Claude, or Gemini. Pick a template, download PDF. 100% free, no paywalls.',
+            description:
+               'Import from ChatGPT, Claude, or Gemini. Pick a template, download PDF. 100% free, no paywalls.',
             icon: '📄',
             href: '/pdf-resume',
             status: 'available',
-            isNew: true,
             tags: ['pdf', 'resume', 'cv', 'builder', 'free', 'ai', 'chatgpt'],
          },
          {
@@ -387,7 +453,6 @@ const categories: Category[] = [
             icon: '📑',
             href: '/merge-pdf',
             status: 'available',
-            isNew: true,
             tags: ['pdf', 'merge', 'combine', 'join'],
          },
          {
@@ -396,7 +461,6 @@ const categories: Category[] = [
             icon: '✂️',
             href: '/split-pdf',
             status: 'available',
-            isNew: true,
             tags: ['pdf', 'split', 'cut', 'pages'],
          },
          {
@@ -405,7 +469,6 @@ const categories: Category[] = [
             icon: '📄',
             href: '/extract-pdf',
             status: 'available',
-            isNew: true,
             tags: ['pdf', 'extract', 'pages', 'select'],
          },
          {
@@ -414,7 +477,6 @@ const categories: Category[] = [
             icon: '📋',
             href: '/pdf-to-text',
             status: 'available',
-            isNew: true,
             tags: ['pdf', 'extract', 'text', 'copy', 'content'],
          },
          {
@@ -442,36 +504,12 @@ const categories: Category[] = [
             tags: ['pdf', 'add', 'insert', 'pages', 'merge'],
          },
          {
-            title: 'Webcam Image Filter Booth',
-            description: 'Capture webcam images and instantly apply CSS/local filters without any server uploads.',
-            icon: '📸',
-            href: '/webcam-filters',
-            status: 'planned',
-            tags: ['webcam', 'image', 'camera', 'filter', 'capture'],
-         },
-         {
             title: 'Audio/Video Format Converter',
             description: 'Convert media files in the browser natively (FFmpeg.wasm). Transform WebM to MP4 instantly.',
             icon: '🎞️',
             href: '/media-converter',
             status: 'planned',
             tags: ['video', 'audio', 'ffmpeg', 'mp4', 'webm', 'mp3'],
-         },
-         {
-            title: 'GIF Creator',
-            description: 'Stitch a sequence of images or a short video clip into an animated GIF.',
-            icon: '🎞️',
-            href: '/gif-creator',
-            status: 'planned',
-            tags: ['gif', 'video', 'animation', 'create', 'image'],
-         },
-         {
-            title: 'Meme Generator',
-            description: 'Upload images, overlay impact font, drag to position, and download.',
-            icon: '😂',
-            href: '/meme-generator',
-            status: 'planned',
-            tags: ['meme', 'generator', 'image', 'text', 'font'],
          },
          {
             title: 'SVG Editor & Animator',
@@ -537,6 +575,56 @@ const categories: Category[] = [
             href: '/markdown-to-html',
             status: 'planned',
             tags: ['markdown', 'md', 'html', 'convert', 'markup'],
+         },
+         {
+            title: 'Mock Data Generator',
+            description:
+               'Define a schema and generate thousands of rows of realistic dummy data in JSON or CSV format.',
+            icon: '🧪',
+            href: '/mock-data',
+            status: 'planned',
+            tags: ['mock', 'data', 'faker', 'dummy', 'json', 'csv'],
+         },
+      ],
+   },
+   {
+      id: 'misc',
+      title: 'Miscellaneous & Fun',
+      icon: '🎮',
+      description: 'Handy tools and fun extras for your downtime',
+      accentColor: 'rose',
+      tools: [
+         {
+            title: 'Meme Generator',
+            description: 'Upload images, overlay impact font, drag to position, and download.',
+            icon: '😂',
+            href: '/meme-generator',
+            status: 'planned',
+            tags: ['meme', 'generator', 'image', 'text', 'font'],
+         },
+         {
+            title: 'ASCII Art Text Generator',
+            description: 'Turn text into large ASCII art headers for code comments.',
+            icon: '🎭',
+            href: '/ascii-art',
+            status: 'planned',
+            tags: ['ascii', 'art', 'text', 'figlet', 'banner'],
+         },
+         {
+            title: 'Webcam Image Filter Booth',
+            description: 'Capture webcam images and instantly apply CSS/local filters without any server uploads.',
+            icon: '📸',
+            href: '/webcam-filters',
+            status: 'planned',
+            tags: ['webcam', 'image', 'camera', 'filter', 'capture'],
+         },
+         {
+            title: 'GIF Creator',
+            description: 'Stitch a sequence of images or a short video clip into an animated GIF.',
+            icon: '🎞️',
+            href: '/gif-creator',
+            status: 'planned',
+            tags: ['gif', 'video', 'animation', 'create', 'image'],
          },
       ],
    },
@@ -728,7 +816,6 @@ export default function Home() {
                   );
                })}
             </main>
-
          </div>
          <Footer />
       </div>
@@ -755,20 +842,16 @@ function ToolCard({ tool }: { tool: Tool }) {
          <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
                <h3 className="text-xs font-semibold text-foreground truncate">{tool.title}</h3>
-               {tool.isNew && (
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 uppercase tracking-wider shrink-0">
-                     New
-                  </span>
-               )}
             </div>
             <p className="text-[10px] text-muted-foreground leading-snug line-clamp-1 mt-0.5">{tool.description}</p>
          </div>
 
-         {/* Status Badge */}
+         {/* Status Indicator */}
          <div className="shrink-0">
             {tool.status === 'available' ? (
-               <div className="flex items-center gap-1 text-[10px] font-medium text-primary">
-                  <ExternalLink className="h-3 w-3" />
+               <div className="relative flex items-center justify-center">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <div className="absolute w-2 h-2 rounded-full bg-emerald-500 animate-ping opacity-30" />
                </div>
             ) : (
                <span

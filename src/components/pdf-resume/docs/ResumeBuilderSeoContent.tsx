@@ -119,9 +119,10 @@ export function ResumeBuilderSeoContent() {
                   <div className="flex-1">
                      <h3 className="text-xl font-bold mb-2 text-foreground">AI-Powered Import — Use Any AI Tool</h3>
                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        Don&apos;t want to type everything manually? Click &quot;Import from AI&quot;, copy our smart prompt into ChatGPT, Claude, Gemini, or any AI tool.
-                        Add your career details, and the AI generates perfectly structured resume content. Paste it back and every field fills automatically.
-                        No API keys, no accounts, no vendor lock-in — bring your own AI.
+                        Don&apos;t want to type everything manually? Click &quot;Import from AI&quot;, copy our smart
+                        prompt into ChatGPT, Claude, Gemini, or any AI tool. Add your career details, and the AI
+                        generates perfectly structured resume content. Paste it back and every field fills
+                        automatically. No API keys, no accounts, no vendor lock-in — bring your own AI.
                      </p>
                   </div>
                </div>
@@ -136,17 +137,31 @@ export function ResumeBuilderSeoContent() {
                      <Bot className="w-3.5 h-3.5" />
                      Industry First
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tight text-foreground">Build Your Resume with AI in 60 Seconds</h2>
+                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                     Build Your Resume with AI in 60 Seconds
+                  </h2>
                   <p className="text-muted-foreground leading-relaxed">
-                     Most resume builders charge for AI features. Ours is completely free and works with any AI tool you already have access to.
-                     No proprietary AI, no monthly subscription, no limits.
+                     Most resume builders charge for AI features. Ours is completely free and works with any AI tool you
+                     already have access to. No proprietary AI, no monthly subscription, no limits.
                   </p>
                </div>
                <div className="space-y-4">
                   {[
-                     { step: '1', title: 'Click "Import from AI"', desc: 'Opens a modal with a pre-crafted prompt optimized for resume generation.' },
-                     { step: '2', title: 'Copy prompt to your AI', desc: 'Paste into ChatGPT, Claude, Gemini, or any AI tool. Add your career details.' },
-                     { step: '3', title: 'Paste AI response', desc: 'Copy the AI\'s output back into DevEditor. All resume fields fill automatically.' },
+                     {
+                        step: '1',
+                        title: 'Click "Import from AI"',
+                        desc: 'Opens a modal with a pre-crafted prompt optimized for resume generation.',
+                     },
+                     {
+                        step: '2',
+                        title: 'Copy prompt to your AI',
+                        desc: 'Paste into ChatGPT, Claude, Gemini, or any AI tool. Add your career details.',
+                     },
+                     {
+                        step: '3',
+                        title: 'Paste AI response',
+                        desc: "Copy the AI's output back into DevEditor. All resume fields fill automatically.",
+                     },
                   ].map((item) => (
                      <div key={item.step} className="flex items-start gap-4">
                         <div className="w-8 h-8 rounded-full bg-violet-500/20 text-violet-400 flex items-center justify-center text-sm font-bold shrink-0">
@@ -204,10 +219,12 @@ export function ResumeBuilderSeoContent() {
                   ))}
                </ul>
             </div>
-            <div className="bg-muted/30 rounded-3xl p-8 border border-border/50">
+            <div className="bg-muted/50 rounded-3xl p-8 border border-border">
                <div className="flex items-center gap-2 mb-4">
                   <Search className="w-4 h-4 text-indigo-500" />
-                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Why DevEditor?</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                     Why DevEditor?
+                  </span>
                </div>
                <div className="prose prose-invert prose-sm">
                   <p>
@@ -215,9 +232,9 @@ export function ResumeBuilderSeoContent() {
                      restrict layouts, or force account creation to harvest your personal data.
                   </p>
                   <p>
-                     DevEditor&apos;s resume builder is different: it&apos;s <strong>completely open</strong>, generates PDFs
-                     using <code className="text-indigo-400">@react-pdf/renderer</code> directly in your browser, and
-                     never touches a server. Your resume, your data, your control.
+                     DevEditor&apos;s resume builder is different: it&apos;s <strong>completely open</strong>, generates
+                     PDFs using <code className="text-indigo-400">@react-pdf/renderer</code> directly in your browser,
+                     and never touches a server. Your resume, your data, your control.
                   </p>
                </div>
             </div>

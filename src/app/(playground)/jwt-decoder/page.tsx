@@ -18,8 +18,7 @@ export const metadata: Metadata = {
    ],
    openGraph: {
       title: 'JWT Debugger & Decoder | DevEditor',
-      description:
-         'Decode, examine, and debug JSON Web Tokens securely and completely client-side.',
+      description: 'Decode, examine, and debug JSON Web Tokens securely and completely client-side.',
       url: 'https://www.deveditor.io/jwt-decoder',
       siteName: 'DevEditor',
       type: 'website',
@@ -29,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function JwtDecoderPage() {
    return (
-      <div className="flex flex-col">
+      <div id="page-top" className="flex flex-col">
          {/* The main editor viewport */}
          <div className="h-[calc(100vh-72px)] shrink-0 w-full max-w-[1600px] mx-auto overflow-hidden bg-background border-x border-border/40">
             <JwtDecoderView />

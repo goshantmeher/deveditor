@@ -32,16 +32,13 @@ export function SplitPdfView() {
          setFile({ name: f.name, data: buffer, pages });
          setRanges([{ id: crypto.randomUUID(), from: 1, to: Math.min(pages, Math.ceil(pages / 2)) }]);
       } catch {
-         setError('Failed to load PDF. Make sure it\'s a valid file.');
+         setError("Failed to load PDF. Make sure it's a valid file.");
       }
    }, []);
 
    const addRange = () => {
       if (!file) return;
-      setRanges((prev) => [
-         ...prev,
-         { id: crypto.randomUUID(), from: 1, to: file.pages },
-      ]);
+      setRanges((prev) => [...prev, { id: crypto.randomUUID(), from: 1, to: file.pages }]);
    };
 
    const removeRange = (id: string) => {
@@ -51,11 +48,7 @@ export function SplitPdfView() {
    const updateRange = (id: string, field: 'from' | 'to', value: number) => {
       if (!file) return;
       setRanges((prev) =>
-         prev.map((r) =>
-            r.id === id
-               ? { ...r, [field]: Math.max(1, Math.min(file.pages, value)) }
-               : r
-         )
+         prev.map((r) => (r.id === id ? { ...r, [field]: Math.max(1, Math.min(file.pages, value)) } : r))
       );
    };
 
@@ -185,7 +178,10 @@ export function SplitPdfView() {
                   <div className="space-y-3">
                      <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Page Ranges</p>
                      {ranges.map((range, i) => (
-                        <div key={range.id} className="flex items-center gap-3 p-3 bg-card border border-border rounded-xl group">
+                        <div
+                           key={range.id}
+                           className="flex items-center gap-3 p-3 bg-card border border-border rounded-xl group"
+                        >
                            <div className="w-7 h-7 rounded-lg bg-indigo-500/10 flex items-center justify-center shrink-0">
                               <span className="text-xs font-bold text-indigo-500">{i + 1}</span>
                            </div>

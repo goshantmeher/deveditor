@@ -1,33 +1,41 @@
-import { FileDiff, Zap, Cpu, Layers, Split, Sparkles } from 'lucide-react';
+import { Link2, Zap, ShieldCheck, Globe, Sparkles, Table2, Code2 } from 'lucide-react';
 import { ScrollToTopButton } from '../../ScrollToTopButton';
 
-export function TextDiffSeoContent() {
+export function UrlEncoderSeoContent() {
    const faqSchema = {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: [
          {
             '@type': 'Question',
-            name: 'How does the text diff tool work?',
+            name: 'What is the difference between encodeURI and encodeURIComponent?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'It uses a semantic difference algorithm to compare two blocks of text. It identifies character-level, word-level, and line-level changes, highlighting additions in green and deletions in red.',
+               text: 'encodeURIComponent encodes all special characters including :, /, ?, #, &, and =. encodeURI preserves these characters, making it suitable for encoding full URLs while encodeURIComponent is better for encoding individual query parameter values.',
             },
          },
          {
             '@type': 'Question',
-            name: 'Split vs Unified view?',
+            name: 'Does this tool send my URLs to a server?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'Split view shows the original and modified text side-by-side. Unified view merges them into a single column, showing changes inline—ideal for mobile screens.',
+               text: 'No. All encoding, decoding, and URL parsing happens entirely in your browser using native JavaScript APIs. No data is ever transmitted to any server.',
             },
          },
          {
             '@type': 'Question',
-            name: 'Is it safe for code snippets?',
+            name: 'Can I edit query parameters individually?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'Yes. All comparison logic happens locally in your browser. No text or code is ever uploaded to our servers, keeping your proprietary data secure.',
+               text: 'Yes. The URL Parser tab breaks down any URL into its components and displays query parameters in an editable table. You can add, remove, or modify parameters and the rebuilt URL updates in real-time.',
+            },
+         },
+         {
+            '@type': 'Question',
+            name: 'What characters does URL encoding replace?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'URL encoding (percent-encoding) replaces unsafe characters with a % followed by two hexadecimal digits. For example, spaces become %20, ampersands become %26, and angle brackets become %3C and %3E.',
             },
          },
       ],
@@ -40,15 +48,15 @@ export function TextDiffSeoContent() {
          {/* Hero Section */}
          <div className="text-center space-y-6 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider">
-               <FileDiff className="w-3.5 h-3.5" />
-               Text Comparison
+               <Link2 className="w-3.5 h-3.5" />
+               URL Processing
             </div>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
-               Instant & Secure <span className="text-indigo-500">Text Diff</span>
+               URL Encoder / <span className="text-indigo-500">Decoder</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Compare code, documents, and configuration files with pixel-perfect precision. Powered by
-               high-performance diffing algorithms that run entirely in your browser.
+               Encode and decode URI components, parse full URLs into their building blocks, edit query
+               parameters individually, and rebuild clean URLs — all without leaving your browser.
             </p>
          </div>
 
@@ -56,23 +64,24 @@ export function TextDiffSeoContent() {
          <div className="grid md:grid-cols-3 gap-8">
             <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
                <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Split className="w-6 h-6 text-indigo-500" />
+                  <Globe className="w-6 h-6 text-indigo-500" />
                </div>
-               <h3 className="text-xl font-bold mb-3 text-foreground">Split & Unified View</h3>
+               <h3 className="text-xl font-bold mb-3 text-foreground">3 Encoding Modes</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Toggle between side-by-side comparison for desktop and inline unified view for mobile. Both modes
-                  highlight changes with precision.
+                  Choose between <code className="text-indigo-400">encodeURIComponent</code>,{' '}
+                  <code className="text-indigo-400">encodeURI</code>, or space-only encoding depending on
+                  your use case.
                </p>
             </div>
 
             <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Cpu className="w-6 h-6 text-emerald-500" />
+                  <ShieldCheck className="w-6 h-6 text-emerald-500" />
                </div>
-               <h3 className="text-xl font-bold mb-3 text-foreground">Semantic Engine</h3>
+               <h3 className="text-xl font-bold mb-3 text-foreground">100% Client-Side</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Our diff engine understands the structure of your text to find the most meaningful changes, not just
-                  raw character differences.
+                  Your URLs, API keys, and tokens never leave your browser. All processing uses native
+                  JavaScript APIs with zero server interaction.
                </p>
             </div>
 
@@ -80,10 +89,10 @@ export function TextDiffSeoContent() {
                <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Zap className="w-6 h-6 text-amber-500" />
                </div>
-               <h3 className="text-xl font-bold mb-3 text-foreground">Multi-level Granularity</h3>
+               <h3 className="text-xl font-bold mb-3 text-foreground">URL Parser & Builder</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Character-level granularity for typos, word-level matching for phrasing edits, and smart line matching
-                  for large blocks.
+                  Paste any URL to instantly see protocol, host, path, and query parameters in an editable table.
+                  Modify params and rebuild the URL live.
                </p>
             </div>
          </div>
@@ -91,27 +100,29 @@ export function TextDiffSeoContent() {
          {/* Visual Section */}
          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground">Built for Developers</h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  Built for Developers
+               </h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Whether you are reviewing code changes, comparing configuration files, or checking document revisions,
-                  our diff tool has you covered.
+                  Whether you&apos;re debugging redirect URLs, constructing API requests, or decoding query
+                  strings from log files — this tool handles it all with precision.
                </p>
                <ul className="space-y-4">
                   {[
                      {
-                        icon: Layers,
-                        title: 'Whitespace Normalization',
-                        desc: 'Option to ignore whitespace changes for cleaner comparisons.',
+                        icon: Code2,
+                        title: 'Instant Encode/Decode',
+                        desc: 'Real-time conversion as you type. Switch between encode and decode with one click.',
                      },
                      {
-                        icon: FileDiff,
-                        title: 'Copy-Paste Workflow',
-                        desc: 'The fastest way to compare: just paste text into both panels.',
+                        icon: Table2,
+                        title: 'Query Parameter Editor',
+                        desc: 'View, add, edit, and remove individual query parameters from any URL.',
                      },
                      {
-                        icon: Split,
-                        title: 'Responsive Layout',
-                        desc: 'Automatically switches between split and unified based on your screen.',
+                        icon: Link2,
+                        title: 'URL Component Breakdown',
+                        desc: 'See protocol, hostname, port, pathname, hash, and origin at a glance.',
                      },
                   ].map((item, i) => (
                      <li key={i} className="flex gap-4">
@@ -129,17 +140,31 @@ export function TextDiffSeoContent() {
             <div className="bg-muted/50 rounded-3xl p-8 border border-border">
                <div className="flex items-center gap-2 mb-4">
                   <Sparkles className="w-4 h-4 text-indigo-500" />
-                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pro Tip</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                     Quick Reference
+                  </span>
                </div>
-               <div className="prose prose-invert prose-sm">
-                  <p>
-                     Use the diff tool to compare <strong>.env files</strong> or <strong>API responses</strong> safely.
-                     Since everything is client-side, your secrets never leave your machine.
-                  </p>
-                  <p>
-                     The tool is <strong>language-agnostic</strong> — it works perfectly for TypeScript, Python, SQL,
-                     YAML, Markdown, and any other text format.
-                  </p>
+               <div className="space-y-3 font-mono text-sm">
+                  {[
+                     { char: 'Space', encoded: '%20', alt: '+' },
+                     { char: '&', encoded: '%26', alt: '' },
+                     { char: '=', encoded: '%3D', alt: '' },
+                     { char: '?', encoded: '%3F', alt: '' },
+                     { char: '#', encoded: '%23', alt: '' },
+                     { char: '/', encoded: '%2F', alt: '' },
+                     { char: '@', encoded: '%40', alt: '' },
+                     { char: ':', encoded: '%3A', alt: '' },
+                  ].map((item, i) => (
+                     <div key={i} className="flex items-center gap-3 text-muted-foreground">
+                        <span className="text-xs w-16 text-foreground font-bold">{item.char}</span>
+                        <span className="text-indigo-400 font-bold">{item.encoded}</span>
+                        {item.alt && (
+                           <span className="text-xs text-muted-foreground/60">
+                              (or <code className="text-indigo-400/60">{item.alt}</code> in query strings)
+                           </span>
+                        )}
+                     </div>
+                  ))}
                </div>
             </div>
          </div>
@@ -150,7 +175,7 @@ export function TextDiffSeoContent() {
                <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
                   Frequently Asked Questions
                </h2>
-               <p className="text-muted-foreground">Everything you need to know about our Text Diff tool.</p>
+               <p className="text-muted-foreground">Everything you need to know about URL encoding and decoding.</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
@@ -171,12 +196,14 @@ export function TextDiffSeoContent() {
          {/* CTA Section */}
          <div className="bg-indigo-600 rounded-3xl p-12 text-center space-y-6 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
-            <h2 className="text-3xl font-bold text-white relative z-10">Track every revision with confidence</h2>
+            <h2 className="text-3xl font-bold text-white relative z-10">
+               Stop debugging encoded URLs manually
+            </h2>
             <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
-               Start comparing text instantly. No sign-up, no data limits, total privacy.
+               Encode, decode, parse, and rebuild URLs instantly. No login required, total privacy guaranteed.
             </p>
             <div className="pt-4 relative z-10">
-               <ScrollToTopButton label="Scroll up to Start Comparing" />
+               <ScrollToTopButton label="Scroll up to Start Encoding" />
             </div>
          </div>
       </article>

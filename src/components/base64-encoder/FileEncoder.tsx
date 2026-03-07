@@ -111,7 +111,9 @@ export function FileEncoder() {
                   }`}
                   onClick={() => fileInputRef.current?.click()}
                >
-                  <div className={`p-3 rounded-full transition-colors ${isDragOver ? 'bg-primary/15' : 'bg-background border border-border/20'}`}>
+                  <div
+                     className={`p-3 rounded-full transition-colors ${isDragOver ? 'bg-primary/15' : 'bg-background border border-border/20'}`}
+                  >
                      <Upload className={`h-6 w-6 ${isDragOver ? 'text-primary' : 'text-muted-foreground'}`} />
                   </div>
                   <div className="text-center">

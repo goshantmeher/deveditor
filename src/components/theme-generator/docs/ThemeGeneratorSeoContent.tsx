@@ -1,14 +1,5 @@
-import React from 'react';
-import {
-   Palette,
-   Sparkles,
-   Zap,
-   ShieldCheck,
-   Layout,
-   Download,
-   Sun,
-   Moon,
-} from 'lucide-react';
+import { Sparkles, Zap, ShieldCheck, Palette, Sun, Code2 } from 'lucide-react';
+import { ScrollToTopButton } from '../../ScrollToTopButton';
 
 export function ThemeGeneratorSeoContent() {
    const faqSchema = {
@@ -17,18 +8,18 @@ export function ThemeGeneratorSeoContent() {
       mainEntity: [
          {
             '@type': 'Question',
-            name: 'How does the theme generator work?',
+            name: 'How does the Theme Generator work?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'The tool uses color theory algorithms to generate a complete set of UI tokens (background, foreground, primary, secondary, accent, and status colors) from a single base color choice.',
+               text: 'Select a base color and the tool generates a full theme palette using color theory algorithms. It creates primary, secondary, accent, background, and text colors with proper contrast ratios.',
             },
          },
          {
             '@type': 'Question',
-            name: 'Are the themes accessible?',
+            name: 'Does it support dark mode?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'Yes. We automatically calibrate the lightness and contrast of foreground colors to ensure they meet WCAG accessibility standards for readability on various backgrounds.',
+               text: 'Yes. The generator creates both light and dark mode variants automatically. You can preview and toggle between them in real-time.',
             },
          },
          {
@@ -36,145 +27,158 @@ export function ThemeGeneratorSeoContent() {
             name: 'What export formats are available?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'You can export your theme as CSS Custom Properties, Tailwind CSS configuration, or raw JSON for custom implementations.',
+               text: 'You can export themes as CSS custom properties, Tailwind config, or shadcn/ui variables. All formats are ready to paste into your project.',
             },
          },
       ],
    };
 
    return (
-      <div className="max-w-4xl mx-auto px-6 py-16 space-y-24">
-         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-               __html: JSON.stringify(faqSchema),
-            }}
-         />
+      <article className="max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-24">
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
          {/* Hero Section */}
-         <section className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-               Enterprise-Grade UI Theme Engineering
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-               Generate complete, consistent, and accessible design systems from a single color. The ultimate companion
-               for modern web and application designers.
+         <div className="text-center space-y-6 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+               <Sparkles className="w-3.5 h-3.5" />
+               Design System
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
+               Theme <span className="text-indigo-500">Generator</span>
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+               Generate a complete, production-ready color theme from a single base color. Supports light and dark modes
+               with accessibility-checked contrast ratios.
             </p>
-         </section>
+         </div>
 
-         {/* Features Grid */}
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4 transition-all hover:border-indigo-500/30">
-               <div className="w-10 h-10 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-500">
-                  <Palette className="w-5 h-5" />
+         {/* Feature Grid */}
+         <div className="grid md:grid-cols-3 gap-8">
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Palette className="w-6 h-6 text-indigo-500" />
                </div>
-               <h3 className="text-lg font-bold">Semantic Tokens</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
-                  Automatic generation of primary, secondary, surface, and status colors using advanced color theory.
+               <h3 className="text-xl font-bold mb-3 text-foreground">One-Click Themes</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Pick a base color and get a full palette — primary, secondary, accent, background, and text colors —
+                  all generated automatically.
                </p>
             </div>
 
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4 transition-all hover:border-sky-500/30">
-               <div className="w-10 h-10 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-500">
-                  <Download className="w-5 h-5" />
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Sun className="w-6 h-6 text-emerald-500" />
                </div>
-               <h3 className="text-lg font-bold">Multi-Export</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
-                  Ready-to-use exports for CSS (variables), Tailwind CSS (config), and JSON for any tech stack.
+               <h3 className="text-xl font-bold mb-3 text-foreground">Light & Dark Mode</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Both variants generated automatically with proper contrast. Toggle between them in the live preview.
                </p>
             </div>
 
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4 transition-all hover:border-emerald-500/30">
-               <div className="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500">
-                  <ShieldCheck className="w-5 h-5" />
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Code2 className="w-6 h-6 text-amber-500" />
                </div>
-               <h3 className="text-lg font-bold">Safe Contrast</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
-                  Every generated color is automatically checked and adjusted for WCAG accessibility compliance.
+               <h3 className="text-xl font-bold mb-3 text-foreground">Multiple Exports</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Export as CSS custom properties, Tailwind config, or shadcn/ui variables. Copy and paste directly into
+                  your project.
                </p>
             </div>
          </div>
 
-         {/* Main Content Deep Dive */}
-         <div className="space-y-16">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-               <div className="space-y-6">
-                  <h3 className="text-2xl font-bold flex items-center gap-3">
-                     <Layout className="w-6 h-6 text-indigo-500" />
-                     Complete UI Calibration
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                     Building a theme is more than just picking a color. Our generator builds a complete visual language
-                     for your application.
-                  </p>
-                  <ul className="space-y-3">
-                     {[
-                        'Light and Dark mode pair generation',
-                        'Harmonic secondary and accent hues',
-                        'Semantic background & muted surface tones',
-                        'Live interactive component preview',
-                     ].map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm">
-                           <Zap className="w-4 h-4 text-indigo-400 shrink-0" />
-                           <span>{item}</span>
-                        </li>
-                     ))}
-                  </ul>
+         {/* Visual Section */}
+         <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">Design System in Seconds</h2>
+               <p className="text-muted-foreground leading-relaxed">
+                  Stop spending hours picking colors. Our algorithm generates balanced, accessible color systems that
+                  look professional out of the box.
+               </p>
+               <ul className="space-y-4">
+                  {[
+                     {
+                        icon: Zap,
+                        title: 'Algorithmic Generation',
+                        desc: 'Uses HSL manipulation and contrast algorithms to derive balanced palettes.',
+                     },
+                     {
+                        icon: ShieldCheck,
+                        title: 'WCAG Compliance',
+                        desc: 'Text colors are automatically checked against backgrounds for readability.',
+                     },
+                     {
+                        icon: Sparkles,
+                        title: 'Live Preview',
+                        desc: 'See your theme applied to a sample UI in real-time as you adjust.',
+                     },
+                  ].map((item, i) => (
+                     <li key={i} className="flex gap-4">
+                        <div className="mt-1">
+                           <item.icon className="w-5 h-5 text-indigo-500" />
+                        </div>
+                        <div>
+                           <h4 className="font-bold text-foreground">{item.title}</h4>
+                           <p className="text-sm text-muted-foreground">{item.desc}</p>
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            </div>
+            <div className="bg-muted/50 rounded-3xl p-8 border border-border">
+               <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-4 h-4 text-indigo-500" />
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pro Tip</span>
                </div>
-               <div className="bg-muted/30 rounded-3xl p-8 border border-border/50">
-                  <div className="aspect-video bg-background rounded-2xl flex flex-col items-center justify-center border border-border/30 relative overflow-hidden group">
-                     <div className="flex gap-4 mb-4">
-                        <Sun className="w-8 h-8 text-amber-500/50" />
-                        <Moon className="w-8 h-8 text-indigo-500/50" />
-                     </div>
-                     <Sparkles className="w-16 h-16 text-indigo-500/10 group-hover:scale-110 transition-transform duration-500" />
-                     <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/5 to-transparent pointer-events-none" />
+               <div className="prose prose-invert prose-sm">
+                  <p>
+                     Use the <strong>shadcn/ui export</strong> to instantly apply your generated theme to any
+                     shadcn-based project. Just paste the CSS variables into your{' '}
+                     <code className="text-indigo-400">globals.css</code> file.
+                  </p>
+                  <p>
+                     For <strong>Tailwind CSS</strong> projects, export the config and extend your{' '}
+                     <code className="text-indigo-400">tailwind.config.ts</code> with the generated colors.
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         {/* FAQ Section */}
+         <div className="space-y-12 border-t border-border/50 pt-24">
+            <div className="text-center space-y-4">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  Frequently Asked Questions
+               </h2>
+               <p className="text-muted-foreground">Everything you need to know about our Theme Generator.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+               {faqSchema.mainEntity.map((faq, i) => (
+                  <div key={i} className="space-y-3">
+                     <h3 className="font-bold text-foreground flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                        {faq.name}
+                     </h3>
+                     <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20">
+                        {faq.acceptedAnswer.text}
+                     </p>
                   </div>
-               </div>
+               ))}
             </div>
          </div>
 
-         {/* FAQ/Guide Section */}
-         <section className="bg-muted/20 border border-border/30 rounded-3xl p-8 md:p-12 space-y-8">
-            <h3 className="text-2xl font-bold text-center">Frequently Asked Questions</h3>
-            <div className="grid md:grid-cols-2 gap-8">
-               <div className="space-y-3">
-                  <h4 className="font-bold">What are "Semantic Tokens"?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     These represent the PURPOSE of a color (e.g., "primary-button" or "error-text") rather than just
-                     the value. Our tool generates these tokens automatically.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Tailwind Support?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Yes. We generate a full `colors` object that you can copy into your `tailwind.config.js` `extend`
-                     section to instantly stylize your entire UI.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Privacy for Brand Colors?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Yes. Every step of the theme generation happens locally in your browser session. No proprietary
-                     brand colors are ever sent to our servers.
-                  </p>
-               </div>
-               <div className="bg-muted/10 p-4 rounded-lg">
-                  <h4 className="font-bold mb-2">12 Presets</h4>
-                  <p className="text-sm">
-                     Start from popular curated colors like Indigo, Emerald, Rose, and more as a base.
-                  </p>
-               </div>
+         {/* CTA Section */}
+         <div className="bg-indigo-600 rounded-3xl p-12 text-center space-y-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
+            <h2 className="text-3xl font-bold text-white relative z-10">Build your design system today</h2>
+            <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
+               Generate a complete, accessible color theme in seconds. No sign-up, no limits.
+            </p>
+            <div className="pt-4 relative z-10">
+               <ScrollToTopButton label="Scroll up to Start Generating" />
             </div>
-         </section>
-
-         {/* Bottom CTA */}
-         <div className="text-center space-y-6 pt-12">
-            <h3 className="text-xl font-bold italic text-muted-foreground/60 tracking-wider uppercase">
-               Craft your visual identity with precision
-            </h3>
-            <div className="h-1 w-24 bg-linear-to-r from-transparent via-indigo-500/50 to-transparent mx-auto" />
          </div>
-      </div>
+      </article>
    );
 }

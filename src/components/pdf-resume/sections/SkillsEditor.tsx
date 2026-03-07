@@ -56,7 +56,9 @@ export function SkillsEditor({ data, onChange }: SkillsEditorProps) {
             <div key={entry.id} className="relative p-4 rounded-lg border border-border bg-background space-y-3">
                <div className="flex items-center justify-between">
                   <div className="space-y-1 flex-1 mr-4">
-                     <Label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Category</Label>
+                     <Label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                        Category
+                     </Label>
                      <Input
                         value={entry.category}
                         onChange={(e) => updateEntry(i, { category: e.target.value })}
@@ -64,7 +66,12 @@ export function SkillsEditor({ data, onChange }: SkillsEditorProps) {
                         className="h-9 text-sm"
                      />
                   </div>
-                  <Button variant="ghost" size="icon" className="h-7 w-7 text-muted-foreground hover:text-destructive mt-5" onClick={() => removeEntry(i)}>
+                  <Button
+                     variant="ghost"
+                     size="icon"
+                     className="h-7 w-7 text-muted-foreground hover:text-destructive mt-5"
+                     onClick={() => removeEntry(i)}
+                  >
                      <Trash2 className="w-3.5 h-3.5" />
                   </Button>
                </div>
@@ -72,9 +79,15 @@ export function SkillsEditor({ data, onChange }: SkillsEditorProps) {
                {/* Tags */}
                <div className="flex flex-wrap gap-1.5">
                   {entry.items.map((item, ii) => (
-                     <span key={ii} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-500 text-xs font-medium border border-indigo-500/20">
+                     <span
+                        key={ii}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-500 text-xs font-medium border border-indigo-500/20"
+                     >
                         {item}
-                        <button onClick={() => removeSkillItem(i, ii)} className="hover:text-destructive transition-colors">
+                        <button
+                           onClick={() => removeSkillItem(i, ii)}
+                           className="hover:text-destructive transition-colors"
+                        >
                            <X className="w-3 h-3" />
                         </button>
                      </span>

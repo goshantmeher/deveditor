@@ -1,33 +1,41 @@
-import { FileDiff, Zap, Cpu, Layers, Split, Sparkles } from 'lucide-react';
+import { List, Zap, ShieldCheck, Code, Hash, Sparkles } from 'lucide-react';
 import { ScrollToTopButton } from '../../ScrollToTopButton';
 
-export function TextDiffSeoContent() {
+export function ListConverterSeoContent() {
    const faqSchema = {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: [
          {
             '@type': 'Question',
-            name: 'How does the text diff tool work?',
+            name: 'Which output formats are supported?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'It uses a semantic difference algorithm to compare two blocks of text. It identifies character-level, word-level, and line-level changes, highlighting additions in green and deletions in red.',
+               text: 'We support JSON arrays, SQL IN() clauses, Python lists, PHP arrays, Go slices, Ruby arrays, Java arrays, CSV, TSV, Markdown lists, and HTML unordered lists. Plus utility transforms like deduplication and sorting.',
             },
          },
          {
             '@type': 'Question',
-            name: 'Split vs Unified view?',
+            name: 'How does auto-detection work?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'Split view shows the original and modified text side-by-side. Unified view merges them into a single column, showing changes inline—ideal for mobile screens.',
+               text: 'The tool automatically detects the delimiter in your input. It checks for newlines first, then commas, tabs, and pipe characters. You can also manually override the delimiter.',
             },
          },
          {
             '@type': 'Question',
-            name: 'Is it safe for code snippets?',
+            name: 'Is my data sent to a server?',
             acceptedAnswer: {
                '@type': 'Answer',
-               text: 'Yes. All comparison logic happens locally in your browser. No text or code is ever uploaded to our servers, keeping your proprietary data secure.',
+               text: 'No. All parsing and conversion happens entirely in your browser. Your data never leaves your machine.',
+            },
+         },
+         {
+            '@type': 'Question',
+            name: 'Can I remove duplicate items?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'Yes. Select the "Deduplicate" transform to remove duplicate values from your list. The tool also shows a live count of duplicates detected in your input.',
             },
          },
       ],
@@ -40,15 +48,15 @@ export function TextDiffSeoContent() {
          {/* Hero Section */}
          <div className="text-center space-y-6 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider">
-               <FileDiff className="w-3.5 h-3.5" />
-               Text Comparison
+               <List className="w-3.5 h-3.5" />
+               Data Transformation
             </div>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
-               Instant & Secure <span className="text-indigo-500">Text Diff</span>
+               List & Array <span className="text-indigo-500">Converter</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Compare code, documents, and configuration files with pixel-perfect precision. Powered by
-               high-performance diffing algorithms that run entirely in your browser.
+               Paste a column of values, a CSV row, or any delimited text and transform it into JSON arrays, SQL
+               clauses, Python lists, and more. Runs entirely in your browser.
             </p>
          </div>
 
@@ -56,23 +64,22 @@ export function TextDiffSeoContent() {
          <div className="grid md:grid-cols-3 gap-8">
             <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
                <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Split className="w-6 h-6 text-indigo-500" />
+                  <Code className="w-6 h-6 text-indigo-500" />
                </div>
-               <h3 className="text-xl font-bold mb-3 text-foreground">Split & Unified View</h3>
+               <h3 className="text-xl font-bold mb-3 text-foreground">18+ Output Formats</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Toggle between side-by-side comparison for desktop and inline unified view for mobile. Both modes
-                  highlight changes with precision.
+                  JSON arrays, SQL IN() clauses, Python lists, Go slices, PHP arrays, CSV, Markdown lists, and more —
+                  all from a single input.
                </p>
             </div>
 
             <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Cpu className="w-6 h-6 text-emerald-500" />
+                  <ShieldCheck className="w-6 h-6 text-emerald-500" />
                </div>
-               <h3 className="text-xl font-bold mb-3 text-foreground">Semantic Engine</h3>
+               <h3 className="text-xl font-bold mb-3 text-foreground">Smart Detection</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Our diff engine understands the structure of your text to find the most meaningful changes, not just
-                  raw character differences.
+                  Automatically detects your delimiter — newlines, commas, tabs, or pipes. No configuration needed.
                </p>
             </div>
 
@@ -80,10 +87,9 @@ export function TextDiffSeoContent() {
                <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Zap className="w-6 h-6 text-amber-500" />
                </div>
-               <h3 className="text-xl font-bold mb-3 text-foreground">Multi-level Granularity</h3>
+               <h3 className="text-xl font-bold mb-3 text-foreground">Built-in Transforms</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Character-level granularity for typos, word-level matching for phrasing edits, and smart line matching
-                  for large blocks.
+                  Deduplicate, sort, reverse, or trim your list. Chain transforms by swapping output back to input.
                </p>
             </div>
          </div>
@@ -91,27 +97,27 @@ export function TextDiffSeoContent() {
          {/* Visual Section */}
          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground">Built for Developers</h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">Code-Ready Output</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Whether you are reviewing code changes, comparing configuration files, or checking document revisions,
-                  our diff tool has you covered.
+                  Every format is generated with correct escaping and syntax — ready to paste directly into your
+                  codebase.
                </p>
                <ul className="space-y-4">
                   {[
                      {
-                        icon: Layers,
-                        title: 'Whitespace Normalization',
-                        desc: 'Option to ignore whitespace changes for cleaner comparisons.',
+                        icon: Hash,
+                        title: 'Live Item Count',
+                        desc: 'See how many items are parsed and how many duplicates exist in real-time.',
                      },
                      {
-                        icon: FileDiff,
-                        title: 'Copy-Paste Workflow',
-                        desc: 'The fastest way to compare: just paste text into both panels.',
+                        icon: Code,
+                        title: 'Proper Escaping',
+                        desc: 'SQL strings escape single quotes, JSON handles special chars, Go uses double quotes.',
                      },
                      {
-                        icon: Split,
-                        title: 'Responsive Layout',
-                        desc: 'Automatically switches between split and unified based on your screen.',
+                        icon: List,
+                        title: 'Swap & Chain',
+                        desc: 'Pipe output back to input to chain operations like sort → deduplicate.',
                      },
                   ].map((item, i) => (
                      <li key={i} className="flex gap-4">
@@ -129,17 +135,23 @@ export function TextDiffSeoContent() {
             <div className="bg-muted/50 rounded-3xl p-8 border border-border">
                <div className="flex items-center gap-2 mb-4">
                   <Sparkles className="w-4 h-4 text-indigo-500" />
-                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pro Tip</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                     Quick Reference
+                  </span>
                </div>
-               <div className="prose prose-invert prose-sm">
-                  <p>
-                     Use the diff tool to compare <strong>.env files</strong> or <strong>API responses</strong> safely.
-                     Since everything is client-side, your secrets never leave your machine.
-                  </p>
-                  <p>
-                     The tool is <strong>language-agnostic</strong> — it works perfectly for TypeScript, Python, SQL,
-                     YAML, Markdown, and any other text format.
-                  </p>
+               <div className="space-y-3 font-mono text-sm">
+                  {[
+                     { label: 'JSON', example: '["a", "b", "c"]' },
+                     { label: 'SQL IN', example: "('a', 'b', 'c')" },
+                     { label: 'Python', example: "['a', 'b', 'c']" },
+                     { label: 'Go', example: '[]string{"a", "b"}' },
+                     { label: 'CSV', example: 'a, b, c' },
+                  ].map((item, i) => (
+                     <div key={i} className="flex items-center gap-3 text-muted-foreground">
+                        <span className="text-xs w-16 text-indigo-400 font-bold">{item.label}</span>
+                        <span className="text-foreground">{item.example}</span>
+                     </div>
+                  ))}
                </div>
             </div>
          </div>
@@ -150,7 +162,7 @@ export function TextDiffSeoContent() {
                <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
                   Frequently Asked Questions
                </h2>
-               <p className="text-muted-foreground">Everything you need to know about our Text Diff tool.</p>
+               <p className="text-muted-foreground">Everything you need to know about our List Converter.</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
@@ -171,12 +183,14 @@ export function TextDiffSeoContent() {
          {/* CTA Section */}
          <div className="bg-indigo-600 rounded-3xl p-12 text-center space-y-6 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
-            <h2 className="text-3xl font-bold text-white relative z-10">Track every revision with confidence</h2>
+            <h2 className="text-3xl font-bold text-white relative z-10">
+               Transform any list into production-ready code
+            </h2>
             <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
-               Start comparing text instantly. No sign-up, no data limits, total privacy.
+               Start converting lists to JSON, SQL, Python, and more. No login, no data limits.
             </p>
             <div className="pt-4 relative z-10">
-               <ScrollToTopButton label="Scroll up to Start Comparing" />
+               <ScrollToTopButton label="Scroll up to Start Converting" />
             </div>
          </div>
       </article>

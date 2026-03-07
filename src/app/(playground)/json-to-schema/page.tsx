@@ -17,8 +17,7 @@ export const metadata: Metadata = {
    ],
    openGraph: {
       title: 'JSON → Schema Generator | TypeScript, Go, Rust, Zod | DevEditor',
-      description:
-         'Convert JSON to TypeScript interfaces, Go structs, Rust structs, Zod schemas, and JSON Schema.',
+      description: 'Convert JSON to TypeScript interfaces, Go structs, Rust structs, Zod schemas, and JSON Schema.',
       url: 'https://www.deveditor.io/json-to-schema',
       siteName: 'DevEditor',
       type: 'website',
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function SchemaGeneratorPage() {
    return (
-      <div className="flex flex-col">
+      <div id="page-top" className="flex flex-col">
          {/* The main editor viewport */}
          <div className="min-h-[calc(100vh-72px)] lg:h-[calc(100vh-72px)] lg:max-h-[calc(100vh-72px)] shrink-0 w-full overflow-hidden bg-background">
             <SchemaGeneratorView />

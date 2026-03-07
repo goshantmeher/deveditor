@@ -157,7 +157,9 @@ export function ModernTemplate({ data }: ModernTemplateProps) {
                      <Text style={s.sidebarSectionTitle}>Certifications</Text>
                      {certifications.map((cert) => (
                         <View key={cert.id} style={{ marginBottom: 6 }}>
-                           <Text style={[s.sidebarItem, { fontFamily: 'Helvetica-Bold', color: '#e2e8f0' }]}>{cert.name}</Text>
+                           <Text style={[s.sidebarItem, { fontFamily: 'Helvetica-Bold', color: '#e2e8f0' }]}>
+                              {cert.name}
+                           </Text>
                            {cert.issuer && <Text style={s.sidebarSkillItem}>{cert.issuer}</Text>}
                            {cert.date && <Text style={s.sidebarSkillItem}>{cert.date}</Text>}
                         </View>
@@ -231,9 +233,7 @@ export function ModernTemplate({ data }: ModernTemplateProps) {
                            <Text style={s.entryTitle}>{proj.name}</Text>
                            {proj.description && <Text style={s.bullet}>- {proj.description}</Text>}
                            {proj.techStack && (
-                              <Text style={[s.bullet, { color: '#64748b', fontSize: 9 }]}>
-                                 Tech: {proj.techStack}
-                              </Text>
+                              <Text style={[s.bullet, { color: '#64748b', fontSize: 9 }]}>Tech: {proj.techStack}</Text>
                            )}
                            {proj.link && <Text style={s.projectLink}>{proj.link}</Text>}
                         </View>

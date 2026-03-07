@@ -1,133 +1,183 @@
-import React from 'react';
-import { QrCode, Palette, ShieldCheck, Download, Smartphone, Zap } from 'lucide-react';
+import { QrCode, Zap, ShieldCheck, Palette, Download, Sparkles } from 'lucide-react';
+import { ScrollToTopButton } from '../../ScrollToTopButton';
 
 export function QrGeneratorSeoContent() {
+   const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+         {
+            '@type': 'Question',
+            name: 'What types of data can I encode?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'You can encode any text, URL, email address, phone number, or Wi-Fi credentials. The QR code is generated instantly as you type.',
+            },
+         },
+         {
+            '@type': 'Question',
+            name: 'Can I customize the colors?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'Yes. You can customize the foreground color, background color, and add a logo or image to the center of the QR code.',
+            },
+         },
+         {
+            '@type': 'Question',
+            name: 'Is this free and private?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'Yes. The QR code is generated entirely in your browser. No data is ever sent to our servers. No watermarks, no limits.',
+            },
+         },
+      ],
+   };
+
    return (
-      <div className="max-w-4xl mx-auto px-6 py-16 space-y-24">
+      <article className="max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-24">
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
          {/* Hero Section */}
-         <section className="text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-               Professional QR Code Generator for Developers
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-               Create high-quality, customizable QR codes instantly. From URLs and text to Wi-Fi credentials and contact
-               info, our tool provides everything you need for digital and print ready QR codes.
+         <div className="text-center space-y-6 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+               <QrCode className="w-3.5 h-3.5" />
+               QR Generation
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
+               Customizable <span className="text-indigo-500">QR Code</span> Generator
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+               Generate beautiful, branded QR codes with custom colors, sizes, and error correction levels. Everything
+               runs in your browser — your data stays private.
             </p>
-         </section>
+         </div>
 
-         {/* Features Grid */}
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4">
-               <div className="w-10 h-10 bg-indigo-500/10 rounded-xl flex items-center justify-center">
-                  <Palette className="w-5 h-5 text-indigo-500" />
+         {/* Feature Grid */}
+         <div className="grid md:grid-cols-3 gap-8">
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Palette className="w-6 h-6 text-indigo-500" />
                </div>
-               <h3 className="text-lg font-bold">Infinite Customization</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
-                  Personalize your QR codes with custom foreground and background colors. Match your brand's aesthetic
-                  or project theme with ease using our hex color picker or curated presets.
+               <h3 className="text-xl font-bold mb-3 text-foreground">Full Customization</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Choose custom foreground and background colors to match your brand. Add logos or images to the center
+                  of your QR codes.
                </p>
             </div>
 
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4">
-               <div className="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center">
-                  <Download className="w-5 h-5 text-emerald-500" />
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Download className="w-6 h-6 text-emerald-500" />
                </div>
-               <h3 className="text-lg font-bold">Vector & Raster Exports</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
-                  Download your QR codes as high-resolution PNG for web use or SVG for print and professional design
-                  software. Scale smoothly without losing quality.
+               <h3 className="text-xl font-bold mb-3 text-foreground">Multiple Exports</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Download your QR codes as PNG or SVG. High resolution output suitable for both digital and print use.
                </p>
             </div>
 
-            <div className="bg-card p-6 rounded-2xl border border-border/50 space-y-4">
-               <div className="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center">
-                  <ShieldCheck className="w-5 h-5 text-amber-500" />
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-6 h-6 text-amber-500" />
                </div>
-               <h3 className="text-lg font-bold">Error Correction Control</h3>
-               <p className="text-sm text-muted-foreground leading-relaxed">
-                  Choose between four levels of error correction (Low to High) to ensure your QR code remains readable
-                  even if it's partially covered or damaged.
+               <h3 className="text-xl font-bold mb-3 text-foreground">100% Private</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  No watermarks, no sign-up. Your data never leaves your browser — perfect for sensitive URLs and
+                  credentials.
                </p>
             </div>
          </div>
 
-         {/* Main Content Deep Dive */}
-         <div className="space-y-16">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-               <div className="space-y-6">
-                  <h3 className="text-2xl font-bold flex items-center gap-3">
-                     <Smartphone className="w-6 h-6 text-indigo-500" />
-                     Mobile-First Performance
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                     Our QR generator is built with performance in mind. All processing happens locally in your browser,
-                     ensuring your data never leaves your device and generating results in milliseconds.
-                  </p>
-                  <ul className="space-y-3">
-                     {[
-                        'Instant real-time preview as you type',
-                        'Adjustable size and margin (Quiet Zone)',
-                        'Support for complex text and long URLs',
-                        'Clean, ad-free experience',
-                     ].map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm">
-                           <Zap className="w-4 h-4 text-indigo-400 shrink-0" />
-                           <span>{item}</span>
-                        </li>
-                     ))}
-                  </ul>
+         {/* Visual Section */}
+         <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">Print-Ready Quality</h2>
+               <p className="text-muted-foreground leading-relaxed">
+                  Our generator creates high-resolution QR codes with configurable error correction, making them
+                  reliable even when printed at small sizes.
+               </p>
+               <ul className="space-y-4">
+                  {[
+                     {
+                        icon: QrCode,
+                        title: 'Error Correction Levels',
+                        desc: 'Choose from L, M, Q, H correction levels for different damage tolerance.',
+                     },
+                     {
+                        icon: Zap,
+                        title: 'Instant Generation',
+                        desc: 'QR codes update in real-time as you type — no button clicks needed.',
+                     },
+                     {
+                        icon: Palette,
+                        title: 'Brand-Friendly',
+                        desc: 'Match your brand colors and add a center logo for professional results.',
+                     },
+                  ].map((item, i) => (
+                     <li key={i} className="flex gap-4">
+                        <div className="mt-1">
+                           <item.icon className="w-5 h-5 text-indigo-500" />
+                        </div>
+                        <div>
+                           <h4 className="font-bold text-foreground">{item.title}</h4>
+                           <p className="text-sm text-muted-foreground">{item.desc}</p>
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            </div>
+            <div className="bg-muted/50 rounded-3xl p-8 border border-border">
+               <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-4 h-4 text-indigo-500" />
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pro Tip</span>
                </div>
-               <div className="bg-muted/30 rounded-3xl p-8 border border-border/50">
-                  <div className="aspect-square bg-background rounded-2xl flex items-center justify-center border border-border/30 relative overflow-hidden group">
-                     <QrCode className="w-24 h-24 text-indigo-500/20 group-hover:scale-110 transition-transform duration-500" />
-                     <div className="absolute inset-0 bg-linear-to-tr from-indigo-500/5 to-transparent pointer-events-none" />
+               <div className="prose prose-invert prose-sm">
+                  <p>
+                     Use <strong>high error correction (H)</strong> when adding a center logo. This allows up to 30% of
+                     the code to be obscured while remaining scannable.
+                  </p>
+                  <p>
+                     For <strong>print materials</strong>, download as SVG for infinite scalability without quality
+                     loss.
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         {/* FAQ Section */}
+         <div className="space-y-12 border-t border-border/50 pt-24">
+            <div className="text-center space-y-4">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  Frequently Asked Questions
+               </h2>
+               <p className="text-muted-foreground">Everything you need to know about our QR Generator.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+               {faqSchema.mainEntity.map((faq, i) => (
+                  <div key={i} className="space-y-3">
+                     <h3 className="font-bold text-foreground flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                        {faq.name}
+                     </h3>
+                     <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20">
+                        {faq.acceptedAnswer.text}
+                     </p>
                   </div>
-               </div>
+               ))}
             </div>
          </div>
 
-         {/* FAQ/Guide Section */}
-         <section className="bg-muted/20 border border-border/30 rounded-3xl p-8 md:p-12 space-y-8">
-            <h3 className="text-2xl font-bold text-center">Frequently Asked Questions</h3>
-            <div className="grid md:grid-cols-2 gap-8">
-               <div className="space-y-3">
-                  <h4 className="font-bold">What is Error Correction (ECC)?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Error correction allows bits of data to be recovery if the QR code is damaged. Higher levels (Q and
-                     H) allow more damage (up to 30%) but results in a denser, more complex pattern.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">What format is best for print?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     For print (business cards, posters, etc.), SVG is recommended as it is a vector format that can be
-                     scaled to any size without pixelation.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Are these QR codes permanent?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     Yes. These are static QR codes, meaning the data is encoded directly into the pattern. They will
-                     never expire as long as the destination (like a URL) remains active.
-                  </p>
-               </div>
-               <div className="space-y-3">
-                  <h4 className="font-bold">Is there a data limit?</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                     While QR codes can hold thousands of characters, it's best to keep content concise for faster
-                     scanning and cleaner patterns.
-                  </p>
-               </div>
+         {/* CTA Section */}
+         <div className="bg-indigo-600 rounded-3xl p-12 text-center space-y-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
+            <h2 className="text-3xl font-bold text-white relative z-10">Create stunning QR codes in seconds</h2>
+            <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
+               Generate, customize, and download QR codes for free. No sign-up, no watermarks.
+            </p>
+            <div className="pt-4 relative z-10">
+               <ScrollToTopButton label="Scroll up to Start Generating" />
             </div>
-         </section>
-
-         {/* Bottom CTA */}
-         <div className="text-center space-y-6 pt-12">
-            <h3 className="text-xl font-bold italic text-muted-foreground/60 tracking-wider uppercase">
-               Build Smarter with DevEditor
-            </h3>
-            <div className="h-1 w-24 bg-linear-to-r from-transparent via-indigo-500/50 to-transparent mx-auto" />
          </div>
-      </div>
+      </article>
    );
 }

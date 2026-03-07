@@ -26,15 +26,16 @@ export const metadata: Metadata = {
 
 export default function QrGeneratorPage() {
    return (
-      <div className="flex flex-col min-h-screen bg-background">
-         <main className="flex-1 flex flex-col pt-14 lg:pt-0 overflow-hidden">
+      <div id="page-top" className="flex flex-col">
+         {/* The main tool viewport */}
+         <div className="h-[calc(100vh-72px)] shrink-0">
             <QrGeneratorView />
-         </main>
+         </div>
 
-         {/* SEO Content Section */}
-         <footer className="border-t border-border/10 bg-background">
+         {/* SEO Content directly in the DOM, below the fold */}
+         <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
             <QrGeneratorSeoContent />
-         </footer>
+         </div>
       </div>
    );
 }

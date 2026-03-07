@@ -2,17 +2,7 @@
 
 import React, { useState, useRef, useCallback, useDeferredValue } from 'react';
 import { QRCodeSVG, QRCodeCanvas } from 'qrcode.react';
-import {
-   QrCode,
-   Copy,
-   CheckCircle2,
-   Type,
-   Palette,
-   Maximize,
-   ShieldCheck,
-   FileImage,
-   FileCode,
-} from 'lucide-react';
+import { QrCode, Copy, CheckCircle2, Type, Palette, Maximize, ShieldCheck, FileImage, FileCode } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';

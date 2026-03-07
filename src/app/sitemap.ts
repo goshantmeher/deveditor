@@ -38,6 +38,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'regex-tester', priority: 0.8 },
       { slug: 'text-diff', priority: 0.7 },
       { slug: 'case-converter', priority: 0.7 },
+      { slug: 'list-converter', priority: 0.7 },
+      { slug: 'url-encoder', priority: 0.8 },
       { slug: 'markdown-converter', priority: 0.8 },
 
       // CSS & Design tools

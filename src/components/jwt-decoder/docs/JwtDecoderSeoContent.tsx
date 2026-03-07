@@ -1,99 +1,185 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Key, ShieldCheck, Zap, Clock, Eye, Sparkles } from 'lucide-react';
+import { ScrollToTopButton } from '../../ScrollToTopButton';
 
 export function JwtDecoderSeoContent() {
-   const faqs = [
-      {
-         question: 'What is a JSON Web Token (JWT)?',
-         answer:
-            'A JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA.',
-      },
-      {
-         question: 'Why decode a JWT locally?',
-         answer:
-            'JWTs often contain sensitive authentication claims regarding users and their permissions. By decoding a JWT locally in your browser instead of sending it to an external server-side tool, you guarantee that your sensitive authentication tokens cannot be intercepted, logged, or misused by third parties.',
-      },
-      {
-         question: 'What information is inside a JWT?',
-         answer:
-            'A JWT consists of three parts concatenated by dots (.): Header, Payload, and Signature. The Header contains metadata about the token (such as the signing algorithm). The Payload contains the actual "claims" (statements about an entity such as user ID, role, or expiration time). The Signature is used to verify that the sender of the JWT is who it says it is and to ensure the message wasn\'t changed along the way.',
-      },
-      {
-         question: 'Can you edit the payload of a JWT?',
-         answer:
-            'While you can decode and edit the payload text of a JWT, doing so invalidates its digital signature. The receiving server will check the signature against the payload, and if it detects any tampering or changes to the payload or header that do not align with the cryptographic signature, it will reject the token entirely.',
-      },
-      {
-         question: 'Does this tool verify the signature?',
-         answer:
-            "No. This tool is strictly a client-side JWT Decoder for debugging. Verifying a JWT's signature requires the private signing key or secret, which is safely kept on the authorization server. This tool structures and parses the data, but it assumes the token signature must be checked independently by your backend layers.",
-      },
-   ];
+   const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+         {
+            '@type': 'Question',
+            name: 'What is a JWT?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'A JSON Web Token (JWT) is a compact, URL-safe token used for authentication and information exchange. It consists of a Header, Payload, and Signature, each Base64URL-encoded.',
+            },
+         },
+         {
+            '@type': 'Question',
+            name: 'Can this tool verify JWT signatures?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'This tool is a decoder/debugger — it extracts and displays the header and payload claims. Signature verification requires your secret key, which should never be entered into a web tool.',
+            },
+         },
+         {
+            '@type': 'Question',
+            name: 'Is my token safe?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'Yes. All JWT decoding happens entirely in your browser using JavaScript. Your token is never sent to any server.',
+            },
+         },
+      ],
+   };
 
    return (
-      <div className="container mx-auto px-4 max-w-5xl text-foreground">
-         <div className="mb-12 text-center">
-            <h2 className="text-2xl font-bold mb-4">JWT Decoder — Inspect and Debug JSON Web Tokens Locally</h2>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
-               Safely decode your Authentication and API JSON Web Tokens natively within your browser. Transform
-               unreadable Base64Url-encoded strings into beautifully formatted JSON structures instantly.
+      <article className="max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-24">
+         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+         {/* Hero Section */}
+         <div className="text-center space-y-6 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+               <Key className="w-3.5 h-3.5" />
+               Token Debugging
+            </div>
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
+               JWT <span className="text-indigo-500">Decoder</span> & Debugger
+            </h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+               Paste any JWT to instantly decode its header, payload, and signature. Check expiration claims, inspect
+               algorithms, and debug auth issues — all client-side.
             </p>
          </div>
 
-         <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <Card className="bg-muted/10 border-border/40 hover:bg-muted/20 transition-colors">
-               <CardHeader>
-                  <CardTitle className="text-lg flex items-center gap-2">
-                     <span className="text-primary">🛡️</span> Fully Client-Side & Secure
-                  </CardTitle>
-               </CardHeader>
-               <CardContent className="text-sm text-muted-foreground space-y-4">
-                  <p>
-                     When dealing with authorization layers and Identity Providers (IdP), developers frequently need to
-                     inspect what data (Claims) a JWT authorization bearer token contains to debug role-based access
-                     issues.
-                  </p>
-                  <p>
-                     However, pasting sensitive production API tokens into random third-party cloud tools poses a
-                     massive security violation. Our JWT Decoder parses everything{' '}
-                     <strong>locally via JavaScript</strong>. The tokens never leave your computer or touch our servers,
-                     protecting your users and architecture.
-                  </p>
-               </CardContent>
-            </Card>
+         {/* Feature Grid */}
+         <div className="grid md:grid-cols-3 gap-8">
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Eye className="w-6 h-6 text-indigo-500" />
+               </div>
+               <h3 className="text-xl font-bold mb-3 text-foreground">Full Inspection</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Decode all three JWT segments — header (algorithm, type), payload (claims, roles), and signature — in
+                  a structured, readable view.
+               </p>
+            </div>
 
-            <Card className="bg-muted/10 border-border/40 hover:bg-muted/20 transition-colors">
-               <CardHeader>
-                  <CardTitle className="text-lg flex items-center gap-2">
-                     <span className="text-primary">🕒</span> Human Readable Claims
-                  </CardTitle>
-               </CardHeader>
-               <CardContent className="text-sm text-muted-foreground space-y-4">
-                  <p>
-                     JWT payloads store temporal information heavily—such as the creation time (`iat`), expiration time
-                     (`exp`), and "Not Before" boundaries (`nbf`). These are almost universally stored as Unix Time
-                     milliseconds, which are impossible for humans to read natively.
-                  </p>
-                  <p>
-                     Our inspector automatically looks for these standardized time-based claims and elegantly formats
-                     them into local, readable timestamps alongside relative "time ago" counts to easily answer,
-                     <em>"Has this token expired yet?"</em>
-                  </p>
-               </CardContent>
-            </Card>
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Clock className="w-6 h-6 text-emerald-500" />
+               </div>
+               <h3 className="text-xl font-bold mb-3 text-foreground">Expiration Check</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Automatically converts exp, iat, and nbf timestamps to human-readable dates and shows whether the
+                  token is expired.
+               </p>
+            </div>
+
+            <div className="group p-8 rounded-3xl bg-muted/30 border border-border/50 hover:border-indigo-500/30 transition-all duration-300">
+               <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-6 h-6 text-amber-500" />
+               </div>
+               <h3 className="text-xl font-bold mb-3 text-foreground">100% Private</h3>
+               <p className="text-muted-foreground text-sm leading-relaxed">
+                  Your token is decoded entirely in the browser. We never log, store, or transmit your JWT data to any
+                  server.
+               </p>
+            </div>
          </div>
 
-         <div className="max-w-3xl mx-auto bg-card rounded-xl border border-border/50 p-6 shadow-sm mb-8">
-            <h3 className="text-xl font-semibold mb-6 text-center">Frequently Asked Questions</h3>
-            <Accordion type="single" collapsible className="w-full">
-               {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                     <AccordionTrigger className="text-left font-medium">{faq.question}</AccordionTrigger>
-                     <AccordionContent className="text-muted-foreground leading-relaxed">{faq.answer}</AccordionContent>
-                  </AccordionItem>
+         {/* Visual Section */}
+         <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">Debug Auth Issues Faster</h2>
+               <p className="text-muted-foreground leading-relaxed">
+                  JWTs are critical to modern authentication. Our decoder helps you quickly verify claims, check
+                  expiration, and debug token issues without any backend setup.
+               </p>
+               <ul className="space-y-4">
+                  {[
+                     {
+                        icon: Key,
+                        title: 'Algorithm Detection',
+                        desc: 'Identifies HS256, RS256, ES256, and other signing algorithms in the header.',
+                     },
+                     {
+                        icon: Zap,
+                        title: 'Instant Decode',
+                        desc: 'Results appear instantly as you paste — no form submission needed.',
+                     },
+                     {
+                        icon: Eye,
+                        title: 'Color-Coded Segments',
+                        desc: 'Header, payload, and signature are visually separated with distinct colors.',
+                     },
+                  ].map((item, i) => (
+                     <li key={i} className="flex gap-4">
+                        <div className="mt-1">
+                           <item.icon className="w-5 h-5 text-indigo-500" />
+                        </div>
+                        <div>
+                           <h4 className="font-bold text-foreground">{item.title}</h4>
+                           <p className="text-sm text-muted-foreground">{item.desc}</p>
+                        </div>
+                     </li>
+                  ))}
+               </ul>
+            </div>
+            <div className="bg-muted/50 rounded-3xl p-8 border border-border">
+               <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-4 h-4 text-indigo-500" />
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pro Tip</span>
+               </div>
+               <div className="prose prose-invert prose-sm">
+                  <p>
+                     Check the <code className="text-indigo-400">exp</code> (expiration) claim first when debugging
+                     &quot;401 Unauthorized&quot; errors. Most auth issues are caused by <strong>expired tokens</strong>
+                     .
+                  </p>
+                  <p>
+                     Never paste your <strong>signing secret</strong> into any online tool. Our decoder doesn&apos;t
+                     need it — it only reads the Base64-encoded segments.
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         {/* FAQ Section */}
+         <div className="space-y-12 border-t border-border/50 pt-24">
+            <div className="text-center space-y-4">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  Frequently Asked Questions
+               </h2>
+               <p className="text-muted-foreground">Everything you need to know about JWT debugging.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+               {faqSchema.mainEntity.map((faq, i) => (
+                  <div key={i} className="space-y-3">
+                     <h3 className="font-bold text-foreground flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                        {faq.name}
+                     </h3>
+                     <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20">
+                        {faq.acceptedAnswer.text}
+                     </p>
+                  </div>
                ))}
-            </Accordion>
+            </div>
          </div>
-      </div>
+
+         {/* CTA Section */}
+         <div className="bg-indigo-600 rounded-3xl p-12 text-center space-y-6 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
+            <h2 className="text-3xl font-bold text-white relative z-10">Stop guessing, start debugging</h2>
+            <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
+               Decode and inspect JWTs instantly. No login, no server — your tokens stay private.
+            </p>
+            <div className="pt-4 relative z-10">
+               <ScrollToTopButton label="Scroll up to Start Decoding" />
+            </div>
+         </div>
+      </article>
    );
 }

@@ -20,9 +20,7 @@ export function PdfDropzone({
       (e: React.DragEvent<HTMLDivElement>) => {
          e.preventDefault();
          e.stopPropagation();
-         const files = Array.from(e.dataTransfer.files).filter(
-            (f) => f.type === 'application/pdf'
-         );
+         const files = Array.from(e.dataTransfer.files).filter((f) => f.type === 'application/pdf');
          if (files.length > 0) onFilesSelected(files);
       },
       [onFilesSelected]
@@ -40,9 +38,7 @@ export function PdfDropzone({
       input.multiple = multiple;
       input.onchange = () => {
          if (input.files) {
-            const files = Array.from(input.files).filter(
-               (f) => f.type === 'application/pdf'
-            );
+            const files = Array.from(input.files).filter((f) => f.type === 'application/pdf');
             if (files.length > 0) onFilesSelected(files);
          }
       };

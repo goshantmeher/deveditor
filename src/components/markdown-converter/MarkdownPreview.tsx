@@ -95,9 +95,7 @@ export function MarkdownPreview({ markdown }: MarkdownPreviewProps) {
    // Format HTML for display with basic indentation
    const formattedHtml = useMemo(() => {
       if (!html) return '';
-      return html
-         .replace(/></g, '>\n<')
-         .replace(/\n{3,}/g, '\n\n');
+      return html.replace(/></g, '>\n<').replace(/\n{3,}/g, '\n\n');
    }, [html]);
 
    const handleCopy = useCallback(async () => {
@@ -133,12 +131,7 @@ export function MarkdownPreview({ markdown }: MarkdownPreviewProps) {
                </TabsList>
             </Tabs>
             {activeTab === 'html' && html && (
-               <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-7 text-xs text-muted-foreground"
-                  onClick={handleCopy}
-               >
+               <Button variant="ghost" size="sm" className="h-7 text-xs text-muted-foreground" onClick={handleCopy}>
                   {copied ? (
                      <>
                         <Check className="w-3 h-3 mr-1 text-emerald-500" />
