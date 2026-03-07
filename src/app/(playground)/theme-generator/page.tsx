@@ -16,6 +16,15 @@ export const metadata: Metadata = {
       'dark mode theme',
       'light mode theme',
    ],
+   openGraph: {
+      title: 'Theme Generator — UI Color Theme Builder | DevEditor',
+      description:
+         'Generate comprehensive UI color themes from a single primary color. Export as CSS variables, Tailwind config, or JSON.',
+      url: 'https://www.deveditor.io/theme-generator',
+      siteName: 'DevEditor',
+      type: 'website',
+   },
+   alternates: { canonical: 'https://www.deveditor.io/theme-generator' },
 };
 
 export default function ThemeGeneratorPage() {

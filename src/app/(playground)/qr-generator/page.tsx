@@ -17,8 +17,11 @@ export const metadata: Metadata = {
    openGraph: {
       title: 'Custom QR Code Generator | DevEditor',
       description: 'Create and download professional QR codes instantly. Professional designs with vector support.',
+      url: 'https://www.deveditor.io/qr-generator',
+      siteName: 'DevEditor',
       type: 'website',
    },
+   alternates: { canonical: 'https://www.deveditor.io/qr-generator' },
 };
 
 export default function QrGeneratorPage() {

@@ -15,6 +15,15 @@ export const metadata: Metadata = {
       'type generator',
       'interface generator',
    ],
+   openGraph: {
+      title: 'JSON → Schema Generator | TypeScript, Go, Rust, Zod | DevEditor',
+      description:
+         'Convert JSON to TypeScript interfaces, Go structs, Rust structs, Zod schemas, and JSON Schema.',
+      url: 'https://www.deveditor.io/json-to-schema',
+      siteName: 'DevEditor',
+      type: 'website',
+   },
+   alternates: { canonical: 'https://www.deveditor.io/json-to-schema' },
 };
 
 export default function SchemaGeneratorPage() {

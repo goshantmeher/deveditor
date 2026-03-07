@@ -7,6 +7,14 @@ export const metadata: Metadata = {
    description:
       'Compare text blocks side-by-side to find differences instantly. Find character and word-level diffs with visual highlighting.',
    keywords: ['text diff', 'diff checker', 'compare text', 'file diff', 'difference checker', 'developer tools'],
+   openGraph: {
+      title: 'Text Diff Checker | DevEditor',
+      description: 'Compare text blocks side-by-side to find differences instantly with visual highlighting.',
+      url: 'https://www.deveditor.io/text-diff',
+      siteName: 'DevEditor',
+      type: 'website',
+   },
+   alternates: { canonical: 'https://www.deveditor.io/text-diff' },
 };
 
 export default function TextDiffPage() {
