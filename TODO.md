@@ -57,7 +57,7 @@
    - ✅ Feasible: Pure string manipulation, zero dependencies
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **URL Encoder/Decoder** — Encode/decode URI components, parse query params into a table, rebuild URLs
+- [x] **URL Encoder/Decoder** — Encode/decode URI components, parse query params into a table, rebuild URLs
    - ✅ Feasible: Uses native `encodeURIComponent` / `decodeURIComponent`
    - Priority: ⭐⭐⭐⭐
 

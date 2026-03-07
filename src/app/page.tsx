@@ -58,7 +58,7 @@ const categories: Category[] = [
             description: 'Encode & decode URI components, parse & rebuild query parameters.',
             icon: '🔗',
             href: '/url-encoder',
-            status: 'planned',
+            status: 'available',
             tags: ['url', 'uri', 'encode', 'decode', 'query'],
          },
          {
