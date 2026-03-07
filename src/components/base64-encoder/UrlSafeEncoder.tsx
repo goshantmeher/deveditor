@@ -3,6 +3,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Copy, Check, ArrowRightLeft, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 
 function standardToUrlSafe(b64: string): string {
    return b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -142,7 +143,7 @@ export function UrlSafeEncoder() {
    return (
       <div className="flex flex-col h-full">
          {/* Toolbar */}
-         <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-b border-border/30 bg-background">
+         <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-b border-border bg-background">
             <button
                onClick={handleToggleDirection}
                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
@@ -165,40 +166,31 @@ export function UrlSafeEncoder() {
                   Swap
                </button>
             )}
-         </div>
-
-         {/* Character Comparison */}
-         <div className="px-4 py-2 border-b border-border/20 bg-background">
-            <div className="flex items-center gap-2 mb-1.5">
-               <Info className="h-3.5 w-3.5 text-muted-foreground" />
-               <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  URL-safe Base64 Differences
-               </span>
-            </div>
-            <div className="grid grid-cols-3 gap-2 text-xs">
-               <div className="flex items-center gap-2 px-2 py-1.5 rounded-md border border-border/10 bg-background">
-                  <code className="text-red-400 line-through">+</code>
-                  <span className="text-muted-foreground">→</span>
-                  <code className="text-green-400">-</code>
-               </div>
-               <div className="flex items-center gap-2 px-2 py-1.5 rounded-md border border-border/10 bg-background">
-                  <code className="text-red-400 line-through">/</code>
-                  <span className="text-muted-foreground">→</span>
-                  <code className="text-green-400">_</code>
-               </div>
-               <div className="flex items-center gap-2 px-2 py-1.5 rounded-md border border-border/10 bg-background">
-                  <code className="text-red-400 line-through">=</code>
-                  <span className="text-muted-foreground">→</span>
-                  <code className="text-green-400 text-[10px]">removed</code>
-               </div>
-            </div>
+         {/* Compact URL-safe info hint */}
+            <Tooltip>
+               <TooltipTrigger asChild>
+                  <span className="text-[10px] text-muted-foreground flex items-center gap-1.5 ml-1 cursor-help">
+                     <Info className="h-3 w-3 shrink-0" />
+                     <span>
+                        <code className="text-red-400/70 line-through">+</code><span className="mx-0.5">→</span><code className="text-green-400/70">-</code>
+                        <span className="mx-1.5 text-border">·</span>
+                        <code className="text-red-400/70 line-through">/</code><span className="mx-0.5">→</span><code className="text-green-400/70">_</code>
+                        <span className="mx-1.5 text-border">·</span>
+                        <code className="text-red-400/70 line-through">=</code><span className="mx-0.5">→</span><span className="text-green-400/70 text-[9px]">removed</span>
+                     </span>
+                  </span>
+               </TooltipTrigger>
+               <TooltipContent side="bottom" className="max-w-xs text-xs">
+                  URL-safe Base64 (RFC 4648) replaces characters unsafe in URLs: <strong>+</strong> becomes <strong>-</strong>, <strong>/</strong> becomes <strong>_</strong>, and <strong>=</strong> padding is removed. Safe for URLs, query params, and filenames.
+               </TooltipContent>
+            </Tooltip>
          </div>
 
          {/* Editor Panels */}
          <div className="flex-1 flex flex-col md:flex-row min-h-0">
             {/* Input Panel */}
-            <div className="flex flex-col md:w-1/2 min-h-0 border-r border-border/30">
-               <div className="px-3 py-1.5 border-b border-border/30 bg-background shrink-0 flex items-center justify-between">
+            <div className="flex flex-col md:w-1/2 min-h-0 border-r border-border">
+               <div className="px-3 py-1.5 border-b min-h-[37px] border-border bg-muted/20 shrink-0 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                      <div
                         className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-emerald-400/80' : 'bg-amber-400/80'}`}
@@ -224,7 +216,7 @@ export function UrlSafeEncoder() {
 
             {/* Output Panel */}
             <div className="flex flex-col md:w-1/2 min-h-0">
-               <div className="px-3 py-1.5 border-b border-border/30 bg-background shrink-0 flex items-center justify-between">
+               <div className="px-3 py-1.5 border-b border-border bg-muted/20 shrink-0 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                      <div
                         className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-blue-400/80' : 'bg-green-400/80'}`}
@@ -270,7 +262,7 @@ export function UrlSafeEncoder() {
 
                {/* Standard vs URL-safe comparison */}
                {standardPreview && standardPreview !== output && (
-                  <div className="border-t border-border/20 px-4 py-2 bg-background">
+                  <div className="border-t border-border px-4 py-2 bg-muted/20">
                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider block mb-1">
                         Standard Base64 (for comparison)
                      </span>

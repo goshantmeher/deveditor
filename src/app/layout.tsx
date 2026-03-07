@@ -4,6 +4,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import BrandLogo from '@/components/brandLogo';
 import HeaderActions from '@/components/HeaderActions';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const quicksand = Quicksand({
    variable: '--font-quicksand',
@@ -173,6 +174,7 @@ export default function RootLayout({
                </header>
                {children}
             </ThemeProvider>
+            <SpeedInsights />
          </body>
       </html>
    );

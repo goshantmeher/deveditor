@@ -94,8 +94,8 @@ export function Base64EncoderView() {
                      onClick={() => setActiveTab(tab.id)}
                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
                         activeTab === tab.id
-                           ? 'bg-background text-foreground shadow-sm'
-                           : 'text-muted-foreground hover:text-foreground'
+                           ? 'bg-muted text-foreground border border-border shadow-sm'
+                           : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                      }`}
                      title={tab.description}
                   >
