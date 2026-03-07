@@ -9,8 +9,9 @@ import { ClassicTemplate } from './templates/ClassicTemplate';
 import { ModernTemplate } from './templates/ModernTemplate';
 import { MinimalTemplate } from './templates/MinimalTemplate';
 import { Button } from '@/components/ui/button';
-import { FileText, Download, RotateCcw, Eye, PenLine } from 'lucide-react';
+import { FileText, Download, RotateCcw, Eye, PenLine, Bot } from 'lucide-react';
 import { usePersistence } from '@/contexts/PersistenceContext';
+import { AiImportModal } from './AiImportModal';
 
 const STORAGE_KEY = 'pdf-resume-data';
 const TEMPLATE_STORAGE_KEY = 'pdf-resume-template';
@@ -23,6 +24,7 @@ export function ResumeBuilderView() {
    const [templateId, setTemplateId] = useState<TemplateId>('modern');
    const [isDownloading, setIsDownloading] = useState(false);
    const [mobileView, setMobileView] = useState<'edit' | 'preview'>('edit');
+   const [showAiImport, setShowAiImport] = useState(false);
    const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
    // Debounce data for preview to avoid flashing on every keystroke
@@ -113,6 +115,16 @@ export function ResumeBuilderView() {
                </span>
             </div>
             <div className="flex items-center gap-2 flex-wrap">
+               <Button
+                  variant="outline"
+                  size="sm"
+                  className="text-xs h-8 border-violet-500/30 text-violet-400 hover:bg-violet-500/10 hover:text-violet-300"
+                  onClick={() => setShowAiImport(true)}
+               >
+                  <Bot className="w-3.5 h-3.5 mr-1" />
+                  Import from AI
+               </Button>
+               <div className="h-5 w-px bg-border hidden md:block" />
                <TemplateSelector selected={templateId} onChange={setTemplateId} />
                <div className="h-5 w-px bg-border hidden md:block" />
                <Button
@@ -135,6 +147,13 @@ export function ResumeBuilderView() {
                </Button>
             </div>
          </div>
+
+         {/* AI Import Modal */}
+         <AiImportModal
+            open={showAiImport}
+            onClose={() => setShowAiImport(false)}
+            onImport={(imported) => setData(imported)}
+         />
 
          {/* Mobile toggle */}
          <div className="flex md:hidden border-b border-border">

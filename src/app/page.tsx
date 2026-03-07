@@ -372,13 +372,13 @@ const categories: Category[] = [
             tags: ['qr', 'qrcode', 'svg', 'branding'],
          },
          {
-            title: 'PDF Resume Builder',
-            description: 'A free, fully customizable resume builder with layout options and no paywalls.',
+            title: 'AI Resume Builder',
+            description: 'Import from ChatGPT, Claude, or Gemini. Pick a template, download PDF. 100% free, no paywalls.',
             icon: '📄',
             href: '/pdf-resume',
             status: 'available',
             isNew: true,
-            tags: ['pdf', 'resume', 'cv', 'builder', 'free'],
+            tags: ['pdf', 'resume', 'cv', 'builder', 'free', 'ai', 'chatgpt'],
          },
          {
             title: 'Merge PDF',

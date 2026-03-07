@@ -1,4 +1,4 @@
-import { FileText, Shield, Palette, Zap, Download, Layers, Layout, Search } from 'lucide-react';
+import { FileText, Shield, Palette, Zap, Download, Layers, Layout, Search, Bot, ArrowRight } from 'lucide-react';
 import { ScrollToTopButton } from '../../ScrollToTopButton';
 
 export function ResumeBuilderSeoContent() {
@@ -36,6 +36,22 @@ export function ResumeBuilderSeoContent() {
             acceptedAnswer: {
                '@type': 'Answer',
                text: 'Yes. You can add, remove, and reorder sections including Personal Info, Summary, Work Experience, Education, Skills, Projects, Certifications, and unlimited Custom Sections for anything else you want to include.',
+            },
+         },
+         {
+            '@type': 'Question',
+            name: 'How does the AI Import feature work?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'Click "Import from AI" in the toolbar. You get a pre-written prompt to copy into any AI tool (ChatGPT, Claude, Gemini, etc.). Add your career details to the prompt, let the AI generate structured resume content, then paste the AI response back into DevEditor. All fields are automatically populated — no manual typing needed.',
+            },
+         },
+         {
+            '@type': 'Question',
+            name: 'Which AI tools can I use with the Import feature?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'Any AI chatbot that can generate JSON works — ChatGPT, Claude, Google Gemini, Microsoft Copilot, Llama, Mistral, or any other LLM. There is no vendor lock-in and no API key required. You use your own AI tool of choice.',
             },
          },
       ],
@@ -93,6 +109,60 @@ export function ResumeBuilderSeoContent() {
                   No hidden charges. No "premium" features locked behind a paywall. No watermarks on your PDF. Every
                   feature is available to everyone, always.
                </p>
+            </div>
+
+            <div className="group p-8 rounded-3xl bg-linear-to-br from-violet-500/10 to-indigo-500/10 border border-violet-500/30 hover:border-violet-500/50 transition-all duration-300 md:col-span-3">
+               <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                  <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-violet-500 to-indigo-600 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                     <Bot className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                     <h3 className="text-xl font-bold mb-2 text-foreground">AI-Powered Import — Use Any AI Tool</h3>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Don&apos;t want to type everything manually? Click &quot;Import from AI&quot;, copy our smart prompt into ChatGPT, Claude, Gemini, or any AI tool.
+                        Add your career details, and the AI generates perfectly structured resume content. Paste it back and every field fills automatically.
+                        No API keys, no accounts, no vendor lock-in — bring your own AI.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         {/* AI Import Feature Section */}
+         <div className="bg-linear-to-br from-violet-500/5 to-indigo-500/5 border border-violet-500/20 rounded-3xl p-8 md:p-12">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+               <div className="space-y-6">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-bold uppercase tracking-wider">
+                     <Bot className="w-3.5 h-3.5" />
+                     Industry First
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tight text-foreground">Build Your Resume with AI in 60 Seconds</h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                     Most resume builders charge for AI features. Ours is completely free and works with any AI tool you already have access to.
+                     No proprietary AI, no monthly subscription, no limits.
+                  </p>
+               </div>
+               <div className="space-y-4">
+                  {[
+                     { step: '1', title: 'Click "Import from AI"', desc: 'Opens a modal with a pre-crafted prompt optimized for resume generation.' },
+                     { step: '2', title: 'Copy prompt to your AI', desc: 'Paste into ChatGPT, Claude, Gemini, or any AI tool. Add your career details.' },
+                     { step: '3', title: 'Paste AI response', desc: 'Copy the AI\'s output back into DevEditor. All resume fields fill automatically.' },
+                  ].map((item) => (
+                     <div key={item.step} className="flex items-start gap-4">
+                        <div className="w-8 h-8 rounded-full bg-violet-500/20 text-violet-400 flex items-center justify-center text-sm font-bold shrink-0">
+                           {item.step}
+                        </div>
+                        <div>
+                           <h4 className="font-bold text-foreground text-sm">{item.title}</h4>
+                           <p className="text-xs text-muted-foreground">{item.desc}</p>
+                        </div>
+                     </div>
+                  ))}
+                  <div className="flex items-center gap-2 text-xs text-violet-400 pt-2">
+                     <ArrowRight className="w-3 h-3" />
+                     <span>Works with ChatGPT, Claude, Gemini, Copilot, and any other AI</span>
+                  </div>
+               </div>
             </div>
          </div>
 

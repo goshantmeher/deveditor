@@ -3,12 +3,15 @@ import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-   title: 'Free PDF Resume Builder - Create Professional Resumes Online',
+   title: 'Free AI Resume Builder - Import from ChatGPT, Claude & Gemini | DevEditor',
    description:
-      'Build your resume for free with no paywalls. Choose from professional templates, customize every section, and download as PDF instantly. 100% client-side — your data never leaves your browser.',
+      'Build your resume for free with AI-powered import. Use ChatGPT, Claude, or Gemini to generate content, paste it in, and download a polished PDF. No paywalls, no accounts, 100% client-side privacy.',
    keywords: [
-      'resume builder',
+      'ai resume builder',
       'free resume builder',
+      'chatgpt resume',
+      'ai resume generator',
+      'resume builder with ai',
       'pdf resume',
       'cv builder',
       'resume maker',
@@ -17,19 +20,23 @@ export const metadata: Metadata = {
       'resume generator',
       'no paywall resume',
       'online resume builder',
+      'claude resume',
+      'gemini resume',
+      'ai powered resume',
+      'import resume from ai',
    ],
    openGraph: {
-      title: 'Free PDF Resume Builder - No Paywalls, Fully Customizable',
+      title: 'Free AI Resume Builder - Import from Any AI Tool',
       description:
-         'Build stunning resumes for free. Professional templates, full customization, instant PDF download. 100% client-side privacy.',
+         'Use ChatGPT, Claude, or any AI to generate resume content. Paste it in, pick a template, download PDF. 100% free, no paywalls.',
       url: 'https://www.deveditor.io/pdf-resume',
       type: 'website',
    },
    twitter: {
       card: 'summary_large_image',
-      title: 'Free PDF Resume Builder - No Paywalls',
+      title: 'Free AI Resume Builder - Use Any AI Tool',
       description:
-         'Build professional resumes with customizable templates. Download as PDF instantly, no account needed.',
+         'Import resume content from ChatGPT, Claude, or Gemini. Professional templates, instant PDF download, no account needed.',
    },
    alternates: {
       canonical: 'https://www.deveditor.io/pdf-resume',
