@@ -304,7 +304,7 @@
    - ✅ Feasible: Using browser `FileReader` API and `readAsDataURL()`.
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Markdown to HTML Converter** — Convert raw markdown to sanitized HTML output and rich preview instantly.
+- [x] **Markdown to HTML Converter** — Convert raw markdown to sanitized HTML output and rich preview instantly.
    - ✅ Feasible: Native client mapping using `marked` and `DOMPurify`.
    - Priority: ⭐⭐⭐⭐
 

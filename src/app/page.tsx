@@ -71,12 +71,13 @@ const categories: Category[] = [
             tags: ['diff', 'compare', 'text', 'merge'],
          },
          {
-            title: 'Markdown Previewer',
-            description: 'Split-screen Markdown editor with live rendered HTML preview.',
+            title: 'Markdown Generator',
+            description: 'Generate clean, sanitized HTML from markdown with live preview, toolbar, and Mermaid diagrams.',
             icon: '📖',
-            href: '/markdown-previewer',
-            status: 'planned',
-            tags: ['markdown', 'md', 'preview', 'html'],
+            href: '/markdown-converter',
+            status: 'available',
+            isNew: true,
+            tags: ['markdown', 'md', 'preview', 'html', 'generator', 'mermaid'],
          },
          {
             title: 'List / Array Converter',
