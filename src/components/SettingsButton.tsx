@@ -48,22 +48,13 @@ function SettingsButtonWithPersistence() {
             <DropdownMenuLabel>Settings</DropdownMenuLabel>
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem
-               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-               className="cursor-pointer"
-            >
+            <DropdownMenuItem onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="cursor-pointer">
                <div className="flex items-center justify-between w-full">
                   <div className="flex items-center gap-2">
-                     {theme === 'dark' ? (
-                        <Moon className="h-4 w-4" />
-                     ) : (
-                        <Sun className="h-4 w-4" />
-                     )}
+                     {theme === 'dark' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
                      <span>Theme</span>
                   </div>
-                  <span className="text-xs text-muted-foreground">
-                     {theme === 'dark' ? 'Dark' : 'Light'}
-                  </span>
+                  <span className="text-xs text-muted-foreground">{theme === 'dark' ? 'Dark' : 'Light'}</span>
                </div>
             </DropdownMenuItem>
 
@@ -120,22 +111,13 @@ function SettingsButtonWithoutPersistence() {
             <DropdownMenuLabel>Settings</DropdownMenuLabel>
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem
-               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-               className="cursor-pointer"
-            >
+            <DropdownMenuItem onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="cursor-pointer">
                <div className="flex items-center justify-between w-full">
                   <div className="flex items-center gap-2">
-                     {theme === 'dark' ? (
-                        <Moon className="h-4 w-4" />
-                     ) : (
-                        <Sun className="h-4 w-4" />
-                     )}
+                     {theme === 'dark' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
                      <span>Theme</span>
                   </div>
-                  <span className="text-xs text-muted-foreground">
-                     {theme === 'dark' ? 'Dark' : 'Light'}
-                  </span>
+                  <span className="text-xs text-muted-foreground">{theme === 'dark' ? 'Dark' : 'Light'}</span>
                </div>
             </DropdownMenuItem>
          </DropdownMenuContent>
@@ -143,12 +125,6 @@ function SettingsButtonWithoutPersistence() {
    );
 }
 
-export default function SettingsButton({
-   showPersistenceOption = false,
-}: SettingsButtonProps) {
-   return showPersistenceOption ? (
-      <SettingsButtonWithPersistence />
-   ) : (
-      <SettingsButtonWithoutPersistence />
-   );
+export default function SettingsButton({ showPersistenceOption = false }: SettingsButtonProps) {
+   return showPersistenceOption ? <SettingsButtonWithPersistence /> : <SettingsButtonWithoutPersistence />;
 }

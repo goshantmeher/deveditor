@@ -92,9 +92,7 @@ export function JsonEditorView() {
 
       if (oldConfig.editorType !== newConfig.editorType) {
          const initialConfig =
-            newConfig.editorType === EDITOR_TYPES.text
-               ? DEFAULT_TEXT_EDITOR_CONFIG
-               : DEFAULT_JSON_EDITOR_CONFIG;
+            newConfig.editorType === EDITOR_TYPES.text ? DEFAULT_TEXT_EDITOR_CONFIG : DEFAULT_JSON_EDITOR_CONFIG;
          callback(initialConfig);
       } else {
          callback(newConfig);
@@ -103,8 +101,7 @@ export function JsonEditorView() {
 
    // Check if both editors are in text mode and not minified
    const canCompare =
-      leftEditor.config.editorType === EDITOR_TYPES.text &&
-      rightEditor.config.editorType === EDITOR_TYPES.text;
+      leftEditor.config.editorType === EDITOR_TYPES.text && rightEditor.config.editorType === EDITOR_TYPES.text;
 
    const handleCompare = useCallback(() => {
       if (!canCompare) return;
@@ -121,26 +118,20 @@ export function JsonEditorView() {
       }
 
       // Auto-switch from minified to standard if needed
-      const leftNeedsFormatChange =
-         leftEditor.config.formatState === FORMAT_STATES.MINIFIED;
-      const rightNeedsFormatChange =
-         rightEditor.config.formatState === FORMAT_STATES.MINIFIED;
+      const leftNeedsFormatChange = leftEditor.config.formatState === FORMAT_STATES.MINIFIED;
+      const rightNeedsFormatChange = rightEditor.config.formatState === FORMAT_STATES.MINIFIED;
 
       // Update left editor config
       leftEditor.updateConfig({
          ...leftEditor.config,
-         formatState: leftNeedsFormatChange
-            ? FORMAT_STATES.STANDARD
-            : leftEditor.config.formatState,
+         formatState: leftNeedsFormatChange ? FORMAT_STATES.STANDARD : leftEditor.config.formatState,
          compareMode: true,
       });
 
       // Update right editor config
       rightEditor.updateConfig({
          ...rightEditor.config,
-         formatState: rightNeedsFormatChange
-            ? FORMAT_STATES.STANDARD
-            : rightEditor.config.formatState,
+         formatState: rightNeedsFormatChange ? FORMAT_STATES.STANDARD : rightEditor.config.formatState,
          compareMode: true,
       });
 
@@ -148,32 +139,20 @@ export function JsonEditorView() {
    }, [canCompare, isComparing, leftEditor, rightEditor]);
 
    return (
-      <div className="json-editor-view-wrapper w-full h-full flex flex-col">
+      <div className="json-editor-view-wrapper w-full h-full flex flex-col bg-background border border-border rounded-xl shadow-sm overflow-hidden relative">
          <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
                __html: JSON.stringify(jsonEditorSchema),
             }}
          />
-         {isComparing && (
-            <EditorStats
-               leftData={leftEditor.data}
-               rightData={rightEditor.data}
-            />
-         )}
+         {isComparing && <EditorStats leftData={leftEditor.data} rightData={rightEditor.data} />}
          <div className="flex flex-col md:flex-row w-full h-full min-h-0">
             <EditorPanel
                data={leftEditor.data}
                onDataChange={leftEditor.setData}
                config={leftEditor.config}
-               onConfigChange={(newConfig) =>
-                  updateConfig(
-                     leftEditor.config,
-                     newConfig,
-                     leftEditor.updateConfig,
-                     true
-                  )
-               }
+               onConfigChange={(newConfig) => updateConfig(leftEditor.config, newConfig, leftEditor.updateConfig, true)}
                comparisonData={isComparing ? rightEditor.data : undefined}
                originalData={leftEditor.originalDataRef.current}
                onOriginalDataChange={leftEditor.updateOriginalData}
@@ -193,12 +172,7 @@ export function JsonEditorView() {
                onDataChange={rightEditor.setData}
                config={rightEditor.config}
                onConfigChange={(newConfig) =>
-                  updateConfig(
-                     rightEditor.config,
-                     newConfig,
-                     rightEditor.updateConfig,
-                     false
-                  )
+                  updateConfig(rightEditor.config, newConfig, rightEditor.updateConfig, false)
                }
                comparisonData={isComparing ? leftEditor.data : undefined}
                originalData={rightEditor.originalDataRef.current}

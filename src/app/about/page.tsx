@@ -1,18 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import {
-   Github,
-   Linkedin,
-   Shield,
-   Eye,
-   Zap,
-   Heart,
-   ArrowLeft,
-   Globe,
-   Lock,
-   Code2,
-   BadgeCheck,
-} from 'lucide-react';
+import { Github, Linkedin, Shield, Eye, Zap, Heart, ArrowLeft, Globe, Lock, Code2, BadgeCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
    title: 'About',
@@ -20,8 +8,7 @@ export const metadata: Metadata = {
       'Learn about DevEditor — free, open-source developer tools with no ads, no tracking, and no paywalls. Built by Goshant Meher.',
    openGraph: {
       title: 'About DevEditor',
-      description:
-         'Free, privacy-first developer tools. No ads, no tracking, no paywalls.',
+      description: 'Free, privacy-first developer tools. No ads, no tracking, no paywalls.',
       url: 'https://www.deveditor.io/about',
    },
    alternates: {
@@ -79,15 +66,10 @@ export default function AboutPage() {
 
             {/* Hero Section */}
             <section className="mb-16">
-               <h1 className="text-4xl font-bold tracking-tight mb-4">
-                  About DevEditor
-               </h1>
+               <h1 className="text-4xl font-bold tracking-tight mb-4">About DevEditor</h1>
                <p className="text-lg text-muted-foreground leading-relaxed">
                   A collection of free, privacy-first developer tools that{' '}
-                  <span className="text-foreground font-medium">
-                     respect your time and your data
-                  </span>
-                  .
+                  <span className="text-foreground font-medium">respect your time and your data</span>.
                </p>
             </section>
 
@@ -95,40 +77,32 @@ export default function AboutPage() {
             <section className="mb-16">
                <div className="flex items-center gap-3 mb-6">
                   <div className="h-8 w-1 rounded-full bg-linear-to-b from-blue-500 to-purple-500" />
-                  <h2 className="text-2xl font-semibold tracking-tight">
-                     Why I Built This
-                  </h2>
+                  <h2 className="text-2xl font-semibold tracking-tight">Why I Built This</h2>
                </div>
                <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                     As a developer, I use online tools every day — JSON
-                     formatters, data converters, encoders, decoders. Simple
-                     utilities that should take two seconds. But every time I
-                     searched for one, I&apos;d land on a page bloated with ads,
-                     cookie consent banners, and &ldquo;Sign up to
-                     continue&rdquo; pop-ups. Some even had the audacity to
-                     charge a subscription for a JSON formatter. A{' '}
-                     <em>JSON formatter</em>.
+                     As a developer, I use online tools every day — JSON formatters, data converters, encoders,
+                     decoders. Simple utilities that should take two seconds. But every time I searched for one,
+                     I&apos;d land on a page bloated with ads, cookie consent banners, and &ldquo;Sign up to
+                     continue&rdquo; pop-ups. Some even had the audacity to charge a subscription for a JSON formatter.
+                     A <em>JSON formatter</em>.
                   </p>
                   <p>
-                     Worse, most of these tools send your data to their servers
-                     for processing. Your API keys, your config files, your test
-                     data — all passing through someone else&apos;s
-                     infrastructure. That never sat well with me.
+                     Worse, most of these tools send your data to their servers for processing. Your API keys, your
+                     config files, your test data — all passing through someone else&apos;s infrastructure. That never
+                     sat well with me.
                   </p>
                   <p>
                      So I built what I wanted to use:{' '}
                      <span className="text-foreground font-medium">
-                        a set of developer tools that run entirely in the
-                        browser
+                        a set of developer tools that run entirely in the browser
                      </span>
-                     . No server calls, no tracking scripts, no data harvesting.
-                     Just open the page and use it. That&apos;s it.
+                     . No server calls, no tracking scripts, no data harvesting. Just open the page and use it.
+                     That&apos;s it.
                   </p>
                   <p>
-                     DevEditor is designed with one simple belief — tools that
-                     every developer needs should be freely available, fast, and
-                     respectful of your privacy. No exceptions.
+                     DevEditor is designed with one simple belief — tools that every developer needs should be freely
+                     available, fast, and respectful of your privacy. No exceptions.
                   </p>
                </div>
             </section>
@@ -137,9 +111,7 @@ export default function AboutPage() {
             <section className="mb-16">
                <div className="flex items-center gap-3 mb-6">
                   <div className="h-8 w-1 rounded-full bg-linear-to-b from-emerald-500 to-teal-500" />
-                  <h2 className="text-2xl font-semibold tracking-tight">
-                     Core Principles
-                  </h2>
+                  <h2 className="text-2xl font-semibold tracking-tight">Core Principles</h2>
                </div>
                <div className="grid gap-4 sm:grid-cols-2">
                   {principles.map((p) => (
@@ -152,12 +124,8 @@ export default function AboutPage() {
                         `}
                      >
                         <p.icon className={`h-5 w-5 mb-3 ${p.iconColor}`} />
-                        <h3 className="font-semibold text-foreground mb-1.5">
-                           {p.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                           {p.description}
-                        </p>
+                        <h3 className="font-semibold text-foreground mb-1.5">{p.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{p.description}</p>
                      </div>
                   ))}
                </div>
@@ -167,9 +135,7 @@ export default function AboutPage() {
             <section className="mb-16">
                <div className="flex items-center gap-3 mb-6">
                   <div className="h-8 w-1 rounded-full bg-linear-to-b from-amber-500 to-orange-500" />
-                  <h2 className="text-2xl font-semibold tracking-tight">
-                     Built By
-                  </h2>
+                  <h2 className="text-2xl font-semibold tracking-tight">Built By</h2>
                </div>
                <div className="rounded-xl border border-border/50 p-6 bg-card">
                   <div className="flex flex-col sm:flex-row sm:items-start gap-5">
@@ -178,15 +144,11 @@ export default function AboutPage() {
                         GM
                      </div>
                      <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-foreground mb-1">
-                           Goshant Meher
-                        </h3>
+                        <h3 className="text-lg font-semibold text-foreground mb-1">Goshant Meher</h3>
                         <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                           Software engineer who cares about developer
-                           experience, privacy, and building tools that
-                           don&apos;t waste your time. I believe the best
-                           developer tools should be open, fast, and free — so
-                           I&apos;m building exactly that.
+                           Software engineer who cares about developer experience, privacy, and building tools that
+                           don&apos;t waste your time. I believe the best developer tools should be open, fast, and free
+                           — so I&apos;m building exactly that.
                         </p>
 
                         {/* Social Links */}
@@ -227,34 +189,29 @@ export default function AboutPage() {
             <section className="mb-16">
                <div className="flex items-center gap-3 mb-6">
                   <div className="h-8 w-1 rounded-full bg-linear-to-b from-pink-500 to-red-500" />
-                  <h2 className="text-2xl font-semibold tracking-tight">
-                     Open & Transparent
-                  </h2>
+                  <h2 className="text-2xl font-semibold tracking-tight">Open & Transparent</h2>
                </div>
                <div className="rounded-xl border border-border/50 p-6 bg-card space-y-4 text-muted-foreground leading-relaxed">
                   <div className="flex items-start gap-3">
                      <Code2 className="h-5 w-5 mt-0.5 text-pink-400 shrink-0" />
                      <p>
-                        DevEditor is open source. You can inspect every line of
-                        code, verify there&apos;s no tracking, and even
-                        self-host it if you prefer. Transparency isn&apos;t a
-                        feature — it&apos;s the foundation.
+                        DevEditor is open source. You can inspect every line of code, verify there&apos;s no tracking,
+                        and even self-host it if you prefer. Transparency isn&apos;t a feature — it&apos;s the
+                        foundation.
                      </p>
                   </div>
                   <div className="flex items-start gap-3">
                      <Globe className="h-5 w-5 mt-0.5 text-blue-400 shrink-0" />
                      <p>
-                        Want to contribute a new tool, fix a bug, or suggest an
-                        improvement? The repository is public and contributions
-                        are welcome.
+                        Want to contribute a new tool, fix a bug, or suggest an improvement? The repository is public
+                        and contributions are welcome.
                      </p>
                   </div>
                   <div className="flex items-start gap-3">
                      <BadgeCheck className="h-5 w-5 mt-0.5 text-emerald-400 shrink-0" />
                      <p>
-                        No accounts. No API keys. No terms of service you need
-                        to agree to. Open the page. Use the tool. Close the tab.
-                        That&apos;s the entire workflow.
+                        No accounts. No API keys. No terms of service you need to agree to. Open the page. Use the tool.
+                        Close the tab. That&apos;s the entire workflow.
                      </p>
                   </div>
                </div>

@@ -31,8 +31,7 @@ export const metadata: Metadata = {
    twitter: {
       card: 'summary_large_image',
       title: 'Base64 Encoder & Decoder',
-      description:
-         'Free online Base64 tool. Encode text, files, and images. Generate data URIs and URL-safe Base64.',
+      description: 'Free online Base64 tool. Encode text, files, and images. Generate data URIs and URL-safe Base64.',
    },
    alternates: {
       canonical: 'https://www.deveditor.io/base64-encoder',
@@ -51,7 +50,7 @@ export default function Page() {
             </div>
 
             {/* SEO Content directly in the DOM, below the fold */}
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12">
+            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
                <Base64EncoderSeoContent />
             </div>
          </div>

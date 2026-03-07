@@ -29,11 +29,19 @@
 
 ## ✅ Already Built
 
-| Tool                                 | Route             | Status  |
-| ------------------------------------ | ----------------- | ------- |
-| JSON Viewer/Editor                   | `/json-editor`    | ✅ Live |
-| CSS Playground (Editor + Generators) | `/css-playground` | ✅ Live |
-| Base64 Encoder/Decoder               | `/base64-encoder` | ✅ Live |
+| Tool                                 | Route              | Status  |
+| ------------------------------------ | ------------------ | ------- |
+| JSON Viewer/Editor                   | `/json-editor`     | ✅ Live |
+| CSS Playground (Editor + Generators) | `/css-playground`  | ✅ Live |
+| Base64 Encoder/Decoder               | `/base64-encoder`  | ✅ Live |
+| Case Converter                       | `/case-converter`  | ✅ Live |
+| Text Diff Checker                    | `/text-diff`       | ✅ Live |
+| JWT Debugger                         | `/jwt-debugger`    | ✅ Live |
+| RegEx Tester                         | `/regex-tester`    | ✅ Live |
+| Color Converter & Palette            | `/color-converter` | ✅ Live |
+| Theme Generator                      | `/theme-generator` | ✅ Live |
+| JSON → Schema Generator              | `/json-to-schema`  | ✅ Live |
+| QR Code Generator                    | `/qr-generator`    | ✅ Live |
 
 ---
 
@@ -111,7 +119,7 @@
 
 > Complementing the existing CSS Playground.
 
-- [ ] **Color Converter & Palette** — Convert between HEX, RGB, HSL, CMYK. WCAG contrast checker. Generate complementary/analogous palettes.
+- [x] **Color Converter & Palette** — Convert between HEX, RGB, HSL, CMYK. WCAG contrast checker. Generate complementary/analogous palettes.
    - ✅ Feasible: Pure math conversions, Canvas for color picker
    - Priority: ⭐⭐⭐⭐⭐
 
@@ -141,7 +149,7 @@
    - Priority: ⭐⭐⭐
    - 💡 Added by review
 
-- [ ] **Theme Generator** — Generate comprehensive UI color themes (Tailwind configs or CSS tokens) from a primary color. Show beautiful sample UI automatically updated with the colors, and allow copying export as JSON or CSS.
+- [x] **Theme Generator** — Generate comprehensive UI color themes (Tailwind configs or CSS tokens) from a primary color. Show beautiful sample UI automatically updated with the colors, and allow copying export as JSON or CSS.
    - ✅ Feasible: Native client-side color math (HSL/Oklch interpolations) + React state previews.
    - Priority: ⭐⭐⭐⭐⭐
 
@@ -159,11 +167,11 @@
    - ✅ Feasible: Pure parsing logic, no external dependencies needed
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **RegEx Tester** — Live regex match highlighting, capture groups display, regex cheat sheet, common patterns library
+- [x] **RegEx Tester** — Live regex match highlighting, capture groups display, regex cheat sheet, common patterns library
    - ✅ Feasible: Native `RegExp` object. UI is the main work.
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **JSON ↔ TypeScript/Go/Rust Schema Generator** — Paste JSON → generate TypeScript interfaces, Go structs, Rust structs, Zod schemas, JSON Schema
+- [x] **JSON ↔ TypeScript/Go/Rust Schema Generator** — Paste JSON → generate TypeScript interfaces, Go structs, Rust structs, Zod schemas, JSON Schema
    - ✅ Feasible: Parse JSON, infer types, generate code strings. Pure logic.
    - Priority: ⭐⭐⭐⭐⭐
 
@@ -209,31 +217,31 @@
    - ✅ Feasible: Parse EXIF manually from JPEG binary or use lightweight `exif-js`
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **QR Code Generator** — Generate QR codes from text/URLs. Customize colors, size, error correction level. Download as PNG/SVG.
+- [x] **QR Code Generator** — Generate QR codes from text/URLs. Customize colors, size, error correction level. Download as PNG/SVG.
    - ✅ Feasible: Use `qrcode` library or implement Reed-Solomon encoding
    - Priority: ⭐⭐⭐⭐⭐
    - 💡 Added by review
 
-- [ ] **PDF Page Extractor** — Extract specific pages from a PDF, merge PDFs, all client-side
+- [x] **PDF Page Extractor** — Extract specific pages from a PDF, merge PDFs, all client-side
    - ⚠️ Partially feasible: Use `pdf-lib` (~300 KB). Heavy but works entirely client-side.
    - Priority: ⭐⭐⭐
    - 💡 Added by review
 
-- [ ] **PDF Resume Builder & Generator** — A genuinely free, fully customizable resume builder avoiding paywalls.
-   - 💡 **Context**: Most resume builders online act free but add paywalls at download or severely restrict layouts. This tool will allow users to freely compose sections, dictate exact placement, customize content styles, and select from a list of clean, professional default format templates. 
+- [x] **PDF Resume Builder & Generator** — A genuinely free, fully customizable resume builder avoiding paywalls.
+   - 💡 **Context**: Most resume builders online act free but add paywalls at download or severely restrict layouts. This tool will allow users to freely compose sections, dictate exact placement, customize content styles, and select from a list of clean, professional default format templates.
    - ✅ Feasible: Can be built using `react-pdf` for robust client-side rendering or `html2pdf.js`.
    - Priority: ⭐⭐⭐⭐⭐
    - 💡 Added by user request
 
-- [ ] **Merge PDF** — Combine multiple PDF files into one continuous document.
+- [x] **Merge PDF** — Combine multiple PDF files into one continuous document.
    - ✅ Feasible: Entirely client-side using `pdf-lib`.
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Split PDF** — Cut a single PDF into multiple chunks or individual page files.
+- [x] **Split PDF** — Cut a single PDF into multiple chunks or individual page files.
    - ✅ Feasible: Entirely client-side using `pdf-lib` to create new documents from copied pages.
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Copy PDF Content** — Extract textual content out of a PDF document to copy to clipboard.
+- [x] **Copy PDF Content** — Extract textual content out of a PDF document to copy to clipboard.
    - ⚠️ Partially feasible: Requires `pdf.js` by Mozilla parsing logic. Can be heavy.
    - Priority: ⭐⭐⭐
 
@@ -296,7 +304,7 @@
    - ✅ Feasible: Using browser `FileReader` API and `readAsDataURL()`.
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Markdown to HTML Converter** — Convert raw markdown to sanitized HTML output and rich preview instantly.
+- [x] **Markdown to HTML Converter** — Convert raw markdown to sanitized HTML output and rich preview instantly.
    - ✅ Feasible: Native client mapping using `marked` and `DOMPurify`.
    - Priority: ⭐⭐⭐⭐
 
@@ -364,5 +372,5 @@ Based on impact, bookmark potential, and effort required:
 
 ---
 
-> **Last updated:** 2026-03-05
-> **Total tools planned:** ~35 (3 built, ~32 remaining)
+> **Last updated:** 2026-03-07
+> **Total tools planned:** ~35 (10 built, ~25 remaining)

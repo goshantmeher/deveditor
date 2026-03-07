@@ -20,9 +20,7 @@ When switching editor types in `JsonEditorView.tsx`, configs reset to defaults v
 ```typescript
 // See src/components/json-editor/JsonEditorView.tsx lines 17-25
 const initialConfig =
-   newConfig.editorType === EDITOR_TYPES.text
-      ? DEFAULT_TEXT_EDITOR_CONFIG
-      : DEFAULT_JSON_EDITOR_CONFIG;
+   newConfig.editorType === EDITOR_TYPES.text ? DEFAULT_TEXT_EDITOR_CONFIG : DEFAULT_JSON_EDITOR_CONFIG;
 ```
 
 ### JSON Parsing Strategy

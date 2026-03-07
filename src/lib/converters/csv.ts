@@ -22,11 +22,7 @@ function isFlatArrayOfObjects(data: unknown): boolean {
       }
       // Check all values are primitives
       return Object.values(item as Record<string, unknown>).every(
-         (v) =>
-            v === null ||
-            typeof v === 'string' ||
-            typeof v === 'number' ||
-            typeof v === 'boolean'
+         (v) => v === null || typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean'
       );
    });
 }

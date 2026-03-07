@@ -48,11 +48,7 @@ export function HtmlEditor({ value, onChange, ariaLabel }: HtmlEditorProps) {
    }
 
    return (
-      <div
-         className="h-full w-full"
-         role="region"
-         aria-label={ariaLabel || 'HTML Editor'}
-      >
+      <div className="h-full w-full" role="region" aria-label={ariaLabel || 'HTML Editor'}>
          <CodeMirror
             value={value}
             onChange={onChange}

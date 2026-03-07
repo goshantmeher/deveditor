@@ -6,11 +6,7 @@ import { CssEditor } from './CssEditor';
 import { LivePreview } from './LivePreview';
 import { CssPlaygroundToolbar } from './CssPlaygroundToolbar';
 import { GeneratorView } from './generators/GeneratorView';
-import {
-   DEFAULT_HTML,
-   DEFAULT_CSS,
-   CssPreset,
-} from '@/constants/css-playground';
+import { DEFAULT_HTML, DEFAULT_CSS, CssPreset } from '@/constants/css-playground';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { Code2, Sliders } from 'lucide-react';
 
@@ -43,9 +39,7 @@ export function CssPlaygroundView() {
          const storedHtml = localStorage.getItem(STORAGE_KEY_HTML);
          const storedCss = localStorage.getItem(STORAGE_KEY_CSS);
          const storedPreset = localStorage.getItem(STORAGE_KEY_PRESET);
-         const storedMode = localStorage.getItem(
-            STORAGE_KEY_MODE
-         ) as PlaygroundMode | null;
+         const storedMode = localStorage.getItem(STORAGE_KEY_MODE) as PlaygroundMode | null;
 
          if (storedHtml) {
             setHtmlContent(storedHtml);
@@ -134,7 +128,7 @@ export function CssPlaygroundView() {
    };
 
    return (
-      <div className="css-playground-wrapper w-full h-full flex flex-col">
+      <div className="css-playground-wrapper w-full h-full flex flex-col bg-background border border-border rounded-xl shadow-sm overflow-hidden relative">
          <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -143,10 +137,10 @@ export function CssPlaygroundView() {
          />
 
          {/* Mode Toggle + Toolbar Row */}
-         <div className="flex flex-col md:flex-row items-center border-b border-border/50 bg-muted/30 shrink-0">
+         <div className="flex flex-col md:flex-row items-center border-b border-border bg-muted/10 shrink-0">
             {/* Mode Toggle */}
-            <div className="flex items-center md:border-r border-border/30 px-2 py-1.5 shrink-0 w-full md:w-auto border-b md:border-b-0 justify-center flex-row">
-               <div className="flex rounded-lg bg-muted/50 p-0.5 w-full md:w-auto max-w-[300px] justify-center mx-auto md:mx-0">
+            <div className="flex items-center md:border-r border-border px-2 py-1.5 shrink-0 w-full md:w-auto border-b md:border-b-0 justify-center flex-row">
+               <div className="flex rounded-lg bg-muted/10 p-0.5 w-full md:w-auto max-w-[300px] justify-center mx-auto md:mx-0">
                   <button
                      onClick={() => setMode('editor')}
                      className={`flex-1 md:flex-none flex justify-center items-center gap-1.5 px-3 py-1.5 rounded-md text-sm md:text-xs font-medium transition-all ${
@@ -187,9 +181,7 @@ export function CssPlaygroundView() {
 
             {mode === 'generator' && (
                <div className="flex-1 px-3 py-1.5">
-                  <span className="text-xs text-muted-foreground">
-                     Tweak controls to generate CSS instantly
-                  </span>
+                  <span className="text-xs text-muted-foreground">Tweak controls to generate CSS instantly</span>
                </div>
             )}
          </div>
@@ -198,8 +190,8 @@ export function CssPlaygroundView() {
          {mode === 'editor' ? (
             <div className="flex-1 flex flex-col md:flex-row min-h-0 overflow-y-auto md:overflow-hidden">
                {/* HTML Editor Pane */}
-               <div className="flex flex-col w-full min-h-[300px] md:min-h-0 md:w-1/3 border-b md:border-b-0 md:border-r border-border/30 shrink-0 md:shrink">
-                  <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0">
+               <div className="flex flex-col w-full min-h-[300px] md:min-h-0 md:w-1/3 border-b md:border-b-0 md:border-r border-border shrink-0 md:shrink">
+                  <div className="px-3 py-1.5 border-b border-border bg-muted/10 shrink-0">
                      <div className="flex items-center gap-2">
                         <div className="w-2.5 h-2.5 rounded-full bg-orange-400/80" />
                         <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
@@ -208,17 +200,13 @@ export function CssPlaygroundView() {
                      </div>
                   </div>
                   <div className="flex-1 min-h-0 overflow-hidden">
-                     <HtmlEditor
-                        value={htmlContent}
-                        onChange={handleHtmlChange}
-                        ariaLabel="HTML editor pane"
-                     />
+                     <HtmlEditor value={htmlContent} onChange={handleHtmlChange} ariaLabel="HTML editor pane" />
                   </div>
                </div>
 
                {/* CSS Editor Pane */}
-               <div className="flex flex-col w-full min-h-[300px] md:min-h-0 md:w-1/3 border-b md:border-b-0 md:border-r border-border/30 shrink-0 md:shrink">
-                  <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0">
+               <div className="flex flex-col w-full min-h-[300px] md:min-h-0 md:w-1/3 border-b md:border-b-0 md:border-r border-border shrink-0 md:shrink">
+                  <div className="px-3 py-1.5 border-b border-border bg-muted/10 shrink-0">
                      <div className="flex items-center gap-2">
                         <div className="w-2.5 h-2.5 rounded-full bg-blue-400/80" />
                         <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
@@ -227,20 +215,13 @@ export function CssPlaygroundView() {
                      </div>
                   </div>
                   <div className="flex-1 min-h-0 overflow-hidden">
-                     <CssEditor
-                        value={cssContent}
-                        onChange={handleCssChange}
-                        ariaLabel="CSS editor pane"
-                     />
+                     <CssEditor value={cssContent} onChange={handleCssChange} ariaLabel="CSS editor pane" />
                   </div>
                </div>
 
                {/* Live Preview Pane */}
                <div className="flex flex-col w-full min-h-[400px] md:min-h-0 md:w-1/3 shrink-0 md:shrink">
-                  <LivePreview
-                     htmlContent={debouncedHtml}
-                     cssContent={debouncedCss}
-                  />
+                  <LivePreview htmlContent={debouncedHtml} cssContent={debouncedCss} />
                </div>
             </div>
          ) : (

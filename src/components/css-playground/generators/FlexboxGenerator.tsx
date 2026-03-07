@@ -2,25 +2,11 @@
 
 import React, { useState } from 'react';
 import { GeneratorPreview } from './GeneratorPreview';
-import {
-   ControlSlider,
-   ControlSelect,
-   ControlGroup,
-   ControlColor,
-} from './GeneratorControls';
+import { ControlSlider, ControlSelect, ControlGroup, ControlColor } from './GeneratorControls';
 import { Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const COLORS = [
-   '#7c3aed',
-   '#3b82f6',
-   '#06b6d4',
-   '#10b981',
-   '#f59e0b',
-   '#ef4444',
-   '#ec4899',
-   '#6366f1',
-];
+const COLORS = ['#7c3aed', '#3b82f6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444', '#ec4899', '#6366f1'];
 
 export function FlexboxGenerator() {
    const [direction, setDirection] = useState('row');
@@ -86,19 +72,14 @@ export function FlexboxGenerator() {
 
    const html = Array.from(
       { length: itemCount },
-      (_, i) =>
-         `<div class="item" style="background:${COLORS[i % COLORS.length]}">${i + 1}</div>`
+      (_, i) => `<div class="item" style="background:${COLORS[i % COLORS.length]}">${i + 1}</div>`
    ).join('\n  ');
 
    return (
       <div className="flex flex-col md:flex-row h-full min-h-0 overflow-y-auto md:overflow-hidden">
          <div className="w-full md:w-[320px] shrink-0 overflow-y-auto border-b md:border-b-0 md:border-r border-border/30 p-4 space-y-4">
             <ControlGroup title="Preview">
-               <ControlColor
-                  label="Background"
-                  value={bodyBg}
-                  onChange={setBodyBg}
-               />
+               <ControlColor label="Background" value={bodyBg} onChange={setBodyBg} />
             </ControlGroup>
 
             <ControlGroup title="Flex Container">
@@ -148,40 +129,14 @@ export function FlexboxGenerator() {
                      { value: 'baseline', label: 'Baseline' },
                   ]}
                />
-               <ControlSlider
-                  label="Gap"
-                  value={gap}
-                  onChange={setGap}
-                  min={0}
-                  max={64}
-                  unit="px"
-               />
+               <ControlSlider label="Gap" value={gap} onChange={setGap} min={0} max={64} unit="px" />
             </ControlGroup>
 
             <ControlGroup title="Flex Items">
-               <ControlSlider
-                  label="Count"
-                  value={itemCount}
-                  onChange={setItemCount}
-                  min={1}
-                  max={12}
-                  unit=""
-               />
-               <ControlSlider
-                  label="Size"
-                  value={itemSize}
-                  onChange={setItemSize}
-                  min={20}
-                  max={150}
-                  unit="px"
-               />
+               <ControlSlider label="Count" value={itemCount} onChange={setItemCount} min={1} max={12} unit="" />
+               <ControlSlider label="Size" value={itemSize} onChange={setItemSize} min={20} max={150} unit="px" />
                <div className="flex gap-2">
-                  <Button
-                     variant="outline"
-                     size="sm"
-                     className="w-full h-8 text-xs gap-1"
-                     onClick={addItem}
-                  >
+                  <Button variant="outline" size="sm" className="w-full h-8 text-xs gap-1" onClick={addItem}>
                      <Plus className="h-3 w-3" /> Add
                   </Button>
                   {itemCount > 1 && (

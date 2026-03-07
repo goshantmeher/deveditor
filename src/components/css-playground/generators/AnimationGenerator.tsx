@@ -2,12 +2,7 @@
 
 import React, { useState } from 'react';
 import { GeneratorPreview } from './GeneratorPreview';
-import {
-   ControlSlider,
-   ControlSelect,
-   ControlGroup,
-   ControlColor,
-} from './GeneratorControls';
+import { ControlSlider, ControlSelect, ControlGroup, ControlColor } from './GeneratorControls';
 
 const KEYFRAME_PRESETS = {
    pulse: `@keyframes pulse {
@@ -38,8 +33,7 @@ const KEYFRAME_PRESETS = {
 };
 
 export function AnimationGenerator() {
-   const [animationName, setAnimationName] =
-      useState<keyof typeof KEYFRAME_PRESETS>('pulse');
+   const [animationName, setAnimationName] = useState<keyof typeof KEYFRAME_PRESETS>('pulse');
    const [duration, setDuration] = useState(2);
    const [delay, setDelay] = useState(0);
    const [iterationCount, setIterationCount] = useState('infinite');
@@ -84,20 +78,14 @@ export function AnimationGenerator() {
       <div className="flex flex-col md:flex-row h-full min-h-0 overflow-y-auto md:overflow-hidden">
          <div className="w-full md:w-[320px] shrink-0 overflow-y-auto border-b md:border-b-0 md:border-r border-border/30 p-4 space-y-4">
             <ControlGroup title="Preview">
-               <ControlColor
-                  label="Background"
-                  value={bodyBg}
-                  onChange={setBodyBg}
-               />
+               <ControlColor label="Background" value={bodyBg} onChange={setBodyBg} />
             </ControlGroup>
 
             <ControlGroup title="Animation Options">
                <ControlSelect
                   label="Name (Keyframes)"
                   value={animationName}
-                  onChange={(v) =>
-                     setAnimationName(v as keyof typeof KEYFRAME_PRESETS)
-                  }
+                  onChange={(v) => setAnimationName(v as keyof typeof KEYFRAME_PRESETS)}
                   options={[
                      { value: 'pulse', label: 'Pulse' },
                      { value: 'bounce', label: 'Bounce' },
@@ -117,15 +105,7 @@ export function AnimationGenerator() {
                   step={0.1}
                   unit="s"
                />
-               <ControlSlider
-                  label="Delay"
-                  value={delay}
-                  onChange={setDelay}
-                  min={0}
-                  max={5}
-                  step={0.1}
-                  unit="s"
-               />
+               <ControlSlider label="Delay" value={delay} onChange={setDelay} min={0} max={5} step={0.1} unit="s" />
 
                <ControlSelect
                   label="Timing Function (Easing)"
@@ -166,27 +146,9 @@ export function AnimationGenerator() {
             </ControlGroup>
 
             <ControlGroup title="Element">
-               <ControlSlider
-                  label="Size"
-                  value={boxSize}
-                  onChange={setBoxSize}
-                  min={40}
-                  max={250}
-                  unit="px"
-               />
-               <ControlSlider
-                  label="Radius"
-                  value={radius}
-                  onChange={setRadius}
-                  min={0}
-                  max={125}
-                  unit="px"
-               />
-               <ControlColor
-                  label="Color"
-                  value={bgColor}
-                  onChange={setBgColor}
-               />
+               <ControlSlider label="Size" value={boxSize} onChange={setBoxSize} min={40} max={250} unit="px" />
+               <ControlSlider label="Radius" value={radius} onChange={setRadius} min={0} max={125} unit="px" />
+               <ControlColor label="Color" value={bgColor} onChange={setBgColor} />
             </ControlGroup>
          </div>
 

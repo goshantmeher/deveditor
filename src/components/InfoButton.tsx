@@ -29,9 +29,7 @@ export default function InfoButton({ title, children }: InfoButtonProps) {
             <DialogHeader>
                <DialogTitle>{title}</DialogTitle>
                <DialogDescription asChild>
-                  <div className="mt-4 space-y-4 text-foreground">
-                     {children}
-                  </div>
+                  <div className="mt-4 space-y-4 text-foreground">{children}</div>
                </DialogDescription>
             </DialogHeader>
          </DialogContent>

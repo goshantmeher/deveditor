@@ -23,9 +23,4 @@ export {
 } from './index';
 
 export { convertInWorker, terminateWorker } from './worker-bridge';
-export {
-   smartConvert,
-   formatFileSize,
-   saveLastExportFormat,
-   loadLastExportFormat,
-} from './smart-convert';
+export { smartConvert, formatFileSize, saveLastExportFormat, loadLastExportFormat } from './smart-convert';

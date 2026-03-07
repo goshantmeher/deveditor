@@ -11,15 +11,10 @@ import Link from 'next/link';
 
 export default function HeaderActions() {
    const pathname = usePathname();
-   const isJsonEditor =
-      pathname === '/json-editor' || pathname === '/json-editor/';
+   const isJsonEditor = pathname === '/json-editor' || pathname === '/json-editor/';
 
    const SponsorButton = () => (
-      <Link
-         href="https://github.com/sponsors/goshantmeher"
-         target="_blank"
-         rel="noopener noreferrer"
-      >
+      <Link href="https://github.com/sponsors/goshantmeher" target="_blank" rel="noopener noreferrer">
          <Button
             variant="outline"
             size="sm"
@@ -28,37 +23,19 @@ export default function HeaderActions() {
             <Heart className="h-4 w-4 fill-pink-400" />
             Sponsor
          </Button>
-         <Button
-            variant="ghost"
-            size="icon"
-            className="h-9 w-9 sm:hidden text-pink-400"
-            aria-label="Sponsor on GitHub"
-         >
+         <Button variant="ghost" size="icon" className="h-9 w-9 sm:hidden text-pink-400" aria-label="Sponsor on GitHub">
             <Heart className="h-4 w-4 fill-pink-400" />
          </Button>
       </Link>
    );
 
    const ContributeButton = () => (
-      <Link
-         href="https://github.com/goshantmeher/deveditor"
-         target="_blank"
-         rel="noopener noreferrer"
-      >
-         <Button
-            variant="outline"
-            size="sm"
-            className="gap-2 h-9 hidden sm:flex"
-         >
+      <Link href="https://github.com/goshantmeher/deveditor" target="_blank" rel="noopener noreferrer">
+         <Button variant="outline" size="sm" className="gap-2 h-9 hidden sm:flex">
             <Github className="h-4 w-4" />
             Contribute
          </Button>
-         <Button
-            variant="ghost"
-            size="icon"
-            className="h-9 w-9 sm:hidden"
-            aria-label="Contribute on GitHub"
-         >
+         <Button variant="ghost" size="icon" className="h-9 w-9 sm:hidden" aria-label="Contribute on GitHub">
             <Github className="h-4 w-4" />
          </Button>
       </Link>

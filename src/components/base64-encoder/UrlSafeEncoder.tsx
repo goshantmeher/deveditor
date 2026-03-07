@@ -60,11 +60,7 @@ export function UrlSafeEncoder() {
             setOutput(new TextDecoder('utf-8').decode(bytes));
          }
       } catch {
-         setOutput(
-            direction === 'encode'
-               ? '⚠️ Encoding error'
-               : '⚠️ Invalid URL-safe Base64 string'
-         );
+         setOutput(direction === 'encode' ? '⚠️ Encoding error' : '⚠️ Invalid URL-safe Base64 string');
       }
    }, [input, direction]);
 
@@ -146,7 +142,7 @@ export function UrlSafeEncoder() {
    return (
       <div className="flex flex-col h-full">
          {/* Toolbar */}
-         <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-b border-border/30 bg-muted/10">
+         <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-b border-border/30 bg-background">
             <button
                onClick={handleToggleDirection}
                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
@@ -172,7 +168,7 @@ export function UrlSafeEncoder() {
          </div>
 
          {/* Character Comparison */}
-         <div className="px-4 py-2 border-b border-border/20 bg-muted/5">
+         <div className="px-4 py-2 border-b border-border/20 bg-background">
             <div className="flex items-center gap-2 mb-1.5">
                <Info className="h-3.5 w-3.5 text-muted-foreground" />
                <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
@@ -180,17 +176,17 @@ export function UrlSafeEncoder() {
                </span>
             </div>
             <div className="grid grid-cols-3 gap-2 text-xs">
-               <div className="flex items-center gap-2 px-2 py-1.5 rounded-md bg-muted/20">
+               <div className="flex items-center gap-2 px-2 py-1.5 rounded-md border border-border/10 bg-background">
                   <code className="text-red-400 line-through">+</code>
                   <span className="text-muted-foreground">→</span>
                   <code className="text-green-400">-</code>
                </div>
-               <div className="flex items-center gap-2 px-2 py-1.5 rounded-md bg-muted/20">
+               <div className="flex items-center gap-2 px-2 py-1.5 rounded-md border border-border/10 bg-background">
                   <code className="text-red-400 line-through">/</code>
                   <span className="text-muted-foreground">→</span>
                   <code className="text-green-400">_</code>
                </div>
-               <div className="flex items-center gap-2 px-2 py-1.5 rounded-md bg-muted/20">
+               <div className="flex items-center gap-2 px-2 py-1.5 rounded-md border border-border/10 bg-background">
                   <code className="text-red-400 line-through">=</code>
                   <span className="text-muted-foreground">→</span>
                   <code className="text-green-400 text-[10px]">removed</code>
@@ -202,29 +198,24 @@ export function UrlSafeEncoder() {
          <div className="flex-1 flex flex-col md:flex-row min-h-0">
             {/* Input Panel */}
             <div className="flex flex-col md:w-1/2 min-h-0 border-r border-border/30">
-               <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0 flex items-center justify-between">
+               <div className="px-3 py-1.5 border-b border-border/30 bg-background shrink-0 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                      <div
                         className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-emerald-400/80' : 'bg-amber-400/80'}`}
                      />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        {direction === 'encode'
-                           ? 'Plain Text'
-                           : 'URL-safe Base64'}
+                        {direction === 'encode' ? 'Plain Text' : 'URL-safe Base64'}
                      </span>
                   </div>
                   <span className="text-[10px] text-muted-foreground">
-                     {input.length > 0 &&
-                        `${input.length} chars · ${formatBytes(inputBytes)}`}
+                     {input.length > 0 && `${input.length} chars · ${formatBytes(inputBytes)}`}
                   </span>
                </div>
                <textarea
                   value={input}
                   onChange={(e) => handleInputChange(e.target.value)}
                   placeholder={
-                     direction === 'encode'
-                        ? 'Type or paste text to encode...'
-                        : 'Paste URL-safe Base64 to decode...'
+                     direction === 'encode' ? 'Type or paste text to encode...' : 'Paste URL-safe Base64 to decode...'
                   }
                   className="flex-1 w-full p-4 bg-background text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/50 min-h-[200px]"
                   spellCheck={false}
@@ -233,15 +224,13 @@ export function UrlSafeEncoder() {
 
             {/* Output Panel */}
             <div className="flex flex-col md:w-1/2 min-h-0">
-               <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0 flex items-center justify-between">
+               <div className="px-3 py-1.5 border-b border-border/30 bg-background shrink-0 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                      <div
                         className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-blue-400/80' : 'bg-green-400/80'}`}
                      />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        {direction === 'encode'
-                           ? 'URL-safe Base64'
-                           : 'Decoded Text'}
+                        {direction === 'encode' ? 'URL-safe Base64' : 'Decoded Text'}
                      </span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -275,13 +264,13 @@ export function UrlSafeEncoder() {
                   value={output}
                   readOnly
                   placeholder="Output will appear here..."
-                  className="flex-1 w-full p-4 bg-muted/5 text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/50 min-h-[200px]"
+                  className="flex-1 w-full p-4 bg-background text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/50 min-h-[200px]"
                   spellCheck={false}
                />
 
                {/* Standard vs URL-safe comparison */}
                {standardPreview && standardPreview !== output && (
-                  <div className="border-t border-border/20 px-4 py-2 bg-muted/10">
+                  <div className="border-t border-border/20 px-4 py-2 bg-background">
                      <span className="text-[10px] text-muted-foreground uppercase tracking-wider block mb-1">
                         Standard Base64 (for comparison)
                      </span>

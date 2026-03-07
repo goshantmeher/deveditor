@@ -2,12 +2,7 @@
 
 import React, { useState } from 'react';
 import { GeneratorPreview } from './GeneratorPreview';
-import {
-   ControlSlider,
-   ControlColor,
-   ControlToggle,
-   ControlGroup,
-} from './GeneratorControls';
+import { ControlSlider, ControlColor, ControlToggle, ControlGroup } from './GeneratorControls';
 
 export function BorderRadiusGenerator() {
    const [linked, setLinked] = useState(true);
@@ -33,18 +28,13 @@ export function BorderRadiusGenerator() {
       }
    };
 
-   const radiusValue = linked
-      ? `${all}px`
-      : `${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px`;
+   const radiusValue = linked ? `${all}px` : `${topLeft}px ${topRight}px ${bottomRight}px ${bottomLeft}px`;
 
    const tailwindClasses = linked
       ? `rounded-[${all}px]`
       : `rounded-tl-[${topLeft}px] rounded-tr-[${topRight}px] rounded-br-[${bottomRight}px] rounded-bl-[${bottomLeft}px]`;
 
-   const borderClasses =
-      borderWidth > 0
-         ? ` border-[${borderWidth}px] border-[${borderColor}]`
-         : '';
+   const borderClasses = borderWidth > 0 ? ` border-[${borderWidth}px] border-[${borderColor}]` : '';
 
    const tailwind = `<div class="w-[${width}px] h-[${height}px] bg-[${bgColor}] ${tailwindClasses}${borderClasses}"></div>`;
 
@@ -61,43 +51,17 @@ export function BorderRadiusGenerator() {
       <div className="flex flex-col md:flex-row h-full min-h-0 overflow-y-auto md:overflow-hidden">
          <div className="w-full md:w-[320px] shrink-0 overflow-y-auto border-b md:border-b-0 md:border-r border-border/30 p-4 space-y-4">
             <ControlGroup title="Preview">
-               <ControlColor
-                  label="Background"
-                  value={bodyBg}
-                  onChange={setBodyBg}
-               />
+               <ControlColor label="Background" value={bodyBg} onChange={setBodyBg} />
             </ControlGroup>
 
             <ControlGroup title="Box">
-               <ControlSlider
-                  label="Width"
-                  value={width}
-                  onChange={setWidth}
-                  min={40}
-                  max={350}
-                  unit="px"
-               />
-               <ControlSlider
-                  label="Height"
-                  value={height}
-                  onChange={setHeight}
-                  min={40}
-                  max={350}
-                  unit="px"
-               />
-               <ControlColor
-                  label="Background"
-                  value={bgColor}
-                  onChange={setBgColor}
-               />
+               <ControlSlider label="Width" value={width} onChange={setWidth} min={40} max={350} unit="px" />
+               <ControlSlider label="Height" value={height} onChange={setHeight} min={40} max={350} unit="px" />
+               <ControlColor label="Background" value={bgColor} onChange={setBgColor} />
             </ControlGroup>
 
             <ControlGroup title="Border Radius">
-               <ControlToggle
-                  label="Link All Corners"
-                  value={linked}
-                  onChange={setLinked}
-               />
+               <ControlToggle label="Link All Corners" value={linked} onChange={setLinked} />
                {linked ? (
                   <ControlSlider
                      label="All Corners"
@@ -154,13 +118,7 @@ export function BorderRadiusGenerator() {
                   max={20}
                   unit="px"
                />
-               {borderWidth > 0 && (
-                  <ControlColor
-                     label="Border Color"
-                     value={borderColor}
-                     onChange={setBorderColor}
-                  />
-               )}
+               {borderWidth > 0 && <ControlColor label="Border Color" value={borderColor} onChange={setBorderColor} />}
             </ControlGroup>
          </div>
 

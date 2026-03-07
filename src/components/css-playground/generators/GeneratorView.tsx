@@ -89,11 +89,7 @@ export function GeneratorView() {
             {/* Dropdown selector */}
             <DropdownMenu>
                <DropdownMenuTrigger asChild>
-                  <Button
-                     variant="outline"
-                     size="sm"
-                     className="h-7 gap-1.5 text-xs font-medium"
-                  >
+                  <Button variant="outline" size="sm" className="h-7 gap-1.5 text-xs font-medium">
                      <span>{active.icon}</span>
                      <span className="hidden sm:inline">{active.name}</span>
                      <ChevronDown className="h-3 w-3 opacity-60" />
@@ -108,12 +104,8 @@ export function GeneratorView() {
                      >
                         <span className="text-base">{gen.icon}</span>
                         <div className="flex flex-col">
-                           <span className="text-sm font-medium">
-                              {gen.name}
-                           </span>
-                           <span className="text-xs text-muted-foreground">
-                              {gen.description}
-                           </span>
+                           <span className="text-sm font-medium">{gen.name}</span>
+                           <span className="text-xs text-muted-foreground">{gen.description}</span>
                         </div>
                      </DropdownMenuItem>
                   ))}

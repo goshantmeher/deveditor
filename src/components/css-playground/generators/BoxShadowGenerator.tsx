@@ -2,12 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { GeneratorPreview } from './GeneratorPreview';
-import {
-   ControlSlider,
-   ControlColor,
-   ControlToggle,
-   ControlGroup,
-} from './GeneratorControls';
+import { ControlSlider, ControlColor, ControlToggle, ControlGroup } from './GeneratorControls';
 import { Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -36,34 +31,21 @@ export function BoxShadowGenerator() {
    const [boxSize, setBoxSize] = useState(160);
    const [bodyBg, setBodyBg] = useState('#0f172a');
 
-   const updateShadow = (
-      index: number,
-      key: keyof Shadow,
-      value: number | string | boolean
-   ) => {
-      setShadows((prev) =>
-         prev.map((s, i) => (i === index ? { ...s, [key]: value } : s))
-      );
+   const updateShadow = (index: number, key: keyof Shadow, value: number | string | boolean) => {
+      setShadows((prev) => prev.map((s, i) => (i === index ? { ...s, [key]: value } : s)));
    };
 
    const addShadow = () => {
-      setShadows((prev) => [
-         ...prev,
-         { x: 0, y: 8, blur: 25, spread: -5, color: '#3b82f6', inset: false },
-      ]);
+      setShadows((prev) => [...prev, { x: 0, y: 8, blur: 25, spread: -5, color: '#3b82f6', inset: false }]);
    };
 
    const removeShadow = (index: number) => {
-      if (shadows.length > 1)
-         setShadows((prev) => prev.filter((_, i) => i !== index));
+      if (shadows.length > 1) setShadows((prev) => prev.filter((_, i) => i !== index));
    };
 
    const cssValue = useMemo(() => {
       return shadows
-         .map(
-            (s) =>
-               `${s.inset ? 'inset ' : ''}${s.x}px ${s.y}px ${s.blur}px ${s.spread}px ${s.color}`
-         )
+         .map((s) => `${s.inset ? 'inset ' : ''}${s.x}px ${s.y}px ${s.blur}px ${s.spread}px ${s.color}`)
          .join(',\n    ');
    }, [shadows]);
 
@@ -87,35 +69,13 @@ export function BoxShadowGenerator() {
          {/* Controls */}
          <div className="w-full md:w-[320px] shrink-0 overflow-y-auto border-b md:border-b-0 md:border-r border-border/30 p-4 space-y-4">
             <ControlGroup title="Preview">
-               <ControlColor
-                  label="Background"
-                  value={bodyBg}
-                  onChange={setBodyBg}
-               />
+               <ControlColor label="Background" value={bodyBg} onChange={setBodyBg} />
             </ControlGroup>
 
             <ControlGroup title="Box">
-               <ControlSlider
-                  label="Size"
-                  value={boxSize}
-                  onChange={setBoxSize}
-                  min={60}
-                  max={300}
-                  unit="px"
-               />
-               <ControlSlider
-                  label="Radius"
-                  value={boxRadius}
-                  onChange={setBoxRadius}
-                  min={0}
-                  max={150}
-                  unit="px"
-               />
-               <ControlColor
-                  label="Color"
-                  value={boxColor}
-                  onChange={setBoxColor}
-               />
+               <ControlSlider label="Size" value={boxSize} onChange={setBoxSize} min={60} max={300} unit="px" />
+               <ControlSlider label="Radius" value={boxRadius} onChange={setBoxRadius} min={0} max={150} unit="px" />
+               <ControlColor label="Color" value={boxColor} onChange={setBoxColor} />
             </ControlGroup>
 
             {shadows.map((shadow, i) => (
@@ -152,16 +112,8 @@ export function BoxShadowGenerator() {
                      max={50}
                      unit="px"
                   />
-                  <ControlColor
-                     label="Color"
-                     value={shadow.color}
-                     onChange={(v) => updateShadow(i, 'color', v)}
-                  />
-                  <ControlToggle
-                     label="Inset"
-                     value={shadow.inset}
-                     onChange={(v) => updateShadow(i, 'inset', v)}
-                  />
+                  <ControlColor label="Color" value={shadow.color} onChange={(v) => updateShadow(i, 'color', v)} />
+                  <ControlToggle label="Inset" value={shadow.inset} onChange={(v) => updateShadow(i, 'inset', v)} />
                   {shadows.length > 1 && (
                      <Button
                         variant="ghost"
@@ -175,12 +127,7 @@ export function BoxShadowGenerator() {
                </ControlGroup>
             ))}
 
-            <Button
-               variant="outline"
-               size="sm"
-               className="w-full h-8 text-xs gap-1"
-               onClick={addShadow}
-            >
+            <Button variant="outline" size="sm" className="w-full h-8 text-xs gap-1" onClick={addShadow}>
                <Plus className="h-3 w-3" /> Add Shadow
             </Button>
          </div>

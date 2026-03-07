@@ -132,9 +132,7 @@ export function EditorPanel({
 
       if (filteredData !== null && filteredData !== undefined) {
          // Convert back to string with appropriate formatting
-         const indent = isStandard
-            ? INDENT_LEVELS.STANDARD
-            : INDENT_LEVELS.EXPANDED;
+         const indent = isStandard ? INDENT_LEVELS.STANDARD : INDENT_LEVELS.EXPANDED;
          const formattedString = stringifyJson(filteredData, indent);
          onDataChange(formattedString);
          onConfigChange({ ...config, filterPath: query });
@@ -236,55 +234,39 @@ export function EditorPanel({
           </ToggleGroup> */}
                <div className="editor-toolbar-content flex justify-between items-center w-full pl-2">
                   <div className="flex items-center">
-                     {config.editorFormatOptions.includes(
-                        FORMAT_STATES.MINIFIED
-                     ) ? (
+                     {config.editorFormatOptions.includes(FORMAT_STATES.MINIFIED) ? (
                         <JusifyButton
-                           onClick={() =>
-                              handleEditorFormatChange(FORMAT_STATES.MINIFIED)
-                           }
+                           onClick={() => handleEditorFormatChange(FORMAT_STATES.MINIFIED)}
                            title="Minify"
                            variant={isMinified ? 'default' : 'ghost'}
                         />
                      ) : null}
-                     {config.editorFormatOptions.includes(
-                        FORMAT_STATES.STANDARD
-                     ) ? (
+                     {config.editorFormatOptions.includes(FORMAT_STATES.STANDARD) ? (
                         <BracesButton
-                           onClick={() =>
-                              handleEditorFormatChange(FORMAT_STATES.STANDARD)
-                           }
+                           onClick={() => handleEditorFormatChange(FORMAT_STATES.STANDARD)}
                            title="Format"
                            variant={isStandard ? 'default' : 'ghost'}
                         />
                      ) : null}
 
-                     {!isMinified &&
-                        config.editorType === EDITOR_TYPES.text && (
-                           <>
-                              <ExpandButton
-                                 onClick={handleExpand}
-                                 title="Expand"
-                                 variant={isExpanded ? 'default' : 'ghost'}
-                              />
-                              <CollapseButton
-                                 onClick={handleCollapse}
-                                 title="Collapse"
-                                 variant={isCollapsed ? 'default' : 'ghost'}
-                              />
-                           </>
-                        )}
+                     {!isMinified && config.editorType === EDITOR_TYPES.text && (
+                        <>
+                           <ExpandButton
+                              onClick={handleExpand}
+                              title="Expand"
+                              variant={isExpanded ? 'default' : 'ghost'}
+                           />
+                           <CollapseButton
+                              onClick={handleCollapse}
+                              title="Collapse"
+                              variant={isCollapsed ? 'default' : 'ghost'}
+                           />
+                        </>
+                     )}
                   </div>
                   <div className="flex items-center">
-                     <SearchButton
-                        onClick={handleSearchClick}
-                        variant={config.searchOpen ? 'default' : 'ghost'}
-                     />
-                     <ImportButton
-                        onImport={handleImport}
-                        dataType="json"
-                        onImportClick={handleImportClick}
-                     />
+                     <SearchButton onClick={handleSearchClick} variant={config.searchOpen ? 'default' : 'ghost'} />
+                     <ImportButton onImport={handleImport} dataType="json" onImportClick={handleImportClick} />
                      <ExportButton data={data} />
                   </div>
                </div>

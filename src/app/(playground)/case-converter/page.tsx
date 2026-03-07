@@ -27,8 +27,7 @@ export const metadata: Metadata = {
    twitter: {
       card: 'summary_large_image',
       title: 'Case Converter - Transform Text & Code Formats',
-      description:
-         'Free online Case Converter. Change text to camelCase, snake_case, PascalCase, and more.',
+      description: 'Free online Case Converter. Change text to camelCase, snake_case, PascalCase, and more.',
    },
    alternates: {
       canonical: 'https://www.deveditor.io/case-converter',
@@ -47,7 +46,7 @@ export default function Page() {
             </div>
 
             {/* SEO Content directly in the DOM, below the fold */}
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12">
+            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
                <CaseConverterSeoContent />
             </div>
          </div>

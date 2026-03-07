@@ -56,7 +56,10 @@ export function parseJwt(token: string): ParsedJwt {
 
    const parts = token.trim().split('.');
    if (parts.length < 2 || parts.length > 3) {
-      return { ...defaultResult, error: 'A JWT must consist of 3 parts separated by dots' };
+      return {
+         ...defaultResult,
+         error: 'A JWT must consist of 3 parts separated by dots',
+      };
    }
 
    const [headerRaw, payloadRaw, signatureRaw = ''] = parts;
@@ -66,13 +69,19 @@ export function parseJwt(token: string): ParsedJwt {
       try {
          result.header = JSON.parse(base64UrlDecode(headerRaw));
       } catch {
-         return { ...result, error: 'Failed to parse header (Invalid Base64 or JSON)' };
+         return {
+            ...result,
+            error: 'Failed to parse header (Invalid Base64 or JSON)',
+         };
       }
 
       try {
          result.payload = JSON.parse(base64UrlDecode(payloadRaw));
       } catch {
-         return { ...result, error: 'Failed to parse payload (Invalid Base64 or JSON)' };
+         return {
+            ...result,
+            error: 'Failed to parse payload (Invalid Base64 or JSON)',
+         };
       }
 
       result.signature = signatureRaw;
@@ -83,18 +92,22 @@ export function parseJwt(token: string): ParsedJwt {
    }
 }
 
-export function formatTimestamp(ts: number): { formatted: string; relative: string; isExpired?: boolean } {
+export function formatTimestamp(ts: number): {
+   formatted: string;
+   relative: string;
+   isExpired?: boolean;
+} {
    const date = new Date(ts * 1000);
    const formatted = date.toLocaleString();
    const now = new Date();
-   
+
    const diffMs = date.getTime() - now.getTime();
    const diffSec = Math.floor(diffMs / 1000);
-   
+
    if (diffSec === 0) return { formatted, relative: 'Right now' };
 
    const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
-   
+
    let relative = '';
    if (Math.abs(diffSec) < 60) {
       relative = rtf.format(diffSec, 'second');
@@ -110,9 +123,9 @@ export function formatTimestamp(ts: number): { formatted: string; relative: stri
       relative = rtf.format(Math.floor(diffSec / 31536000), 'year');
    }
 
-   return { 
-      formatted, 
+   return {
+      formatted,
       relative,
-      isExpired: diffSec < 0
+      isExpired: diffSec < 0,
    };
 }

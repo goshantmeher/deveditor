@@ -24,10 +24,7 @@ const eslintConfig = [
       },
       rules: {
          '@typescript-eslint/no-explicit-any': 'warn',
-         '@typescript-eslint/no-unused-vars': [
-            'error',
-            { argsIgnorePattern: '^_' },
-         ],
+         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
          'react-hooks/rules-of-hooks': 'error',
          'react-hooks/exhaustive-deps': 'warn',
       },

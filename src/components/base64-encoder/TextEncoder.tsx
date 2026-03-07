@@ -3,6 +3,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Copy, Check, ArrowRightLeft, WrapText, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 type Direction = 'encode' | 'decode';
 type Charset = 'utf-8' | 'ascii' | 'iso-8859-1';
@@ -15,11 +16,7 @@ function isValidBase64(str: string): boolean {
    return /^[A-Za-z0-9+/]*={0,2}$/.test(cleaned) && cleaned.length % 4 === 0;
 }
 
-function encodeText(
-   text: string,
-   charset: Charset,
-   wrapLines: boolean
-): string {
+function encodeText(text: string, charset: Charset, wrapLines: boolean): string {
    try {
       let bytes: Uint8Array;
 
@@ -114,12 +111,7 @@ export function TextEncoder() {
 
          // Auto-detect: if user pastes valid Base64 while in encode mode,
          // and it's a substantial string, switch to decode mode
-         if (
-            !isUserSwitch.current &&
-            direction === 'encode' &&
-            value.length > 8 &&
-            isValidBase64(value)
-         ) {
+         if (!isUserSwitch.current && direction === 'encode' && value.length > 8 && isValidBase64(value)) {
             setDirection('decode');
             setAutoDetected(true);
             setTimeout(() => setAutoDetected(false), 3000);
@@ -166,14 +158,14 @@ export function TextEncoder() {
    return (
       <div className="flex flex-col h-full">
          {/* Toolbar */}
-         <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-b border-border/30 bg-muted/10">
+         <div className="flex flex-wrap items-center gap-3 px-4 py-2.5 border-b border-border bg-background">
             {/* Direction Toggle */}
             <div className="flex items-center gap-2">
                <button
                   onClick={handleToggleDirection}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                      direction === 'encode'
-                        ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
+                        ? 'bg-indigo-500/15 text-indigo-400 border border-indigo-500/30'
                         : 'bg-amber-500/15 text-amber-400 border border-amber-500/30'
                   }`}
                >
@@ -182,7 +174,7 @@ export function TextEncoder() {
                </button>
 
                {autoDetected && (
-                  <span className="text-[10px] text-emerald-400 animate-pulse flex items-center gap-1">
+                  <span className="text-[10px] text-indigo-400 animate-pulse flex items-center gap-1">
                      <Info className="h-3 w-3" />
                      Auto-detected Base64 input
                   </span>
@@ -191,18 +183,17 @@ export function TextEncoder() {
 
             {/* Charset */}
             <div className="flex items-center gap-1.5">
-               <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                  Charset
-               </span>
-               <select
-                  value={charset}
-                  onChange={(e) => setCharset(e.target.value as Charset)}
-                  className="h-7 px-2 text-xs rounded-md border border-border/40 bg-background text-foreground cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary/50"
-               >
-                  <option value="utf-8">UTF-8</option>
-                  <option value="ascii">ASCII</option>
-                  <option value="iso-8859-1">Latin-1</option>
-               </select>
+               <span className="text-[10px] text-muted-foreground uppercase tracking-wider">Charset</span>
+               <Select value={charset} onValueChange={(value) => setCharset(value as Charset)}>
+                  <SelectTrigger className="h-7 px-2 text-xs w-[100px] border border-border/40 focus:ring-1 focus:ring-primary/50 bg-background text-foreground">
+                     <SelectValue placeholder="Charset" />
+                  </SelectTrigger>
+                  <SelectContent>
+                     <SelectItem value="utf-8">UTF-8</SelectItem>
+                     <SelectItem value="ascii">ASCII</SelectItem>
+                     <SelectItem value="iso-8859-1">Latin-1</SelectItem>
+                  </SelectContent>
+               </Select>
             </div>
 
             {/* Line Wrap Toggle */}
@@ -237,28 +228,25 @@ export function TextEncoder() {
          {/* Editor Panels */}
          <div className="flex-1 flex flex-col md:flex-row min-h-0">
             {/* Input Panel */}
-            <div className="flex flex-col md:w-1/2 min-h-0 border-r border-border/30">
-               <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0 flex items-center justify-between">
+            <div className="flex flex-col md:w-1/2 min-h-0 border-r border-border">
+               <div className="px-3 py-1.5 border-b border-border bg-background shrink-0 flex items-center justify-between min-h-10">
                   <div className="flex items-center gap-2">
                      <div
-                        className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-emerald-400/80' : 'bg-amber-400/80'}`}
+                        className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-indigo-400/80' : 'bg-amber-400/80'}`}
                      />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                         {direction === 'encode' ? 'Plain Text' : 'Base64 Input'}
                      </span>
                   </div>
                   <span className="text-[10px] text-muted-foreground">
-                     {input.length > 0 &&
-                        `${input.length} chars · ${formatBytes(inputBytes)}`}
+                     {input.length > 0 && `${input.length} chars · ${formatBytes(inputBytes)}`}
                   </span>
                </div>
                <textarea
                   value={input}
                   onChange={(e) => handleInputChange(e.target.value)}
                   placeholder={
-                     direction === 'encode'
-                        ? 'Type or paste text to encode...'
-                        : 'Paste Base64 string to decode...'
+                     direction === 'encode' ? 'Type or paste text to encode...' : 'Paste Base64 string to decode...'
                   }
                   className="flex-1 w-full p-4 bg-background text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/50 min-h-[200px]"
                   spellCheck={false}
@@ -267,15 +255,13 @@ export function TextEncoder() {
 
             {/* Output Panel */}
             <div className="flex flex-col md:w-1/2 min-h-0">
-               <div className="px-3 py-1.5 border-b border-border/30 bg-muted/20 shrink-0 flex items-center justify-between">
+               <div className="px-3 py-1.5 border-b border-border bg-background shrink-0 flex items-center justify-between min-h-10">
                   <div className="flex items-center gap-2">
                      <div
                         className={`w-2 h-2 rounded-full ${direction === 'encode' ? 'bg-blue-400/80' : 'bg-green-400/80'}`}
                      />
                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        {direction === 'encode'
-                           ? 'Base64 Output'
-                           : 'Decoded Text'}
+                        {direction === 'encode' ? 'Base64 Output' : 'Decoded Text'}
                      </span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -285,10 +271,7 @@ export function TextEncoder() {
                            {direction === 'encode' && inputBytes > 0 && (
                               <span className="ml-1 text-amber-400">
                                  (+
-                                 {Math.round(
-                                    ((outputBytes - inputBytes) / inputBytes) *
-                                       100
-                                 )}
+                                 {Math.round(((outputBytes - inputBytes) / inputBytes) * 100)}
                                  %)
                               </span>
                            )}
@@ -319,7 +302,7 @@ export function TextEncoder() {
                   value={output}
                   readOnly
                   placeholder="Output will appear here..."
-                  className="flex-1 w-full p-4 bg-muted/5 text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/50 min-h-[200px]"
+                  className="flex-1 w-full p-4 bg-background text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/50 min-h-[200px]"
                   spellCheck={false}
                />
             </div>

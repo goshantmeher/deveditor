@@ -44,14 +44,14 @@ import { JsonEditorSeoContent } from '@/components/json-editor/docs/JsonEditorSe
 export default function Page() {
    return (
       <PersistenceProvider>
-         <div className="flex flex-col">
+         <div id="page-top" className="flex flex-col">
             {/* The main editor viewport */}
             <div className="h-[calc(100vh-72px)] shrink-0">
                <JsonEditorView />
             </div>
 
             {/* SEO Content directly in the DOM, below the fold */}
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12">
+            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
                <JsonEditorSeoContent />
             </div>
          </div>

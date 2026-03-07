@@ -52,8 +52,7 @@ async function getConverterFns(formatKey: string): Promise<ConverterFns> {
          const yaml = await import('js-yaml');
          fns = {
             toJson: (content: string) => yaml.load(content),
-            fromJson: (data: unknown) =>
-               yaml.dump(data, { indent: 2, lineWidth: -1 }),
+            fromJson: (data: unknown) => yaml.dump(data, { indent: 2, lineWidth: -1 }),
          };
          break;
       }
@@ -68,17 +67,13 @@ async function getConverterFns(formatKey: string): Promise<ConverterFns> {
                   skipEmptyLines: true,
                });
                if (result.errors.length > 0) {
-                  throw new Error(
-                     `CSV parse error: ${result.errors[0].message} (row ${result.errors[0].row})`
-                  );
+                  throw new Error(`CSV parse error: ${result.errors[0].message} (row ${result.errors[0].row})`);
                }
                return result.data;
             },
             fromJson: (data: unknown) => {
                if (!Array.isArray(data)) {
-                  throw new Error(
-                     'CSV export requires JSON to be an array of objects'
-                  );
+                  throw new Error('CSV export requires JSON to be an array of objects');
                }
                return Papa.unparse(data);
             },
@@ -118,14 +113,8 @@ async function getConverterFns(formatKey: string): Promise<ConverterFns> {
          fns = {
             toJson: (content: string) => TOML.parse(content),
             fromJson: (data: unknown) => {
-               if (
-                  typeof data !== 'object' ||
-                  data === null ||
-                  Array.isArray(data)
-               ) {
-                  throw new Error(
-                     'TOML export requires JSON to be a plain object (not array or primitive)'
-                  );
+               if (typeof data !== 'object' || data === null || Array.isArray(data)) {
+                  throw new Error('TOML export requires JSON to be a plain object (not array or primitive)');
                }
                return TOML.stringify(data as Record<string, unknown>);
             },

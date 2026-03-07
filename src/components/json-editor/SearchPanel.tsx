@@ -12,12 +12,7 @@ interface SearchPanelProps {
    currentFilter?: string;
 }
 
-export function SearchPanel({
-   onSearch,
-   onClear,
-   onClose,
-   currentFilter,
-}: SearchPanelProps) {
+export function SearchPanel({ onSearch, onClear, onClose, currentFilter }: SearchPanelProps) {
    const [searchQuery, setSearchQuery] = useState(currentFilter || '');
 
    const handleSearch = () => {
@@ -59,12 +54,7 @@ export function SearchPanel({
                   Clear Filter
                </Button>
             )}
-            <Button
-               onClick={onClose}
-               size="sm"
-               variant="ghost"
-               aria-label="Close search panel"
-            >
+            <Button onClick={onClose} size="sm" variant="ghost" aria-label="Close search panel">
                <X className="h-4 w-4" />
             </Button>
          </div>

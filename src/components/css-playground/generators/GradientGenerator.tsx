@@ -2,12 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { GeneratorPreview } from './GeneratorPreview';
-import {
-   ControlSlider,
-   ControlColor,
-   ControlSelect,
-   ControlGroup,
-} from './GeneratorControls';
+import { ControlSlider, ControlColor, ControlSelect, ControlGroup } from './GeneratorControls';
 import { Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -28,14 +23,8 @@ export function GradientGenerator() {
    const [radius, setRadius] = useState(16);
    const [bodyBg, setBodyBg] = useState('#0f172a');
 
-   const updateStop = (
-      index: number,
-      key: keyof ColorStop,
-      value: string | number
-   ) => {
-      setStops((prev) =>
-         prev.map((s, i) => (i === index ? { ...s, [key]: value } : s))
-      );
+   const updateStop = (index: number, key: keyof ColorStop, value: string | number) => {
+      setStops((prev) => prev.map((s, i) => (i === index ? { ...s, [key]: value } : s)));
    };
 
    const addStop = () => {
@@ -43,18 +32,14 @@ export function GradientGenerator() {
    };
 
    const removeStop = (index: number) => {
-      if (stops.length > 2)
-         setStops((prev) => prev.filter((_, i) => i !== index));
+      if (stops.length > 2) setStops((prev) => prev.filter((_, i) => i !== index));
    };
 
    const gradientValue = useMemo(() => {
       const sortedStops = [...stops].sort((a, b) => a.position - b.position);
-      const colorStops = sortedStops
-         .map((s) => `${s.color} ${s.position}%`)
-         .join(', ');
+      const colorStops = sortedStops.map((s) => `${s.color} ${s.position}%`).join(', ');
 
-      if (type === 'linear')
-         return `linear-gradient(${angle}deg, ${colorStops})`;
+      if (type === 'linear') return `linear-gradient(${angle}deg, ${colorStops})`;
       if (type === 'radial') return `radial-gradient(circle, ${colorStops})`;
       return `conic-gradient(from ${angle}deg, ${colorStops})`;
    }, [type, angle, stops]);
@@ -68,11 +53,7 @@ export function GradientGenerator() {
       <div className="flex flex-col md:flex-row h-full min-h-0 overflow-y-auto md:overflow-hidden">
          <div className="w-full md:w-[320px] shrink-0 overflow-y-auto border-b md:border-b-0 md:border-r border-border/30 p-4 space-y-4">
             <ControlGroup title="Preview">
-               <ControlColor
-                  label="Background"
-                  value={bodyBg}
-                  onChange={setBodyBg}
-               />
+               <ControlColor label="Background" value={bodyBg} onChange={setBodyBg} />
             </ControlGroup>
 
             <ControlGroup title="Gradient Type">
@@ -87,43 +68,18 @@ export function GradientGenerator() {
                   ]}
                />
                {(type === 'linear' || type === 'conic') && (
-                  <ControlSlider
-                     label="Angle"
-                     value={angle}
-                     onChange={setAngle}
-                     min={0}
-                     max={360}
-                     unit="°"
-                  />
+                  <ControlSlider label="Angle" value={angle} onChange={setAngle} min={0} max={360} unit="°" />
                )}
             </ControlGroup>
 
             <ControlGroup title="Box">
-               <ControlSlider
-                  label="Size"
-                  value={boxSize}
-                  onChange={setBoxSize}
-                  min={60}
-                  max={350}
-                  unit="px"
-               />
-               <ControlSlider
-                  label="Radius"
-                  value={radius}
-                  onChange={setRadius}
-                  min={0}
-                  max={175}
-                  unit="px"
-               />
+               <ControlSlider label="Size" value={boxSize} onChange={setBoxSize} min={60} max={350} unit="px" />
+               <ControlSlider label="Radius" value={radius} onChange={setRadius} min={0} max={175} unit="px" />
             </ControlGroup>
 
             {stops.map((stop, i) => (
                <ControlGroup key={i} title={`Color Stop ${i + 1}`}>
-                  <ControlColor
-                     label="Color"
-                     value={stop.color}
-                     onChange={(v) => updateStop(i, 'color', v)}
-                  />
+                  <ControlColor label="Color" value={stop.color} onChange={(v) => updateStop(i, 'color', v)} />
                   <ControlSlider
                      label="Position"
                      value={stop.position}
@@ -145,12 +101,7 @@ export function GradientGenerator() {
                </ControlGroup>
             ))}
 
-            <Button
-               variant="outline"
-               size="sm"
-               className="w-full h-8 text-xs gap-1"
-               onClick={addStop}
-            >
+            <Button variant="outline" size="sm" className="w-full h-8 text-xs gap-1" onClick={addStop}>
                <Plus className="h-3 w-3" /> Add Color Stop
             </Button>
          </div>

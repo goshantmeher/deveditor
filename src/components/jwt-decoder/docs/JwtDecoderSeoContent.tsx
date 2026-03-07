@@ -1,10 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-   Accordion,
-   AccordionContent,
-   AccordionItem,
-   AccordionTrigger,
-} from '@/components/ui/accordion';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export function JwtDecoderSeoContent() {
    const faqs = [
@@ -31,19 +26,17 @@ export function JwtDecoderSeoContent() {
       {
          question: 'Does this tool verify the signature?',
          answer:
-            'No. This tool is strictly a client-side JWT Decoder for debugging. Verifying a JWT\'s signature requires the private signing key or secret, which is safely kept on the authorization server. This tool structures and parses the data, but it assumes the token signature must be checked independently by your backend layers.',
+            "No. This tool is strictly a client-side JWT Decoder for debugging. Verifying a JWT's signature requires the private signing key or secret, which is safely kept on the authorization server. This tool structures and parses the data, but it assumes the token signature must be checked independently by your backend layers.",
       },
    ];
 
    return (
       <div className="container mx-auto px-4 max-w-5xl text-foreground">
          <div className="mb-12 text-center">
-            <h2 className="text-2xl font-bold mb-4">
-               JWT Decoder — Inspect and Debug JSON Web Tokens Locally
-            </h2>
+            <h2 className="text-2xl font-bold mb-4">JWT Decoder — Inspect and Debug JSON Web Tokens Locally</h2>
             <p className="text-muted-foreground max-w-3xl mx-auto">
-               Safely decode your Authentication and API JSON Web Tokens natively within your browser. 
-               Transform unreadable Base64Url-encoded strings into beautifully formatted JSON structures instantly.
+               Safely decode your Authentication and API JSON Web Tokens natively within your browser. Transform
+               unreadable Base64Url-encoded strings into beautifully formatted JSON structures instantly.
             </p>
          </div>
 
@@ -56,14 +49,15 @@ export function JwtDecoderSeoContent() {
                </CardHeader>
                <CardContent className="text-sm text-muted-foreground space-y-4">
                   <p>
-                     When dealing with authorization layers and Identity Providers (IdP), developers 
-                     frequently need to inspect what data (Claims) a JWT authorization bearer token contains to debug 
-                     role-based access issues.
+                     When dealing with authorization layers and Identity Providers (IdP), developers frequently need to
+                     inspect what data (Claims) a JWT authorization bearer token contains to debug role-based access
+                     issues.
                   </p>
                   <p>
-                     However, pasting sensitive production API tokens into random third-party cloud tools poses a massive 
-                     security violation. Our JWT Decoder parses everything <strong>locally via JavaScript</strong>. The tokens never leave your 
-                     computer or touch our servers, protecting your users and architecture.
+                     However, pasting sensitive production API tokens into random third-party cloud tools poses a
+                     massive security violation. Our JWT Decoder parses everything{' '}
+                     <strong>locally via JavaScript</strong>. The tokens never leave your computer or touch our servers,
+                     protecting your users and architecture.
                   </p>
                </CardContent>
             </Card>
@@ -76,13 +70,13 @@ export function JwtDecoderSeoContent() {
                </CardHeader>
                <CardContent className="text-sm text-muted-foreground space-y-4">
                   <p>
-                     JWT payloads store temporal information heavily—such as the creation time (`iat`), 
-                     expiration time (`exp`), and "Not Before" boundaries (`nbf`). These are almost universally stored as 
-                     Unix Time milliseconds, which are impossible for humans to read natively.
+                     JWT payloads store temporal information heavily—such as the creation time (`iat`), expiration time
+                     (`exp`), and "Not Before" boundaries (`nbf`). These are almost universally stored as Unix Time
+                     milliseconds, which are impossible for humans to read natively.
                   </p>
                   <p>
-                     Our inspector automatically looks for these standardized time-based claims and elegantly formats 
-                     them into local, readable timestamps alongside relative "time ago" counts to easily answer, 
+                     Our inspector automatically looks for these standardized time-based claims and elegantly formats
+                     them into local, readable timestamps alongside relative "time ago" counts to easily answer,
                      <em>"Has this token expired yet?"</em>
                   </p>
                </CardContent>
@@ -90,18 +84,12 @@ export function JwtDecoderSeoContent() {
          </div>
 
          <div className="max-w-3xl mx-auto bg-card rounded-xl border border-border/50 p-6 shadow-sm mb-8">
-            <h3 className="text-xl font-semibold mb-6 text-center">
-               Frequently Asked Questions
-            </h3>
+            <h3 className="text-xl font-semibold mb-6 text-center">Frequently Asked Questions</h3>
             <Accordion type="single" collapsible className="w-full">
                {faqs.map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>
-                     <AccordionTrigger className="text-left font-medium">
-                        {faq.question}
-                     </AccordionTrigger>
-                     <AccordionContent className="text-muted-foreground leading-relaxed">
-                        {faq.answer}
-                     </AccordionContent>
+                     <AccordionTrigger className="text-left font-medium">{faq.question}</AccordionTrigger>
+                     <AccordionContent className="text-muted-foreground leading-relaxed">{faq.answer}</AccordionContent>
                   </AccordionItem>
                ))}
             </Accordion>
