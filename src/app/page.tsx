@@ -1,9 +1,10 @@
 'use client';
 
 import { Input } from '@/components/ui/input';
-import { Search, ExternalLink, Heart, Shield, ChevronDown } from 'lucide-react';
+import { Search, ExternalLink, ChevronDown, Shield } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
+import { Footer } from '@/components/Footer';
 
 // ── Tool Status ──────────────────────────────────────────────
 type ToolStatus = 'available' | 'coming-soon' | 'planned';
@@ -728,20 +729,8 @@ export default function Home() {
                })}
             </main>
 
-            {/* ── Footer ───────────────────────────────── */}
-            <footer className="text-center text-sm text-muted-foreground border-t border-border/30 pt-8">
-               <div className="flex items-center justify-center gap-4 flex-wrap">
-                  <div className="flex items-center gap-1">
-                     <Heart className="h-4 w-4 text-red-500" />
-                     <span>Built by Human</span>
-                  </div>
-                  <span aria-hidden="true">|</span>
-                  <Link href="/about" className="hover:text-foreground transition-colors" aria-label="About DevEditor">
-                     About
-                  </Link>
-               </div>
-            </footer>
          </div>
+         <Footer />
       </div>
    );
 }

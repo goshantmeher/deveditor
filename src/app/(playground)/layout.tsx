@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Footer } from '@/components/Footer';
 
 interface PlaygroundLayoutProps {
    children: ReactNode;
@@ -40,6 +41,7 @@ export default function PlaygroundLayout({ children }: PlaygroundLayoutProps) {
             }}
          >
             {children}
+            <Footer />
          </div>
       </div>
    );
