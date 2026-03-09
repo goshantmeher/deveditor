@@ -126,8 +126,7 @@ const TextEditor = React.forwardRef<EditorHandle, TextEditorProps>(function Text
                // For minified, use no spacing at all
                formatted = JSON.stringify(result.data);
             } else {
-               const indent =
-                  config.formatState === FORMAT_STATES.EXPANDED ? INDENT_LEVELS.EXPANDED : INDENT_LEVELS.STANDARD;
+               const indent = INDENT_LEVELS.STANDARD;
                formatted = stringifyJson(result.data, indent);
             }
             onChange(formatted);
@@ -207,7 +206,7 @@ const TextEditor = React.forwardRef<EditorHandle, TextEditorProps>(function Text
       if (config.formatState === FORMAT_STATES.MINIFIED) {
          expectedFormat = JSON.stringify(result.data);
       } else {
-         const indent = config.formatState === FORMAT_STATES.EXPANDED ? INDENT_LEVELS.EXPANDED : INDENT_LEVELS.STANDARD;
+         const indent = INDENT_LEVELS.STANDARD;
          expectedFormat = stringifyJson(result.data, indent);
       }
 
@@ -235,7 +234,7 @@ const TextEditor = React.forwardRef<EditorHandle, TextEditorProps>(function Text
          return JSON.stringify(data);
       }
 
-      const indent = config.formatState === FORMAT_STATES.EXPANDED ? INDENT_LEVELS.EXPANDED : INDENT_LEVELS.STANDARD;
+      const indent = INDENT_LEVELS.STANDARD;
       return stringifyJson(data, indent);
    }, [data, config.formatState, pendingText]);
 

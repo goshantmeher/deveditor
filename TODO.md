@@ -8,13 +8,7 @@
 > The current flat grid will not scale to 30+ tools. It must be reorganized
 > before more tools are added.
 
-- [x] **Redesign homepage**: category-wise tool listing with collapsible sections
-- [x] **Unified search**: single search bar filters across ALL categories in real-time
-- [x] **Visual categories**: each category gets an icon, accent color, and short description
-- [x] **Tool cards**: redesign with status badges (✅ Available, 🔜 Coming Soon), privacy badge, and tags
-- [x] **"New" indicator**: auto-tag recently launched tools for 30 days
-- [x] **Mobile responsive**: ensure the category layout works beautifully on phones
-- [x] **Privacy banner**: global "100% client-side — nothing sent to servers" trust badge in header
+- *All initial redesign tasks completed.*
 
 ### Proposed Categories:
 
@@ -42,6 +36,17 @@
 | Theme Generator                      | `/theme-generator` | ✅ Live |
 | JSON → Schema Generator              | `/json-to-schema`  | ✅ Live |
 | QR Code Generator                    | `/qr-generator`    | ✅ Live |
+| URL Encoder/Decoder                  | `/url-encoder`     | ✅ Live |
+| Hash Generator                       | `/hash-generator`  | ✅ Live |
+| UUID / ULID Generator                | `/uuid-generator`  | ✅ Live |
+| Password Generator                   | `/password-gen`    | ✅ Live |
+| YAML ↔ JSON Converter                | `/yaml-json`       | ✅ Live |
+| JSON Path Playground                 | `/json-path`       | ✅ Live |
+| PDF Resume Builder                   | `/resume-builder`  | ✅ Live |
+| PDF Tools (Merge/Split/Extract)      | `/pdf-*`           | ✅ Live |
+| Markdown Previewer                   | `/markdown`        | ✅ Live |
+| List / Array Converter               | `/list-converter`  | ✅ Live |
+| Tailwind CSS Lookup                  | `/tailwind`        | ✅ Live |
 
 ---
 
@@ -49,39 +54,8 @@
 
 > High-frequency daily-use tools that solve common annoyances.
 
-- [x] **Case Converter** — Toggle between `camelCase`, `snake_case`, `kebab-case`, `PascalCase`, `UPPER_CASE`, `Sentence case`, `Title Case`
-   - ✅ Feasible: Pure string manipulation, zero dependencies
-   - Priority: ⭐⭐⭐⭐⭐ (daily use, high bookmark rate)
-
-- [x] **List / Array Converter** — Paste a column of values → get a JSON array, SQL `IN()` clause, comma-separated string, Python list, or newline-delimited output
-   - ✅ Feasible: Pure string manipulation, zero dependencies
-   - Priority: ⭐⭐⭐⭐
-
-- [x] **URL Encoder/Decoder** — Encode/decode URI components, parse query params into a table, rebuild URLs
-   - ✅ Feasible: Uses native `encodeURIComponent` / `decodeURIComponent`
-   - Priority: ⭐⭐⭐⭐
-
-- [x] **HTML Entity Converter** — Convert `<`, `&`, `"`, etc. to HTML entities and back
-   - ✅ Feasible: Pure string replace or DOM-based escaping
+- [ ] **String Trimmer / Cleaner** — Remove whitespace, empty lines, or specific prefixes/suffixes from large text blocks.
    - Priority: ⭐⭐⭐
-
-- [x] **Text Diff Checker** — Side-by-side visual diff of two text blocks (line-level + character-level highlighting)
-   - ✅ Feasible: Use the `diff-match-patch` library (~14 KB) or build from scratch
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [x] **Markdown Previewer** — Split-screen: Markdown editor on left, rendered HTML on right
-   - ✅ Feasible: Use `marked` or `markdown-it` library, client-side rendering
-   - Priority: ⭐⭐⭐⭐
-
-- [x] **Lorem Ipsum Generator** — Generate placeholder text (paragraphs, sentences, words), with options for length and style
-   - ✅ Feasible: Pure JS with preset word banks
-   - Priority: ⭐⭐⭐
-   - 💡 Added by review (not in original AI list)
-
-- [x] **String Length / Word Counter** — Character count, word count, line count, byte size, reading time estimate
-   - ✅ Feasible: Pure string manipulation
-   - Priority: ⭐⭐⭐
-   - 💡 Added by review
 
 ---
 
@@ -89,29 +63,8 @@
 
 > Privacy-first tools — the killer selling point is "nothing leaves your browser."
 
-- [x] **JWT Debugger** — Decode Header, Payload, Signature. Show `iat`/`exp` timestamps in human-readable format. Validate structure (not signature, which needs the secret).
-   - ✅ Feasible: JWT is just 3 Base64-encoded JSON segments separated by dots
-   - Priority: ⭐⭐⭐⭐⭐ (the #1 tool backend devs Google for)
-
-- [x] **Hash Generator** — MD5, SHA-1, SHA-256, SHA-512 hashes using browser's `Web Crypto API`
-   - ✅ Feasible: Uses `crypto.subtle.digest()`
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [x] **Password / Secret Generator** — Customizable: length, uppercase, lowercase, numbers, symbols, "easy to read" mode, password strength meter
-   - ✅ Feasible: Pure JS with `crypto.getRandomValues()`
-   - Priority: ⭐⭐⭐⭐
-
-- [x] **UUID / ULID Generator** — Generate v4 UUIDs and ULIDs in batches. Copy single or bulk.
-   - ✅ Feasible: Use `crypto.randomUUID()` and ULID specs (~30 lines of code JS)
-   - Priority: ⭐⭐⭐⭐
-
-- [x] **Bcrypt Tester** — Check if a plaintext string matches a Bcrypt hash
-   - ✅ Feasible: Use `bcryptjs`
+- [ ] **Certificate Inspector** — Paste a PEM/CRT file to see expiry date, issuer, and subject details.
    - Priority: ⭐⭐⭐
-
-- [x] **RSA Key Pair Generator** — Generate public/private key pairs locally
-   - ✅ Feasible: Use `node-forge` or `crypto.subtle` wrapper
-   - Priority: ⭐⭐
 
 ---
 
@@ -119,43 +72,8 @@
 
 > Complementing the existing CSS Playground.
 
-- [x] **Color Converter & Palette** — Convert between HEX, RGB, HSL, CMYK. WCAG contrast checker. Generate complementary/analogous palettes.
-   - ✅ Feasible: Pure math conversions, Canvas for color picker
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [ ] **SVG Optimizer** — Minify SVG (strip metadata, comments, unnecessary attributes). Preview before/after.
-   - ✅ Feasible: Use `svgo` compiled for browser (the WASM build exists) or a lightweight custom parser
-   - Priority: ⭐⭐⭐⭐
-
-- [ ] **Favicon Generator** — Upload a PNG → auto-resize to all standard favicon sizes (16, 32, 48, 64, 128, 256, 512). Download as ICO or PNG set.
-   - ✅ Feasible: HTML `<canvas>` for resizing, `canvas.toBlob()` for export
-   - Priority: ⭐⭐⭐⭐
-
-- [ ] **Shadow / Glassmorphism Generator** — Visual sliders for `box-shadow`, `text-shadow`, `backdrop-filter`, `border-radius` with live preview
-   - ✅ Feasible: Already similar to CSS Playground generators. Can be standalone.
-   - Priority: ⭐⭐⭐ (partially exists in CSS Playground)
-
-- [ ] **CSS Gradient Generator** — Multi-stop linear/radial/conic gradient builder with live preview
-   - ✅ Feasible: Pure CSS generation from slider inputs
-   - Priority: ⭐⭐⭐ (partially exists in CSS Playground)
-
-- [ ] **Tailwind CSS Lookup** — Searchable reference for Tailwind classes → CSS output. Paste CSS → get Tailwind equivalent.
-   - ✅ Feasible: Static lookup table of Tailwind classes. Reverse mapping is heuristic-based.
-   - Priority: ⭐⭐⭐⭐
-   - 💡 Added by review
-
-- [ ] **Font Pair Previewer** — Preview Google Font combinations with customizable sample text, sizes, and weights
-   - ✅ Feasible: Load fonts via Google Fonts API, render with CSS
+- [ ] **Icon Font Previewer** — Browse FontAwesome, Lucide, or Material icons with copy-to-clipboard functionality.
    - Priority: ⭐⭐⭐
-   - 💡 Added by review
-
-- [x] **Theme Generator** — Generate comprehensive UI color themes (Tailwind configs or CSS tokens) from a primary color. Show beautiful sample UI automatically updated with the colors, and allow copying export as JSON or CSS.
-   - ✅ Feasible: Native client-side color math (HSL/Oklch interpolations) + React state previews.
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [ ] **SVG to React/JSX Converter** — Paste raw SVG code, output clean React/JSX components mapping all snake-case/kebab-case attributes directly to proper camelCase JSX attributes instantly.
-   - ✅ Feasible: Fast string parsing and AST walking using something like `hast-util-to-jsx-runtime`.
-   - Priority: ⭐⭐⭐⭐
 
 ---
 
@@ -163,36 +81,8 @@
 
 > Tools that help debug logic, parse expressions, and plan architecture.
 
-- [ ] **Cron Expression Parser** — Convert cron expressions (`*/5 * * * *`) into plain English. Show next N scheduled run times. Interactive builder.
-   - ✅ Feasible: Pure parsing logic, no external dependencies needed
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [x] **RegEx Tester** — Live regex match highlighting, capture groups display, regex cheat sheet, common patterns library
-   - ✅ Feasible: Native `RegExp` object. UI is the main work.
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [x] **JSON ↔ TypeScript/Go/Rust Schema Generator** — Paste JSON → generate TypeScript interfaces, Go structs, Rust structs, Zod schemas, JSON Schema
-   - ✅ Feasible: Parse JSON, infer types, generate code strings. Pure logic.
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [ ] **Unix Timestamp Converter** — Convert epoch timestamps ↔ human-readable dates. Show "time ago" relative format. Support ms/s/ns.
-   - ✅ Feasible: Native `Date` object
-   - Priority: ⭐⭐⭐⭐
-   - 💡 Added by review
-
-- [ ] **ASCII Art Text Generator** — Turn text into big ASCII art headers for code comments using figlet-style fonts
-   - ✅ Feasible: Use a client-side figlet.js library or precomputed font maps
-   - Priority: ⭐⭐
-
-- [ ] **JSON Path / jq Playground** — Query JSON data with JSONPath or jq-like expressions, see results live
-   - ✅ Feasible: Use a client-side JSONPath library
-   - Priority: ⭐⭐⭐⭐
-   - 💡 Added by review
-
-- [ ] **YAML ↔ JSON Converter** — Bidirectional YAML/JSON conversion with syntax validation
-   - ✅ Feasible: Use `js-yaml` library (~30 KB)
-   - Priority: ⭐⭐⭐⭐
-   - 💡 Added by review
+- [ ] **Base64 to JSON** — Directly decode a base64 encoded JSON string and view it.
+   - Priority: ⭐⭐⭐
 
 - [ ] **API Tester (Requires DevEditor Extension)** — A local Postman clone. Bypasses CORS restrictions using a companion open-source browser extension to safely test local and remote APIs.
    - ✅ Feasible: UI is standard React. Network requests are proxied through a manifest v3 extension with `host_permissions: ["<all_urls>"]`.
@@ -231,33 +121,8 @@
    - ✅ Feasible: Parse EXIF manually from JPEG binary or use lightweight `exif-js`
    - Priority: ⭐⭐⭐⭐
 
-- [x] **QR Code Generator** — Generate QR codes from text/URLs. Customize colors, size, error correction level. Download as PNG/SVG.
-   - ✅ Feasible: Use `qrcode` library or implement Reed-Solomon encoding
-   - Priority: ⭐⭐⭐⭐⭐
-   - 💡 Added by review
-
-- [x] **PDF Page Extractor** — Extract specific pages from a PDF, merge PDFs, all client-side
-   - ⚠️ Partially feasible: Use `pdf-lib` (~300 KB). Heavy but works entirely client-side.
-   - Priority: ⭐⭐⭐
-   - 💡 Added by review
-
-- [x] **PDF Resume Builder & Generator** — A genuinely free, fully customizable resume builder avoiding paywalls.
-   - 💡 **Context**: Most resume builders online act free but add paywalls at download or severely restrict layouts. This tool will allow users to freely compose sections, dictate exact placement, customize content styles, and select from a list of clean, professional default format templates.
-   - ✅ Feasible: Can be built using `react-pdf` for robust client-side rendering or `html2pdf.js`.
-   - Priority: ⭐⭐⭐⭐⭐
-   - 💡 Added by user request
-
-- [x] **Merge PDF** — Combine multiple PDF files into one continuous document.
-   - ✅ Feasible: Entirely client-side using `pdf-lib`.
+- [ ] **Image to PDF** — Convert one or more images into a multi-page PDF document.
    - Priority: ⭐⭐⭐⭐
-
-- [x] **Split PDF** — Cut a single PDF into multiple chunks or individual page files.
-   - ✅ Feasible: Entirely client-side using `pdf-lib` to create new documents from copied pages.
-   - Priority: ⭐⭐⭐⭐
-
-- [x] **Copy PDF Content** — Extract textual content out of a PDF document to copy to clipboard.
-   - ⚠️ Partially feasible: Requires `pdf.js` by Mozilla parsing logic. Can be heavy.
-   - Priority: ⭐⭐⭐
 
 - [ ] **PDF to Doc (Word)** — Convert a PDF into an editable Word Document format.
    - ❌ **Difficult**: Writing clean `.docx` from complex PDF styling natively in browser js is notoriously imperfect. May require simple extraction mapping or a light background worker.
@@ -318,9 +183,8 @@
    - ✅ Feasible: Using browser `FileReader` API and `readAsDataURL()`.
    - Priority: ⭐⭐⭐⭐
 
-- [x] **Markdown to HTML Converter** — Convert raw markdown to sanitized HTML output and rich preview instantly.
-   - ✅ Feasible: Native client mapping using `marked` and `DOMPurify`.
-   - Priority: ⭐⭐⭐⭐
+- [ ] **Base64 to Image** — Upload a Base64 string and download the original image securely.
+   - Priority: ⭐⭐⭐
 
 ---
 

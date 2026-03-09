@@ -38,7 +38,7 @@ export function SearchPanel({ onSearch, onClear, onClose, currentFilter }: Searc
       <div className="search-panel-wrapper p-2 bg-background border-b border-border flex justify-between items-center gap-2">
          <Input
             type="text"
-            placeholder="e.g., favorites.books or favorites"
+            placeholder="e.g., $.favorites.books[*]"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={handleKeyDown}

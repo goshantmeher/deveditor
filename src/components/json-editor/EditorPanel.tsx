@@ -30,8 +30,6 @@ export function EditorPanel({
    const editorRef = React.useRef<EditorHandle>(null);
 
    // Determine which button should be highlighted
-   const isExpanded = config.formatState === FORMAT_STATES.EXPANDED;
-   const isCollapsed = config.formatState === FORMAT_STATES.COLLAPSED;
    const isMinified = config.formatState === FORMAT_STATES.MINIFIED;
    const isStandard = config.formatState === FORMAT_STATES.STANDARD;
 
@@ -132,7 +130,7 @@ export function EditorPanel({
 
       if (filteredData !== null && filteredData !== undefined) {
          // Convert back to string with appropriate formatting
-         const indent = isStandard ? INDENT_LEVELS.STANDARD : INDENT_LEVELS.EXPANDED;
+         const indent = INDENT_LEVELS.STANDARD;
          const formattedString = stringifyJson(filteredData, indent);
          onDataChange(formattedString);
          onConfigChange({ ...config, filterPath: query });
@@ -160,15 +158,7 @@ export function EditorPanel({
             formatVersion: (config.formatVersion || 0) + 1,
          });
       }
-      // Force re-format in case content is stale, then expand
-      if (config.formatState !== FORMAT_STATES.MINIFIED) {
-         onConfigChange({
-            ...config,
-            formatState: FORMAT_STATES.EXPANDED,
-            formatVersion: (config.formatVersion || 0) + 1,
-         });
-      }
-      // Let the reformat effect run, then unfold via a short delay
+
       setTimeout(() => {
          editorRef.current?.expandAll();
       }, 50);
@@ -183,15 +173,7 @@ export function EditorPanel({
             formatVersion: (config.formatVersion || 0) + 1,
          });
       }
-      // Force re-format in case content is stale
-      if (config.formatState !== FORMAT_STATES.MINIFIED) {
-         onConfigChange({
-            ...config,
-            formatState: FORMAT_STATES.STANDARD,
-            formatVersion: (config.formatVersion || 0) + 1,
-         });
-      }
-      // Let the reformat effect run, then fold via a short delay
+
       setTimeout(() => {
          editorRef.current?.collapseAll();
       }, 50);
@@ -248,24 +230,15 @@ export function EditorPanel({
                            variant={isStandard ? 'default' : 'ghost'}
                         />
                      ) : null}
-
-                     {!isMinified && config.editorType === EDITOR_TYPES.text && (
-                        <>
-                           <ExpandButton
-                              onClick={handleExpand}
-                              title="Expand"
-                              variant={isExpanded ? 'default' : 'ghost'}
-                           />
-                           <CollapseButton
-                              onClick={handleCollapse}
-                              title="Collapse"
-                              variant={isCollapsed ? 'default' : 'ghost'}
-                           />
-                        </>
-                     )}
                   </div>
                   <div className="flex items-center">
                      <SearchButton onClick={handleSearchClick} variant={config.searchOpen ? 'default' : 'ghost'} />
+                     {!isMinified && config.editorType === EDITOR_TYPES.text && (
+                        <>
+                           <ExpandButton onClick={handleExpand} title="Expand" variant="ghost" />
+                           <CollapseButton onClick={handleCollapse} title="Collapse" variant="ghost" />
+                        </>
+                     )}
                      <ImportButton onImport={handleImport} dataType="json" onImportClick={handleImportClick} />
                      <ExportButton data={data} />
                   </div>

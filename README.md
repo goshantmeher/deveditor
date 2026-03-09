@@ -19,33 +19,41 @@ DevEditor includes a growing set of highly specialized tools organized by catego
 - **Base64 Encoder**: Encode & decode text, files, and images to Base64.
 - **Case Converter**: Toggle between camelCase, snake_case, kebab-case, PascalCase, and more.
 - **Text Diff Checker**: Side-by-side visual comparison of two text blocks with change highlighting.
-- **Markdown Generator**: Generate clean HTML from markdown with live preview and Mermaid diagrams.
+- **Markdown Previewer**: Generate clean HTML from markdown with live preview and Mermaid diagrams.
+- **URL Encoder/Decoder**: Encode/decode URI components and parse query parameters.
+- **List / Array Converter**: Convert columns of text into JSON arrays, SQL clauses, or comma-separated lists.
 
 ### 🔐 Security & Identity
 
 - **JWT Debugger**: Decode JWT header, payload & signature. Inspect timestamps & claims.
+- **Hash Generator**: MD5, SHA-1, SHA-256, and SHA-512 generators using Web Crypto API.
+- **Password Generator**: Highly customizable, cryptographically secure secret generator.
+- **UUID / ULID Generator**: Generate batch v4 UUIDs and ULIDs securely.
 
 ### 🎨 Frontend & Design
 
 - **CSS Playground**: Test & generate CSS or Tailwind features with live preview.
 - **Color Converter & Palette**: Convert HEX, RGB, HSL, CMYK. WCAG contrast checker & palette generator.
 - **Theme Generator**: Generate UI themes (Tailwind/CSS tokens) and export JSON automatically.
+- **Tailwind CSS Lookup**: Find Tailwind classes for CSS properties and vice versa.
 
 ### 🏗️ Architecture & Logic
 
-- **JSON Viewer / Editor**: Format, validate, and explore JSON data with tree view.
+- **JSON Viewer / Editor**: Format, validate, and explore JSON data with tree view and JSONPath support.
 - **RegEx Tester**: Live regex match highlighting, capture groups, and cheat sheet.
 - **JSON → Schema Generator**: Paste JSON → generate TypeScript interfaces, Go structs, or Zod schemas.
+- **YAML ↔ JSON Converter**: Bidirectional conversion between YAML and JSON with validation.
+- **JSON Path / jq Playground**: Query JSON data with live results using JSONPath expressions.
 
 ### 📦 Media & Files
 
 - **QR Code Generator**: Generate high-quality QR codes with custom colors and export as PNG or SVG.
-- **AI Resume Builder**: Import from ChatGPT, Claude, or Gemini. Pick a template, download PDF.
+- **AI Resume Builder**: Create professional, ATS-friendly resumes avoiding paywalls.
 - **PDF Tools**: Merge, Split, Extract Pages, and Copy Text from PDFs completely within the browser.
 
 ### 🚀 More Tools Coming Soon
 
-- Hash Generators, Password Generators, Favicon Generators, SVG Optimizers, YAML/JSON Converters, and Media Converters!
+- Image Compressors, SVG Optimizers, Unix Timestamp Converters, and API Testers!
 
 ---
 

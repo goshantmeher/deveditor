@@ -2,8 +2,6 @@
 
 import { usePathname } from 'next/navigation';
 import SettingsButton from './SettingsButton';
-import InfoButton from './InfoButton';
-import JsonEditorInfo from './json-editor/docs/JsonEditorInfo';
 import { Github, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -11,7 +9,6 @@ import Link from 'next/link';
 export default function HeaderActions() {
    const pathname = usePathname();
    const normalizedPath = pathname.replace(/\/$/, '');
-   const isJsonEditor = normalizedPath === '/json-editor';
 
    // Some routes do not persist data (security/files), so we hide the toggle to avoid user confusion
    const noPersistenceRoutes = [
@@ -56,11 +53,6 @@ export default function HeaderActions() {
       <div className="header-actions-container flex items-center gap-2">
          <SponsorButton />
          <ContributeButton />
-         {isJsonEditor && (
-            <InfoButton title="JSON Editor Guide">
-               <JsonEditorInfo />
-            </InfoButton>
-         )}
          <SettingsButton showPersistenceOption={showPersistence} />
       </div>
    );

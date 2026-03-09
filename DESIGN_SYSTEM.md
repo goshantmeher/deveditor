@@ -3,6 +3,8 @@
 > Visual & UX standards for building premium developer tools.
 > Updated: March 2026
 
+**CRITICAL RULE:** Always use `yarn` for installing dependencies. Do NOT use `npm`.
+
 ---
 
 ## 🎨 Color System
@@ -54,6 +56,7 @@ Use these for icon boxes, badges, and decorative elements:
 - **Tool viewport**: `<div className="h-[calc(100vh-72px)] shrink-0">` — takes full viewport minus navbar.
 - **SEO section**: `<div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">` — below the fold.
 - **Persistence**: Wrap with `<PersistenceProvider>` for tools that save state to localStorage.
+- **Sitemap**: Every new tool MUST be appended to `src/app/sitemap.ts` in the `tools` array to be indexed by search engines.
 
 ### 2. Tool Container
 
@@ -66,8 +69,10 @@ Use these for icon boxes, badges, and decorative elements:
 
 - Compact toolbar: `bg-background` with `border-b border-border`.
 - Contains: Tool Icon, Title, Action buttons.
-- Standard actions: **Clear**, **Sample** (when input is empty), **Copy**, **Swap** (when applicable).
+- Standard actions: **Clear**, **Sample** (when input is empty), **Import** (when applicable to load a file), **Copy**, **Swap** (when applicable).
 - Sample button: Uses `FlaskConical` icon, populates with example data, hides when input is present.
+- Import button: Uses `Upload` icon, triggers hidden file input, hides or stays shown depending on context.
+- **Grouping**: When utilizing both "Sample" and "Import", place them together in a `div` wrapper with `gap-2` so they don't separate when layout flexes.
 
 ### 4. Controls (Forms)
 
@@ -114,14 +119,20 @@ Every tool page gets a "Premium Document" below the fold. This is a full visual 
    - Code references use `code className="text-indigo-400"`
    - Quick Reference text: `text-xs` minimum (never `text-[10px]`)
 
-4. **FAQ Section** — `space-y-12 border-t border-border/50 pt-24`:
+4. **Editor Guide Section (Optional for complex tools)** — `space-y-8 border-t border-border/50 pt-24`:
+   - Use for detailed tool instructions, shortcuts, and feature breakdowns.
+   - Centered title (`text-3xl font-bold tracking-tight text-center`) and description (`text-muted-foreground`).
+   - Inner content wrapper: `bg-muted/30 rounded-3xl p-8 md:p-12 border border-border mt-12 max-w-4xl mx-auto`.
+   - Content inside should use premium cards, grids, and customized lucide icons to explain functionality.
+
+5. **FAQ Section** — `space-y-12 border-t border-border/50 pt-24`:
    - Centered title: `text-3xl font-bold tracking-tight`
    - 2-column grid: `md:grid-cols-2 gap-x-12 gap-y-8`
    - Question dot: `w-1.5 h-1.5 rounded-full bg-indigo-500`
    - Answer styling: `text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20`
    - Must include `<script type="application/ld+json">` with FAQ schema
 
-5. **CTA Section** — `bg-indigo-600 rounded-3xl p-12 text-center relative overflow-hidden group`:
+6. **CTA Section** — `bg-indigo-600 rounded-3xl p-12 text-center relative overflow-hidden group`:
    - Glowing orb: `absolute bg-white/5 blur-[80px] rounded-full group-hover:bg-white/10 transition-colors`
    - White heading + `text-indigo-100` description
    - `<ScrollToTopButton label="Scroll up to Start [Action]" />`

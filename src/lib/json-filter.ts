@@ -1,44 +1,27 @@
+import { evaluateJsonPath } from './json-path-evaluator';
+
 /**
- * Filters JSON data by extracting a specific path
- * Example: filterJsonByPath(data, "data.favorites.books") returns only the books array
+ * Filters JSON data by extracting a specific path using JSONPath
+ * Example: filterJsonByPath(data, "$.store.book[*].author") 
  */
 export function filterJsonByPath(data: unknown, path: string): unknown {
    if (!path || !data) {
       return data;
    }
 
-   // Remove leading/trailing whitespace and split by dots
-   const parts = path.trim().split('.');
-   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-   let current: any = data;
-
-   for (const part of parts) {
-      // Handle array notation like "items[0]"
-      const arrayMatch = part.match(/^([^[]+)\[(\d+)]$/);
-
-      if (arrayMatch) {
-         const [, key, index] = arrayMatch;
-         if (current && typeof current === 'object' && key in current) {
-            current = current[key];
-            if (Array.isArray(current)) {
-               current = current[parseInt(index, 10)];
-            } else {
-               return null; // Path invalid
-            }
-         } else {
-            return null; // Path not found
-         }
-      } else {
-         // Regular property access
-         if (current && typeof current === 'object' && part in current) {
-            current = current[part];
-         } else {
-            return null; // Path not found
-         }
+   try {
+      const result = evaluateJsonPath(data, path) as unknown[];
+      
+      if (!result || result.length === 0) {
+         return null;
       }
+      
+      // If a single item is returned, unwrap it to mimic standard object access
+      return result.length === 1 ? result[0] : result;
+   } catch (e) {
+      console.error('Invalid JSONPath expression', e);
+      return null;
    }
-
-   return current;
 }
 
 /**
