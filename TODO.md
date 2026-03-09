@@ -93,16 +93,16 @@
    - ✅ Feasible: JWT is just 3 Base64-encoded JSON segments separated by dots
    - Priority: ⭐⭐⭐⭐⭐ (the #1 tool backend devs Google for)
 
-- [ ] **Hash Generator** — MD5, SHA-1, SHA-256, SHA-512 hashes using browser's `Web Crypto API`
-   - ✅ Feasible: Native `crypto.subtle.digest()` — zero dependencies
+- [x] **Hash Generator** — MD5, SHA-1, SHA-256, SHA-512 hashes using browser's `Web Crypto API`
+   - ✅ Feasible: Uses `crypto.subtle.digest()`
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **Password / Secret Generator** — Customizable: length, uppercase, lowercase, numbers, symbols, "easy to read" mode, password strength meter
-   - ✅ Feasible: Uses `crypto.getRandomValues()` for cryptographically secure randomness
+- [x] **Password / Secret Generator** — Customizable: length, uppercase, lowercase, numbers, symbols, "easy to read" mode, password strength meter
+   - ✅ Feasible: Pure JS with `crypto.getRandomValues()`
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **UUID / ULID Generator** — Generate v4 UUIDs and ULIDs in batches. Copy single or bulk.
-   - ✅ Feasible: `crypto.randomUUID()` is native. ULID can be implemented in ~30 lines.
+- [x] **UUID / ULID Generator** — Generate v4 UUIDs and ULIDs in batches. Copy single or bulk.
+   - ✅ Feasible: Use `crypto.randomUUID()` and ULID specs (~30 lines of code JS)
    - Priority: ⭐⭐⭐⭐
 
 - [ ] **Bcrypt Tester** — Check if a plaintext string matches a Bcrypt hash
