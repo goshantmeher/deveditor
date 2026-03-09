@@ -225,6 +225,14 @@ const categories: Category[] = [
             tags: ['favicon', 'icon', 'resize', 'png', 'ico'],
          },
          {
+            title: 'Glassmorphism Generator',
+            description: 'Visual sliders for backdrop-filter, border-radius and deep shadows with live preview.',
+            icon: '🪟',
+            href: '/glassmorphism-generator',
+            status: 'available',
+            tags: ['css', 'glassmorphism', 'shadow', 'tailwind', 'generator'],
+         },
+         {
             title: 'Tailwind CSS Lookup',
             description: 'Search Tailwind classes → CSS output. Paste CSS → get Tailwind equivalent.',
             icon: '🌬️',

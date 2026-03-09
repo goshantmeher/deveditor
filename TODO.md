@@ -131,9 +131,9 @@
    - ✅ Feasible: HTML `<canvas>` for resizing, `canvas.toBlob()` for export
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Shadow / Glassmorphism Generator** — Visual sliders for `box-shadow`, `text-shadow`, `backdrop-filter`, `border-radius` with live preview
-   - ✅ Feasible: Already similar to CSS Playground generators. Can be standalone.
-   - Priority: ⭐⭐⭐ (partially exists in CSS Playground)
+- [x] **Shadow / Glassmorphism Generator** — Visual sliders for `box-shadow`, `text-shadow`, `backdrop-filter`, `border-radius` with live preview
+   - ✅ Feasible: Use standard React state -> inline CSS output
+   - Priority: ⭐⭐⭐
 
 - [ ] **CSS Gradient Generator** — Multi-stop linear/radial/conic gradient builder with live preview
    - ✅ Feasible: Pure CSS generation from slider inputs

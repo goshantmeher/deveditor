@@ -49,6 +49,7 @@ export const STORAGE_KEYS = {
    SVG_JSX_INPUT: 'deveditor-svg-jsx-input',
    SVG_OPTIMIZER_INPUT: 'deveditor-svg-opt-input',
    FAVICON_GEN_IMG: 'deveditor-favicon-img',
+   GLASSMORPHISM_SETTINGS: 'deveditor-glass-settings',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',
