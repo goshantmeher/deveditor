@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Copy, Check, ArrowRightLeft, Type } from 'lucide-react';
@@ -6,9 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { CaseType, convertMultilineText } from '@/lib/case-converter-utils';
-
-const STORAGE_KEY_CASE = 'case-converter-active-case';
-const STORAGE_KEY_INPUT = 'case-converter-input';
 
 const CASE_OPTIONS: { value: CaseType; label: string; example: string }[] = [
    { value: 'camelCase', label: 'camelCase', example: 'helloWorld' },
@@ -39,12 +38,12 @@ export function CaseConverterView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedCase = localStorage.getItem(STORAGE_KEY_CASE) as CaseType | null;
+         const storedCase = localStorage.getItem(STORAGE_KEYS.CASE_CONVERTER_CASE) as CaseType | null;
          if (storedCase && CASE_OPTIONS.some((opt) => opt.value === storedCase)) {
             setTargetCase(storedCase);
          }
 
-         const storedInput = localStorage.getItem(STORAGE_KEY_INPUT);
+         const storedInput = localStorage.getItem(STORAGE_KEYS.CASE_CONVERTER_INPUT);
          if (storedInput) {
             setInput(storedInput);
          }
@@ -54,8 +53,8 @@ export function CaseConverterView() {
    // Save state to localStorage on change
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEY_CASE, targetCase);
-      localStorage.setItem(STORAGE_KEY_INPUT, input);
+      localStorage.setItem(STORAGE_KEYS.CASE_CONVERTER_CASE, targetCase);
+      localStorage.setItem(STORAGE_KEYS.CASE_CONVERTER_INPUT, input);
    }, [targetCase, input, isPersistenceEnabled]);
 
    // Process conversion

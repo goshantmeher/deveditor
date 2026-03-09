@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import {
@@ -28,9 +30,6 @@ import {
    SAMPLE_TEXT,
    ParsedUrl,
 } from '@/lib/url-encoder-utils';
-
-const STORAGE_KEY_TAB = 'url-encoder-active-tab';
-const STORAGE_KEY_INPUT = 'url-encoder-input';
 
 type ActiveTab = 'encode-decode' | 'url-parser';
 
@@ -63,11 +62,11 @@ export function UrlEncoderView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedTab = localStorage.getItem(STORAGE_KEY_TAB) as ActiveTab | null;
+         const storedTab = localStorage.getItem(STORAGE_KEYS.URL_ENCODER_TAB) as ActiveTab | null;
          if (storedTab && (storedTab === 'encode-decode' || storedTab === 'url-parser')) {
             setActiveTab(storedTab);
          }
-         const storedInput = localStorage.getItem(STORAGE_KEY_INPUT);
+         const storedInput = localStorage.getItem(STORAGE_KEYS.URL_ENCODER_INPUT);
          if (storedInput) setInput(storedInput);
       }
    }, [isPersistenceEnabled]);
@@ -75,8 +74,8 @@ export function UrlEncoderView() {
    // Save state
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEY_TAB, activeTab);
-      localStorage.setItem(STORAGE_KEY_INPUT, input);
+      localStorage.setItem(STORAGE_KEYS.URL_ENCODER_TAB, activeTab);
+      localStorage.setItem(STORAGE_KEYS.URL_ENCODER_INPUT, input);
    }, [activeTab, input, isPersistenceEnabled]);
 
    // Compute output

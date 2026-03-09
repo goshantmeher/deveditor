@@ -1,5 +1,4 @@
 import { MarkdownConverterView } from '@/components/markdown-converter/MarkdownConverterView';
-import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -41,7 +40,7 @@ import { MarkdownConverterSeoContent } from '@/components/markdown-converter/doc
 
 export default function Page() {
    return (
-      <PersistenceProvider>
+      
          <div id="page-top" className="flex flex-col">
             {/* The main tool viewport */}
             <div className="h-[calc(100vh-72px)] shrink-0">
@@ -53,6 +52,6 @@ export default function Page() {
                <MarkdownConverterSeoContent />
             </div>
          </div>
-      </PersistenceProvider>
+      
    );
 }

@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { HtmlEditor } from './HtmlEditor';
@@ -11,11 +13,6 @@ import { usePersistence } from '@/contexts/PersistenceContext';
 import { Code2, Sliders } from 'lucide-react';
 
 type PlaygroundMode = 'editor' | 'generator';
-
-const STORAGE_KEY_HTML = 'css-playground-html';
-const STORAGE_KEY_CSS = 'css-playground-css';
-const STORAGE_KEY_PRESET = 'css-playground-active-preset';
-const STORAGE_KEY_MODE = 'css-playground-mode';
 
 export function CssPlaygroundView() {
    const { isPersistenceEnabled } = usePersistence();
@@ -36,10 +33,10 @@ export function CssPlaygroundView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedHtml = localStorage.getItem(STORAGE_KEY_HTML);
-         const storedCss = localStorage.getItem(STORAGE_KEY_CSS);
-         const storedPreset = localStorage.getItem(STORAGE_KEY_PRESET);
-         const storedMode = localStorage.getItem(STORAGE_KEY_MODE) as PlaygroundMode | null;
+         const storedHtml = localStorage.getItem(STORAGE_KEYS.CSS_PLAYGROUND_HTML);
+         const storedCss = localStorage.getItem(STORAGE_KEYS.CSS_PLAYGROUND_CSS);
+         const storedPreset = localStorage.getItem(STORAGE_KEYS.CSS_PLAYGROUND_PRESET);
+         const storedMode = localStorage.getItem(STORAGE_KEYS.CSS_PLAYGROUND_MODE) as PlaygroundMode | null;
 
          if (storedHtml) {
             setHtmlContent(storedHtml);
@@ -61,13 +58,13 @@ export function CssPlaygroundView() {
    // Save to localStorage on changes
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled) return;
-      localStorage.setItem(STORAGE_KEY_HTML, htmlContent);
-      localStorage.setItem(STORAGE_KEY_CSS, cssContent);
-      localStorage.setItem(STORAGE_KEY_MODE, mode);
+      localStorage.setItem(STORAGE_KEYS.CSS_PLAYGROUND_HTML, htmlContent);
+      localStorage.setItem(STORAGE_KEYS.CSS_PLAYGROUND_CSS, cssContent);
+      localStorage.setItem(STORAGE_KEYS.CSS_PLAYGROUND_MODE, mode);
       if (activePresetId) {
-         localStorage.setItem(STORAGE_KEY_PRESET, activePresetId);
+         localStorage.setItem(STORAGE_KEYS.CSS_PLAYGROUND_PRESET, activePresetId);
       } else {
-         localStorage.removeItem(STORAGE_KEY_PRESET);
+         localStorage.removeItem(STORAGE_KEYS.CSS_PLAYGROUND_PRESET);
       }
    }, [htmlContent, cssContent, activePresetId, isPersistenceEnabled, mode]);
 

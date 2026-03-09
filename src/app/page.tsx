@@ -91,7 +91,7 @@ const categories: Category[] = [
             description: 'Convert symbols to HTML entities and back. Handles &amp;, &lt;, &gt; etc.',
             icon: '🏷️',
             href: '/html-entities',
-            status: 'planned',
+            status: 'available',
             tags: ['html', 'entity', 'escape', 'unescape'],
          },
          {
@@ -99,7 +99,7 @@ const categories: Category[] = [
             description: 'Generate placeholder text — paragraphs, sentences, or words.',
             icon: '📄',
             href: '/lorem-ipsum',
-            status: 'planned',
+            status: 'available',
             tags: ['lorem', 'ipsum', 'placeholder', 'dummy text'],
          },
          {
@@ -107,7 +107,7 @@ const categories: Category[] = [
             description: 'Count characters, words, lines, byte size, and estimated reading time.',
             icon: '🔢',
             href: '/word-counter',
-            status: 'planned',
+            status: 'available',
             tags: ['word', 'character', 'count', 'length'],
          },
       ],
@@ -129,59 +129,59 @@ const categories: Category[] = [
          },
          {
             title: 'Hash Generator',
-            description: 'Generate MD5, SHA-1, SHA-256, SHA-512 hashes using Web Crypto API.',
-            icon: '🔑',
+            description: 'MD5, SHA-1, SHA-256, SHA-512 hashes from string.',
+            icon: '🔒',
             href: '/hash-generator',
-            status: 'planned',
-            tags: ['hash', 'md5', 'sha', 'sha256', 'crypto'],
+            status: 'available',
+            tags: ['hash', 'md5', 'sha256', 'crypto'],
          },
          {
             title: 'Password Generator',
-            description: 'Create strong passwords with customizable length, symbols, and strength meter.',
-            icon: '🛡️',
+            description: 'Customizable: length, uppercase, variables, easy-to-read mode.',
+            icon: '🔑',
             href: '/password-generator',
-            status: 'planned',
-            tags: ['password', 'secret', 'generator', 'random'],
+            status: 'available',
+            tags: ['password', 'generator', 'security', 'random'],
          },
          {
             title: 'UUID / ULID Generator',
-            description: 'Generate v4 UUIDs and ULIDs in batches. Copy single or bulk.',
+            description: 'Generate customizable batch lists of UUIDs and ULIDs.',
             icon: '🆔',
             href: '/uuid-generator',
-            status: 'planned',
-            tags: ['uuid', 'ulid', 'guid', 'unique id'],
+            status: 'available',
+            tags: ['uuid', 'ulid', 'guid', 'generator', 'id'],
          },
          {
             title: 'Bcrypt Tester',
-            description: 'Hash strings with Bcrypt and verify if a plaintext matches a hash.',
-            icon: '🧪',
+            description: 'Check if a plaintext string matches a Bcrypt hash.',
+            icon: '🛡️',
             href: '/bcrypt-tester',
-            status: 'planned',
-            tags: ['bcrypt', 'hash', 'verify', 'password'],
+            status: 'available',
+            tags: ['bcrypt', 'hash', 'security', 'password'],
          },
          {
             title: 'RSA Key Pair Generator',
-            description: 'Generate public/private RSA key pairs locally in your browser.',
+            description: 'Generate public/private key pairs locally.',
             icon: '🗝️',
-            href: '/rsa-keygen',
-            status: 'planned',
-            tags: ['rsa', 'key', 'public', 'private', 'crypto'],
+            href: '/rsa-generator',
+            status: 'available',
+            tags: ['rsa', 'key', 'generator', 'security', 'pem'],
          },
          {
-            title: 'Password Strength Checker',
-            description: 'Score password entropy, check dictionary words, and estimate "time to crack" locally.',
+            title: 'Password Strength',
+            description: 'Evaluate password entropy against zxcvbn patterns.',
             icon: '💪',
             href: '/password-strength',
-            status: 'planned',
-            tags: ['password', 'strength', 'entropy', 'zxcvbn', 'security'],
+            status: 'available',
+            tags: ['password', 'strength', 'security', 'test'],
          },
          {
             title: 'JavaScript Obfuscator',
-            description: 'Scramble JavaScript code for security or deobfuscate mildly obscured scripts.',
-            icon: '🕵️',
+            description: 'Secure and minify your JS files online.',
+            icon: '🥷',
             href: '/js-obfuscator',
-            status: 'planned',
-            tags: ['javascript', 'js', 'obfuscate', 'deobfuscate', 'security'],
+            status: 'available',
+            tags: ['js', 'minify', 'obfuscator', 'security'],
          },
       ],
    },
@@ -715,7 +715,7 @@ export default function Home() {
          <div className="container mx-auto px-4 py-10 max-w-5xl">
             {/* ── Header ───────────────────────────────── */}
             <header className="text-center mb-10">
-               <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+               <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-linear-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                   Developer Tools
                </h1>
                <p className="text-muted-foreground text-base md:text-lg mb-2 max-w-2xl mx-auto">
@@ -777,7 +777,7 @@ export default function Home() {
                         {/* Category Header */}
                         <button
                            onClick={() => !isSearching && toggleCategory(category.id)}
-                           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border bg-gradient-to-r ${accent} transition-all hover:opacity-90 ${
+                           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border bg-linear-to-r ${accent} transition-all hover:opacity-90 ${
                               isSearching ? 'cursor-default' : 'cursor-pointer'
                            }`}
                         >

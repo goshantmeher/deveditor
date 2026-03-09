@@ -1,11 +1,14 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
 
-import { useState, useMemo, useCallback } from 'react';
+
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { generateSchema, SAMPLE_JSON, SchemaFormat } from '@/lib/schema-utils';
 import { Copy, CheckCircle2, AlertCircle, Braces, FileCode2, ArrowRight, Trash2, FileJson } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { usePersistence } from '@/contexts/PersistenceContext';
 
 // ── Format config ────────────────────────────────────────────
 const FORMATS: {
@@ -55,10 +58,32 @@ function LineNumbers({ count }: { count: number }) {
 
 // ── Main Component ───────────────────────────────────────────
 export function SchemaGeneratorView() {
+   const { isPersistenceEnabled } = usePersistence();
+   const isInitialized = useRef(false);
+
    const [jsonInput, setJsonInput] = useState(SAMPLE_JSON);
    const [format, setFormat] = useState<SchemaFormat>('typescript');
    const [rootName, setRootName] = useState('Root');
    const [copiedField, setCopiedField] = useState<string | null>(null);
+
+   // Load state
+   useEffect(() => {
+      if (typeof window === 'undefined' || isInitialized.current) return;
+      isInitialized.current = true;
+      if (isPersistenceEnabled) {
+         const savedInput = localStorage.getItem(STORAGE_KEYS.SCHEMA_INPUT);
+         const savedRoot = localStorage.getItem(STORAGE_KEYS.SCHEMA_ROOT);
+         if (savedInput !== null) setJsonInput(savedInput);
+         if (savedRoot !== null) setRootName(savedRoot);
+      }
+   }, [isPersistenceEnabled]);
+
+   // Save state
+   useEffect(() => {
+      if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
+      localStorage.setItem(STORAGE_KEYS.SCHEMA_INPUT, jsonInput);
+      localStorage.setItem(STORAGE_KEYS.SCHEMA_ROOT, rootName);
+   }, [jsonInput, rootName, isPersistenceEnabled]);
 
    const result = useMemo(() => generateSchema(jsonInput, format, rootName), [jsonInput, format, rootName]);
 

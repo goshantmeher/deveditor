@@ -30,6 +30,14 @@ export function ThemeGeneratorSeoContent() {
                text: 'You can export themes as CSS custom properties, Tailwind config, or shadcn/ui variables. All formats are ready to paste into your project.',
             },
          },
+         {
+            '@type': 'Question',
+            name: 'Is my input data saved?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the "Persist Data" switch in the tool settings.',
+            },
+         },
       ],
    };
 

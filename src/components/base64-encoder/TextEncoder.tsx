@@ -4,6 +4,8 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Copy, Check, ArrowRightLeft, WrapText, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { usePersistence } from '@/contexts/PersistenceContext';
+import { STORAGE_KEYS } from '@/constants/storage';
 
 type Direction = 'encode' | 'decode';
 type Charset = 'utf-8' | 'ascii' | 'iso-8859-1';
@@ -90,6 +92,28 @@ export function TextEncoder() {
    const [copied, setCopied] = useState(false);
    const [autoDetected, setAutoDetected] = useState(false);
    const isUserSwitch = useRef(false);
+
+   const { isPersistenceEnabled } = usePersistence();
+   const isInitialized = useRef(false);
+
+   // Load from local storage
+   useEffect(() => {
+      if (typeof window === 'undefined' || isInitialized.current) return;
+      isInitialized.current = true;
+
+      if (isPersistenceEnabled) {
+         const storedInput = localStorage.getItem(STORAGE_KEYS.BASE64_TEXT_INPUT);
+         if (storedInput) {
+            setInput(storedInput);
+         }
+      }
+   }, [isPersistenceEnabled]);
+
+   // Save back to local storage
+   useEffect(() => {
+      if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
+      localStorage.setItem(STORAGE_KEYS.BASE64_TEXT_INPUT, input);
+   }, [input, isPersistenceEnabled]);
 
    // Process input whenever it changes
    useEffect(() => {

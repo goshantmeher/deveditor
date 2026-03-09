@@ -1,5 +1,4 @@
 import { ListConverterView } from '@/components/list-converter/ListConverterView';
-import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -41,7 +40,7 @@ import { ListConverterSeoContent } from '@/components/list-converter/docs/ListCo
 
 export default function Page() {
    return (
-      <PersistenceProvider>
+      
          <div id="page-top" className="flex flex-col">
             {/* The main tool viewport */}
             <div className="h-[calc(100vh-72px)] shrink-0">
@@ -53,6 +52,6 @@ export default function Page() {
                <ListConverterSeoContent />
             </div>
          </div>
-      </PersistenceProvider>
+      
    );
 }

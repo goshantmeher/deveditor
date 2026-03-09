@@ -1,5 +1,4 @@
 import { Base64EncoderView } from '@/components/base64-encoder/Base64EncoderView';
-import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -42,7 +41,7 @@ import { Base64EncoderSeoContent } from '@/components/base64-encoder/docs/Base64
 
 export default function Page() {
    return (
-      <PersistenceProvider>
+      
          <div id="page-top" className="flex flex-col">
             {/* The main tool viewport */}
             <div className="h-[calc(100vh-72px)] shrink-0">
@@ -54,6 +53,6 @@ export default function Page() {
                <Base64EncoderSeoContent />
             </div>
          </div>
-      </PersistenceProvider>
+      
    );
 }

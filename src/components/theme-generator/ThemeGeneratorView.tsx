@@ -1,6 +1,8 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
 
-import React, { useState, useMemo, useCallback } from 'react';
+
+import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import {
    generateTheme,
    hexToHsl,
@@ -27,6 +29,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { usePersistence } from '@/contexts/PersistenceContext';
 
 // ── Preset colors ────────────────────────────────────────────
 const PRESETS = [
@@ -307,10 +310,32 @@ function ThemePreview({ theme }: { theme: GeneratedTheme }) {
 
 // ── Main Component ───────────────────────────────────────────
 export function ThemeGeneratorView() {
+   const { isPersistenceEnabled } = usePersistence();
+   const isInitialized = useRef(false);
+
    const [primaryHex, setPrimaryHex] = useState('#6366F1');
    const [mode, setMode] = useState<'dark' | 'light'>('dark');
    const [copiedField, setCopiedField] = useState<string | null>(null);
    const [exportTab, setExportTab] = useState('css');
+
+   // Load state
+   useEffect(() => {
+      if (typeof window === 'undefined' || isInitialized.current) return;
+      isInitialized.current = true;
+      if (isPersistenceEnabled) {
+         const savedHex = localStorage.getItem(STORAGE_KEYS.THEME_HEX);
+         const savedMode = localStorage.getItem(STORAGE_KEYS.THEME_MODE) as 'dark' | 'light';
+         if (savedHex !== null) setPrimaryHex(savedHex);
+         if (savedMode === 'dark' || savedMode === 'light') setMode(savedMode);
+      }
+   }, [isPersistenceEnabled]);
+
+   // Save state
+   useEffect(() => {
+      if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
+      localStorage.setItem(STORAGE_KEYS.THEME_HEX, primaryHex);
+      localStorage.setItem(STORAGE_KEYS.THEME_MODE, mode);
+   }, [primaryHex, mode, isPersistenceEnabled]);
 
    const theme = useMemo(() => generateTheme(primaryHex, mode), [primaryHex, mode]);
 

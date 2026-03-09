@@ -14,7 +14,6 @@ export function ResumePreview({ data, templateId, generateOnDemand = false }: Re
    const [pdfUrl, setPdfUrl] = useState<string | null>(null);
    const [isGenerating, setIsGenerating] = useState(false);
    const [error, setError] = useState<string | null>(null);
-   const previousUrl = useRef<string | null>(null);
    const generationId = useRef(0);
 
    const generatePdf = useCallback(async (resumeData: ResumeData, template: TemplateId) => {
@@ -84,10 +83,19 @@ export function ResumePreview({ data, templateId, generateOnDemand = false }: Re
       }
    }, [data, templateId, generateOnDemand, generatePdf]);
 
+   // Keep track of the latest URL so we can reliably clean it up when the component unmounts
+   const activeUrlRef = useRef<string | null>(null);
+   useEffect(() => {
+      activeUrlRef.current = pdfUrl;
+   }, [pdfUrl]);
+
    // Cleanup URLs on unmount
    useEffect(() => {
       return () => {
-         if (previousUrl.current) URL.revokeObjectURL(previousUrl.current);
+         const URLToRevoke = activeUrlRef.current;
+         if (URLToRevoke) {
+            URL.revokeObjectURL(URLToRevoke);
+         }
       };
    }, []);
 

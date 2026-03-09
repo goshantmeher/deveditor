@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
@@ -6,8 +8,6 @@ import { FileCode2, RotateCcw, Copy, Check, BookOpen } from 'lucide-react';
 import { MarkdownEditor } from './MarkdownEditor';
 import { MarkdownPreview } from './MarkdownPreview';
 import { usePersistence } from '@/contexts/PersistenceContext';
-
-const STORAGE_KEY = 'markdown-converter-content';
 
 const SAMPLE_MARKDOWN = `# Welcome to DevEditor Markdown Generator
 
@@ -97,7 +97,7 @@ export function MarkdownConverterView() {
    useEffect(() => {
       if (!isPersistenceEnabled) return;
       try {
-         const saved = localStorage.getItem(STORAGE_KEY);
+         const saved = localStorage.getItem(STORAGE_KEYS.MARKDOWN_CONVERTER_CONTENT);
          if (saved) setMarkdown(saved);
       } catch {
          // Ignore
@@ -108,7 +108,7 @@ export function MarkdownConverterView() {
    useEffect(() => {
       if (!isPersistenceEnabled) return;
       try {
-         localStorage.setItem(STORAGE_KEY, markdown);
+         localStorage.setItem(STORAGE_KEYS.MARKDOWN_CONVERTER_CONTENT, markdown);
       } catch {
          // Ignore
       }

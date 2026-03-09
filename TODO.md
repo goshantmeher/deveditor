@@ -61,7 +61,7 @@
    - ✅ Feasible: Uses native `encodeURIComponent` / `decodeURIComponent`
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **HTML Entity Converter** — Convert `<`, `&`, `"`, etc. to HTML entities and back
+- [x] **HTML Entity Converter** — Convert `<`, `&`, `"`, etc. to HTML entities and back
    - ✅ Feasible: Pure string replace or DOM-based escaping
    - Priority: ⭐⭐⭐
 
@@ -69,16 +69,16 @@
    - ✅ Feasible: Use the `diff-match-patch` library (~14 KB) or build from scratch
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **Markdown Previewer** — Split-screen: Markdown editor on left, rendered HTML on right
+- [x] **Markdown Previewer** — Split-screen: Markdown editor on left, rendered HTML on right
    - ✅ Feasible: Use `marked` or `markdown-it` library, client-side rendering
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Lorem Ipsum Generator** — Generate placeholder text (paragraphs, sentences, words), with options for length and style
+- [x] **Lorem Ipsum Generator** — Generate placeholder text (paragraphs, sentences, words), with options for length and style
    - ✅ Feasible: Pure JS with preset word banks
    - Priority: ⭐⭐⭐
    - 💡 Added by review (not in original AI list)
 
-- [ ] **String Length / Word Counter** — Character count, word count, line count, byte size, reading time estimate
+- [x] **String Length / Word Counter** — Character count, word count, line count, byte size, reading time estimate
    - ✅ Feasible: Pure string manipulation
    - Priority: ⭐⭐⭐
    - 💡 Added by review
@@ -93,24 +93,24 @@
    - ✅ Feasible: JWT is just 3 Base64-encoded JSON segments separated by dots
    - Priority: ⭐⭐⭐⭐⭐ (the #1 tool backend devs Google for)
 
-- [ ] **Hash Generator** — MD5, SHA-1, SHA-256, SHA-512 hashes using browser's `Web Crypto API`
-   - ✅ Feasible: Native `crypto.subtle.digest()` — zero dependencies
+- [x] **Hash Generator** — MD5, SHA-1, SHA-256, SHA-512 hashes using browser's `Web Crypto API`
+   - ✅ Feasible: Uses `crypto.subtle.digest()`
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **Password / Secret Generator** — Customizable: length, uppercase, lowercase, numbers, symbols, "easy to read" mode, password strength meter
-   - ✅ Feasible: Uses `crypto.getRandomValues()` for cryptographically secure randomness
+- [x] **Password / Secret Generator** — Customizable: length, uppercase, lowercase, numbers, symbols, "easy to read" mode, password strength meter
+   - ✅ Feasible: Pure JS with `crypto.getRandomValues()`
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **UUID / ULID Generator** — Generate v4 UUIDs and ULIDs in batches. Copy single or bulk.
-   - ✅ Feasible: `crypto.randomUUID()` is native. ULID can be implemented in ~30 lines.
+- [x] **UUID / ULID Generator** — Generate v4 UUIDs and ULIDs in batches. Copy single or bulk.
+   - ✅ Feasible: Use `crypto.randomUUID()` and ULID specs (~30 lines of code JS)
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Bcrypt Tester** — Check if a plaintext string matches a Bcrypt hash
-   - ⚠️ Partially feasible: Requires `bcryptjs` (~45 KB) compiled to JS. Hashing is CPU-intensive for high work factors but doable in a Web Worker.
+- [x] **Bcrypt Tester** — Check if a plaintext string matches a Bcrypt hash
+   - ✅ Feasible: Use `bcryptjs`
    - Priority: ⭐⭐⭐
 
-- [ ] **RSA Key Pair Generator** — Generate public/private key pairs locally
-   - ⚠️ Partially feasible: `crypto.subtle.generateKey()` supports RSA. Export to PEM format requires some manual encoding. Works but the UI needs to handle potentially slow generation.
+- [x] **RSA Key Pair Generator** — Generate public/private key pairs locally
+   - ✅ Feasible: Use `node-forge` or `crypto.subtle` wrapper
    - Priority: ⭐⭐
 
 ---
