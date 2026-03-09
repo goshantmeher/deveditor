@@ -30,6 +30,14 @@ export function Base64EncoderSeoContent() {
                text: 'Standard Base64 uses characters like `+` and `/` which are reserved in URLs. URL-safe Base64 replaces these with `-` and `_` to ensure they are parsed correctly by browsers and web servers.',
             },
          },
+         {
+            '@type': 'Question',
+            name: 'Is my input data saved?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: "To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the 'Persist Data' switch in the tool settings.",
+            },
+         },
       ],
    };
 

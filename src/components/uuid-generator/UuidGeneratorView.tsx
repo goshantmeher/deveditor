@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Copy, Check, RefreshCw, Layers, Fingerprint, Trash2 } from 'lucide-react';
@@ -6,10 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { generateUuid, generateUlid } from '@/lib/uuid-generator-utils';
-
-const STORAGE_KEY_TYPE = 'uuid-generator-type';
-const STORAGE_KEY_COUNT = 'uuid-generator-count';
-const STORAGE_KEY_FORMAT = 'uuid-generator-format'; // For cases, quotes, etc.
 
 type IdType = 'UUID v4' | 'ULID';
 type Formatting = 'none' | 'uppercase' | 'lowercase';
@@ -31,9 +29,9 @@ export function UuidGeneratorView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedType = localStorage.getItem(STORAGE_KEY_TYPE);
-         const storedCount = localStorage.getItem(STORAGE_KEY_COUNT);
-         const storedFormat = localStorage.getItem(STORAGE_KEY_FORMAT);
+         const storedType = localStorage.getItem(STORAGE_KEYS.UUID_TYPE);
+         const storedCount = localStorage.getItem(STORAGE_KEYS.UUID_COUNT);
+         const storedFormat = localStorage.getItem(STORAGE_KEYS.UUID_FORMAT);
 
          if (storedType === 'UUID v4' || storedType === 'ULID') setType(storedType);
          if (storedFormat === 'none' || storedFormat === 'uppercase' || storedFormat === 'lowercase') setFormat(storedFormat);
@@ -48,9 +46,9 @@ export function UuidGeneratorView() {
    // Save state
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEY_TYPE, type);
-      localStorage.setItem(STORAGE_KEY_COUNT, count.toString());
-      localStorage.setItem(STORAGE_KEY_FORMAT, format);
+      localStorage.setItem(STORAGE_KEYS.UUID_TYPE, type);
+      localStorage.setItem(STORAGE_KEYS.UUID_COUNT, count.toString());
+      localStorage.setItem(STORAGE_KEYS.UUID_FORMAT, format);
    }, [type, count, format, isPersistenceEnabled]);
 
    // Generator logic

@@ -1,5 +1,4 @@
 import { PasswordStrengthView } from '@/components/password-strength/PasswordStrengthView';
-import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -35,7 +34,7 @@ import { PasswordStrengthSeoContent } from '@/components/password-strength/docs/
 
 export default function Page() {
    return (
-      <PersistenceProvider>
+      
          <div id="page-top" className="flex flex-col">
             <div className="h-[calc(100vh-72px)] shrink-0 bg-background/50">
                <PasswordStrengthView />
@@ -45,6 +44,6 @@ export default function Page() {
                <PasswordStrengthSeoContent />
             </div>
          </div>
-      </PersistenceProvider>
+      
    );
 }

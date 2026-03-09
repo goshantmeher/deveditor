@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Quicksand, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import BrandLogo from '@/components/brandLogo';
 import HeaderActions from '@/components/HeaderActions';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -165,14 +166,16 @@ export default function RootLayout({
             suppressHydrationWarning
          >
             <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-               <header className="p-4 sticky top-0 h-14 z-50 flex items-center justify-between bg-sidebar border-b border dark:border-border">
-                  <div className="flex items-center gap-4">
-                     <BrandLogo />
-                  </div>
+               <PersistenceProvider>
+                  <header className="p-4 sticky top-0 h-14 z-50 flex items-center justify-between bg-sidebar border-b border dark:border-border">
+                     <div className="flex items-center gap-4">
+                        <BrandLogo />
+                     </div>
 
-                  <HeaderActions />
-               </header>
-               {children}
+                     <HeaderActions />
+                  </header>
+                  {children}
+               </PersistenceProvider>
             </ThemeProvider>
             <SpeedInsights />
          </body>

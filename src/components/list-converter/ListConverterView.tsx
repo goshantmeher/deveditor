@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { Copy, Check, List, ArrowRightLeft, Eraser, Hash, Code, FileText, Shuffle, FlaskConical } from 'lucide-react';
@@ -6,10 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { OutputFormat, FORMAT_OPTIONS, FormatOption, parseInput, formatItems } from '@/lib/list-converter-utils';
-
-const STORAGE_KEY_FORMAT = 'list-converter-format';
-const STORAGE_KEY_DELIMITER = 'list-converter-delimiter';
-const STORAGE_KEY_INPUT = 'list-converter-input';
 
 type Delimiter = 'auto' | 'newline' | 'comma' | 'tab' | 'pipe';
 
@@ -62,17 +60,17 @@ export function ListConverterView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedFormat = localStorage.getItem(STORAGE_KEY_FORMAT) as OutputFormat | null;
+         const storedFormat = localStorage.getItem(STORAGE_KEYS.LIST_CONVERTER_FORMAT) as OutputFormat | null;
          if (storedFormat && FORMAT_OPTIONS.some((opt) => opt.value === storedFormat)) {
             setOutputFormat(storedFormat);
          }
 
-         const storedDelimiter = localStorage.getItem(STORAGE_KEY_DELIMITER) as Delimiter | null;
+         const storedDelimiter = localStorage.getItem(STORAGE_KEYS.LIST_CONVERTER_DELIMITER) as Delimiter | null;
          if (storedDelimiter && DELIMITER_OPTIONS.some((opt) => opt.value === storedDelimiter)) {
             setDelimiter(storedDelimiter);
          }
 
-         const storedInput = localStorage.getItem(STORAGE_KEY_INPUT);
+         const storedInput = localStorage.getItem(STORAGE_KEYS.LIST_CONVERTER_INPUT);
          if (storedInput) {
             setInput(storedInput);
          }
@@ -82,9 +80,9 @@ export function ListConverterView() {
    // Save state
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEY_FORMAT, outputFormat);
-      localStorage.setItem(STORAGE_KEY_DELIMITER, delimiter);
-      localStorage.setItem(STORAGE_KEY_INPUT, input);
+      localStorage.setItem(STORAGE_KEYS.LIST_CONVERTER_FORMAT, outputFormat);
+      localStorage.setItem(STORAGE_KEYS.LIST_CONVERTER_DELIMITER, delimiter);
+      localStorage.setItem(STORAGE_KEYS.LIST_CONVERTER_INPUT, input);
    }, [outputFormat, delimiter, input, isPersistenceEnabled]);
 
    // Process conversion

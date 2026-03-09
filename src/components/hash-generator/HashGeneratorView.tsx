@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Copy, Check, RotateCcw, Shield, FlaskConical } from 'lucide-react';
@@ -6,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { generateHash, HashAlgorithm } from '@/lib/hash-generator-utils';
 
-const STORAGE_KEY_INPUT = 'hash-generator-input';
 const SAMPLE_TEXT = 'Hello World';
 
 export function HashGeneratorView() {
@@ -34,7 +35,7 @@ export function HashGeneratorView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedInput = localStorage.getItem(STORAGE_KEY_INPUT);
+         const storedInput = localStorage.getItem(STORAGE_KEYS.HASH_GENERATOR_INPUT);
          if (storedInput) setInput(storedInput);
       }
    }, [isPersistenceEnabled]);
@@ -42,7 +43,7 @@ export function HashGeneratorView() {
    // Save state
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEY_INPUT, input);
+      localStorage.setItem(STORAGE_KEYS.HASH_GENERATOR_INPUT, input);
    }, [input, isPersistenceEnabled]);
 
    // Compute hashes

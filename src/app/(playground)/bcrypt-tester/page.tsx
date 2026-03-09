@@ -1,5 +1,4 @@
 import { BcryptTesterView } from '@/components/bcrypt-tester/BcryptTesterView';
-import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -34,7 +33,7 @@ import { BcryptTesterSeoContent } from '@/components/bcrypt-tester/docs/BcryptTe
 
 export default function Page() {
    return (
-      <PersistenceProvider>
+      
          <div id="page-top" className="flex flex-col">
             <div className="h-[calc(100vh-72px)] shrink-0 bg-background/50">
                <BcryptTesterView />
@@ -44,6 +43,6 @@ export default function Page() {
                <BcryptTesterSeoContent />
             </div>
          </div>
-      </PersistenceProvider>
+      
    );
 }

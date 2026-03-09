@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ShieldAlert, CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
@@ -6,9 +8,6 @@ import { Button } from '@/components/ui/button';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { compareBcrypt, hashBcrypt } from '@/lib/bcrypt-tester-utils';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-
-const STORAGE_KEY_PLAINTEXT = 'bcrypt-test-plain';
-const STORAGE_KEY_HASH = 'bcrypt-test-hash';
 
 export function BcryptTesterView() {
    const { isPersistenceEnabled } = usePersistence();
@@ -27,8 +26,8 @@ export function BcryptTesterView() {
       if (typeof window === 'undefined' || isInitialized.current) return;
       isInitialized.current = true;
       if (isPersistenceEnabled) {
-         const p = localStorage.getItem(STORAGE_KEY_PLAINTEXT);
-         const h = localStorage.getItem(STORAGE_KEY_HASH);
+         const p = localStorage.getItem(STORAGE_KEYS.BCRYPT_TEST_PLAINTEXT);
+         const h = localStorage.getItem(STORAGE_KEYS.BCRYPT_TEST_HASH);
          if (p) setPlaintext(p);
          if (h) setHash(h);
       }
@@ -37,8 +36,8 @@ export function BcryptTesterView() {
    // Save State
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEY_PLAINTEXT, plaintext);
-      localStorage.setItem(STORAGE_KEY_HASH, hash);
+      localStorage.setItem(STORAGE_KEYS.BCRYPT_TEST_PLAINTEXT, plaintext);
+      localStorage.setItem(STORAGE_KEYS.BCRYPT_TEST_HASH, hash);
    }, [plaintext, hash, isPersistenceEnabled]);
 
    // Auto verify

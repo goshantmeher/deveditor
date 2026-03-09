@@ -1,5 +1,4 @@
 import { HtmlEntityConverterView } from '@/components/html-entity-converter/HtmlEntityConverterView';
-import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -36,7 +35,7 @@ import { HtmlEntityConverterSeoContent } from '@/components/html-entity-converte
 
 export default function Page() {
    return (
-      <PersistenceProvider>
+      
          <div id="page-top" className="flex flex-col">
             {/* The main tool viewport */}
             <div className="h-[calc(100vh-72px)] shrink-0">
@@ -48,6 +47,6 @@ export default function Page() {
                <HtmlEntityConverterSeoContent />
             </div>
          </div>
-      </PersistenceProvider>
+      
    );
 }

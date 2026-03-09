@@ -30,6 +30,14 @@ export function ColorConverterSeoContent() {
                text: 'Based on your base color, we use mathematical color theory to generate Complementary, Analogous, Triadic, and Monochromatic harmonies.',
             },
          },
+         {
+            '@type': 'Question',
+            name: 'Is my input data saved?',
+            acceptedAnswer: {
+               '@type': 'Answer',
+               text: 'To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the "Persist Data" switch in the tool settings.',
+            },
+         },
       ],
    };
 

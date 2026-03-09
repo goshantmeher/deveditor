@@ -1,6 +1,8 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
 
-import React, { useState, useMemo } from 'react';
+
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
    hexToRgb,
    rgbToHex,
@@ -18,8 +20,12 @@ import {
 import { Copy, CheckCircle2, RefreshCw, Palette, Contrast, Hash, Pipette } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { usePersistence } from '@/contexts/PersistenceContext';
 
 export function ColorConverterView() {
+   const { isPersistenceEnabled } = usePersistence();
+   const isInitialized = useRef(false);
+
    const [hex, setHex] = useState('#6366F1'); // Indigo-500 default
    const [rgb, setRgb] = useState<RGB>({ r: 99, g: 102, b: 241 });
    const [hsl, setHsl] = useState<HSL>({ h: 239, s: 84, l: 67 });
@@ -29,6 +35,30 @@ export function ColorConverterView() {
    const [bgRgb, setBgRgb] = useState<RGB>({ r: 255, g: 255, b: 255 });
 
    const [copiedField, setCopiedField] = useState<string | null>(null);
+
+   // Load state
+   useEffect(() => {
+      if (typeof window === 'undefined' || isInitialized.current) return;
+      isInitialized.current = true;
+      if (isPersistenceEnabled) {
+         const saved = localStorage.getItem(STORAGE_KEYS.COLOR_HEX);
+         if (saved) {
+            setHex(saved);
+            const parsed = hexToRgb(saved);
+            if (parsed) {
+               setRgb(parsed);
+               setHsl(rgbToHsl(parsed));
+               setCmyk(rgbToCmyk(parsed));
+            }
+         }
+      }
+   }, [isPersistenceEnabled]);
+
+   // Save state
+   useEffect(() => {
+      if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
+      localStorage.setItem(STORAGE_KEYS.COLOR_HEX, hex);
+   }, [hex, isPersistenceEnabled]);
 
    // Sync from HEX
    const handleHexChange = (value: string) => {

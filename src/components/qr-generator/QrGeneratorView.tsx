@@ -1,6 +1,8 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
 
-import React, { useState, useRef, useCallback, useDeferredValue } from 'react';
+
+import React, { useState, useRef, useCallback, useDeferredValue, useEffect } from 'react';
 import { QRCodeSVG, QRCodeCanvas } from 'qrcode.react';
 import { QrCode, Copy, CheckCircle2, Type, Palette, Maximize, ShieldCheck, FileImage, FileCode } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -10,6 +12,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { Slider } from '@/components/ui/slider';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { usePersistence } from '@/contexts/PersistenceContext';
 
 // ── Types & Constants ────────────────────────────────────────
 
@@ -31,6 +34,9 @@ const PRESET_COLORS = [
 ];
 
 export function QrGeneratorView() {
+   const { isPersistenceEnabled } = usePersistence();
+   const isInitialized = useRef(false);
+
    const [content, setContent] = useState('https://deveditor.io');
    const [fgColor, setFgColor] = useState('#000000');
    const [bgColor, setBgColor] = useState('#ffffff');
@@ -38,6 +44,22 @@ export function QrGeneratorView() {
    const [marginSize, setMarginSize] = useState(4);
    const [level, setLevel] = useState<ErrorCorrectionLevel>('M');
    const [copied, setCopied] = useState(false);
+
+   // Load state
+   useEffect(() => {
+      if (typeof window === 'undefined' || isInitialized.current) return;
+      isInitialized.current = true;
+      if (isPersistenceEnabled) {
+         const saved = localStorage.getItem(STORAGE_KEYS.QR_CONTENT);
+         if (saved !== null) setContent(saved);
+      }
+   }, [isPersistenceEnabled]);
+
+   // Save state
+   useEffect(() => {
+      if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
+      localStorage.setItem(STORAGE_KEYS.QR_CONTENT, content);
+   }, [content, isPersistenceEnabled]);
 
    // ── Deferred Values for Performance ─────────────────────────
    const deferredContent = useDeferredValue(content);

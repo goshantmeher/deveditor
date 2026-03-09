@@ -1,5 +1,4 @@
 import { ResumeBuilderView } from '@/components/pdf-resume/ResumeBuilderView';
-import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -47,7 +46,7 @@ import { ResumeBuilderSeoContent } from '@/components/pdf-resume/docs/ResumeBuil
 
 export default function Page() {
    return (
-      <PersistenceProvider>
+      
          <div id="page-top" className="flex flex-col">
             {/* The main tool viewport */}
             <div className="h-[calc(100vh-72px)] shrink-0">
@@ -59,6 +58,6 @@ export default function Page() {
                <ResumeBuilderSeoContent />
             </div>
          </div>
-      </PersistenceProvider>
+      
    );
 }

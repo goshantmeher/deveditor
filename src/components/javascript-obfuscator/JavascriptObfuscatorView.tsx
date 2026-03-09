@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ShieldAlert, Play, Copy, Check, RotateCcw, MonitorPlay, TriangleAlert } from 'lucide-react';
@@ -10,9 +12,6 @@ import { obfuscateJavascript, ObfuscationOptions, DEFAULT_OBFUSCATION_OPTIONS } 
 import ReactCodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { vscodeDark } from '@uiw/codemirror-theme-vscode';
-
-const STORAGE_KEY_INPUT = 'js-obf-input';
-const STORAGE_KEY_OPTS = 'js-obf-opts';
 
 const SAMPLE_JS = `// Sample application logic
 function calculateTax(amount, rate) {
@@ -41,8 +40,8 @@ export function JavascriptObfuscatorView() {
       if (typeof window === 'undefined' || isInitialized.current) return;
       isInitialized.current = true;
       if (isPersistenceEnabled) {
-         const code = localStorage.getItem(STORAGE_KEY_INPUT);
-         const opts = localStorage.getItem(STORAGE_KEY_OPTS);
+         const code = localStorage.getItem(STORAGE_KEYS.JS_OBFUSCATOR_INPUT);
+         const opts = localStorage.getItem(STORAGE_KEYS.JS_OBFUSCATOR_OPTS);
          if (code) setInputCode(code);
          if (opts) {
             try {
@@ -56,8 +55,8 @@ export function JavascriptObfuscatorView() {
    useEffect(() => {
       if (typeof window === 'undefined' || !isInitialized.current) return;
       if (isPersistenceEnabled) {
-         localStorage.setItem(STORAGE_KEY_INPUT, inputCode);
-         localStorage.setItem(STORAGE_KEY_OPTS, JSON.stringify(options));
+         localStorage.setItem(STORAGE_KEYS.JS_OBFUSCATOR_INPUT, inputCode);
+         localStorage.setItem(STORAGE_KEYS.JS_OBFUSCATOR_OPTS, JSON.stringify(options));
       }
    }, [inputCode, options, isPersistenceEnabled]);
 

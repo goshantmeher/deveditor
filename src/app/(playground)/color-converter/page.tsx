@@ -29,16 +29,18 @@ export const metadata: Metadata = {
 
 export default function ColorConverterPage() {
    return (
-      <div id="page-top" className="flex flex-col">
-         {/* The main editor viewport */}
-         <div className="min-h-[calc(100vh-72px)] lg:h-[calc(100vh-72px)] lg:max-h-[calc(100vh-72px)] shrink-0 w-full overflow-hidden bg-background">
-            <ColorConverterView />
-         </div>
+      
+         <div id="page-top" className="flex flex-col">
+            {/* The main editor viewport */}
+            <div className="min-h-[calc(100vh-72px)] lg:h-[calc(100vh-72px)] lg:max-h-[calc(100vh-72px)] shrink-0 w-full overflow-hidden bg-background">
+               <ColorConverterView />
+            </div>
 
-         {/* SEO Content directly in the DOM, below the fold */}
-         <div className="mt-8 border-t border-border/10 pt-12 pb-16 bg-background">
-            <ColorConverterSeoContent />
+            {/* SEO Content directly in the DOM, below the fold */}
+            <div className="mt-8 border-t border-border/10 pt-12 pb-16 bg-background">
+               <ColorConverterSeoContent />
+            </div>
          </div>
-      </div>
+      
    );
 }

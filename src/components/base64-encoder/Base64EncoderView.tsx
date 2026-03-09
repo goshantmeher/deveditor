@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useEffect, useRef } from 'react';
 import { TextEncoder } from './TextEncoder';
@@ -8,8 +10,6 @@ import { usePersistence } from '@/contexts/PersistenceContext';
 import { Type, FileUp, Shield } from 'lucide-react';
 
 type Base64Tab = 'text' | 'file' | 'urlsafe';
-
-const STORAGE_KEY_TAB = 'base64-encoder-active-tab';
 
 const tabs: {
    id: Base64Tab;
@@ -48,7 +48,7 @@ export function Base64EncoderView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const stored = localStorage.getItem(STORAGE_KEY_TAB) as Base64Tab | null;
+         const stored = localStorage.getItem(STORAGE_KEYS.BASE64_ENCODER_TAB) as Base64Tab | null;
          if (stored && ['text', 'file', 'urlsafe'].includes(stored)) {
             setActiveTab(stored);
          }
@@ -58,7 +58,7 @@ export function Base64EncoderView() {
    // Save tab to localStorage
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled) return;
-      localStorage.setItem(STORAGE_KEY_TAB, activeTab);
+      localStorage.setItem(STORAGE_KEYS.BASE64_ENCODER_TAB, activeTab);
    }, [activeTab, isPersistenceEnabled]);
 
    const base64Schema = {

@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Copy, Check, FileText, RefreshCw, Hash } from 'lucide-react';
@@ -7,10 +9,6 @@ import { Slider } from '@/components/ui/slider';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { generateLoremIpsum, LoremType } from '@/lib/lorem-ipsum-utils';
 import { Switch } from '@/components/ui/switch';
-
-const STORAGE_KEY_TYPE = 'lorem-ipsum-type';
-const STORAGE_KEY_COUNT = 'lorem-ipsum-count';
-const STORAGE_KEY_START = 'lorem-ipsum-start';
 
 export function LoremIpsumView() {
    const { isPersistenceEnabled } = usePersistence();
@@ -28,9 +26,9 @@ export function LoremIpsumView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedType = localStorage.getItem(STORAGE_KEY_TYPE) as LoremType | null;
-         const storedCount = localStorage.getItem(STORAGE_KEY_COUNT);
-         const storedStart = localStorage.getItem(STORAGE_KEY_START);
+         const storedType = localStorage.getItem(STORAGE_KEYS.LOREM_IPSUM_TYPE) as LoremType | null;
+         const storedCount = localStorage.getItem(STORAGE_KEYS.LOREM_IPSUM_COUNT);
+         const storedStart = localStorage.getItem(STORAGE_KEYS.LOREM_IPSUM_START);
 
          if (storedType === 'paragraphs' || storedType === 'sentences' || storedType === 'words') setType(storedType);
          if (storedCount) {
@@ -44,9 +42,9 @@ export function LoremIpsumView() {
    // Save state
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEY_TYPE, type);
-      localStorage.setItem(STORAGE_KEY_COUNT, count.toString());
-      localStorage.setItem(STORAGE_KEY_START, startWithLorem.toString());
+      localStorage.setItem(STORAGE_KEYS.LOREM_IPSUM_TYPE, type);
+      localStorage.setItem(STORAGE_KEYS.LOREM_IPSUM_COUNT, count.toString());
+      localStorage.setItem(STORAGE_KEYS.LOREM_IPSUM_START, startWithLorem.toString());
    }, [type, count, startWithLorem, isPersistenceEnabled]);
 
    // Generate text based on settings

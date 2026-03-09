@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { RegexRequest, RegexResponse, validateRegex } from '@/lib/regex-utils';
+import { usePersistence } from '@/contexts/PersistenceContext';
 import {
    Copy,
    CheckCircle2,
@@ -258,6 +261,9 @@ const CHEAT_SHEET = [
 ];
 
 export function RegexTesterView() {
+   const { isPersistenceEnabled } = usePersistence();
+   const isInitialized = useRef(false);
+
    const [pattern, setPattern] = useState('([a-zA-Z0-9._-]+)@([a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4})');
    const [flags, setFlags] = useState('g');
    const [testString, setTestString] = useState(
@@ -265,6 +271,28 @@ export function RegexTesterView() {
    );
 
    const [result, setResult] = useState<RegexResponse | null>(null);
+
+   // Load state
+   useEffect(() => {
+      if (typeof window === 'undefined' || isInitialized.current) return;
+      isInitialized.current = true;
+      if (isPersistenceEnabled) {
+         const p = localStorage.getItem(STORAGE_KEYS.REGEX_PATTERN);
+         const f = localStorage.getItem(STORAGE_KEYS.REGEX_FLAGS);
+         const t = localStorage.getItem(STORAGE_KEYS.REGEX_TEST);
+         if (p !== null) setPattern(p);
+         if (f !== null) setFlags(f);
+         if (t !== null) setTestString(t);
+      }
+   }, [isPersistenceEnabled]);
+
+   // Save state
+   useEffect(() => {
+      if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
+      localStorage.setItem(STORAGE_KEYS.REGEX_PATTERN, pattern);
+      localStorage.setItem(STORAGE_KEYS.REGEX_FLAGS, flags);
+      localStorage.setItem(STORAGE_KEYS.REGEX_TEST, testString);
+   }, [pattern, flags, testString, isPersistenceEnabled]);
    const [isEvaluating, setIsEvaluating] = useState(false);
    const [copiedField, setCopiedField] = useState<string | null>(null);
 
@@ -508,7 +536,7 @@ export function RegexTesterView() {
                   {/* Underlay for colored highlights - must match textarea styles exactly */}
                   <div
                      ref={highlightRef}
-                     className="absolute inset-0 pointer-events-none overflow-hidden p-4 font-mono text-base md:text-sm leading-relaxed whitespace-pre-wrap break-words z-0"
+                     className="absolute inset-0 pointer-events-none overflow-hidden p-4 font-mono text-base md:text-sm leading-relaxed whitespace-pre-wrap wrap-break-word z-0"
                      aria-hidden="true"
                   >
                      {renderHighlightedText()}

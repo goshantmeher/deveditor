@@ -1,13 +1,19 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
 
-import React, { useState } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { Split, AlignLeft, RefreshCcw, FileType2, RotateCcw } from 'lucide-react';
 import { DiffViewer, DiffStats } from './DiffViewer';
+import { usePersistence } from '@/contexts/PersistenceContext';
 
 export function TextDiffView() {
+   const { isPersistenceEnabled } = usePersistence();
+   const isInitialized = useRef(false);
+
    const [oldText, setOldText] = useState(
       'This is some default text.\n\nYou can change it however you like!\nIt supports multi-line testing.'
    );
@@ -18,6 +24,25 @@ export function TextDiffView() {
    const [viewType, setViewType] = useState<'split' | 'unified'>('split');
    const [mode, setMode] = useState<'char' | 'word'>('word');
    const [stats, setStats] = useState<DiffStats | null>(null);
+
+   // Load state
+   useEffect(() => {
+      if (typeof window === 'undefined' || isInitialized.current) return;
+      isInitialized.current = true;
+      if (isPersistenceEnabled) {
+         const o = localStorage.getItem(STORAGE_KEYS.TEXT_DIFF_OLD);
+         const n = localStorage.getItem(STORAGE_KEYS.TEXT_DIFF_NEW);
+         if (o !== null) setOldText(o);
+         if (n !== null) setNewText(n);
+      }
+   }, [isPersistenceEnabled]);
+
+   // Save state
+   useEffect(() => {
+      if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
+      localStorage.setItem(STORAGE_KEYS.TEXT_DIFF_OLD, oldText);
+      localStorage.setItem(STORAGE_KEYS.TEXT_DIFF_NEW, newText);
+   }, [oldText, newText, isPersistenceEnabled]);
 
    // Handlers
    const handleSwap = () => {

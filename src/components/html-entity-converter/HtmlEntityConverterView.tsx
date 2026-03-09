@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Copy, Check, ArrowRightLeft, Tags, FlaskConical, RotateCcw, Hash } from 'lucide-react';
@@ -13,9 +15,6 @@ import {
    SAMPLE_TEXT_ENCODE,
    SAMPLE_TEXT_DECODE,
 } from '@/lib/html-entity-utils';
-
-const STORAGE_KEY_INPUT = 'html-entity-input';
-const STORAGE_KEY_DIR = 'html-entity-direction';
 
 export function HtmlEntityConverterView() {
    const { isPersistenceEnabled } = usePersistence();
@@ -34,8 +33,8 @@ export function HtmlEntityConverterView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedInput = localStorage.getItem(STORAGE_KEY_INPUT);
-         const storedDir = localStorage.getItem(STORAGE_KEY_DIR) as ConversionDirection | null;
+         const storedInput = localStorage.getItem(STORAGE_KEYS.HTML_ENTITY_INPUT);
+         const storedDir = localStorage.getItem(STORAGE_KEYS.HTML_ENTITY_DIR) as ConversionDirection | null;
          if (storedInput) setInput(storedInput);
          if (storedDir === 'encode' || storedDir === 'decode') setDirection(storedDir);
       }
@@ -44,8 +43,8 @@ export function HtmlEntityConverterView() {
    // Save state
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEY_INPUT, input);
-      localStorage.setItem(STORAGE_KEY_DIR, direction);
+      localStorage.setItem(STORAGE_KEYS.HTML_ENTITY_INPUT, input);
+      localStorage.setItem(STORAGE_KEYS.HTML_ENTITY_DIR, direction);
    }, [input, direction, isPersistenceEnabled]);
 
    // Process conversion

@@ -1,12 +1,12 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useEffect, useRef } from 'react';
 import { FileText, Type, Hash, Clock, FileCode, AlignLeft, BarChart2, RotateCcw, FlaskConical } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { analyzeText, formatBytes } from '@/lib/word-counter-utils';
-
-const STORAGE_KEY_INPUT = 'word-counter-input';
 
 const SAMPLE_TEXT = `The quick brown fox jumps over the lazy dog. 
 This is a sample paragraph with multiple sentences! It is used to demonstrate the word counter's ability to accurately track characters, words, sentences, and paragraphs.
@@ -25,7 +25,7 @@ export function WordCounterView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedInput = localStorage.getItem(STORAGE_KEY_INPUT);
+         const storedInput = localStorage.getItem(STORAGE_KEYS.WORD_COUNTER_INPUT);
          if (storedInput) setInput(storedInput);
       }
    }, [isPersistenceEnabled]);
@@ -33,7 +33,7 @@ export function WordCounterView() {
    // Save state
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEY_INPUT, input);
+      localStorage.setItem(STORAGE_KEYS.WORD_COUNTER_INPUT, input);
    }, [input, isPersistenceEnabled]);
 
    const handleClear = () => setInput('');

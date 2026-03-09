@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { ResumeData, TemplateId, DEFAULT_RESUME_DATA } from '@/types/resume';
@@ -13,7 +15,6 @@ import { FileText, Download, RotateCcw, Eye, PenLine, Bot } from 'lucide-react';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { AiImportModal } from './AiImportModal';
 
-const STORAGE_KEY = 'pdf-resume-data';
 const TEMPLATE_STORAGE_KEY = 'pdf-resume-template';
 const PREVIEW_DEBOUNCE_MS = 500;
 
@@ -42,7 +43,7 @@ export function ResumeBuilderView() {
    useEffect(() => {
       if (!isPersistenceEnabled) return;
       try {
-         const saved = localStorage.getItem(STORAGE_KEY);
+         const saved = localStorage.getItem(STORAGE_KEYS.RESUME_DATA);
          if (saved) setData(JSON.parse(saved));
          const savedTemplate = localStorage.getItem(TEMPLATE_STORAGE_KEY);
          if (savedTemplate) setTemplateId(savedTemplate as TemplateId);
@@ -55,7 +56,7 @@ export function ResumeBuilderView() {
    useEffect(() => {
       if (!isPersistenceEnabled) return;
       try {
-         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+         localStorage.setItem(STORAGE_KEYS.RESUME_DATA, JSON.stringify(data));
          localStorage.setItem(TEMPLATE_STORAGE_KEY, templateId);
       } catch {
          // Ignore storage errors

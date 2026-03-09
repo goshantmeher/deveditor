@@ -4,6 +4,8 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Copy, Check, ArrowRightLeft, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { usePersistence } from '@/contexts/PersistenceContext';
+import { STORAGE_KEYS } from '@/constants/storage';
 
 function standardToUrlSafe(b64: string): string {
    return b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -33,6 +35,28 @@ export function UrlSafeEncoder() {
    const [direction, setDirection] = useState<Direction>('encode');
    const [copied, setCopied] = useState(false);
    const isUserSwitch = useRef(false);
+
+   const { isPersistenceEnabled } = usePersistence();
+   const isInitialized = useRef(false);
+
+   // Load from local storage
+   useEffect(() => {
+      if (typeof window === 'undefined' || isInitialized.current) return;
+      isInitialized.current = true;
+
+      if (isPersistenceEnabled) {
+         const storedInput = localStorage.getItem(STORAGE_KEYS.BASE64_URL_INPUT);
+         if (storedInput) {
+            setInput(storedInput);
+         }
+      }
+   }, [isPersistenceEnabled]);
+
+   // Save back to local storage
+   useEffect(() => {
+      if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
+      localStorage.setItem(STORAGE_KEYS.BASE64_URL_INPUT, input);
+   }, [input, isPersistenceEnabled]);
 
    useEffect(() => {
       if (!input.trim()) {

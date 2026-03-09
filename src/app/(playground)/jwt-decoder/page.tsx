@@ -28,16 +28,18 @@ export const metadata: Metadata = {
 
 export default function JwtDecoderPage() {
    return (
-      <div id="page-top" className="flex flex-col">
-         {/* The main editor viewport */}
-         <div className="h-[calc(100vh-72px)] shrink-0 w-full max-w-[1600px] mx-auto overflow-hidden bg-background border-x border-border/40">
-            <JwtDecoderView />
-         </div>
+      
+         <div id="page-top" className="flex flex-col">
+            {/* The main editor viewport */}
+            <div className="h-[calc(100vh-72px)] shrink-0 w-full max-w-[1600px] mx-auto overflow-hidden bg-background border-x border-border/40">
+               <JwtDecoderView />
+            </div>
 
-         {/* SEO Content directly in the DOM, below the fold */}
-         <div className="mt-8 border-t border-border/10 pt-12 pb-16 bg-background">
-            <JwtDecoderSeoContent />
+            {/* SEO Content directly in the DOM, below the fold */}
+            <div className="mt-8 border-t border-border/10 pt-12 pb-16 bg-background">
+               <JwtDecoderSeoContent />
+            </div>
          </div>
-      </div>
+      
    );
 }

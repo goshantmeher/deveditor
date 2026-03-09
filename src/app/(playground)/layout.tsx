@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Footer } from '@/components/Footer';
+import { PlaygroundClientWrapper } from '@/components/PlaygroundClientWrapper';
 
 interface PlaygroundLayoutProps {
    children: ReactNode;
@@ -33,7 +34,7 @@ export default function PlaygroundLayout({ children }: PlaygroundLayoutProps) {
                __html: JSON.stringify(breadcrumbSchema),
             }}
          />
-         <div
+         <PlaygroundClientWrapper
             className="px-2 py-2 md:px-2 md:py-1 lg:px-2 lg:py-1"
             style={{
                height: 'calc(100vh - 56px)',
@@ -42,7 +43,7 @@ export default function PlaygroundLayout({ children }: PlaygroundLayoutProps) {
          >
             {children}
             <Footer />
-         </div>
+         </PlaygroundClientWrapper>
       </div>
    );
 }

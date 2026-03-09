@@ -1,4 +1,6 @@
 'use client';
+import { STORAGE_KEYS } from '@/constants/storage';
+
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Copy, Check, RefreshCw, Key, ShieldAlert, ShieldCheck } from 'lucide-react';
@@ -7,8 +9,6 @@ import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { generatePassword, PasswordOptions, evaluatePasswordStrength } from '@/lib/password-generator-utils';
-
-const STORAGE_KEY_OPTIONS = 'password-generator-options';
 
 const DEFAULT_OPTIONS: PasswordOptions = {
    length: 16,
@@ -34,7 +34,7 @@ export function PasswordGeneratorView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const storedOptions = localStorage.getItem(STORAGE_KEY_OPTIONS);
+         const storedOptions = localStorage.getItem(STORAGE_KEYS.PASSWORD_GENERATOR_OPTIONS);
          if (storedOptions) {
             try {
                setOptions(JSON.parse(storedOptions));
@@ -48,7 +48,7 @@ export function PasswordGeneratorView() {
    // Save state
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEY_OPTIONS, JSON.stringify(options));
+      localStorage.setItem(STORAGE_KEYS.PASSWORD_GENERATOR_OPTIONS, JSON.stringify(options));
    }, [options, isPersistenceEnabled]);
 
    // Generate pass

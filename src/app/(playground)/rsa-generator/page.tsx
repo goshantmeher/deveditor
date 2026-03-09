@@ -1,5 +1,4 @@
 import { RsaGeneratorView } from '@/components/rsa-generator/RsaGeneratorView';
-import { PersistenceProvider } from '@/contexts/PersistenceContext';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -35,7 +34,7 @@ import { RsaGeneratorSeoContent } from '@/components/rsa-generator/docs/RsaGener
 
 export default function Page() {
    return (
-      <PersistenceProvider>
+      
          <div id="page-top" className="flex flex-col">
             <div className="min-h-0 shrink-0 bg-background pt-4 px-4 pb-2">
                <RsaGeneratorView />
@@ -45,6 +44,6 @@ export default function Page() {
                <RsaGeneratorSeoContent />
             </div>
          </div>
-      </PersistenceProvider>
+      
    );
 }

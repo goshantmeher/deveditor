@@ -1,15 +1,36 @@
 'use client';
+import { STORAGE_KEYS, DEFAULT_INPUTS } from '@/constants/storage';
 
-import React, { useState, useMemo } from 'react';
+
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { parseJwt, formatTimestamp, ParsedJwt } from '@/lib/jwt-utils';
 import { Copy, CheckCircle2, AlertTriangle, ShieldAlert, FileJson } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { usePersistence } from '@/contexts/PersistenceContext';
 
 export function JwtDecoderView() {
-   const [token, setToken] = useState(
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjI1MTYyNDkwMjJ9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
-   );
+   const { isPersistenceEnabled } = usePersistence();
+   const isInitialized = useRef(false);
+   const overlayRef = useRef<HTMLDivElement>(null);
+
+   const [token, setToken] = useState<string>(DEFAULT_INPUTS.JWT_TOKEN);
+
+   // Load state
+   useEffect(() => {
+      if (typeof window === 'undefined' || isInitialized.current) return;
+      isInitialized.current = true;
+      if (isPersistenceEnabled) {
+         const saved = localStorage.getItem(STORAGE_KEYS.JWT_TOKEN);
+         if (saved !== null) setToken(saved);
+      }
+   }, [isPersistenceEnabled]);
+
+   // Save state
+   useEffect(() => {
+      if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
+      localStorage.setItem(STORAGE_KEYS.JWT_TOKEN, token);
+   }, [token, isPersistenceEnabled]);
 
    const decoded = useMemo(() => {
       try {
@@ -84,9 +105,12 @@ export function JwtDecoderView() {
                      </Button>
                   </div>
                </div>
-               <div className="flex-1 relative p-4 bg-background font-mono text-sm leading-relaxed overflow-y-auto">
+               <div className="flex-1 relative bg-background overflow-hidden">
                   {/* Colored visual layout overlaying textarea mechanics */}
-                  <div className="absolute inset-0 pointer-events-none p-4 whitespace-pre-wrap break-all pr-5 pt-4">
+                  <div
+                     ref={overlayRef}
+                     className="absolute inset-0 pointer-events-none p-4 pr-5 overflow-hidden font-mono text-sm leading-relaxed whitespace-pre-wrap break-all"
+                  >
                      {decoded.headerRaw && <span className="text-red-500 dark:text-red-400">{decoded.headerRaw}</span>}
                      {decoded.payloadRaw && <span className="text-foreground">.</span>}
                      {decoded.payloadRaw && (
@@ -100,7 +124,10 @@ export function JwtDecoderView() {
                   <Textarea
                      value={token}
                      onChange={(e) => setToken(e.target.value)}
-                     className="w-full h-full min-h-[200px] bg-transparent text-transparent caret-foreground resize-none border-0 focus-visible:ring-0 p-0 absolute inset-0 pl-4 pr-5 pt-4 pb-4 shadow-none"
+                     onScroll={(e) => {
+                        if (overlayRef.current) overlayRef.current.scrollTop = e.currentTarget.scrollTop;
+                     }}
+                     className="w-full h-full bg-transparent text-transparent caret-foreground resize-none border-0 focus-visible:ring-0 p-4 pr-5 absolute inset-0 shadow-none font-mono text-sm leading-relaxed whitespace-pre-wrap break-all overflow-y-auto"
                      spellCheck={false}
                   />
                </div>
@@ -193,10 +220,10 @@ export function JwtDecoderView() {
                                        </span>
                                     </div>
                                     <div className="col-span-2">
-                                       <div className="font-medium text-foreground">
+                                       <div className="font-medium text-foreground" suppressHydrationWarning>
                                           {formatTimestamp(iat).formatted}
                                        </div>
-                                       <div className="text-xs text-muted-foreground">
+                                       <div className="text-xs text-muted-foreground" suppressHydrationWarning>
                                           {formatTimestamp(iat).relative}
                                        </div>
                                     </div>
@@ -212,10 +239,10 @@ export function JwtDecoderView() {
                                        </span>
                                     </div>
                                     <div className="col-span-2">
-                                       <div className="font-medium text-foreground">
+                                       <div className="font-medium text-foreground" suppressHydrationWarning>
                                           {formatTimestamp(nbf).formatted}
                                        </div>
-                                       <div className="text-xs text-muted-foreground">
+                                       <div className="text-xs text-muted-foreground" suppressHydrationWarning>
                                           {formatTimestamp(nbf).relative}
                                        </div>
                                     </div>
@@ -231,11 +258,12 @@ export function JwtDecoderView() {
                                        </span>
                                     </div>
                                     <div className="col-span-2">
-                                       <div className="font-medium text-foreground">
+                                       <div className="font-medium text-foreground" suppressHydrationWarning>
                                           {formatTimestamp(exp).formatted}
                                        </div>
                                        <div
                                           className={`text-xs ${formatTimestamp(exp).isExpired ? 'text-red-500 font-bold' : 'text-emerald-500'}`}
+                                          suppressHydrationWarning
                                        >
                                           {formatTimestamp(exp).relative}
                                        </div>

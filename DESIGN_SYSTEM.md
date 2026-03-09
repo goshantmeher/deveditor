@@ -159,4 +159,31 @@ Every tool page must emphasize client-side processing:
 
 ---
 
+## 🏷️ Constants & Magic Strings
+
+**Never hardcode strings, IDs, or storage keys directly into your components.**
+
+1. **Centralized Location:** All application-wide constants, especially `localStorage` keys, default inputs, and magic strings, MUST be documented collectively in `src/constants/storage.ts`.
+2. **Storage Keys:** If your tool requires saving user data, add its new storage keys to the exported `STORAGE_KEYS` object in the central constants file.
+3. **Usage:** Import and consistently reference these definitions (e.g., `STORAGE_KEYS.JWT_TOKEN`) rather than hardcoding identical string literals across multiple components.
+
+---
+
+## 💾 Data Persistence Pattern
+
+To improve user experience, user inputs/configurations should be preserved across sessions using `localStorage`, tied to the global `PersistenceContext`.
+
+1. **Storage Keys**: MUST be prefixed with `deveditor-` followed by the tool name and state (e.g., `deveditor-jwt-token`). This prefix ensures the global toggle can clear all data when disabled.
+2. **Implementation**:
+   - Use `const { isPersistenceEnabled } = usePersistence();`
+   - Use two `useEffect` hooks with a `useRef` initialization flag.
+   - **Load Hook**: Check `isPersistenceEnabled`. If true, read from `localStorage` and update state. Set `isInitialized.current = true`.
+   - **Save Hook**: Watch state + `isPersistenceEnabled`. If initialized and enabled, write to `localStorage`.
+3. **Exceptions**: Do **not** persist highly sensitive user inputs (e.g., passwords in Password Tester, generated private RSA keys).
+4. **Documentation**: You **must** add the following entry to the tool's SEO FAQ section:
+   - **Q:** "Is my input data saved?"
+   - **A:** "To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the 'Persist Data' switch in the tool settings."
+
+---
+
 _Follow this system for all new tool requests._
