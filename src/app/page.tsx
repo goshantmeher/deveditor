@@ -91,7 +91,7 @@ const categories: Category[] = [
             description: 'Convert symbols to HTML entities and back. Handles &amp;, &lt;, &gt; etc.',
             icon: '🏷️',
             href: '/html-entities',
-            status: 'planned',
+            status: 'available',
             tags: ['html', 'entity', 'escape', 'unescape'],
          },
          {
@@ -99,7 +99,7 @@ const categories: Category[] = [
             description: 'Generate placeholder text — paragraphs, sentences, or words.',
             icon: '📄',
             href: '/lorem-ipsum',
-            status: 'planned',
+            status: 'available',
             tags: ['lorem', 'ipsum', 'placeholder', 'dummy text'],
          },
          {
@@ -107,7 +107,7 @@ const categories: Category[] = [
             description: 'Count characters, words, lines, byte size, and estimated reading time.',
             icon: '🔢',
             href: '/word-counter',
-            status: 'planned',
+            status: 'available',
             tags: ['word', 'character', 'count', 'length'],
          },
       ],
@@ -715,7 +715,7 @@ export default function Home() {
          <div className="container mx-auto px-4 py-10 max-w-5xl">
             {/* ── Header ───────────────────────────────── */}
             <header className="text-center mb-10">
-               <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+               <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-linear-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
                   Developer Tools
                </h1>
                <p className="text-muted-foreground text-base md:text-lg mb-2 max-w-2xl mx-auto">
@@ -777,7 +777,7 @@ export default function Home() {
                         {/* Category Header */}
                         <button
                            onClick={() => !isSearching && toggleCategory(category.id)}
-                           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border bg-gradient-to-r ${accent} transition-all hover:opacity-90 ${
+                           className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border bg-linear-to-r ${accent} transition-all hover:opacity-90 ${
                               isSearching ? 'cursor-default' : 'cursor-pointer'
                            }`}
                         >

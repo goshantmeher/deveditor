@@ -61,7 +61,7 @@
    - ✅ Feasible: Uses native `encodeURIComponent` / `decodeURIComponent`
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **HTML Entity Converter** — Convert `<`, `&`, `"`, etc. to HTML entities and back
+- [x] **HTML Entity Converter** — Convert `<`, `&`, `"`, etc. to HTML entities and back
    - ✅ Feasible: Pure string replace or DOM-based escaping
    - Priority: ⭐⭐⭐
 
@@ -69,16 +69,16 @@
    - ✅ Feasible: Use the `diff-match-patch` library (~14 KB) or build from scratch
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **Markdown Previewer** — Split-screen: Markdown editor on left, rendered HTML on right
+- [x] **Markdown Previewer** — Split-screen: Markdown editor on left, rendered HTML on right
    - ✅ Feasible: Use `marked` or `markdown-it` library, client-side rendering
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Lorem Ipsum Generator** — Generate placeholder text (paragraphs, sentences, words), with options for length and style
+- [x] **Lorem Ipsum Generator** — Generate placeholder text (paragraphs, sentences, words), with options for length and style
    - ✅ Feasible: Pure JS with preset word banks
    - Priority: ⭐⭐⭐
    - 💡 Added by review (not in original AI list)
 
-- [ ] **String Length / Word Counter** — Character count, word count, line count, byte size, reading time estimate
+- [x] **String Length / Word Counter** — Character count, word count, line count, byte size, reading time estimate
    - ✅ Feasible: Pure string manipulation
    - Priority: ⭐⭐⭐
    - 💡 Added by review

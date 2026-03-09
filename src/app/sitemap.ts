@@ -41,6 +41,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'list-converter', priority: 0.7 },
       { slug: 'url-encoder', priority: 0.8 },
       { slug: 'markdown-converter', priority: 0.8 },
+      { slug: 'html-entities', priority: 0.7 },
+      { slug: 'lorem-ipsum', priority: 0.7 },
+      { slug: 'word-counter', priority: 0.7 },
 
       // CSS & Design tools
       { slug: 'css-playground', priority: 0.9 },
