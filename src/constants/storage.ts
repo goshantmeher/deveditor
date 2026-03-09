@@ -51,6 +51,8 @@ export const STORAGE_KEYS = {
    FAVICON_GEN_IMG: 'deveditor-favicon-img',
    GLASSMORPHISM_SETTINGS: 'deveditor-glass-settings',
    GRADIENT_GENERATOR_SETTINGS: 'deveditor-gradient-settings',
+   TAILWIND_LOOKUP_INPUT: 'deveditor-tailwind-lookup',
+   FONT_PAIR_SETTINGS: 'deveditor-font-pair-settings',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',

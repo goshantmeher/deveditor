@@ -245,7 +245,7 @@ const categories: Category[] = [
             description: 'Search Tailwind classes → CSS output. Paste CSS → get Tailwind equivalent.',
             icon: '🌬️',
             href: '/tailwind-lookup',
-            status: 'planned',
+            status: 'available',
             tags: ['tailwind', 'css', 'class', 'lookup', 'convert'],
          },
          {
@@ -253,7 +253,7 @@ const categories: Category[] = [
             description: 'Preview Google Font combinations with customizable sample text and sizes.',
             icon: '🔡',
             href: '/font-pair',
-            status: 'planned',
+            status: 'available',
             tags: ['font', 'google fonts', 'pair', 'typography', 'preview'],
          },
          {

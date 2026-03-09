@@ -139,7 +139,7 @@
    - ✅ Feasible: Pure CSS generation from slider inputs
    - Priority: ⭐⭐⭐ (partially exists in CSS Playground)
 
-- [ ] **Tailwind CSS Lookup** — Searchable reference for Tailwind classes → CSS output. Paste CSS → get Tailwind equivalent.
+- [x] **Tailwind CSS Lookup** — Searchable reference for Tailwind classes → CSS output. Paste CSS → get Tailwind equivalent.
    - ✅ Feasible: Static lookup table of Tailwind classes. Reverse mapping is heuristic-based.
    - Priority: ⭐⭐⭐⭐
    - 💡 Added by review
