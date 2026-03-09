@@ -105,12 +105,12 @@
    - ✅ Feasible: Use `crypto.randomUUID()` and ULID specs (~30 lines of code JS)
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Bcrypt Tester** — Check if a plaintext string matches a Bcrypt hash
-   - ⚠️ Partially feasible: Requires `bcryptjs` (~45 KB) compiled to JS. Hashing is CPU-intensive for high work factors but doable in a Web Worker.
+- [x] **Bcrypt Tester** — Check if a plaintext string matches a Bcrypt hash
+   - ✅ Feasible: Use `bcryptjs`
    - Priority: ⭐⭐⭐
 
-- [ ] **RSA Key Pair Generator** — Generate public/private key pairs locally
-   - ⚠️ Partially feasible: `crypto.subtle.generateKey()` supports RSA. Export to PEM format requires some manual encoding. Works but the UI needs to handle potentially slow generation.
+- [x] **RSA Key Pair Generator** — Generate public/private key pairs locally
+   - ✅ Feasible: Use `node-forge` or `crypto.subtle` wrapper
    - Priority: ⭐⭐
 
 ---
