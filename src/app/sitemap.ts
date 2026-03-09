@@ -46,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'hash-generator', priority: 0.8 },
       { slug: 'case-converter', priority: 0.7 },
       { slug: 'list-converter', priority: 0.7 },
+      { slug: 'tailwind-lookup', priority: 0.8 },
       { slug: 'url-encoder', priority: 0.8 },
       { slug: 'markdown-converter', priority: 0.8 },
       { slug: 'html-entities', priority: 0.7 },
