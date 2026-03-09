@@ -61,6 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'svg-optimizer', priority: 0.8 },
       { slug: 'favicon-generator', priority: 0.8 },
       { slug: 'glassmorphism-generator', priority: 0.8 },
+      { slug: 'gradient-generator', priority: 0.8 },
 
       // PDF tools
       { slug: 'pdf-resume', priority: 0.9 },

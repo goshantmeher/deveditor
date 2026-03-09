@@ -233,6 +233,14 @@ const categories: Category[] = [
             tags: ['css', 'glassmorphism', 'shadow', 'tailwind', 'generator'],
          },
          {
+            title: 'CSS Gradient Generator',
+            description: 'Multi-stop linear, radial, and conic gradient builder with live preview and Tailwind output.',
+            icon: '🎨',
+            href: '/gradient-generator',
+            status: 'available',
+            tags: ['css', 'gradient', 'linear', 'radial', 'tailwind', 'color'],
+         },
+         {
             title: 'Tailwind CSS Lookup',
             description: 'Search Tailwind classes → CSS output. Paste CSS → get Tailwind equivalent.',
             icon: '🌬️',

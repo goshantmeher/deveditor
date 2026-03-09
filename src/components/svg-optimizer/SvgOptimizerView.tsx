@@ -278,8 +278,6 @@ export function SvgOptimizerView() {
                   />
                ) : (
                   <div className="flex-1 w-full p-6 bg-muted/10 flex items-center justify-center overflow-auto rounded-br-xl relative">
-                     <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)', backgroundSize: '16px 16px' }} />
-                     
                      {result.optimizedSvg ? (
                         <div 
                            className="w-full h-full flex items-center justify-center relative z-10 transition-transform hover:scale-105 duration-300 [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-[80%] [&>svg]:max-h-[80%]"
