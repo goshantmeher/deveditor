@@ -3,6 +3,8 @@
 > Visual & UX standards for building premium developer tools.
 > Updated: March 2026
 
+**CRITICAL RULE:** Always use `yarn` for installing dependencies. Do NOT use `npm`.
+
 ---
 
 ## 🎨 Color System
@@ -54,6 +56,7 @@ Use these for icon boxes, badges, and decorative elements:
 - **Tool viewport**: `<div className="h-[calc(100vh-72px)] shrink-0">` — takes full viewport minus navbar.
 - **SEO section**: `<div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">` — below the fold.
 - **Persistence**: Wrap with `<PersistenceProvider>` for tools that save state to localStorage.
+- **Sitemap**: Every new tool MUST be appended to `src/app/sitemap.ts` in the `tools` array to be indexed by search engines.
 
 ### 2. Tool Container
 
@@ -66,8 +69,10 @@ Use these for icon boxes, badges, and decorative elements:
 
 - Compact toolbar: `bg-background` with `border-b border-border`.
 - Contains: Tool Icon, Title, Action buttons.
-- Standard actions: **Clear**, **Sample** (when input is empty), **Copy**, **Swap** (when applicable).
+- Standard actions: **Clear**, **Sample** (when input is empty), **Import** (when applicable to load a file), **Copy**, **Swap** (when applicable).
 - Sample button: Uses `FlaskConical` icon, populates with example data, hides when input is present.
+- Import button: Uses `Upload` icon, triggers hidden file input, hides or stays shown depending on context.
+- **Grouping**: When utilizing both "Sample" and "Import", place them together in a `div` wrapper with `gap-2` so they don't separate when layout flexes.
 
 ### 4. Controls (Forms)
 

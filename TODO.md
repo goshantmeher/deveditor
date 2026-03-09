@@ -123,11 +123,11 @@
    - ✅ Feasible: Pure math conversions, Canvas for color picker
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **SVG Optimizer** — Minify SVG (strip metadata, comments, unnecessary attributes). Preview before/after.
+- [x] **SVG Optimizer** — Minify SVG (strip metadata, comments, unnecessary attributes). Preview before/after.
    - ✅ Feasible: Use `svgo` compiled for browser (the WASM build exists) or a lightweight custom parser
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Favicon Generator** — Upload a PNG → auto-resize to all standard favicon sizes (16, 32, 48, 64, 128, 256, 512). Download as ICO or PNG set.
+- [x] **Favicon Generator** — Upload a PNG → auto-resize to all standard favicon sizes (16, 32, 48, 64, 128, 256, 512). Download as ICO or PNG set.
    - ✅ Feasible: HTML `<canvas>` for resizing, `canvas.toBlob()` for export
    - Priority: ⭐⭐⭐⭐
 
@@ -153,7 +153,7 @@
    - ✅ Feasible: Native client-side color math (HSL/Oklch interpolations) + React state previews.
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **SVG to React/JSX Converter** — Paste raw SVG code, output clean React/JSX components mapping all snake-case/kebab-case attributes directly to proper camelCase JSX attributes instantly.
+- [x] **SVG to React/JSX Converter** — Paste raw SVG code, output clean React/JSX components mapping all snake-case/kebab-case attributes directly to proper camelCase JSX attributes instantly.
    - ✅ Feasible: Fast string parsing and AST walking using something like `hast-util-to-jsx-runtime`.
    - Priority: ⭐⭐⭐⭐
 

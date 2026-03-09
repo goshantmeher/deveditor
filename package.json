@@ -72,6 +72,7 @@
       "react": "19.1.0",
       "react-dom": "19.1.0",
       "smol-toml": "^1.6.0",
+      "svgo": "^4.0.1",
       "tailwind-merge": "^3.3.1",
       "zxcvbn": "^4.4.2"
    },
@@ -84,6 +85,7 @@
       "@types/papaparse": "^5.5.2",
       "@types/react": "^19",
       "@types/react-dom": "^19",
+      "@types/svgo": "^3.0.0",
       "@types/zxcvbn": "^4.4.5",
       "baseline-browser-mapping": "^2.10.0",
       "eslint": "^9",

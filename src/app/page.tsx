@@ -213,7 +213,7 @@ const categories: Category[] = [
             description: 'Minify SVG code — strip metadata, comments, and unnecessary attributes.',
             icon: '✂️',
             href: '/svg-optimizer',
-            status: 'planned',
+            status: 'available',
             tags: ['svg', 'optimize', 'minify', 'clean'],
          },
          {
@@ -221,7 +221,7 @@ const categories: Category[] = [
             description: 'Upload a PNG and generate all standard favicon sizes (16px to 512px).',
             icon: '⭐',
             href: '/favicon-generator',
-            status: 'planned',
+            status: 'available',
             tags: ['favicon', 'icon', 'resize', 'png', 'ico'],
          },
          {
@@ -253,8 +253,8 @@ const categories: Category[] = [
             title: 'SVG to React Converter',
             description: 'Paste raw SVG code and get clean, camelCase React/JSX components instantly.',
             icon: '⚛️',
-            href: '/svg-to-react',
-            status: 'planned',
+            href: '/svg-to-jsx',
+            status: 'available',
             tags: ['svg', 'react', 'jsx', 'convert', 'camelcase'],
          },
          {

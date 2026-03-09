@@ -46,6 +46,9 @@ export const STORAGE_KEYS = {
    JS_OBFUSCATOR_OPTS: 'deveditor-js-obf-opts',
    TEXT_DIFF_OLD: 'deveditor-diff-old',
    TEXT_DIFF_NEW: 'deveditor-diff-new',
+   SVG_JSX_INPUT: 'deveditor-svg-jsx-input',
+   SVG_OPTIMIZER_INPUT: 'deveditor-svg-opt-input',
+   FAVICON_GEN_IMG: 'deveditor-favicon-img',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',

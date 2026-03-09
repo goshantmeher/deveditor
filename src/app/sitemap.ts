@@ -57,6 +57,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'color-converter', priority: 0.8 },
       { slug: 'theme-generator', priority: 0.7 },
       { slug: 'qr-generator', priority: 0.8 },
+      { slug: 'svg-to-jsx', priority: 0.8 },
+      { slug: 'svg-optimizer', priority: 0.8 },
+      { slug: 'favicon-generator', priority: 0.8 },
 
       // PDF tools
       { slug: 'pdf-resume', priority: 0.9 },
