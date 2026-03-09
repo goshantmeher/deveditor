@@ -144,7 +144,7 @@
    - Priority: ⭐⭐⭐⭐
    - 💡 Added by review
 
-- [ ] **Font Pair Previewer** — Preview Google Font combinations with customizable sample text, sizes, and weights
+- [x] **Font Pair Previewer** — Preview Google Font combinations with customizable sample text, sizes, and weights
    - ✅ Feasible: Load fonts via Google Fonts API, render with CSS
    - Priority: ⭐⭐⭐
    - 💡 Added by review

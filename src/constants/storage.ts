@@ -53,6 +53,9 @@ export const STORAGE_KEYS = {
    GRADIENT_GENERATOR_SETTINGS: 'deveditor-gradient-settings',
    TAILWIND_LOOKUP_INPUT: 'deveditor-tailwind-lookup',
    FONT_PAIR_SETTINGS: 'deveditor-font-pair-settings',
+   META_TAG_SETTINGS: 'deveditor-meta-tag-settings',
+   SEO_GENERATORS_SETTINGS: 'deveditor-seo-generators',
+   CODE_MINIFIER_INPUT: 'deveditor-code-minifier',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',

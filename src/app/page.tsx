@@ -278,7 +278,7 @@ const categories: Category[] = [
             description: 'Visually generate <meta> tags for Twitter, Facebook, and Google with a live preview card.',
             icon: '🖥️',
             href: '/meta-tag-generator',
-            status: 'planned',
+            status: 'available',
             tags: ['seo', 'meta', 'og', 'twitter', 'facebook', 'tags'],
          },
          {
@@ -286,7 +286,7 @@ const categories: Category[] = [
             description: 'Generate formatted robots.txt rules and XML sitemaps to optimize search engine crawling.',
             icon: '🤖',
             href: '/seo-generators',
-            status: 'planned',
+            status: 'available',
             tags: ['seo', 'robots', 'sitemap', 'crawler'],
          },
          {
@@ -294,7 +294,7 @@ const categories: Category[] = [
             description: 'Instantly compress or expand HTML, CSS, and JavaScript code. Runs entirely locally.',
             icon: '🗜️',
             href: '/code-minifier',
-            status: 'planned',
+            status: 'available',
             tags: ['minify', 'beautify', 'compress', 'html', 'css', 'javascript'],
          },
       ],
