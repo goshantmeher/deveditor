@@ -327,7 +327,7 @@ const categories: Category[] = [
             description: 'Convert cron syntax to plain English. Show next scheduled run times.',
             icon: '⏰',
             href: '/cron-parser',
-            status: 'planned',
+            status: 'available',
             tags: ['cron', 'schedule', 'crontab', 'parser'],
          },
          {
@@ -343,7 +343,7 @@ const categories: Category[] = [
             description: 'Convert epoch timestamps ↔ human-readable dates. Relative time display.',
             icon: '🕐',
             href: '/unix-timestamp',
-            status: 'planned',
+            status: 'available',
             tags: ['unix', 'timestamp', 'epoch', 'date', 'time'],
          },
          {
@@ -351,7 +351,7 @@ const categories: Category[] = [
             description: 'Bidirectional YAML/JSON conversion with syntax validation.',
             icon: '🔄',
             href: '/yaml-json',
-            status: 'planned',
+            status: 'available',
             tags: ['yaml', 'json', 'convert', 'config'],
          },
          {
@@ -359,7 +359,7 @@ const categories: Category[] = [
             description: 'Query JSON data with JSONPath or jq-like expressions. Live results.',
             icon: '🎯',
             href: '/json-path',
-            status: 'planned',
+            status: 'available',
             tags: ['jsonpath', 'jq', 'query', 'json', 'path'],
          },
          {
@@ -623,7 +623,7 @@ const categories: Category[] = [
             description: 'Turn text into large ASCII art headers for code comments.',
             icon: '🎭',
             href: '/ascii-art',
-            status: 'planned',
+            status: 'available',
             tags: ['ascii', 'art', 'text', 'figlet', 'banner'],
          },
          {

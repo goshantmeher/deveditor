@@ -56,6 +56,11 @@ export const STORAGE_KEYS = {
    META_TAG_SETTINGS: 'deveditor-meta-tag-settings',
    SEO_GENERATORS_SETTINGS: 'deveditor-seo-generators',
    CODE_MINIFIER_INPUT: 'deveditor-code-minifier',
+   CRON_PARSER_INPUT: 'deveditor-cron-parser',
+   UNIX_TIMESTAMP_INPUT: 'deveditor-unix-timestamp',
+   ASCII_ART_INPUT: 'deveditor-ascii-art',
+   JSON_PATH_INPUT: 'deveditor-json-path',
+   YAML_JSON_INPUT: 'deveditor-yaml-json',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',

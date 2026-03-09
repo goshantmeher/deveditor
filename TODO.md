@@ -163,7 +163,7 @@
 
 > Tools that help debug logic, parse expressions, and plan architecture.
 
-- [ ] **Cron Expression Parser** — Convert cron expressions (`*/5 * * * *`) into plain English. Show next N scheduled run times. Interactive builder.
+- [x] **Cron Expression Parser** — Convert cron expressions (`*/5 * * * *`) into plain English. Show next N scheduled run times. Interactive builder.
    - ✅ Feasible: Pure parsing logic, no external dependencies needed
    - Priority: ⭐⭐⭐⭐⭐
 
@@ -175,21 +175,21 @@
    - ✅ Feasible: Parse JSON, infer types, generate code strings. Pure logic.
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **Unix Timestamp Converter** — Convert epoch timestamps ↔ human-readable dates. Show "time ago" relative format. Support ms/s/ns.
+- [x] **Unix Timestamp Converter** — Convert epoch timestamps ↔ human-readable dates. Show "time ago" relative format. Support ms/s/ns.
    - ✅ Feasible: Native `Date` object
    - Priority: ⭐⭐⭐⭐
    - 💡 Added by review
 
-- [ ] **ASCII Art Text Generator** — Turn text into big ASCII art headers for code comments using figlet-style fonts
+- [x] **ASCII Art Text Generator** — Turn text into big ASCII art headers for code comments using figlet-style fonts
    - ✅ Feasible: Use a client-side figlet.js library or precomputed font maps
    - Priority: ⭐⭐
 
-- [ ] **JSON Path / jq Playground** — Query JSON data with JSONPath or jq-like expressions, see results live
+- [x] **JSON Path / jq Playground** — Query JSON data with JSONPath or jq-like expressions, see results live
    - ✅ Feasible: Use a client-side JSONPath library
    - Priority: ⭐⭐⭐⭐
    - 💡 Added by review
 
-- [ ] **YAML ↔ JSON Converter** — Bidirectional YAML/JSON conversion with syntax validation
+- [x] **YAML ↔ JSON Converter** — Bidirectional YAML/JSON conversion with syntax validation
    - ✅ Feasible: Use `js-yaml` library (~30 KB)
    - Priority: ⭐⭐⭐⭐
    - 💡 Added by review

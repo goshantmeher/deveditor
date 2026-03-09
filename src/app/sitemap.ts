@@ -51,6 +51,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'html-entities', priority: 0.7 },
       { slug: 'lorem-ipsum', priority: 0.7 },
       { slug: 'word-counter', priority: 0.7 },
+      { slug: 'cron-parser', priority: 0.8 },
+      { slug: 'unix-timestamp', priority: 0.8 },
+      { slug: 'ascii-art', priority: 0.8 },
+      { slug: 'json-path', priority: 0.8 },
+      { slug: 'yaml-json', priority: 0.8 },
 
       // CSS & Design tools
       { slug: 'css-playground', priority: 0.9 },
