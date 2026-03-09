@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { usePersistence } from '@/contexts/PersistenceContext';
 import { STORAGE_KEYS } from '@/constants/storage';
-import { JSONPath } from 'jsonpath-plus';
+import { evaluateJsonPath } from '@/lib/json-path-evaluator';
 
 interface JsonPathState {
    inputJson: string;
@@ -61,7 +61,7 @@ export function JsonPathView() {
 
       try {
          const parsedObj = JSON.parse(state.inputJson);
-         const result = JSONPath({ path: state.expression, json: parsedObj });
+         const result = evaluateJsonPath(parsedObj, state.expression);
          setOutput(result);
          setError(null);
       } catch (err: unknown) {

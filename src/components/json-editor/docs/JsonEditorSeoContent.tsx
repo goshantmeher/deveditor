@@ -1,5 +1,6 @@
 import { FileJson, Zap, ShieldCheck, Braces, Layers, Search, Code2, Sparkles } from 'lucide-react';
 import { ScrollToTopButton } from '../../ScrollToTopButton';
+import JsonEditorInfo from './JsonEditorInfo';
 
 export function JsonEditorSeoContent() {
    const faqSchema = {
@@ -142,6 +143,20 @@ export function JsonEditorSeoContent() {
                      in your source data.
                   </p>
                </div>
+            </div>
+         </div>
+
+         {/* Editor Guide Section */}
+         <div className="space-y-8 border-t border-border/50 pt-24">
+            <div className="text-center space-y-4">
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  JSON Editor Guide
+               </h2>
+               <p className="text-muted-foreground">Learn how to make the most out of the professional JSON suite.</p>
+            </div>
+            
+            <div className="bg-muted/30 rounded-3xl p-8 md:p-12 border border-border mt-12 max-w-4xl mx-auto">
+               <JsonEditorInfo />
             </div>
          </div>
 
