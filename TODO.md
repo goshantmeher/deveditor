@@ -44,6 +44,8 @@
 | JSON Path Playground                 | `/json-path`       | ✅ Live |
 | JSON Compare / Diff                  | `/json-compare`    | ✅ Live |
 | PDF Resume Builder                   | `/resume-builder`  | ✅ Live |
+| SQL Formatter                        | `/sql-formatter`   | ✅ Live |
+| .htaccess Generator                  | `/htaccess-generator`| ✅ Live |
 | PDF Tools (Merge/Split/Extract)      | `/pdf-*`           | ✅ Live |
 | Markdown Previewer                   | `/markdown`        | ✅ Live |
 | List / Array Converter               | `/list-converter`  | ✅ Live |
@@ -191,6 +193,12 @@
    - Priority: ⭐⭐⭐⭐⭐
 
 - [x] **Mock Data Generator** — Define a schema and generate thousands of rows of realistic dummy data in JSON or CSV format.
+   - Priority: ⭐⭐⭐⭐⭐
+
+- [x] **SQL Formatter** — Format, beautify, and parse complex SQL queries into readable, multi-line statements.
+   - Priority: ⭐⭐⭐⭐⭐
+
+- [x] **.htaccess Redirect Generator** — Generate Apache/Nginx redirect rules for HTTPS, www/non-www, and custom 301 redirects.
    - Priority: ⭐⭐⭐⭐⭐
 
 ---

@@ -70,6 +70,8 @@ export const STORAGE_KEYS = {
    MOCK_DATA_INPUT: 'deveditor-mock-data',
    JSON_COMPARE_LEFT: 'deveditor-json-compare-left',
    JSON_COMPARE_RIGHT: 'deveditor-json-compare-right',
+   SQL_FORMATTER_INPUT: 'deveditor-sql-formatter',
+   HTACCESS_GENERATOR_INPUT: 'deveditor-htaccess-generator',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',

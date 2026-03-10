@@ -375,7 +375,7 @@ const categories: Category[] = [
             description: 'Format, beautify, and parse complex SQL queries into readable, multi-line statements.',
             icon: '🗄️',
             href: '/sql-formatter',
-            status: 'planned',
+            status: 'available',
             tags: ['sql', 'format', 'beautify', 'database', 'query'],
          },
          {
@@ -383,7 +383,7 @@ const categories: Category[] = [
             description: 'Generate Apache/Nginx redirect rules for HTTPS, www/non-www, and custom 301 redirects.',
             icon: '🔀',
             href: '/htaccess-generator',
-            status: 'planned',
+            status: 'available',
             tags: ['htaccess', 'redirect', 'nginx', 'apache', '301'],
          },
          {
