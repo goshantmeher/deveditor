@@ -68,6 +68,8 @@ export const STORAGE_KEYS = {
    BASE64_FILE_INPUT: 'deveditor-base64-file',
    BASE64_IMAGE_INPUT: 'deveditor-base64-image',
    MOCK_DATA_INPUT: 'deveditor-mock-data',
+   JSON_COMPARE_LEFT: 'deveditor-json-compare-left',
+   JSON_COMPARE_RIGHT: 'deveditor-json-compare-right',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',

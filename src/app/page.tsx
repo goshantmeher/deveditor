@@ -367,7 +367,7 @@ const categories: Category[] = [
             description: 'Compare the structures and values of two JSON objects. Visualizes deeply nested differences.',
             icon: '⚖️',
             href: '/json-compare',
-            status: 'planned',
+            status: 'available',
             tags: ['json', 'compare', 'diff', 'structure'],
          },
          {

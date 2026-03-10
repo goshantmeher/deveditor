@@ -56,6 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'unix-timestamp', priority: 0.8 },
       { slug: 'ascii-art', priority: 0.8 },
       { slug: 'json-path', priority: 0.8 },
+      { slug: 'json-compare', priority: 0.8 },
       { slug: 'yaml-json', priority: 0.8 },
       { slug: 'csv-json', priority: 0.8 },
       { slug: 'xml-json', priority: 0.8 },

@@ -42,6 +42,7 @@
 | Password Generator                   | `/password-gen`    | ✅ Live |
 | YAML ↔ JSON Converter                | `/yaml-json`       | ✅ Live |
 | JSON Path Playground                 | `/json-path`       | ✅ Live |
+| JSON Compare / Diff                  | `/json-compare`    | ✅ Live |
 | PDF Resume Builder                   | `/resume-builder`  | ✅ Live |
 | PDF Tools (Merge/Split/Extract)      | `/pdf-*`           | ✅ Live |
 | Markdown Previewer                   | `/markdown`        | ✅ Live |
