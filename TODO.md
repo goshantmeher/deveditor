@@ -186,6 +186,12 @@
 - [x] **Base64 to Image** — Upload a Base64 string and download the original image securely.
    - Priority: ⭐⭐⭐
 
+- [x] **Markdown to HTML Converter** — Parse, sanitize, and convert raw Markdown into rich, safe HTML output strings.
+   - Priority: ⭐⭐⭐⭐⭐
+
+- [x] **Mock Data Generator** — Define a schema and generate thousands of rows of realistic dummy data in JSON or CSV format.
+   - Priority: ⭐⭐⭐⭐⭐
+
 ---
 
 ## 🗺️ Suggested Build Order
