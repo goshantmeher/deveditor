@@ -65,6 +65,8 @@ export const STORAGE_KEYS = {
    XML_JSON_INPUT: 'deveditor-xml-json',
    TOML_JSON_INPUT: 'deveditor-toml-json',
    BASE_CONVERTER_INPUT: 'deveditor-base-converter',
+   BASE64_FILE_INPUT: 'deveditor-base64-file',
+   BASE64_IMAGE_INPUT: 'deveditor-base64-image',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',

@@ -581,8 +581,16 @@ const categories: Category[] = [
             description: 'Drag and drop files to convert directly to string, or decode strings back to downloads.',
             icon: '🔤',
             href: '/base64-file',
-            status: 'planned',
+            status: 'available',
             tags: ['base64', 'file', 'encode', 'decode', 'string'],
+         },
+         {
+            title: 'Base64 to Image',
+            description: 'Instantly preview and securely extract images from Base64 Data URIs locally.',
+            icon: '🖼️',
+            href: '/base64-image',
+            status: 'available',
+            tags: ['base64', 'image', 'decode', 'preview', 'picture'],
          },
          {
             title: 'Markdown to HTML Converter',

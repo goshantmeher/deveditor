@@ -61,6 +61,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'xml-json', priority: 0.8 },
       { slug: 'toml-json', priority: 0.8 },
       { slug: 'base-converter', priority: 0.8 },
+      { slug: 'base64-file', priority: 0.8 },
+      { slug: 'base64-image', priority: 0.8 },
 
       // CSS & Design tools
       { slug: 'css-playground', priority: 0.9 },

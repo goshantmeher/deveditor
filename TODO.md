@@ -179,11 +179,11 @@
    - Priority: ⭐⭐⭐
    - 💡 Added by review
 
-- [ ] **Base64 File Encoder/Decoder** — Drag and drop any file to encode it directly into a Base64 string, or paste a Base64 string to download the original file securely.
+- [x] **Base64 File Encoder/Decoder** — Drag and drop any file to encode it directly into a Base64 string, or paste a Base64 string to download the original file securely.
    - ✅ Feasible: Using browser `FileReader` API and `readAsDataURL()`.
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **Base64 to Image** — Upload a Base64 string and download the original image securely.
+- [x] **Base64 to Image** — Upload a Base64 string and download the original image securely.
    - Priority: ⭐⭐⭐
 
 ---
