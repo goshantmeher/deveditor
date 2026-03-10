@@ -418,7 +418,7 @@ const categories: Category[] = [
             description: 'Crop, resize, and convert images between PNG, JPEG, WebP, AVIF.',
             icon: '🖼️',
             href: '/image-converter',
-            status: 'coming-soon',
+            status: 'available',
             tags: ['image', 'crop', 'resize', 'convert', 'png', 'jpeg', 'webp'],
          },
          {

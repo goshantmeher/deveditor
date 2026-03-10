@@ -59,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'json-compare', priority: 0.8 },
       { slug: 'sql-formatter', priority: 0.8 },
       { slug: 'htaccess-generator', priority: 0.8 },
+      { slug: 'image-converter', priority: 0.8 },
       { slug: 'yaml-json', priority: 0.8 },
       { slug: 'csv-json', priority: 0.8 },
       { slug: 'xml-json', priority: 0.8 },

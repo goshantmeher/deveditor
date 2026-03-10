@@ -46,6 +46,7 @@
 | PDF Resume Builder                   | `/resume-builder`  | ✅ Live |
 | SQL Formatter                        | `/sql-formatter`   | ✅ Live |
 | .htaccess Generator                  | `/htaccess-generator`| ✅ Live |
+| Image Converter                      | `/image-converter` | ✅ Live |
 | PDF Tools (Merge/Split/Extract)      | `/pdf-*`           | ✅ Live |
 | Markdown Previewer                   | `/markdown`        | ✅ Live |
 | List / Array Converter               | `/list-converter`  | ✅ Live |
@@ -107,7 +108,7 @@
 
 > File processing without uploading to any server.
 
-- [ ] **Image Converter / Crop / Resize** — Upload images → crop with interactive handles, resize to custom dimensions, convert between formats (PNG, JPEG, WebP, AVIF). Quality slider, aspect ratio lock, batch processing.
+- [x] **Image Converter / Crop / Resize** — Upload images → crop with interactive handles, resize to custom dimensions, convert between formats (PNG, JPEG, WebP). Quality slider, aspect ratio lock.
    - ✅ Feasible: `<canvas>` for all transformations + `canvas.toBlob()` for export. Cropping via mouse/touch interaction.
    - Priority: ⭐⭐⭐⭐⭐
    - 🔄 **Has existing code from previous project — can be ported directly**

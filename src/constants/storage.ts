@@ -72,6 +72,7 @@ export const STORAGE_KEYS = {
    JSON_COMPARE_RIGHT: 'deveditor-json-compare-right',
    SQL_FORMATTER_INPUT: 'deveditor-sql-formatter',
    HTACCESS_GENERATOR_INPUT: 'deveditor-htaccess-generator',
+   IMAGE_CONVERTER_INPUT: 'deveditor-image-converter',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',
