@@ -572,8 +572,8 @@ const categories: Category[] = [
             title: 'Number Base Converter',
             description: 'Convert between binary, octal, decimal, and hexadecimal.',
             icon: '🔢',
-            href: '/number-base',
-            status: 'planned',
+            href: '/base-converter',
+            status: 'available',
             tags: ['binary', 'octal', 'decimal', 'hex', 'base', 'convert'],
          },
          {

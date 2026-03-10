@@ -174,7 +174,7 @@
    - ✅ Feasible: Use lightweight `@iarna/toml` library
    - Priority: ⭐⭐⭐
 
-- [ ] **Number Base Converter** — Convert between binary, octal, decimal, hexadecimal. Support large numbers.
+- [x] **Number Base Converter** — Convert between binary, octal, decimal, hexadecimal. Support large numbers.
    - ✅ Feasible: Native `parseInt()` and `Number.toString(base)`
    - Priority: ⭐⭐⭐
    - 💡 Added by review
