@@ -146,6 +146,52 @@ export function WordCounterSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Analyze Your Text</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Content</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Enter your blog post, essay, or code snippet into the editor. The engine immediately begins real-time character and word scanning as you type.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Density Metrics</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Check the statistics bar for a detailed breakdown of total words, sentences, and paragraphs. The tool also separates character counts into "With Spaces" and "Without Spaces" for strict academic limits.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Reading Time</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Review the "Estimate Reading Time" panel (based on an average 225 WPM speed) to ensure your newsletter or blog post falls within the ideal engagement window for your audience.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Check SEO Tag Lengths</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the specialized limit indicators to see if your meta title or description fits within the Google search snippet limits (approximately 60 and 160 characters respectively).</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Analyze Binary Weight</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Watch the calculated byte size to ensure your string fits within database VARCHAR or TEXT limits. All analysis is performed client-side, keeping your text strictly confidential.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

@@ -42,8 +42,15 @@
 | Password Generator                   | `/password-gen`    | ✅ Live |
 | YAML ↔ JSON Converter                | `/yaml-json`       | ✅ Live |
 | JSON Path Playground                 | `/json-path`       | ✅ Live |
+| JSON Compare / Diff                  | `/json-compare`    | ✅ Live |
 | PDF Resume Builder                   | `/resume-builder`  | ✅ Live |
-| PDF Tools (Merge/Split/Extract)      | `/pdf-*`           | ✅ Live |
+| SQL Formatter                        | `/sql-formatter`   | ✅ Live |
+| .htaccess Generator                  | `/htaccess-generator`| ✅ Live |
+| Image Converter                      | `/image-converter`   | ✅ Live |
+| Image Compressor                     | `/image-compressor` | ✅ Live |
+| SVG → PNG/JPEG Converter             | `/svg-to-png`       | ✅ Live |
+| EXIF Data Viewer & Remover           | `/exif-remover`     | ✅ Live |
+| PDF Tools (Merge/Split/Extract)      | `/pdf-*`             | ✅ Live |
 | Markdown Previewer                   | `/markdown`        | ✅ Live |
 | List / Array Converter               | `/list-converter`  | ✅ Live |
 | Tailwind CSS Lookup                  | `/tailwind`        | ✅ Live |
@@ -104,22 +111,20 @@
 
 > File processing without uploading to any server.
 
-- [ ] **Image Converter / Crop / Resize** — Upload images → crop with interactive handles, resize to custom dimensions, convert between formats (PNG, JPEG, WebP, AVIF). Quality slider, aspect ratio lock, batch processing.
-   - ✅ Feasible: `<canvas>` for all transformations + `canvas.toBlob()` for export. Cropping via mouse/touch interaction.
-   - Priority: ⭐⭐⭐⭐⭐
-   - 🔄 **Has existing code from previous project — can be ported directly**
-
-- [ ] **Image Compressor** — Compress JPEG/PNG/WebP with adjustable quality slider. Before/after comparison with file size diff.
+- [x] **Image Compressor** — Compress JPEG/PNG/WebP with adjustable quality slider. Before/after comparison with file size diff.
    - ✅ Feasible: `<canvas>` + `canvas.toBlob(type, quality)`. Use OffscreenCanvas for large images.
    - Priority: ⭐⭐⭐⭐⭐
+   - **Built:** `/image-compressor`
 
-- [ ] **SVG → PNG/JPEG Converter** — Render SVG onto Canvas and export as raster image at custom resolution
+- [x] **SVG → PNG/JPEG Converter** — Render SVG onto Canvas and export as raster image at custom resolution
    - ✅ Feasible: `<canvas>` + `drawImage()` with SVG source
    - Priority: ⭐⭐⭐⭐
+   - **Built:** `/svg-to-png`
 
-- [ ] **EXIF Data Viewer/Remover** — Read and strip metadata from photos (GPS, camera info, etc.) for privacy
+- [x] **EXIF Data Viewer/Remover** — Read and strip metadata from photos (GPS, camera info, etc.) for privacy
    - ✅ Feasible: Parse EXIF manually from JPEG binary or use lightweight `exif-js`
    - Priority: ⭐⭐⭐⭐
+   - **Built:** `/exif-remover`
 
 - [ ] **Image to PDF** — Convert one or more images into a multi-page PDF document.
    - Priority: ⭐⭐⭐⭐
@@ -162,29 +167,7 @@
 
 > Tools for converting between data formats.
 
-- [ ] **CSV ↔ JSON Converter** — Parse CSV to JSON array/objects and back. Handle headers, delimiters, quoting.
-   - ✅ Feasible: Pure parsing logic, ~100 lines
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [ ] **XML ↔ JSON Converter** — Bidirectional XML/JSON conversion with formatting
-   - ✅ Feasible: Use `DOMParser` for XML parsing (native browser API)
-   - Priority: ⭐⭐⭐⭐
-
-- [ ] **TOML ↔ JSON Converter** — Parse TOML config files to JSON and back
-   - ✅ Feasible: Use lightweight `@iarna/toml` library
-   - Priority: ⭐⭐⭐
-
-- [ ] **Number Base Converter** — Convert between binary, octal, decimal, hexadecimal. Support large numbers.
-   - ✅ Feasible: Native `parseInt()` and `Number.toString(base)`
-   - Priority: ⭐⭐⭐
-   - 💡 Added by review
-
-- [ ] **Base64 File Encoder/Decoder** — Drag and drop any file to encode it directly into a Base64 string, or paste a Base64 string to download the original file securely.
-   - ✅ Feasible: Using browser `FileReader` API and `readAsDataURL()`.
-   - Priority: ⭐⭐⭐⭐
-
-- [ ] **Base64 to Image** — Upload a Base64 string and download the original image securely.
-   - Priority: ⭐⭐⭐
+*All items in this category have been completed.*
 
 ---
 
@@ -215,27 +198,27 @@ Based on impact, bookmark potential, and effort required:
 
 ### Phase 3 — Medium Impact, Medium Effort
 
-| #   | Tool                     | Category    |
-| --- | ------------------------ | ----------- |
-| 11  | Markdown Previewer       | 🔤 Text     |
-| 12  | Password Generator       | 🔐 Security |
-| 13  | Unix Timestamp Converter | 🏗️ Logic    |
-| 14  | YAML ↔ JSON Converter    | 📊 Data     |
-| 15  | QR Code Generator        | 📦 Media    |
-| 16  | Image Compressor         | 📦 Media    |
-| 17  | JSON → TypeScript Schema | 🏗️ Logic    |
+| #   | Tool                     | Category    | Status   |
+| --- | ------------------------ | ----------- | -------- |
+| 11  | Markdown Previewer       | 🔤 Text     |          |
+| 12  | Password Generator       | 🔐 Security |          |
+| 13  | Unix Timestamp Converter | 🏗️ Logic    |          |
+| 14  | YAML ↔ JSON Converter    | 📊 Data     |          |
+| 15  | QR Code Generator        | 📦 Media    |          |
+| 16  | Image Compressor         | 📦 Media    | ✅ Done  |
+| 17  | JSON → TypeScript Schema | 🏗️ Logic    |          |
 
 ### Phase 4 — Nice to Have
 
-| #   | Tool                   | Category  |
-| --- | ---------------------- | --------- |
-| 18  | List / Array Converter | 🔤 Text   |
-| 19  | HTML Entity Converter  | 🔤 Text   |
-| 20  | SVG Optimizer          | 🎨 Design |
-| 21  | Favicon Generator      | 🎨 Design |
-| 22  | SVG → PNG Converter    | 📦 Media  |
-| 23  | EXIF Remover           | 📦 Media  |
-| 24+ | Everything else        | —         |
+| #   | Tool                   | Category  | Status   |
+| --- | ---------------------- | --------- | -------- |
+| 18  | List / Array Converter | 🔤 Text   |          |
+| 19  | HTML Entity Converter  | 🔤 Text   |          |
+| 20  | SVG Optimizer          | 🎨 Design |          |
+| 21  | Favicon Generator      | 🎨 Design |          |
+| 22  | SVG → PNG Converter    | 📦 Media  | ✅ Done  |
+| 23  | EXIF Remover           | 📦 Media  | ✅ Done  |
+| 24+ | Everything else        | —         |          |
 
 ---
 
@@ -250,5 +233,5 @@ Based on impact, bookmark potential, and effort required:
 
 ---
 
-> **Last updated:** 2026-03-07
-> **Total tools planned:** ~35 (10 built, ~25 remaining)
+> **Last updated:** 2026-03-11
+> **Total tools planned:** ~35 (29 built, ~6 remaining)

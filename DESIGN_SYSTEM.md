@@ -125,14 +125,23 @@ Every tool page gets a "Premium Document" below the fold. This is a full visual 
    - Inner content wrapper: `bg-muted/30 rounded-3xl p-8 md:p-12 border border-border mt-12 max-w-4xl mx-auto`.
    - Content inside should use premium cards, grids, and customized lucide icons to explain functionality.
 
-5. **FAQ Section** — `space-y-12 border-t border-border/50 pt-24`:
+5. **How to Use Section** — `space-y-8 border-t border-border/50 pt-24`:
+   - Mandatory for all tools. Use a numbered step-by-step layout using colored circles.
+   - Title: `text-3xl font-bold tracking-tight text-center`.
+   - Content wrapper: `max-w-4xl mx-auto space-y-6`.
+   - Step Layout: `flex gap-4`.
+   - Number badge: `w-8 h-8 rounded-full bg-[color]-500/10 text-[color]-400 flex items-center justify-center font-bold font-mono shrink-0`.
+   - Step labels: `h4` (`font-bold text-foreground text-lg mb-1`).
+   - Step description: `text-muted-foreground text-sm leading-relaxed`.
+
+6. **FAQ Section** — `space-y-12 border-t border-border/50 pt-24`:
    - Centered title: `text-3xl font-bold tracking-tight`
    - 2-column grid: `md:grid-cols-2 gap-x-12 gap-y-8`
    - Question dot: `w-1.5 h-1.5 rounded-full bg-indigo-500`
    - Answer styling: `text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20`
    - Must include `<script type="application/ld+json">` with FAQ schema
 
-6. **CTA Section** — `bg-indigo-600 rounded-3xl p-12 text-center relative overflow-hidden group`:
+7. **CTA Section** — `bg-indigo-600 rounded-3xl p-12 text-center relative overflow-hidden group`:
    - Glowing orb: `absolute bg-white/5 blur-[80px] rounded-full group-hover:bg-white/10 transition-colors`
    - White heading + `text-indigo-100` description
    - `<ScrollToTopButton label="Scroll up to Start [Action]" />`

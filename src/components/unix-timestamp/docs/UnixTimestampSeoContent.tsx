@@ -139,6 +139,52 @@ export function UnixTimestampSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert Unix Timestamps</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Populate the Temporal Hash</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Enter a 10-digit (Seconds) or 13-digit (Milliseconds) Epoch numeral into the primary input field. The tool automatically detects the scale based on the numeric value.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Timezone Context</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Toggle between "Local" and "UTC" views. The engine recalibrates the human-readable ISO string to show exactly how that timestamp aligns with your specific server or browser region.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Review Date Component Breakdown</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Check the "Human Format" area for a full extraction of the Year, Month, Day, and microsecond precision. This ensures your logs are translated into actionable business data correctly.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Perform Reverse Encoding</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Need to generate a new Epoch? Use the date picker to select a specific calendar moment. The tool generates the corresponding UNIX hash for your backend queries instantly.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy Temporal Data</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Copy" icon next to any value (ISO, RFC, or Epoch) to move it to your clipboard. All conversions are performed locally for maximum privacy.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

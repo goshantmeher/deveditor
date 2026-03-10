@@ -84,6 +84,52 @@ export function RsaGeneratorSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate RSA Key Pairs</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Modulus Length</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose between 2048-bit (Standard) or 4096-bit (Maximum Security). Ensure your target environment (e.g., AWS, SSH) supports the selected length beforehand.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Pick Encryption Algorithm</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Select the padding or hash algorithm variant (like RSASSA-PKCS1-v1_5 or RSA-OAEP) required for your specific encryption or signing use case.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Initialize Key Generation</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Generate". The tool uses a Web Worker to handle the heavy mathematical computation locally, preventing your browser tab from freezing during the process.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export in PEM Format</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Review the generated public and private keys. The output is formatted in standard PEM strings, which are universally compatible with almost every major cloud provider and SDK.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Save Securely Offline</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Copy the keys or download them as <code className="text-violet-400">.pem</code> files. Because the process is entirely local, your private key is never seen by any server—keep it safe in an encrypted vault!</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

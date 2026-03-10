@@ -138,6 +138,52 @@ export function SvgOptimizerSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Optimize Your SVGs</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Upload Your Vector Source</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw SVG code or upload a file. The engine immediately begins analyzing the XML tree for redundant layers and metadata.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Compression Strength</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Adjust precision levels for coordinate rounding and toggle specific plugins like "Remove Hidden Elements" or "Merge Paths" to maximize byte savings.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Savings in Real-Time</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Check the dashboard for the original vs. optimized file size. Monitor the live preview pane to ensure no visual artifacts are introduced during the path-shortening process.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Review the Minified Markup</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Inspect the resulting code for cleanliness. The tool removes Adobe Illustrator, Figma, and Inkscape metadata tags while keeping your id attributes intact for CSS styling.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export for Your Build</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Download the optimized <code className="text-indigo-400">.svg</code> file or copy the string directly. All processes are 100% client-side, ensuring your design assets remain private.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

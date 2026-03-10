@@ -118,7 +118,7 @@ We do not use:
       title: 'Transparency',
       content: `DevEditor's source code is publicly available. You can inspect exactly what data is processed and verify that no user content is ever transmitted to any server.
 
-If you have questions about our privacy practices, you can reach us at goshantmeher@gmail.com.`,
+If you have questions about our privacy practices, you can reach us at mehergoshant@gmail.com.`,
    },
 ];
 
@@ -212,8 +212,8 @@ export default function PrivacyPage() {
             <div className="mt-16 pt-8 border-t border-border/30 text-center space-y-2">
                <p className="text-sm text-muted-foreground">
                   Questions? Contact us at{' '}
-                  <a href="mailto:goshantmeher@gmail.com" className="text-indigo-500 hover:underline">
-                     goshantmeher@gmail.com
+                  <a href="mailto:mehergoshant@gmail.com" className="text-indigo-500 hover:underline">
+                     mehergoshant@gmail.com
                   </a>
                </p>
                <p className="text-xs text-muted-foreground">

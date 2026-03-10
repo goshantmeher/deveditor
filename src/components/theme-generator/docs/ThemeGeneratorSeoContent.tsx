@@ -152,6 +152,52 @@ export function ThemeGeneratorSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Design Your Theme</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Establish Your Base Color</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Select your primary brand color using the picker or paste a Hex/HSL string. This acts as the anchor for all derivative shades in your system.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview Mode Logic</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Toggle between "Light" and "Dark" variants. The engine automatically recalibrates backgrounds and foregrounds to maintain visual balance and accessibility.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Contrast WCAG Ratios</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Audit the contrast scores for text on background pairs. Scores are updated live to ensure your theme meets AA or AAA standards before implementation.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Refine Accent Harmony</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Adjust the secondary and accent colors inferred by the algorithm. Use the sample UI components to see how the palette feels in a real-world layout.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export Token Manifest</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Copy the CSS variables, Tailwind configuration, or shadcn components. No data is stored externally—your design tokens are generated 100% in your browser.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

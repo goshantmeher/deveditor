@@ -139,6 +139,52 @@ export function JsonPathSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Use the JSONPath Sandbox</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Source JSON</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw JSON document into the left-side source editor. For large files, you can also drag and drop your <code className="text-amber-400">.json</code> file directly into the workspace.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Draft a Path Expression</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Start typing your JSONPath selector in the query bar. Use the root operator <code className="text-amber-400">$</code> followed by dot notation (e.g., <code className="text-amber-400">$.store.book</code>) or bracket notation.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Evaluate Filters in Real-time</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Apply advanced filters using the <code className="text-amber-400">?()</code> syntax. Observe the right-side output panel, which refreshes instantly to show only the nodes that match your criteria.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Refine Slice & Range Selectors</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use array slicing (e.g., <code className="text-amber-400">[0:5]</code>) to grab specific subsets of items. The sandbox highlights exact matches, allowing you to debug complex traversals before code integration.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Extracted Data</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once you have successfully isolated the required data, click the "Copy" button on the output panel to move the formatted JSON subset to your clipboard for use in your app.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

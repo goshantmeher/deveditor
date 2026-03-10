@@ -143,6 +143,52 @@ export function MergePdfSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Merge PDF Files</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Upload Multiple PDFs</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Drag and drop all the PDF documents you want to combine into the upload zone. You can add files one by one or in a batch.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Arrange File Order</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the drag-and-drop handles to reorder the files in the list. The final PDF will follow the exact top-to-bottom sequence displayed here.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Document Previews</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Verify that the correct files are selected by checking the file names and page counts listed in the merge queue before proceeding.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Compile Combined File</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Merge Files". The engine joins the documents into a single cohesive PDF string instantly, right in your browser's local memory.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export Secured PDF</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Download your merged file. All operations are 100% private and offline, ensuring your confidential documents are never exposed to external servers.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

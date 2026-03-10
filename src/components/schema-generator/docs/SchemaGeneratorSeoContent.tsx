@@ -152,6 +152,52 @@ export function SchemaGeneratorSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert JSON to Schema</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Raw JSON</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Enter an example JSON object or array of objects into the editor. The engine immediately begins analyzing the data types and structure for inference.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Your Target Syntax</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose from TypeScript, Zod, JSON Schema, or Yup. The tool translates the inferred structure into the specific syntax rules of your chosen library.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Refine Optionality Rules</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">If your array contains inconsistent keys, the engine automatically marks those fields as optional (<code className="text-indigo-400">?</code> in TypeScript or <code className="text-indigo-400">.optional()</code> in Zod).</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Type Integrity</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Check the output for proper interface naming, union types for mixed data, and correctly nested objects. Use the "Reset" button to start over with a fresh sample.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy and Implement</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Copy" to move the production-ready code to your clipboard. Since the entire analysis is local, your data is never indexed or sent to an external server.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

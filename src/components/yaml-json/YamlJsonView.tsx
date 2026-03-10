@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { RefreshCcw, Copy, CheckCircle2, ChevronRight, FileJson, FileText, RotateCcw, Replace } from 'lucide-react';
+import { RefreshCcw, Copy, CheckCircle2, ChevronRight, FileJson, FileText, RotateCcw, Replace, FlaskConical, Upload, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -26,6 +26,7 @@ const DEFAULT_STATE: YamlJsonState = {
 export function YamlJsonView() {
    const { isPersistenceEnabled } = usePersistence();
    const isInitialized = useRef(false);
+   const fileInputRef = useRef<HTMLInputElement>(null);
 
    const [state, setState] = useState<YamlJsonState>(DEFAULT_STATE);
    const [output, setOutput] = useState('');
@@ -98,6 +99,41 @@ export function YamlJsonView() {
       }));
    };
 
+   const handleSample = () => {
+      if (state.mode === 'yaml-to-json') {
+         setState(prev => ({ ...prev, inputData: DEFAULT_STATE.inputData }));
+      } else {
+         const parsed = yaml.load(DEFAULT_STATE.inputData);
+         setState(prev => ({ ...prev, inputData: JSON.stringify(parsed, null, 2) }));
+      }
+   };
+
+   const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+         setState(prev => ({ ...prev, inputData: event.target?.result as string }));
+      };
+      reader.readAsText(file);
+      if (fileInputRef.current) {
+         fileInputRef.current.value = '';
+      }
+   };
+
+   const handleDownload = () => {
+      if (!output) return;
+      const extension = state.mode === 'yaml-to-json' ? 'json' : 'yaml';
+      const blob = new Blob([output], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `converted-${Date.now()}.${extension}`;
+      link.click();
+      URL.revokeObjectURL(url);
+   };
+
    const copyOutput = async () => {
       if (!output) return;
       try {
@@ -119,6 +155,17 @@ export function YamlJsonView() {
                   <h2 className="font-semibold text-sm">Transpiler Format</h2>
                </div>
                <div className="flex gap-2">
+                  <div className="flex gap-2">
+                     {!state.inputData && (
+                        <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleSample}>
+                           <FlaskConical className="w-3.5 h-3.5" /> Sample
+                        </Button>
+                     )}
+                     <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={() => fileInputRef.current?.click()}>
+                        <Upload className="w-3.5 h-3.5" /> Import
+                     </Button>
+                     <input type="file" ref={fileInputRef} className="hidden" accept={state.mode === 'yaml-to-json' ? '.yaml,.yml' : '.json'} onChange={handleImport} />
+                  </div>
                   <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleSwap}>
                      <Replace className="w-3.5 h-3.5" /> Swap Mode
                   </Button>
@@ -132,7 +179,7 @@ export function YamlJsonView() {
                <div className="flex gap-4 shrink-0 border-b border-border pb-4">
                   <div className="w-[60%] space-y-2">
                      <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Conversion Matrix</label>
-                     <Select value={state.mode} onValueChange={(val: ConversionMode) => setState(prev => ({ ...prev, mode: val }))}>
+                     <Select value={state.mode} onValueChange={(val: ConversionMode) => setState(prev => ({ ...prev, mode: val, inputData: '' }))}>
                         <SelectTrigger className="bg-background">
                            <SelectValue />
                         </SelectTrigger>
@@ -184,6 +231,9 @@ export function YamlJsonView() {
                   <h2 className="font-semibold text-sm text-gray-200">Constructed {state.mode === 'yaml-to-json' ? 'JSON' : 'YAML'}</h2>
                </div>
                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10" onClick={handleDownload} disabled={!output}>
+                     <Download className="w-3.5 h-3.5" /> Download
+                  </Button>
                   <Button variant="outline" size="sm" className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10" onClick={copyOutput} disabled={!output}>
                      {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />} 
                      Cop{copied ? 'ied' : 'y Format'}

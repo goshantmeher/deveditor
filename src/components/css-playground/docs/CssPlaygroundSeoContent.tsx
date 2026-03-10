@@ -146,6 +146,52 @@ export function CssPlaygroundSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Use the CSS Playground</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Write Your Structure (HTML)</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Enter your HTML structure in the top-left editor. The preview iframe will automatically load your elements into a sandboxed environment for safe rendering.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Apply Styles (CSS)</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Define your styles in the CSS editor. You can target the classes and IDs you created in the HTML panel, with changes reflecting instantly in the live preview.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Use Visual Generators</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Open the generator tab to build complex properties like 3D transforms, multi-layered box shadows, or flexbox layouts using intuitive sliders and pickers.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Interact With the Preview</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Toggle hover and active states directly in the preview window to test your CSS transitions and animations. The environment simulates a real browser viewport context.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export CSS Code</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once satisfied with your design, click "Copy CSS" to grab the final generated stylesheet. Your code is now ready to be pasted into your actual project files.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

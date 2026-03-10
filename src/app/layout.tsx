@@ -94,7 +94,7 @@ export const metadata: Metadata = {
       google: 'bs1NRdhyrF6xM_CPVHoMSOKIj4WV2TGyD5OJ_OHvtIg',
       yandex: '2c056378113a1d91',
       other: {
-         me: ['goshantmeher@gmail.com', 'https://www.deveditor.io'],
+         me: ['mehergoshant@gmail.com', 'https://www.deveditor.io'],
       },
    },
    alternates: {

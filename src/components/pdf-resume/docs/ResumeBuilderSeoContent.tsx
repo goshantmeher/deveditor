@@ -240,6 +240,52 @@ export function ResumeBuilderSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Build Your Resume</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Pick Your Design Framework</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Select from Classic, Modern, or Minimal templates. Each is mathematically tuned for ATS readability while maintaining a professional visual hierarchy.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Leverage AI Content Generation</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the "Import from AI" feature to generate structured content from your raw career notes. Map your accomplishments to specific JSON-ready fields automatically for a perfect import.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Personalize Every Segment</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Add individual entries for Work Experience, Projects, and Education. Use the drag-and-drop handles to reorder sections or create entirely custom categories for specific industry needs.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Live Technical Preview</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Monitor the PDF preview pane as you edit. Our engine renders every keystroke instantly, ensuring your margins, font sizes, and page breaks are pixel-perfect before export.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">One-Click PDF Export</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Download PDF" to generate your final document. The processing is 100% client-side, meaning your personal career data never touches a server—it stays on your machine.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

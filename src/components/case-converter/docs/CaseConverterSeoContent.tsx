@@ -150,6 +150,52 @@ export function CaseConverterSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert Text Case</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Raw Text</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your variable names, code snippets, or regular prose into the input editor. The tool supports multi-line conversion for bulk processing of lists.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Choose Your Target Case</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click any case button (e.g., camelCase, snake_case, PascalCase) in the transformation panel. The entire input will be instantly re-tokenized and reformatted.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Handle Code-Specific Formats</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">For environment variables, select CONSTANT_CASE. For URL paths, select kebab-case or path/case. The engine intelligently preserves word boundaries during the shift.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Chain Transformations (Optional)</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the "Move to Input" button to take your converted results and apply a second case transformation, or use the "Swap" feature to reverse your previous settings.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy the Formatted Result</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once the preview looks correct, click the "Copy" icon. Your new variable names or formatted strings are ready to be pasted directly into your code editor.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

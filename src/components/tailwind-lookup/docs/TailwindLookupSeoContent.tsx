@@ -139,6 +139,52 @@ export function TailwindLookupSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert CSS & Tailwind</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Style Rules</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Enter your raw vanilla CSS block or a string of Tailwind utility classes into the input editor. The tool automatically detects the input type and prepares for conversion.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Primary Direction</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose whether you want to translate "Tailwind to CSS" or "CSS to Tailwind". The engine updates its heuristic mapping rules to provide the most accurate output possible.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit the Mapping Logic</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Review the output panel. For CSS-to-Tailwind, the engine identifies exact utility matches or generates arbitrary bracket values (e.g., <code className="text-indigo-400">m-[17px]</code>) for precision measurements.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Refine Heuristic Results</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">If multiple Tailwind classes could represent the same CSS rule, the tool provides the closest standard version. You can manually adjust the input values to see how the mapping changes live.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Utility String</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Copy" icon on the result panel. Your converted styles are now on your clipboard, ready to be pasted into your React/Next.js components or legacy stylesheets.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

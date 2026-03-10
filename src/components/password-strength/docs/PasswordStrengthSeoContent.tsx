@@ -84,6 +84,52 @@ export function PasswordStrengthSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Audit Password Strength</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Type Your Password Sequence</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Enter the password you wish to test into the input field. The evaluator begins processing the characters locally in real-time as you type each keystroke.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Observe the Score Meter</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Review the color-coded strength bar. It ranges from "Very Weak" (Red) to "Very Strong" (Deep Blue), providing an immediate visual summary of the overall complexity.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Read the Pattern Analysis</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Look for the "Hints" and "Warnings" section. The tool identifies common pitfalls like dictionary words, dates, or sequences (e.g., "12345") that make a password easier to guess.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Review Crack Time Estimates</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Check the estimated time required for different attack vectors. See how long it would take an attacker using a standard laptop versus a massive GPU array to brute-force your entry.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Refine and Retest</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">If the score is low, try adding randomized symbols or numbers in unexpected positions—avoiding common substitutions like '3' for 'E'. Watch the score update instantly as you improve the secret.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">
