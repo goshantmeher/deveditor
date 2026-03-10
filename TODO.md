@@ -162,15 +162,15 @@
 
 > Tools for converting between data formats.
 
-- [ ] **CSV ↔ JSON Converter** — Parse CSV to JSON array/objects and back. Handle headers, delimiters, quoting.
+- [x] **CSV ↔ JSON Converter** — Parse CSV to JSON array/objects and back. Handle headers, delimiters, quoting.
    - ✅ Feasible: Pure parsing logic, ~100 lines
    - Priority: ⭐⭐⭐⭐⭐
 
-- [ ] **XML ↔ JSON Converter** — Bidirectional XML/JSON conversion with formatting
+- [x] **XML ↔ JSON Converter** — Bidirectional XML/JSON conversion with formatting
    - ✅ Feasible: Use `DOMParser` for XML parsing (native browser API)
    - Priority: ⭐⭐⭐⭐
 
-- [ ] **TOML ↔ JSON Converter** — Parse TOML config files to JSON and back
+- [x] **TOML ↔ JSON Converter** — Parse TOML config files to JSON and back
    - ✅ Feasible: Use lightweight `@iarna/toml` library
    - Priority: ⭐⭐⭐
 

@@ -549,7 +549,7 @@ const categories: Category[] = [
             description: 'Parse CSV to JSON objects/arrays and back. Handle headers & delimiters.',
             icon: '📊',
             href: '/csv-json',
-            status: 'planned',
+            status: 'available',
             tags: ['csv', 'json', 'convert', 'table', 'data'],
          },
          {
@@ -557,7 +557,7 @@ const categories: Category[] = [
             description: 'Bidirectional XML/JSON conversion with formatting.',
             icon: '📃',
             href: '/xml-json',
-            status: 'planned',
+            status: 'available',
             tags: ['xml', 'json', 'convert', 'format'],
          },
          {
@@ -565,7 +565,7 @@ const categories: Category[] = [
             description: 'Parse TOML config files to JSON and back.',
             icon: '⚙️',
             href: '/toml-json',
-            status: 'planned',
+            status: 'available',
             tags: ['toml', 'json', 'config', 'convert'],
          },
          {

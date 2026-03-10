@@ -1,34 +1,43 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { RefreshCcw, Copy, CheckCircle2, ChevronRight, FileJson, FileText, RotateCcw, Replace, FlaskConical, Upload, Download } from 'lucide-react';
+import { RefreshCcw, Copy, CheckCircle2, ChevronRight, FileJson, RotateCcw, Replace, FlaskConical, Upload, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { usePersistence } from '@/contexts/PersistenceContext';
-import { STORAGE_KEYS } from '@/constants/storage';
-import yaml from 'js-yaml';
 
-type ConversionMode = 'yaml-to-json' | 'json-to-yaml';
+export type ConversionMode = 'format-to-json' | 'json-to-format';
 
-interface YamlJsonState {
+export interface DataConverterState {
    inputData: string;
    mode: ConversionMode;
    indentation: string;
 }
 
-const DEFAULT_STATE: YamlJsonState = {
-   inputData: 'server:\n  port: 8080\n  env: production\ndatabase:\n  host: localhost\n  port: 5432',
-   mode: 'yaml-to-json',
-   indentation: '2',
-};
+export interface DataConverterConfig {
+   title: string;
+   formatName: string; // e.g., 'CSV', 'XML', 'TOML'
+   formatIcon: React.ElementType; // The lucide icon
+   storageKey: string;
+   defaultInput: string;
+   defaultMode: ConversionMode;
+   parseToJson: (input: string) => unknown;
+   jsonToFormat: (json: unknown, indent: number) => string;
+}
 
-export function YamlJsonView() {
+export function DataConverterView({ config }: { config: DataConverterConfig }) {
    const { isPersistenceEnabled } = usePersistence();
    const isInitialized = useRef(false);
    const fileInputRef = useRef<HTMLInputElement>(null);
 
-   const [state, setState] = useState<YamlJsonState>(DEFAULT_STATE);
+   const DEFAULT_STATE: DataConverterState = {
+      inputData: config.defaultInput,
+      mode: config.defaultMode,
+      indentation: '2',
+   };
+
+   const [state, setState] = useState<DataConverterState>(DEFAULT_STATE);
    const [output, setOutput] = useState('');
    const [error, setError] = useState<string | null>(null);
    const [copied, setCopied] = useState(false);
@@ -39,7 +48,7 @@ export function YamlJsonView() {
       isInitialized.current = true;
 
       if (isPersistenceEnabled) {
-         const stored = localStorage.getItem(STORAGE_KEYS.YAML_JSON_INPUT);
+         const stored = localStorage.getItem(config.storageKey);
          if (stored) {
             try {
                setState(JSON.parse(stored));
@@ -48,13 +57,13 @@ export function YamlJsonView() {
             }
          }
       }
-   }, [isPersistenceEnabled]);
+   }, [isPersistenceEnabled, config.storageKey]);
 
    // Save state
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEYS.YAML_JSON_INPUT, JSON.stringify(state));
-   }, [state, isPersistenceEnabled]);
+      localStorage.setItem(config.storageKey, JSON.stringify(state));
+   }, [state, isPersistenceEnabled, config.storageKey]);
 
    // Perform conversion
    useEffect(() => {
@@ -67,15 +76,15 @@ export function YamlJsonView() {
       try {
          const indent = parseInt(state.indentation, 10) || 2;
 
-         if (state.mode === 'yaml-to-json') {
-            const parsed = yaml.load(state.inputData);
+         if (state.mode === 'format-to-json') {
+            const parsed = config.parseToJson(state.inputData);
             if (typeof parsed !== 'object' || parsed === null) {
-               throw new Error('YAML must map to an object or array at root');
+               throw new Error(`${config.formatName} must map to an object or array`);
             }
             setOutput(JSON.stringify(parsed, null, indent));
          } else {
             const parsed = JSON.parse(state.inputData);
-            const str = yaml.dump(parsed, { indent });
+            const str = config.jsonToFormat(parsed, indent);
             setOutput(str);
          }
          setError(null);
@@ -83,28 +92,30 @@ export function YamlJsonView() {
          setError(err instanceof Error ? err.message : 'Invalid Syntax');
          setOutput('');
       }
-   }, [state]);
+   }, [state, config]);
 
    const handleClear = () => {
       setState(prev => ({ ...prev, inputData: '' }));
    };
 
    const handleSwap = () => {
-      // Just visually swap the mode
       setState(prev => ({
          ...prev,
-         mode: prev.mode === 'yaml-to-json' ? 'json-to-yaml' : 'yaml-to-json',
-         // optionally populate input with output if valid
+         mode: prev.mode === 'format-to-json' ? 'json-to-format' : 'format-to-json',
          inputData: error || !output ? prev.inputData : output,
       }));
    };
 
    const handleSample = () => {
-      if (state.mode === 'yaml-to-json') {
-         setState(prev => ({ ...prev, inputData: DEFAULT_STATE.inputData }));
+      if (state.mode === 'format-to-json') {
+         setState(prev => ({ ...prev, inputData: config.defaultInput }));
       } else {
-         const parsed = yaml.load(DEFAULT_STATE.inputData);
-         setState(prev => ({ ...prev, inputData: JSON.stringify(parsed, null, 2) }));
+         try {
+            const defaultJson = JSON.stringify(config.parseToJson(config.defaultInput), null, 2);
+            setState(prev => ({ ...prev, inputData: defaultJson }));
+         } catch {
+            setState(prev => ({ ...prev, inputData: '{\n  "sample": "data"\n}' }));
+         }
       }
    };
 
@@ -124,7 +135,7 @@ export function YamlJsonView() {
 
    const handleDownload = () => {
       if (!output) return;
-      const extension = state.mode === 'yaml-to-json' ? 'json' : 'yaml';
+      const extension = state.mode === 'format-to-json' ? 'json' : config.formatName.toLowerCase();
       const blob = new Blob([output], { type: 'text/plain;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -145,6 +156,8 @@ export function YamlJsonView() {
       }
    };
 
+   const FormatIcon = config.formatIcon;
+
    return (
       <div className="w-full h-full flex flex-col md:flex-row bg-background overflow-hidden relative border border-border">
          {/* Left Side: Input Panel */}
@@ -152,7 +165,7 @@ export function YamlJsonView() {
             <div className="p-4 border-b border-border bg-muted/20 flex flex-wrap items-center justify-between gap-3 shrink-0">
                <div className="flex items-center gap-2">
                   <RefreshCcw className="w-4 h-4 text-brand" />
-                  <h2 className="font-semibold text-sm">Transpiler Format</h2>
+                  <h2 className="font-semibold text-sm">{config.title} Settings</h2>
                </div>
                <div className="flex gap-2">
                   <div className="flex gap-2">
@@ -164,7 +177,7 @@ export function YamlJsonView() {
                      <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={() => fileInputRef.current?.click()}>
                         <Upload className="w-3.5 h-3.5" /> Import
                      </Button>
-                     <input type="file" ref={fileInputRef} className="hidden" accept={state.mode === 'yaml-to-json' ? '.yaml,.yml' : '.json'} onChange={handleImport} />
+                     <input type="file" ref={fileInputRef} className="hidden" accept={state.mode === 'format-to-json' ? `.${config.formatName.toLowerCase()}` : '.json'} onChange={handleImport} />
                   </div>
                   <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleSwap}>
                      <Replace className="w-3.5 h-3.5" /> Swap Mode
@@ -184,8 +197,8 @@ export function YamlJsonView() {
                            <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                           <SelectItem value="yaml-to-json">YAML → JSON</SelectItem>
-                           <SelectItem value="json-to-yaml">JSON → YAML</SelectItem>
+                           <SelectItem value="format-to-json">{config.formatName} → JSON</SelectItem>
+                           <SelectItem value="json-to-format">JSON → {config.formatName}</SelectItem>
                         </SelectContent>
                      </Select>
                   </div>
@@ -205,14 +218,14 @@ export function YamlJsonView() {
 
                <div className="flex-1 space-y-2 flex flex-col min-h-[250px]">
                   <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider flex items-center gap-2 shrink-0">
-                     {state.mode === 'yaml-to-json' ? <FileText className="w-3 h-3 text-orange-400" /> : <FileJson className="w-3 h-3 text-amber-500" />}
-                     Raw {state.mode === 'yaml-to-json' ? 'YAML' : 'JSON'} Input
+                     {state.mode === 'format-to-json' ? <FormatIcon className="w-3 h-3 text-orange-400" /> : <FileJson className="w-3 h-3 text-amber-500" />}
+                     Raw {state.mode === 'format-to-json' ? config.formatName : 'JSON'} Input
                   </label>
                   <Textarea 
                      value={state.inputData}
                      onChange={(e) => setState(prev => ({ ...prev, inputData: e.target.value }))}
                      className="flex-1 min-h-0 font-mono whitespace-pre text-[13px] bg-muted/10 resize-none p-4"
-                     placeholder={state.mode === 'yaml-to-json' ? 'key:\n  value: "hello"' : '{"key": "value"}'}
+                     placeholder={state.mode === 'format-to-json' ? `Enter ${config.formatName} here...` : '{"key": "value"}'}
                   />
                </div>
             </div>
@@ -227,8 +240,8 @@ export function YamlJsonView() {
          <div className="flex-none md:flex-1 flex flex-col min-w-0 bg-[#1e1e1e] border-t md:border-t-0 border-border h-[500px] md:h-full overflow-hidden">
             <div className="p-4 border-b border-white/10 flex items-center justify-between shrink-0 bg-[#181818]">
                <div className="flex items-center gap-2">
-                  {state.mode === 'yaml-to-json' ? <FileJson className="w-4 h-4 text-amber-500" /> : <FileText className="w-4 h-4 text-orange-400" />}
-                  <h2 className="font-semibold text-sm text-gray-200">Constructed {state.mode === 'yaml-to-json' ? 'JSON' : 'YAML'}</h2>
+                  {state.mode === 'format-to-json' ? <FileJson className="w-4 h-4 text-amber-500" /> : <FormatIcon className="w-4 h-4 text-orange-400" />}
+                  <h2 className="font-semibold text-sm text-gray-200">Constructed {state.mode === 'format-to-json' ? 'JSON' : config.formatName}</h2>
                </div>
                <div className="flex gap-2">
                   <Button variant="outline" size="sm" className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10" onClick={handleDownload} disabled={!output}>
@@ -248,7 +261,7 @@ export function YamlJsonView() {
                      {error}
                   </div>
                ) : (
-                  <pre className={`font-mono text-[13px] whitespace-pre-wrap break-all focus:outline-none ${state.mode === 'yaml-to-json' ? 'text-gray-300' : 'text-orange-200'}`}>
+                  <pre className={`font-mono text-[13px] whitespace-pre-wrap break-all focus:outline-none ${state.mode === 'format-to-json' ? 'text-gray-300' : 'text-orange-200'}`}>
                      {output || <span className="text-gray-600 italic">Anticipating schema objects...</span>}
                   </pre>
                )}

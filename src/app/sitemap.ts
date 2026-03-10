@@ -57,6 +57,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'ascii-art', priority: 0.8 },
       { slug: 'json-path', priority: 0.8 },
       { slug: 'yaml-json', priority: 0.8 },
+      { slug: 'csv-json', priority: 0.8 },
+      { slug: 'xml-json', priority: 0.8 },
+      { slug: 'toml-json', priority: 0.8 },
 
       // CSS & Design tools
       { slug: 'css-playground', priority: 0.9 },

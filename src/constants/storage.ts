@@ -61,6 +61,9 @@ export const STORAGE_KEYS = {
    ASCII_ART_INPUT: 'deveditor-ascii-art',
    JSON_PATH_INPUT: 'deveditor-json-path',
    YAML_JSON_INPUT: 'deveditor-yaml-json',
+   CSV_JSON_INPUT: 'deveditor-csv-json',
+   XML_JSON_INPUT: 'deveditor-xml-json',
+   TOML_JSON_INPUT: 'deveditor-toml-json',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',
