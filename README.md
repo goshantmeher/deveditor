@@ -47,13 +47,17 @@ DevEditor includes a growing set of highly specialized tools organized by catego
 
 ### 📦 Media & Files
 
+- **Image Converter**: Crop, resize, and convert images between PNG, JPEG, WebP, and AVIF.
+- **Image Compressor**: Compress JPEG, PNG, and WebP with adjustable quality. Before/after comparison with file size savings.
+- **SVG → PNG/JPEG Converter**: Render SVG onto canvas and export as raster at custom resolution.
+- **EXIF Data Viewer & Remover**: Read and strip metadata from photos — GPS, camera info, and more — for privacy.
 - **QR Code Generator**: Generate high-quality QR codes with custom colors and export as PNG or SVG.
 - **AI Resume Builder**: Create professional, ATS-friendly resumes avoiding paywalls.
 - **PDF Tools**: Merge, Split, Extract Pages, and Copy Text from PDFs completely within the browser.
 
 ### 🚀 More Tools Coming Soon
 
-- Image Compressors, SVG Optimizers, Unix Timestamp Converters, and API Testers!
+- SVG Optimizers, Unix Timestamp Converters, API Testers, and more!
 
 ---
 
