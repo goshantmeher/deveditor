@@ -426,7 +426,7 @@ const categories: Category[] = [
             description: 'Compress JPEG/PNG/WebP with adjustable quality. Before/after comparison.',
             icon: '📦',
             href: '/image-compressor',
-            status: 'planned',
+            status: 'available',
             tags: ['image', 'compress', 'optimize', 'quality'],
          },
          {
@@ -434,7 +434,7 @@ const categories: Category[] = [
             description: 'Render SVG onto canvas and export as raster image at custom resolution.',
             icon: '🔲',
             href: '/svg-to-png',
-            status: 'planned',
+            status: 'available',
             tags: ['svg', 'png', 'jpeg', 'convert', 'raster'],
          },
          {
@@ -442,7 +442,7 @@ const categories: Category[] = [
             description: 'Read and strip metadata from photos — GPS, camera info, and more.',
             icon: '📷',
             href: '/exif-remover',
-            status: 'planned',
+            status: 'available',
             tags: ['exif', 'metadata', 'photo', 'privacy', 'gps'],
          },
          {

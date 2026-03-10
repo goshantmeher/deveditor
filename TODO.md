@@ -108,11 +108,6 @@
 
 > File processing without uploading to any server.
 
-- [x] **Image Converter / Crop / Resize** — Upload images → crop with interactive handles, resize to custom dimensions, convert between formats (PNG, JPEG, WebP). Quality slider, aspect ratio lock.
-   - ✅ Feasible: `<canvas>` for all transformations + `canvas.toBlob()` for export. Cropping via mouse/touch interaction.
-   - Priority: ⭐⭐⭐⭐⭐
-   - 🔄 **Has existing code from previous project — can be ported directly**
-
 - [ ] **Image Compressor** — Compress JPEG/PNG/WebP with adjustable quality slider. Before/after comparison with file size diff.
    - ✅ Feasible: `<canvas>` + `canvas.toBlob(type, quality)`. Use OffscreenCanvas for large images.
    - Priority: ⭐⭐⭐⭐⭐
@@ -166,41 +161,7 @@
 
 > Tools for converting between data formats.
 
-- [x] **CSV ↔ JSON Converter** — Parse CSV to JSON array/objects and back. Handle headers, delimiters, quoting.
-   - ✅ Feasible: Pure parsing logic, ~100 lines
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [x] **XML ↔ JSON Converter** — Bidirectional XML/JSON conversion with formatting
-   - ✅ Feasible: Use `DOMParser` for XML parsing (native browser API)
-   - Priority: ⭐⭐⭐⭐
-
-- [x] **TOML ↔ JSON Converter** — Parse TOML config files to JSON and back
-   - ✅ Feasible: Use lightweight `@iarna/toml` library
-   - Priority: ⭐⭐⭐
-
-- [x] **Number Base Converter** — Convert between binary, octal, decimal, hexadecimal. Support large numbers.
-   - ✅ Feasible: Native `parseInt()` and `Number.toString(base)`
-   - Priority: ⭐⭐⭐
-   - 💡 Added by review
-
-- [x] **Base64 File Encoder/Decoder** — Drag and drop any file to encode it directly into a Base64 string, or paste a Base64 string to download the original file securely.
-   - ✅ Feasible: Using browser `FileReader` API and `readAsDataURL()`.
-   - Priority: ⭐⭐⭐⭐
-
-- [x] **Base64 to Image** — Upload a Base64 string and download the original image securely.
-   - Priority: ⭐⭐⭐
-
-- [x] **Markdown to HTML Converter** — Parse, sanitize, and convert raw Markdown into rich, safe HTML output strings.
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [x] **Mock Data Generator** — Define a schema and generate thousands of rows of realistic dummy data in JSON or CSV format.
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [x] **SQL Formatter** — Format, beautify, and parse complex SQL queries into readable, multi-line statements.
-   - Priority: ⭐⭐⭐⭐⭐
-
-- [x] **.htaccess Redirect Generator** — Generate Apache/Nginx redirect rules for HTTPS, www/non-www, and custom 301 redirects.
-   - Priority: ⭐⭐⭐⭐⭐
+*All items in this category have been completed.*
 
 ---
 

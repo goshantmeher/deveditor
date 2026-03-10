@@ -73,6 +73,9 @@ export const STORAGE_KEYS = {
    SQL_FORMATTER_INPUT: 'deveditor-sql-formatter',
    HTACCESS_GENERATOR_INPUT: 'deveditor-htaccess-generator',
    IMAGE_CONVERTER_INPUT: 'deveditor-image-converter',
+   IMAGE_COMPRESSOR: 'deveditor-image-compressor',
+   SVG_TO_PNG: 'deveditor-svg-to-png',
+   EXIF_VIEWER: 'deveditor-exif-viewer',
 
    // UI State & Misc
    CSS_PLAYGROUND_HTML: 'deveditor-css-play-html',
