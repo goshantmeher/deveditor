@@ -84,6 +84,52 @@ export function SqlFormatterSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Format SQL Queries</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Raw Query</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Simply paste your unformatted or minified SQL query into the left editor panel. You can also import files directly if you have massive schema dumps.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Your Dialect</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose your specific database engine (PostgreSQL, MySQL, T-SQL, etc.) from the settings sidebar. This ensures keywords and specific escape characters are handled native to your environment.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Indentation</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Adjust your preferred indentation level (2 spaces, 4 spaces, or Tabs) based on your team's code style guides. The formatter applies these rules instantly.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Toggle Advanced Logic</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the sidebar to enable options like "Auto-Capitalize Keywords" to transform 'select' into 'SELECT' or "Align Values" for cleaner vertical scanning of INSERT statements.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy or Download</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once the preview on the right looks perfect, click "Copy to Clipboard" or download the results as a .sql file for immediate use in your database workbench.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

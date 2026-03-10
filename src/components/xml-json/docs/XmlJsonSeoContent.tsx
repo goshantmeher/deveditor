@@ -84,6 +84,52 @@ export function XmlJsonSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert XML & JSON</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Set Your Data Direction</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose whether you are modernizing XML into JSON or packaging JSON structures back into legacy XML markup. The editors will recalibrate their syntax highlighting immediately.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Input Structured Markup</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw document into the source panel. The engine immediately begins parsing the DOM tree to extract namespaces, tag attributes, and text nodes for remapping.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Observe Attribute Mapping</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Watch as <code className="text-blue-400">@attribute</code> tags in XML are gracefully translated into property keys in the JSON output, or how JSON object keys become XML tag names during export.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Clean and Beautify</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the "Beautify" toggle to apply consistent indentation to the resulting markup, making it easy to audit nested hierarchies before copying it to your build pipeline.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Safely Deploy Manifest</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Download" or "Copy" to move the validated code. Because the entire transpiler runs 100% in your browser, your proprietary documents remain offline and secure.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

@@ -84,6 +84,52 @@ export function MockDataSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Mock Data</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Define Your Field Names</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Enter the key names for your object (e.g., "id", "full_name", "email"). These will serve as the column headers or JSON property keys in your final output.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Data Types</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose a data genre for each field. Select from hundreds of realistic options like random Names, valid Email addresses, UUIDs, Phone numbers, and future/past Dates.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Set the Row Density</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Decide how many records you need. Whether you need a quick 5-row sample for a UI mockup or 1,000+ rows for performance testing, just enter the required count.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Choose Export Format</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Select between JSON and CSV output. JSON is ideal for frontend state mocking, while CSV is perfect for importing into Excel, Google Sheets, or SQL databases.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Generate & Download</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Generate". The tool uses Faker.js locally to build your dataset. You can then copy the raw string or download the file directly to your disk instantly.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

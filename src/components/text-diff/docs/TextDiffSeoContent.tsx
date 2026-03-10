@@ -152,6 +152,52 @@ export function TextDiffSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Compare Text & Code</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Populate Comparison Panels</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your original text in the left panel and the modified version on the right. The engine immediately begins drafting the delta tree for visual analysis.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select View Orientation</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose "Split View" to see changes side-by-side, or "Unified View" to see additions and deletions interleaved in a single continuous column.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Set Comparison Granularity</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Adjust the sensitivity to focus on character-level typos or line-level structural shifts. Toggle "Ignore Whitespace" to filter out indentation changes in code.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Semantic Highlights</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Identified deletions are highlighted in <span className="text-rose-400">red</span>, while additions appear in <span className="text-emerald-400">green</span>. Darker shading indicates specific modified characters within a word.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Clear and Reset</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the "Clear" button to wipe both editors for a fresh comparison. Since data is processed 100% locally, your proprietary snippets remain confidential.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

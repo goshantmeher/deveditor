@@ -150,6 +150,52 @@ export function RegexTesterSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Build & Test Regular Expressions</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Test String</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste the text you want to search against into the "Test String" area. This could be a chunk of logs, HTML source code, or a simple list of email addresses.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Draft Your Regex Pattern</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Type your regular expression into the pattern input. The tool uses a background Web Worker to evaluate matches instantly without freezing the main UI thread.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Flags & Engines</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Toggle standard flags like Global (g), Case-Insensitive (i), and Multiline (m). The browser-native engine will apply these rules to provide 1:1 matching accuracy for your code.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Inspect Captured Groups</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Review the highlighted matches in your test string. Check the "Matches" panel to see a detailed breakdown of indices, full matches, and specific named capture groups.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Pattern</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once your logic is sound, click the "Copy" icon on the pattern bar. Your regex is now validated and ready to be integrated into your application's validation logic or search routines.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

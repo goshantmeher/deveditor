@@ -84,6 +84,52 @@ export function Base64FileSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Encode & Decode Files</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Processing Direction</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose "File to Base64" to encode a binary asset, or "Base64 to File" if you have a raw string you need to reconstruct into a downloadable document.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Upload Your Source File</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Drag and drop any file (Image, PDF, ZIP, etc.) into the upload zone. The tool will instantly parse the binary data using the browser's local FileReader API.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Data URI (Optional)</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">When encoding, you can toggle the "Include Data URI Prefix" option. This adds the <code className="text-indigo-400">data:[mime];base64,</code> header required for embedding directly in HTML or CSS source code.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify the Decoded Signature</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">If decoding a string, the tool will attempt to identify the magic bytes (file signature) to auto-detect the file extension, ensuring your download is correctly formatted (e.g., .png, .pdf).</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy String or Download File</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once processing is complete, either copy the generated string to your clipboard or click "Download File" to save the binary output back to your local disk.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

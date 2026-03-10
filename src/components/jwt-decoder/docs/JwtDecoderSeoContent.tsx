@@ -153,6 +153,52 @@ export function JwtDecoderSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Decode & Debug JWTs</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Encoded JWT</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Simply paste your full, encoded JSON Web Token into the input editor at the top of the workspace. The tool will automatically detect the three segments (Header, Payload, and Signature).</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Inspect the Header</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Review the Header panel to verify the signing algorithm (e.g., HS256, RS256) and token type. This is crucial for verifying your backend implementation matches your token generation logic.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Debug the Payload Claims</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">The Payload panel displays all encoded claims (roles, user IDs, custom metadata). Use the "Human Readable Dates" feature to instantly convert UNIX timestamps like <code className="text-indigo-400">exp</code> or <code className="text-indigo-400">iat</code> into actual dates.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Expiration Status</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Each decoded token undergoes a live expiration check. The tool will provide a clear badge indicating if the token is currently active or has already expired, making it easy to diagnose "401 Unauthorized" errors.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Clear Sensitive Data</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once you have finished debugging, use the "Clear" button to wipe your tokens from the local state. All processing remains strictly local to your browser for ultimate privacy.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

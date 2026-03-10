@@ -138,6 +138,52 @@ export function CodeMinifierSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Minify & Beautify Code</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Language & Mode</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose the language you want to process (JS, CSS, or HTML) and toggle between "Minify" (to compress) or "Beautify" (to reformat with indentation).</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Source Code</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Input your raw code into the editor. You can use the "Sample" button to load an example block or "Import" to load a file directly from your disk.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Transformation Settings</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">For beautification, adjust the indent size (e.g., 2 or 4 spaces). For minification, toggle advanced options like variable renaming or comment removal in the settings panel.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Compare File Size Reduction</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">The footer will display a "Before vs After" metric, showing exactly how many bytes were saved during the compression process in real-time.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export Your Optimized Code</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Copy" to move the result to your clipboard, or use the "Download" button to save the processed file back to your system.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

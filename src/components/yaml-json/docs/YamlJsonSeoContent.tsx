@@ -139,6 +139,52 @@ export function YamlJsonSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert YAML & JSON</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Establish Conversion Flow</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose whether you are refactoring YAML configuration into a JSON payload or compiling JSON data back into human-readable YAML blocks.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Raw Syntax</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Enter your configuration or data string into the source editor. The engine immediately begins drafting the remapped structure in the secondary panel using the JS-YAML engine.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Set Indentation Standards</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Select between 2 or 4 space indentation in the toolbar. This ensures the resulting YAML is perfectly aligned with your specific CI/CD pipeline or Docker requirements.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Type Handling</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Check how the tool handles booleans, nulls, and multi-line strings. Our converter follows standard YAML 1.2 rules for maximum compatibility across language ecosystems.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Securely Export Config</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Download the converted manifest or copy it to your clipboard. Since all parsing is done locally, your production secrets and environment variables remain 100% private.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

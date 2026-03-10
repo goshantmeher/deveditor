@@ -84,6 +84,52 @@ export function CsvJsonSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert CSV & JSON</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Set Conversion Mode</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose "CSV to JSON" if you have tabular data, or "JSON to CSV" if you need to flatten a structured array into a spreadsheet-friendly format.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Input Your Tabular Data</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw CSV string or JSON array into the top editor. You can also "Import" a local file directly; the tool will parse headers automatically.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Adjust Parsing Delimiters</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">For non-standard CSVs, use the settings panel to change the separator from a comma to a semicolon, tab, or pipe. The result will re-map instantly.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Identify Data Headers</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Confirm if your data includes a header row. If enabled, the tool uses the first row to define the keys for your resulting JSON objects automatically.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export Flat or Nested Result</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once satisfied, click "Copy" or "Download". Your data is now transformed and ready for use in Excel, Google Sheets, or as a static data source in your JS app.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

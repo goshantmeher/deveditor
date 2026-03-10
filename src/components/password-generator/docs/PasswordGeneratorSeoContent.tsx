@@ -148,6 +148,52 @@ export function PasswordGeneratorSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Secure Passwords</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Adjust Password Length</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the slider or input field to set your desired length. While 12-16 characters are standard for most accounts, you can generate up to 128 characters for high-security secrets.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Toggle Character Sets</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Select checkboxes for Uppercase, Lowercase, Numbers, and Symbols. The generator ensures that at least one character from every active set is included in the output.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enable Readability Options</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Toggle "Easy to Read" to exclude confusing characters like <code className="text-emerald-400">0, O, 1, I, l</code>. This is perfect for passwords you'll need to type manually into mobile devices or TV interfaces.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Monitor Strength Meter</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Watch the live entropy meter. It calculates the mathematical complexity of your configuration, providing instant feedback on whether your settings meet modern security guidelines.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Secret</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Copy" icon to move the password to your clipboard. Since the generation is entirely client-side, your password never touches our servers—ensure you save it in a password manager immediately.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

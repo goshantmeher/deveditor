@@ -84,6 +84,52 @@ export function BcryptTesterSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Test Bcrypt Hashes</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Mode: Generate or Verify</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Switch to "Generate" to create a new hash, or "Verify" if you need to check if a specific plaintext password matches an existing salted hash from your database.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Choose Computing Cost (Rounds)</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">When generating, adjust the "Cost Factor" slider. Standard production setups typically use between 10 and 12 rounds. Higher values provide better security but take longer to compute.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Hashed Data & Plaintext</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">In verification mode, paste the full bcrypt hash (starting with <code className="text-orange-400">$2a$</code> or <code className="text-orange-400">$2b$</code>) and the candidate password. The comparison runs instantly in your local browser memory.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Review the Verification Result</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">The tool will display a clear "Match" or "No Match" indicator. If it's a match, it confirms the encryption algorithm and salt embedded in the hash are valid for that specific input.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Securely Export or Clear</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Copy newly generated hashes for your config files. Once done, use the "Clear" button to wipe the workspace. No password data is ever leaked or sent to any server.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

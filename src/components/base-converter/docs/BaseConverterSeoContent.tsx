@@ -127,6 +127,52 @@ export function BaseConverterSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert Number Bases</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Choose Your Input Format</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Determine which base your source number is in (Binary, Octal, Decimal, or Hexadecimal). You can start typing in ANY of the four input fields immediately.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Numeric Value</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Type or paste your value into the corresponding field. For Hexadecimal, both <code className="text-indigo-400">0x</code> prefixes and raw strings are supported. Binary inputs will only accept 0s and 1s.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Observe Real-Time Sync</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">As you type, all other three fields will update simultaneously using BigInt precision math. This allows you to see how a single bit change affects the Decimal and Hexadecimal representations instantly.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Handle Massive Integers</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Feel free to paste extremely large numbers. Our engine manages arbitrary-precision integers, so you won't encounter the rounding errors common in standard floating-point calculators.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Preferred Format</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Each card features an individual copy button. Click the icon next to your desired output format to send the calculated result string directly to your clipboard.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

@@ -139,6 +139,52 @@ export function SeoGeneratorsSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Optimize Your SEO Files</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Define Crawler Logic</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Select your target User-Agents (e.g., Googlebot, GPTBot) and define specific disallow paths to protect private directories from being indexed or scraped.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Input Site Architecture</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your internal relative URL slugs. The tool automatically wraps them in absolute canonical tags using your domain's root protocol for sitemap generation.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Syntax Standards</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Audit the live output for proper casing and line breaks. Our validator ensures your <code className="text-emerald-400">robots.txt</code> and <code className="text-emerald-400">sitemap.xml</code> strings are 100% crawler-compliant.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Download & Deploy</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Download" to save the files locally. Move them to your website's public root directory so they are accessible at <code className="text-emerald-400">/robots.txt</code> and <code className="text-emerald-400">/sitemap.xml</code>.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Test with Search Console</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once deployed, submit your sitemap URL to Google Search Console to trigger a fresh crawl and monitor your indexing health in real-time.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

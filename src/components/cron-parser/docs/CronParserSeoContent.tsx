@@ -139,6 +139,52 @@ export function CronParserSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Parse Cron Schedules</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Cron Expression</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Type or paste your five-field cron string (e.g., <code className="text-emerald-400">*/15 * * * *</code>) into the input box. The tool supports standard crontab and modern cloud-scheduler formats.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Read the Plain English Summary</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">The tool instantly translates the cryptic symbols into a human-readable phrase. This helps you verify that your intended schedule (e.g., "Every 5 minutes on Mondays") matches the code.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Inspect Next Execution Times</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">View the "Next 5 Runs" panel. This calculates the exact date and timestamp for the upcoming triggers based on your current system clock, ensuring no scheduling overlaps.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Debug Range Errors</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">If you enter an invalid value (like 65 in the minutes field), the parser will highlight the specific field in red and provide an error message explaining the range violation.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export for Your Crontab</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once verified, copy the valid cron string and paste it into your server's configuration file, Kubernetes YAML, or GitHub Actions workflow safely.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

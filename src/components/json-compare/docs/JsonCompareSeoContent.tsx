@@ -84,6 +84,52 @@ export function JsonCompareSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Compare JSON Payloads</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Target JSON Data</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your original JSON into the "Left side" editor and the modified version into the "Right side" editor. You can also drag and drop .json files directly into either pane.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enable Structural Normalization</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Turn on "Auto-sort Keys" in the settings bar. This is a critical step that ensures the comparison focuses on data changes rather than just different key orders common in API responses.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Review the Split-View Diff</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">The visual workspace highlights exactly what was <span className="text-emerald-500 font-bold">Added (+)</span>, <span className="text-rose-500 font-bold">Removed (-)</span>, or Modified. You can toggle between "Split" and "Unified" view modes based on your preference.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Navigate Large Changes</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the change markers in the editor gutter to jump instantly between discrepancies. Fold unchanged objects to collapse large, identical blocks of data and focus on what matters.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export Results</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once you've identified the logic bugs or data shifts, use the copy buttons on individual panes to retrieve the formatted data for your code environment.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

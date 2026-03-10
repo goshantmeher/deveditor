@@ -142,6 +142,52 @@ export function AsciiArtSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate ASCII Art</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Heading Text</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Type the words or phrase you want to convert into ASCII art in the main input editor. The visual result will begin rendering instantly as you type.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select a Typographic Font</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose from dozens of premium Figlet fonts in the directory (e.g., Doom, Slant, Big). Each font has a distinct geometric style suitable for different documentation environments.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Character Spacing</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the settings panel to adjust kerning and horizontal layout. You can also specify the exact character width to ensure the art doesn't wrap awkwardly in your terminal.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview the Terminal Output</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Check the high-contrast preview pane to ensure the characters align perfectly. What you see in the dark-themed editor is exactly what will appear in your console or code comments.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy to Clipboard</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once satisfied, click the "Copy" button. You can now paste your striking ASCII masterpiece directly into your source code, README files, or terminal splash screens.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

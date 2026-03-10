@@ -139,6 +139,52 @@ export function FontPairSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Pair Typography</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Pick Your Primary Heading</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Select a high-impact font for your H1 and H2 headers. SERIF fonts provide a classic, premium look, while SANS-SERIF options feel more modern and tech-focused.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select a Readable Body Font</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose a complementary font for long-form content. Ensure the weight and character spacing provide high legibility for extended reading sessions across mobile and desktop.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Adjust Typographic Scale</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the font-size sliders to define your hierarchy. Observe how the heading contrasts against the body block to ensure a clear visual path for your users' eyes.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview Real Content Blocks</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Toggle between different UI layout mockups (Blog, Dashboard, Landing Page) to see how your chosen font pair performs in actual design contexts before committing.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export CSS or Tailwind Config</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Export" to generate the required <code className="text-orange-400">@import</code> lines and the Tailwind <code className="text-orange-400">fontFamily</code> extension object for your project configuration.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

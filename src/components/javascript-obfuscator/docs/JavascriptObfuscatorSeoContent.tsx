@@ -84,6 +84,52 @@ export function JavascriptObfuscatorSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Obfuscate JavaScript</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Raw Script</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Enter your readable JavaScript source code into the input editor. The tool parses the Abstract Syntax Tree (AST) locally to prepare for transformation.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Protection Levels</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose your obfuscation strength. "Basic" renames variables, while "High" enables logic flattening and string array mapping for maximum protection.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enable Security Features</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Optionally toggle "Self Defending" to make the code crash if tampered with or "Domain Lock" to restrict the script from running on unauthorized websites.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Execute Obfuscation Engine</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Obfuscate" to run the transformation. The output editor will display the newly generated, highly confusing version of your logic immediately.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy Protected Logic</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once satisfied, copy the obfuscated block. Remember to keep your original source code safe, as this process cannot be reversed by any standard tool.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

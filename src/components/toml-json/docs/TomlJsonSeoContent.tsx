@@ -84,6 +84,52 @@ export function TomlJsonSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert TOML & JSON</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Conversion Pipeline</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose whether you are converting from TOML to JSON or vice-versa. The tool updates the editor modes and validation rules automatically for the target syntax.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Input Configuration Data</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw configuration string into the source panel. Use the "Upload" button to import existing <code className="text-violet-400">.toml</code> or <code className="text-violet-400">.json</code> files directly from your disk.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Table Nesting</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Verify that complex TOML tables (<code className="text-violet-400">[header]</code>) or array tables (<code className="text-violet-400">[[header]]</code>) are correctly remapped into nested JSON objects or arrays in the live output.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Format for Deployment</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Toggle between "Beautify" for human-readable debugging or "Minify" to strip whitespace for production configuration injections and environment variables.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Download Validated Export</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Download" to save the converted manifest. All processing is 100% client-side, ensuring your sensitive API keys and secrets never leave your local environment.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

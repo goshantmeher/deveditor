@@ -138,6 +138,52 @@ export function FaviconGeneratorSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Favicons</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Upload Your Brand Logo</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Drag and drop a high-resolution PNG or SVG logo into the upload zone. For best results, use a square image with a minimum size of 512x512 pixels.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Output Platforms</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose which platforms you want to target: Standard Web (tabs/bookmarks), Apple iOS (home screen), or Android (manifest icons). The tool handles specific scaling requirements for each.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview Scaled Versions</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Review the generated icon matrix. Observe how your logo looks at tiny 16px sizes versus larger 180px mobile clips to ensure clarity and brand legibility.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Download Individual or All</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Download" button on individual icon cards to grab specific sizes, or use "Download All" to get a flattened ZIP archive containing the complete icon set.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Implement the HTML Snippet</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Copy the automatically generated <code className="text-indigo-400">&lt;link&gt;</code> tags and paste them into your website's <code className="text-indigo-400">&lt;head&gt;</code> section to activate the icons globally.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

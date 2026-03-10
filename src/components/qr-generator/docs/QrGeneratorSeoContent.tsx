@@ -151,6 +151,52 @@ export function QrGeneratorSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Custom QR Codes</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Target Data</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your URL, text, or credentials into the main input field. The QR code updates in real-time as you type, ensuring you can test scanability immediately.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Apply Brand Aesthetics</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Use the color picker to set your foreground and background colors. Ensure high contrast between the dots and background for reliable scanning across all hardware.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Integrate Your Logo</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Upload a center logo image. For the best result, use a high error correction (H) level to ensure the code remains functional even with the center obscured.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Set Functional Precision</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Adjust the QR code size and padding. Select the error correction level based on whether the code will be printed on high-gloss paper or displayed on a screen.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export for Production</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Download your code as a high-res PNG for web use, or an SVG for infinite scale in print materials. All generation is client-side for maximum privacy.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">

@@ -169,6 +169,52 @@ export function UrlEncoderSeoContent() {
             </div>
          </div>
 
+         {/* How to Use Section */}
+         <div className="space-y-8">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Encode & Decode URLs</h2>
+            <div className="max-w-4xl mx-auto space-y-6">
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Processing Mode</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Choose between "Encode" or "Decode" using the toggle in the header. Use the "Swap" icon to instantly reverse your current input/output data direction.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Your String or URL</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw text or encoded URL into the top editor. The results will process in real-time as you type, appearing in the bottom editor pane.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Encoding Rules</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Adjust settings like "Encode All Special Characters" (using <code className="text-indigo-400">encodeURIComponent</code> logic) or "Preserve URI Structure" depending on whether you are encoding a full URL or just a parameter.</p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Use the URL Parser Tab</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">For complex URLs, switch to the "URL Parser" tab. It automatically breaks down the string into editable query parameters, protocol, and path segments for granular debugging.</p>
+                  </div>
+               </div>
+               
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy the Clean Results</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">Once satisfied with the output, use the "Copy" button to retrieve the processed URL. All history is saved locally if you need to access previous transformations.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">
