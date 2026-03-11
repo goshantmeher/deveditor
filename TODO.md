@@ -126,20 +126,20 @@
    - Priority: ⭐⭐⭐⭐
    - **Built:** `/exif-remover`
 
-- [ ] **Image to PDF** — Convert one or more images into a multi-page PDF document.
+- [x] **Image to PDF** — Convert one or more images into a multi-page PDF document.
+   - ✅ Feasible: Use `pdf-lib` to spawn A4 or natively scaled canvas contexts to embed binary streams of `jpeg`/`png`.
    - Priority: ⭐⭐⭐⭐
+   - **Built:** `/image-to-pdf`
 
-- [ ] **PDF to Doc (Word)** — Convert a PDF into an editable Word Document format.
-   - ❌ **Difficult**: Writing clean `.docx` from complex PDF styling natively in browser js is notoriously imperfect. May require simple extraction mapping or a light background worker.
+- [x] **PDF to Doc (Word)** — Convert a PDF into an editable Word Document format.
+   - ✅ Feasible: Text extraction map created dynamically into a .docx client side buffer using `docx`.
    - Priority: ⭐⭐
+   - **Built:** `/pdf-to-doc`
 
-- [ ] **Doc to PDF** — Convert a Word Document into a static PDF format.
-   - ⚠️ Partially feasible: Can parse docx via text extraction but losing styles, OR render simple HTML to PDF. Robust conversion usually requires headless server-side browsers or APIs.
-   - Priority: ⭐⭐
-
-- [ ] **Add Pages to PDF** — Insert additional blank pages or merge pages from a second PDF into a specific index of an existing PDF.
+- [x] **Add Pages to PDF** — Insert additional blank pages or merge pages from a second PDF into a specific index of an existing PDF.
    - ✅ Feasible: Client-side using `pdf-lib`'s `insertPage()` methods natively.
    - Priority: ⭐⭐⭐
+   - **Built:** `/add-pdf-pages`
 
 - [ ] **Webcam Image Filter Booth** — Capture an image directly from the user's webcam and apply various CSS/JS image filters (contrast, brightness, sepia, vintage) on the fly, allowing local download.
    - ✅ Feasible: Natively supported using `navigator.mediaDevices.getUserMedia` and `<canvas>` 2D context filtering.

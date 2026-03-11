@@ -93,6 +93,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'split-pdf', priority: 0.8 },
       { slug: 'extract-pdf', priority: 0.7 },
       { slug: 'pdf-to-text', priority: 0.7 },
+      { slug: 'pdf-to-doc', priority: 0.7 },
+      { slug: 'add-pdf-pages', priority: 0.7 },
+      { slug: 'image-to-pdf', priority: 0.7 },
    ];
 
    const toolPages: MetadataRoute.Sitemap = tools.map((tool) => ({

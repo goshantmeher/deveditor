@@ -2,13 +2,16 @@
 
 import { useRouter, usePathname } from 'next/navigation';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { FileText, Scissors, Copy, Layers } from 'lucide-react';
+import { FileText, Scissors, Copy, Layers, FilePlus, Image as ImageIcon } from 'lucide-react';
 
 const PDF_TOOLS = [
    { label: 'Merge PDF', href: '/merge-pdf', icon: Layers },
    { label: 'Split PDF', href: '/split-pdf', icon: Scissors },
    { label: 'Extract Pages', href: '/extract-pdf', icon: FileText },
    { label: 'Copy PDF Text', href: '/pdf-to-text', icon: Copy },
+   { label: 'PDF to Word', href: '/pdf-to-doc', icon: FileText },
+   { label: 'Add Pages to PDF', href: '/add-pdf-pages', icon: FilePlus },
+   { label: 'Image to PDF', href: '/image-to-pdf', icon: ImageIcon },
 ];
 
 export function PdfToolSelector() {
