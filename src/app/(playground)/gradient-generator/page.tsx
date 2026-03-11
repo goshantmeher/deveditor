@@ -6,7 +6,15 @@ export const metadata: Metadata = {
    title: 'CSS Gradient Generator - Linear & Radial - DevEditor',
    description:
       'Free online tool to generate beautiful CSS gradients. Construct multi-stop linear, radial, and conic color blocks visually and export directly to clean CSS or Tailwind classes instantly.',
-   keywords: ['gradient generator', 'css gradients', 'tailwind gradient', 'linear gradient', 'radial gradient', 'conic gradient', 'css color'],
+   keywords: [
+      'gradient generator',
+      'css gradients',
+      'tailwind gradient',
+      'linear gradient',
+      'radial gradient',
+      'conic gradient',
+      'css color',
+   ],
    openGraph: {
       title: 'CSS Gradient Background Tool',
       description: 'Easily design complex multi-colored cascading gradients securely inside the browser.',

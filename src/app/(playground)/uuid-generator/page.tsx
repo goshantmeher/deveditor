@@ -5,14 +5,7 @@ export const metadata: Metadata = {
    title: 'UUID & ULID Generator - Generate Unique IDs Online',
    description:
       'Generate cryptographically secure v4 UUIDs and sortable ULIDs powered entirely by your browser. Bulk generate up to 5000 ids for your next project.',
-   keywords: [
-      'uuid generator',
-      'ulid generator',
-      'unique identifier',
-      'guid generator',
-      'bulk uuid',
-      'v4 uuid',
-   ],
+   keywords: ['uuid generator', 'ulid generator', 'unique identifier', 'guid generator', 'bulk uuid', 'v4 uuid'],
    openGraph: {
       title: 'UUID & ULID Generator - Free Online Dev Tool',
       description:
@@ -34,18 +27,16 @@ import { UuidGeneratorSeoContent } from '@/components/uuid-generator/docs/UuidGe
 
 export default function Page() {
    return (
-      
-         <div id="page-top" className="flex flex-col">
-            {/* The main tool viewport */}
-            <div className="h-[calc(100vh-72px)] shrink-0">
-               <UuidGeneratorView />
-            </div>
-
-            {/* SEO Content directly in the DOM, below the fold */}
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
-               <UuidGeneratorSeoContent />
-            </div>
+      <div id="page-top" className="flex flex-col">
+         {/* The main tool viewport */}
+         <div className="h-[calc(100vh-72px)] shrink-0">
+            <UuidGeneratorView />
          </div>
-      
+
+         {/* SEO Content directly in the DOM, below the fold */}
+         <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
+            <UuidGeneratorSeoContent />
+         </div>
+      </div>
    );
 }

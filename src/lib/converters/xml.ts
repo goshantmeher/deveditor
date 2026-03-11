@@ -16,7 +16,7 @@ const xmlConverter: FormatConverter = {
          allowBooleanAttributes: true,
          parseTagValue: true,
          trimValues: true,
-         isArray: (_name: string, _jpath: string, isLeafNode: boolean) => {
+         isArray: (_name: string, _jpath: string | unknown, isLeafNode: boolean, _isAttribute: boolean) => {
             // Preserve arrays for repeated elements
             return !isLeafNode;
          },

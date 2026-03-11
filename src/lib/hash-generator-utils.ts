@@ -17,10 +17,10 @@ export async function generateHash(text: string, algorithm: HashAlgorithm): Prom
 
    const encoder = new TextEncoder();
    const buffer = encoder.encode(text);
-   
+
    // Web Crypto API uses 'SHA-1', 'SHA-256', 'SHA-512'
    const digestedBuffer = await crypto.subtle.digest(algorithm, buffer);
-   
+
    return bufferToHex(digestedBuffer);
 }
 
@@ -149,17 +149,35 @@ function md5(string: string): string {
 
    let x = [];
    let k, AA, BB, CC, DD, a, b, c, d;
-   const S11 = 7, S12 = 12, S13 = 17, S14 = 22;
-   const S21 = 5, S22 = 9, S23 = 14, S24 = 20;
-   const S31 = 4, S32 = 11, S33 = 16, S34 = 23;
-   const S41 = 6, S42 = 10, S43 = 15, S44 = 21;
+   const S11 = 7,
+      S12 = 12,
+      S13 = 17,
+      S14 = 22;
+   const S21 = 5,
+      S22 = 9,
+      S23 = 14,
+      S24 = 20;
+   const S31 = 4,
+      S32 = 11,
+      S33 = 16,
+      S34 = 23;
+   const S41 = 6,
+      S42 = 10,
+      S43 = 15,
+      S44 = 21;
 
    string = Utf8Encode(string);
    x = ConvertToWordArray(string);
-   a = 0x67452301; b = 0xefcdab89; c = 0x98badcfe; d = 0x10325476;
+   a = 0x67452301;
+   b = 0xefcdab89;
+   c = 0x98badcfe;
+   d = 0x10325476;
 
    for (k = 0; k < x.length; k += 16) {
-      AA = a; BB = b; CC = c; DD = d;
+      AA = a;
+      BB = b;
+      CC = c;
+      DD = d;
       a = FF(a, b, c, d, x[k + 0], S11, 0xd76aa478);
       d = FF(d, a, b, c, x[k + 1], S12, 0xe8c7b756);
       c = FF(c, d, a, b, x[k + 2], S13, 0x242070db);

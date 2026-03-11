@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Copy, Check, ArrowRightLeft, Tags, FlaskConical, RotateCcw, Hash } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -96,16 +95,18 @@ export function HtmlEntityConverterView() {
             </div>
 
             {/* Direction Toggle */}
-            <Tabs
-               value={direction}
-               onValueChange={(v) => setDirection(v as ConversionDirection)}
-               className="shrink-0"
-            >
+            <Tabs value={direction} onValueChange={(v) => setDirection(v as ConversionDirection)} className="shrink-0">
                <TabsList className="h-8 p-0.5">
-                  <TabsTrigger value="encode" className="h-7 text-xs px-3 data-[state=active]:bg-brand data-[state=active]:text-brand-foreground">
+                  <TabsTrigger
+                     value="encode"
+                     className="h-7 text-xs px-3 data-[state=active]:bg-brand data-[state=active]:text-brand-foreground"
+                  >
                      Encode
                   </TabsTrigger>
-                  <TabsTrigger value="decode" className="h-7 text-xs px-3 data-[state=active]:bg-brand data-[state=active]:text-brand-foreground">
+                  <TabsTrigger
+                     value="decode"
+                     className="h-7 text-xs px-3 data-[state=active]:bg-brand data-[state=active]:text-brand-foreground"
+                  >
                      Decode
                   </TabsTrigger>
                </TabsList>
@@ -193,7 +194,9 @@ export function HtmlEntityConverterView() {
                                  <span className="text-xs font-mono text-brand block truncate">{ent.entity}</span>
                                  <span className="text-tiny text-muted-foreground block">{ent.name}</span>
                               </div>
-                              <span className="text-tiny text-muted-foreground/50 font-mono">&#x{ent.code.toString(16)};</span>
+                              <span className="text-tiny text-muted-foreground/50 font-mono">
+                                 &#x{ent.code.toString(16)};
+                              </span>
                            </button>
                         ))}
                      </div>

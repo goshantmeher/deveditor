@@ -47,7 +47,8 @@ export function SeoGeneratorsSeoContent() {
                Ultimate <span className="text-emerald-500">SEO Parsers</span> Toolset
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Craft meticulously formatted robots.txt exclusion rules and fully validated canonical sitemap XML paths instantaneously. Guarantee crawler algorithms traverse your architecture correctly.
+               Craft meticulously formatted robots.txt exclusion rules and fully validated canonical sitemap XML paths
+               instantaneously. Guarantee crawler algorithms traverse your architecture correctly.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function SeoGeneratorsSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Parser Directives</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Visually configure targeted disallow strings mapped carefully towards specific User-Agents terminating runaway AI spiders or malicious scraping bots permanently.
+                  Visually configure targeted disallow strings mapped carefully towards specific User-Agents terminating
+                  runaway AI spiders or malicious scraping bots permanently.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function SeoGeneratorsSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Hierarchy Mapping</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Bulk transform massive arrays of internal relative slugs directly into strictly compliant absolute XML URL matrices containing priority parameters implicitly.
+                  Bulk transform massive arrays of internal relative slugs directly into strictly compliant absolute XML
+                  URL matrices containing priority parameters implicitly.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function SeoGeneratorsSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Client Architecture</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Data processing relies thoroughly on client-side compilation ensuring internal route trees remain private, localized, securely offline exclusively.
+                  Data processing relies thoroughly on client-side compilation ensuring internal route trees remain
+                  private, localized, securely offline exclusively.
                </p>
             </div>
          </div>
@@ -89,7 +93,8 @@ export function SeoGeneratorsSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Strict algorithmic constraints</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Even subtle typos operating inside backend root files destroy search engine placements completely. Our validators automate standard constraints preventing indexing catastrophes.
+                  Even subtle typos operating inside backend root files destroy search engine placements completely. Our
+                  validators automate standard constraints preventing indexing catastrophes.
                </p>
                <ul className="space-y-4">
                   {[
@@ -130,7 +135,10 @@ export function SeoGeneratorsSeoContent() {
                      { from: '*', to: 'Defines root defaults algorithmically.' },
                      { from: 'Disallow: /api/', to: 'Prevents backend probing heavily.' },
                   ].map((item, i) => (
-                     <div key={i} className="flex flex-col md:flex-row gap-1 md:gap-4 text-muted-foreground mb-4 border-b border-border/30 pb-2">
+                     <div
+                        key={i}
+                        className="flex flex-col md:flex-row gap-1 md:gap-4 text-muted-foreground mb-4 border-b border-border/30 pb-2"
+                     >
                         <span className="text-emerald-400 font-bold w-40 truncate">[{item.from}]</span>
                         <span className="text-sm opacity-80">{item.to}</span>
                      </div>
@@ -141,45 +149,74 @@ export function SeoGeneratorsSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Optimize Your SEO Files</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Optimize Your SEO Files
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Define Crawler Logic</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Select your target User-Agents (e.g., Googlebot, GPTBot) and define specific disallow paths to protect private directories from being indexed or scraped.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Input Site Architecture</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your internal relative URL slugs. The tool automatically wraps them in absolute canonical tags using your domain's root protocol for sitemap generation.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Syntax Standards</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Audit the live output for proper casing and line breaks. Our validator ensures your <code className="text-emerald-400">robots.txt</code> and <code className="text-emerald-400">sitemap.xml</code> strings are 100% crawler-compliant.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Select your target User-Agents (e.g., Googlebot, GPTBot) and define specific disallow paths to
+                        protect private directories from being indexed or scraped.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Download & Deploy</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Download" to save the files locally. Move them to your website's public root directory so they are accessible at <code className="text-emerald-400">/robots.txt</code> and <code className="text-emerald-400">/sitemap.xml</code>.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Input Site Architecture</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Paste your internal relative URL slugs. The tool automatically wraps them in absolute canonical
+                        tags using your domain's root protocol for sitemap generation.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Syntax Standards</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Audit the live output for proper casing and line breaks. Our validator ensures your{' '}
+                        <code className="text-emerald-400">robots.txt</code> and{' '}
+                        <code className="text-emerald-400">sitemap.xml</code> strings are 100% crawler-compliant.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Download & Deploy</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Download" to save the files locally. Move them to your website's public root directory so
+                        they are accessible at <code className="text-emerald-400">/robots.txt</code> and{' '}
+                        <code className="text-emerald-400">/sitemap.xml</code>.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Test with Search Console</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Once deployed, submit your sitemap URL to Google Search Console to trigger a fresh crawl and monitor your indexing health in real-time.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Once deployed, submit your sitemap URL to Google Search Console to trigger a fresh crawl and
+                        monitor your indexing health in real-time.
+                     </p>
                   </div>
                </div>
             </div>
@@ -212,7 +249,9 @@ export function SeoGeneratorsSeoContent() {
                      Is my input data saved?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-emerald-500/20">
-                     To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the 'Persist Data' switch in the tool settings.
+                     To improve your experience, your input data is saved locally in your browser using localStorage.
+                     This is entirely client-side, meaning your data never leaves your device. You can opt-out of this
+                     behavior at any time by disabling the 'Persist Data' switch in the tool settings.
                   </p>
                </div>
             </div>

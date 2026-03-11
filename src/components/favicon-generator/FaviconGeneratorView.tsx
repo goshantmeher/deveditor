@@ -56,15 +56,15 @@ export function FaviconGeneratorView() {
                newBlobs[size] = blob;
             }
          }
-         
+
          // Custom ICO Generation utilizing JS logic over PNG files
          if (newBlobs[16] && newBlobs[32] && newBlobs[48]) {
             // Complex standard ICO format padding logic goes here...
             // For a lightweight true Client-Side app without dense libraries,
-            // standard HTML5 relies entirely on PNG equivalents now anyway: 
+            // standard HTML5 relies entirely on PNG equivalents now anyway:
             // ex: <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
          }
-         
+
          setGeneratedBlobs(newBlobs);
       };
       img.src = imageSrc;
@@ -81,7 +81,7 @@ export function FaviconGeneratorView() {
    const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
       if (!file) return;
-      
+
       if (!file.type.startsWith('image/')) {
          alert('Please upload a valid image file');
          return;
@@ -112,28 +112,29 @@ export function FaviconGeneratorView() {
       URL.revokeObjectURL(url);
    };
 
-   // Creates a basic .zip downloading method if needed, but modern browsers usually prevent batch triggers 
+   // Creates a basic .zip downloading method if needed, but modern browsers usually prevent batch triggers
    // without a ZipJS library. For simplicity, we trigger links dynamically.
    const handleDownloadAll = () => {
-       Object.keys(generatedBlobs).forEach((key) => {
-          const s = parseInt(key, 10);
-          handleDownloadSingle(s);
-       });
+      Object.keys(generatedBlobs).forEach((key) => {
+         const s = parseInt(key, 10);
+         handleDownloadSingle(s);
+      });
    };
 
    const faqSchema = {
-       '@context': 'https://schema.org',
-       '@type': 'SoftwareApplication',
-       name: 'Favicon Generator',
-       applicationCategory: 'DeveloperApplication',
-       operatingSystem: 'Web Browser',
-       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-       featureList: [
-          'Automatic PNG coordinate reshaping from 16px to 512px',
-          'Square aspect ratio lock generation natively',
-          '100% Client-side privacy execution via local Canvas',
-       ],
-       description: 'Free online image to Favicon resizing tool. Converts any PNG or JPEG logo instantly into standard 16x16, 32x32, and 512x512 app clip sizes.',
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'Favicon Generator',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Web Browser',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      featureList: [
+         'Automatic PNG coordinate reshaping from 16px to 512px',
+         'Square aspect ratio lock generation natively',
+         '100% Client-side privacy execution via local Canvas',
+      ],
+      description:
+         'Free online image to Favicon resizing tool. Converts any PNG or JPEG logo instantly into standard 16x16, 32x32, and 512x512 app clip sizes.',
    };
 
    return (
@@ -146,10 +147,10 @@ export function FaviconGeneratorView() {
                <Star className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">Favicon Generator</span>
             </div>
-            
+
             <div className="flex items-center gap-2 ml-auto shrink-0">
                {inputImageStr && (
-                   <button
+                  <button
                      onClick={() => setInputImageStr(null)}
                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-destructive/70 hover:text-destructive hover:bg-destructive/10 transition-all border border-border/40"
                      title="Clear Image"
@@ -158,13 +159,13 @@ export function FaviconGeneratorView() {
                      <span className="hidden sm:inline">Clear</span>
                   </button>
                )}
-               
-               <input 
-                  type="file" 
-                  accept="image/png, image/jpeg, image/webp" 
-                  ref={fileInputRef} 
+
+               <input
+                  type="file"
+                  accept="image/png, image/jpeg, image/webp"
+                  ref={fileInputRef}
                   onChange={handleFileUpload}
-                  className="hidden" 
+                  className="hidden"
                />
 
                <button
@@ -181,7 +182,7 @@ export function FaviconGeneratorView() {
          {/* Content Viewport */}
          <div className="flex-1 flex flex-col min-h-0 bg-background p-6 lg:p-12 overflow-y-auto">
             {!inputImageStr ? (
-               <div 
+               <div
                   className="m-auto flex flex-col items-center justify-center p-12 mt-12 mb-12 border-2 border-dashed border-border rounded-3xl max-w-xl text-center bg-muted/10 hover:bg-muted/30 hover:border-brand/40 transition-colors cursor-pointer group"
                   onClick={() => fileInputRef.current?.click()}
                >
@@ -189,7 +190,10 @@ export function FaviconGeneratorView() {
                      <Upload className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold tracking-tight text-foreground mb-3">Drop an image here</h3>
-                  <p className="text-muted-foreground mb-8 text-sm">Upload a square PNG, JPEG, or WEBP logo to instantly generate standard web favicons and Apple Touch Icons.</p>
+                  <p className="text-muted-foreground mb-8 text-sm">
+                     Upload a square PNG, JPEG, or WEBP logo to instantly generate standard web favicons and Apple Touch
+                     Icons.
+                  </p>
                   <Button variant="default" className="gap-2">
                      <Upload className="w-4 h-4" /> Pick from Computer
                   </Button>
@@ -199,43 +203,54 @@ export function FaviconGeneratorView() {
                   <div className="flex items-center justify-between">
                      <div className="space-y-1">
                         <h2 className="text-2xl font-bold tracking-tight text-foreground">Generated Favicons</h2>
-                        <p className="text-sm text-muted-foreground">Standard web app icons mapped perfectly from your source. We recommend deploying the 32x32 size as your default.</p>
+                        <p className="text-sm text-muted-foreground">
+                           Standard web app icons mapped perfectly from your source. We recommend deploying the 32x32
+                           size as your default.
+                        </p>
                      </div>
-                     <Button onClick={handleDownloadAll} className="gap-2 bg-emerald-600 hover:bg-emerald-700 text-white">
+                     <Button
+                        onClick={handleDownloadAll}
+                        className="gap-2 bg-emerald-600 hover:bg-emerald-700 text-white"
+                     >
                         <Download className="w-4 h-4" /> Batch Download All
                      </Button>
                   </div>
-                  
+
                   <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
-                     {SIZES.map(size => {
+                     {SIZES.map((size) => {
                         const blob = generatedBlobs[size];
                         const url = blob ? URL.createObjectURL(blob) : '';
-                        
+
                         return (
                            <div key={size} className="flex flex-col items-center gap-4 relative group">
-                              <div className="flex items-center justify-center bg-muted/30 border border-border/50 rounded-2xl w-full aspect-square" style={{ minHeight: '128px' }}>
-                                  {url ? (
-                                    <div 
-                                       className="bg-transparent shadow-xs transition-transform hover:scale-105 duration-300 relative border border-black/10 dark:border-white/10" 
+                              <div
+                                 className="flex items-center justify-center bg-muted/30 border border-border/50 rounded-2xl w-full aspect-square"
+                                 style={{ minHeight: '128px' }}
+                              >
+                                 {url ? (
+                                    <div
+                                       className="bg-transparent shadow-xs transition-transform hover:scale-105 duration-300 relative border border-black/10 dark:border-white/10"
                                        style={{ width: `${Math.min(size, 100)}px`, height: `${Math.min(size, 100)}px` }}
                                     >
                                        <img src={url} alt={`Size ${size}`} className="w-full h-full object-contain" />
                                     </div>
-                                  ) : (
+                                 ) : (
                                     <span className="text-xs text-muted-foreground animate-pulse">Processing...</span>
-                                  )}
+                                 )}
                               </div>
                               <div className="text-center space-y-1.5 w-full">
-                                  <div className="text-sm font-bold text-foreground font-mono">{size}x{size}</div>
-                                  <Button 
-                                     variant="outline" 
-                                     size="sm" 
-                                     className="w-full text-xs h-7 gap-1"
-                                     disabled={!blob}
-                                     onClick={() => handleDownloadSingle(size)}
-                                  >
-                                      <Download className="w-3 h-3" /> Save PNG
-                                  </Button>
+                                 <div className="text-sm font-bold text-foreground font-mono">
+                                    {size}x{size}
+                                 </div>
+                                 <Button
+                                    variant="outline"
+                                    size="sm"
+                                    className="w-full text-xs h-7 gap-1"
+                                    disabled={!blob}
+                                    onClick={() => handleDownloadSingle(size)}
+                                 >
+                                    <Download className="w-3 h-3" /> Save PNG
+                                 </Button>
                               </div>
                            </div>
                         );

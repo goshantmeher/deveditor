@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useEffect, useRef } from 'react';
 import { FileText, Type, Hash, Clock, FileCode, AlignLeft, BarChart2, RotateCcw, FlaskConical } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -18,7 +17,7 @@ export function WordCounterView() {
    const isInitialized = useRef(false);
 
    const [input, setInput] = useState('');
-   
+
    // Load persisted state
    useEffect(() => {
       if (typeof window === 'undefined' || isInitialized.current) return;
@@ -49,10 +48,15 @@ export function WordCounterView() {
                <BarChart2 className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">Word & Character Counter</span>
             </div>
-            
+
             <div className="flex items-center gap-2">
                {!input && (
-                  <Button variant="ghost" size="sm" className="h-8 text-xs text-muted-foreground" onClick={handleSample}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-8 text-xs text-muted-foreground"
+                     onClick={handleSample}
+                  >
                      <FlaskConical className="w-3.5 h-3.5 mr-1" />
                      Sample
                   </Button>
@@ -68,7 +72,6 @@ export function WordCounterView() {
 
          {/* Main Content */}
          <div className="flex-1 flex flex-col min-h-0 bg-background overflow-hidden relative">
-            
             {/* Stats Overview Bar - Quick counts at the top */}
             <div className="flex flex-wrap items-center gap-0 border-b border-border bg-muted/20 shrink-0">
                <div className="flex-1 min-w-[120px] p-3 text-center border-r border-border">
@@ -81,7 +84,9 @@ export function WordCounterView() {
                </div>
                <div className="flex-1 min-w-[120px] p-3 text-center border-r border-border hidden sm:block">
                   <div className="text-2xl font-bold text-foreground font-mono">{stats.sentences}</div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-1">Sentences</div>
+                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-1">
+                     Sentences
+                  </div>
                </div>
                <div className="flex-1 min-w-[120px] p-3 text-center hidden md:block">
                   <div className="text-2xl font-bold text-brand font-mono">
@@ -96,8 +101,10 @@ export function WordCounterView() {
                {/* Detailed Stats Panel (Left) */}
                <div className="w-full md:w-64 border-b md:border-b-0 md:border-r border-border bg-background overflow-y-auto shrink-0 flex flex-col">
                   <div className="p-4 flex-1">
-                     <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-4">Detailed Metrics</h3>
-                     
+                     <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider mb-4">
+                        Detailed Metrics
+                     </h3>
+
                      <div className="space-y-4">
                         <div className="flex items-center justify-between group">
                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -106,7 +113,7 @@ export function WordCounterView() {
                            </div>
                            <span className="font-mono text-foreground font-medium">{stats.charactersNoSpaces}</span>
                         </div>
-                        
+
                         <div className="flex items-center justify-between group">
                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
                               <AlignLeft className="w-4 h-4 text-amber-500" />
@@ -114,7 +121,7 @@ export function WordCounterView() {
                            </div>
                            <span className="font-mono text-foreground font-medium">{stats.paragraphs}</span>
                         </div>
-                        
+
                         <div className="flex items-center justify-between group">
                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
                               <Hash className="w-4 h-4 text-purple-500" />
@@ -122,7 +129,7 @@ export function WordCounterView() {
                            </div>
                            <span className="font-mono text-foreground font-medium">{stats.lines}</span>
                         </div>
-                        
+
                         <div className="flex items-center justify-between group">
                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
                               <FileCode className="w-4 h-4 text-rose-500" />
@@ -130,7 +137,7 @@ export function WordCounterView() {
                            </div>
                            <span className="font-mono text-foreground font-medium">{formatBytes(stats.byteSize)}</span>
                         </div>
-                        
+
                         <div className="flex items-center justify-between group sm:hidden">
                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
                               <FileText className="w-4 h-4 text-blue-500" />
@@ -138,7 +145,7 @@ export function WordCounterView() {
                            </div>
                            <span className="font-mono text-foreground font-medium">{stats.sentences}</span>
                         </div>
-                        
+
                         <div className="flex items-center justify-between group md:hidden">
                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
                               <Clock className="w-4 h-4 text-brand" />

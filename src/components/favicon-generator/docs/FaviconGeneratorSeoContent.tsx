@@ -47,7 +47,8 @@ export function FaviconGeneratorSeoContent() {
                Instantly generate <span className="text-indigo-500">Favicons</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Convert a single logo image into all proper scaled versions for modern web browsers, Android manifests, and Apple UI interfaces perfectly.
+               Convert a single logo image into all proper scaled versions for modern web browsers, Android manifests,
+               and Apple UI interfaces perfectly.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function FaviconGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Cross-Platform</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Generate optimized arrays going universally from tiny 16px bookmark dots through heavy 512px Retina iOS app clips.
+                  Generate optimized arrays going universally from tiny 16px bookmark dots through heavy 512px Retina
+                  iOS app clips.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function FaviconGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Highest Privacy Setup</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Your trademarked and copyrighted art never leaves your hard drive. Native GPU rendering via a secure Sandbox UI layout.
+                  Your trademarked and copyrighted art never leaves your hard drive. Native GPU rendering via a secure
+                  Sandbox UI layout.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function FaviconGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Anti-Aliasing Smoothing</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Utilizes built-in HD Canvas up-scaling traits that ensure jagged edges are suppressed down naturally compared to cheap generic alternatives.
+                  Utilizes built-in HD Canvas up-scaling traits that ensure jagged edges are suppressed down naturally
+                  compared to cheap generic alternatives.
                </p>
             </div>
          </div>
@@ -89,7 +93,8 @@ export function FaviconGeneratorSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Every size for every standard</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Creating responsive web apps generally means creating over 5 redundant versions of the same logo manually in Illustrator. Drop a large PNG here and let processing math do it for you. 
+                  Creating responsive web apps generally means creating over 5 redundant versions of the same logo
+                  manually in Illustrator. Drop a large PNG here and let processing math do it for you.
                </p>
                <ul className="space-y-4">
                   {[
@@ -125,8 +130,14 @@ export function FaviconGeneratorSeoContent() {
                </div>
                <div className="space-y-3 font-mono text-sm">
                   {[
-                     { from: 'Standard Tab Icon (Small)', to: '<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">' },
-                     { from: 'Apple iOS Dashboard (180)', to: '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">' },
+                     {
+                        from: 'Standard Tab Icon (Small)',
+                        to: '<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">',
+                     },
+                     {
+                        from: 'Apple iOS Dashboard (180)',
+                        to: '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">',
+                     },
                      { from: 'Android PWA Base (192)', to: '<icon src="/android-chrome-192.png" sizes="192x192">' },
                   ].map((item, i) => (
                      <div key={i} className="flex flex-col gap-1 text-muted-foreground mb-4">
@@ -143,42 +154,68 @@ export function FaviconGeneratorSeoContent() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Favicons</h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Upload Your Brand Logo</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Drag and drop a high-resolution PNG or SVG logo into the upload zone. For best results, use a square image with a minimum size of 512x512 pixels.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Select Output Platforms</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose which platforms you want to target: Standard Web (tabs/bookmarks), Apple iOS (home screen), or Android (manifest icons). The tool handles specific scaling requirements for each.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Preview Scaled Versions</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Review the generated icon matrix. Observe how your logo looks at tiny 16px sizes versus larger 180px mobile clips to ensure clarity and brand legibility.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Drag and drop a high-resolution PNG or SVG logo into the upload zone. For best results, use a
+                        square image with a minimum size of 512x512 pixels.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Download Individual or All</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Download" button on individual icon cards to grab specific sizes, or use "Download All" to get a flattened ZIP archive containing the complete icon set.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Output Platforms</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose which platforms you want to target: Standard Web (tabs/bookmarks), Apple iOS (home
+                        screen), or Android (manifest icons). The tool handles specific scaling requirements for each.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview Scaled Versions</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Review the generated icon matrix. Observe how your logo looks at tiny 16px sizes versus larger
+                        180px mobile clips to ensure clarity and brand legibility.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Download Individual or All</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click the "Download" button on individual icon cards to grab specific sizes, or use "Download
+                        All" to get a flattened ZIP archive containing the complete icon set.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Implement the HTML Snippet</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Copy the automatically generated <code className="text-indigo-400">&lt;link&gt;</code> tags and paste them into your website's <code className="text-indigo-400">&lt;head&gt;</code> section to activate the icons globally.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Copy the automatically generated <code className="text-indigo-400">&lt;link&gt;</code> tags and
+                        paste them into your website's <code className="text-indigo-400">&lt;head&gt;</code> section to
+                        activate the icons globally.
+                     </p>
                   </div>
                </div>
             </div>

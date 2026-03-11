@@ -18,9 +18,13 @@ export function JsonCompareView() {
    const { isPersistenceEnabled } = usePersistence();
    const isInitialized = useRef(false);
 
-   const [leftJson, setLeftJson] = useState('{\n  "name": "DevEditor",\n  "version": "1.0",\n  "features": ["json", "format"]\n}');
-   const [rightJson, setRightJson] = useState('{\n  "name": "DevEditor",\n  "version": "1.1",\n  "features": ["json", "format", "diff"]\n}');
-   
+   const [leftJson, setLeftJson] = useState(
+      '{\n  "name": "DevEditor",\n  "version": "1.0",\n  "features": ["json", "format"]\n}'
+   );
+   const [rightJson, setRightJson] = useState(
+      '{\n  "name": "DevEditor",\n  "version": "1.1",\n  "features": ["json", "format", "diff"]\n}'
+   );
+
    const [viewType, setViewType] = useState<'split' | 'unified'>('split');
    const [sortKeys, setSortKeys] = useState(true);
    const [stats, setStats] = useState<DiffStats | null>(null);
@@ -43,7 +47,6 @@ export function JsonCompareView() {
          if (left) setLeftJson(left);
          if (right) setRightJson(right);
       }
-       
    }, [isPersistenceEnabled]);
 
    // Save state
@@ -129,9 +132,9 @@ export function JsonCompareView() {
                   <Code className="w-4 h-4 text-orange-500" />
                </div>
                <h1 className="font-bold text-sm tracking-tight text-foreground">JSON Compare & Diff</h1>
-               
+
                <div className="h-6 w-px bg-border mx-2 hidden sm:block" />
-               
+
                <Button
                   variant="outline"
                   size="sm"
@@ -210,10 +213,7 @@ export function JsonCompareView() {
             <div className="px-4 py-2 border-b border-border flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 bg-muted/5 shrink-0">
                <div className="flex items-center gap-3">
                   <span className="text-sm font-semibold tracking-tight text-foreground">Structural Diff</span>
-                  <Tabs
-                     value={viewType}
-                     onValueChange={(v: string) => setViewType(v as 'split' | 'unified')}
-                  >
+                  <Tabs value={viewType} onValueChange={(v: string) => setViewType(v as 'split' | 'unified')}>
                      <TabsList className="h-8 border border-border/50">
                         <TabsTrigger value="split" className="text-[11px] gap-1.5 px-3">
                            <Split className="w-3.5 h-3.5" /> Split
@@ -229,7 +229,8 @@ export function JsonCompareView() {
                   {stats && (
                      <div className="flex items-center gap-4">
                         <span className="text-muted-foreground">
-                           <span className="text-foreground font-medium">{stats.charsAdded + stats.charsRemoved}</span> chars diff
+                           <span className="text-foreground font-medium">{stats.charsAdded + stats.charsRemoved}</span>{' '}
+                           chars diff
                         </span>
                         <div className="flex items-center gap-1.5">
                            <div className="w-2.5 h-2.5 rounded-sm bg-red-400/40" />

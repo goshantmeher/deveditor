@@ -34,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'json-editor', priority: 0.9 },
       { slug: 'json-to-schema', priority: 0.8 },
       { slug: 'base64-encoder', priority: 0.8 },
+      { slug: 'base64-to-json', priority: 0.8 },
       { slug: 'jwt-decoder', priority: 0.8 },
       { slug: 'regex-tester', priority: 0.8 },
       { slug: 'text-diff', priority: 0.8 },
@@ -44,8 +45,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'password-strength', priority: 0.8 },
       { slug: 'js-obfuscator', priority: 0.8 },
       { slug: 'hash-generator', priority: 0.8 },
+      { slug: 'certificate-inspector', priority: 0.8 },
       { slug: 'case-converter', priority: 0.7 },
       { slug: 'list-converter', priority: 0.7 },
+      { slug: 'string-trimmer', priority: 0.8 },
       { slug: 'tailwind-lookup', priority: 0.8 },
       { slug: 'url-encoder', priority: 0.8 },
       { slug: 'markdown-converter', priority: 0.8 },
@@ -79,6 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'qr-generator', priority: 0.8 },
       { slug: 'svg-to-jsx', priority: 0.8 },
       { slug: 'svg-optimizer', priority: 0.8 },
+      { slug: 'icon-builder', priority: 0.8 },
       { slug: 'favicon-generator', priority: 0.8 },
       { slug: 'glassmorphism-generator', priority: 0.8 },
       { slug: 'gradient-generator', priority: 0.8 },
@@ -86,6 +90,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'meta-tag-generator', priority: 0.8 },
       { slug: 'seo-generators', priority: 0.8 },
       { slug: 'code-minifier', priority: 0.8 },
+      { slug: 'dns-lookup', priority: 0.8 },
 
       // PDF tools
       { slug: 'pdf-resume', priority: 0.9 },
@@ -93,6 +98,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'split-pdf', priority: 0.8 },
       { slug: 'extract-pdf', priority: 0.7 },
       { slug: 'pdf-to-text', priority: 0.7 },
+      { slug: 'pdf-to-doc', priority: 0.7 },
+      { slug: 'add-pdf-pages', priority: 0.7 },
+      { slug: 'image-to-pdf', priority: 0.7 },
    ];
 
    const toolPages: MetadataRoute.Sitemap = tools.map((tool) => ({

@@ -41,18 +41,16 @@ import { Base64EncoderSeoContent } from '@/components/base64-encoder/docs/Base64
 
 export default function Page() {
    return (
-      
-         <div id="page-top" className="flex flex-col">
-            {/* The main tool viewport */}
-            <div className="h-[calc(100vh-72px)] shrink-0">
-               <Base64EncoderView />
-            </div>
-
-            {/* SEO Content directly in the DOM, below the fold */}
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
-               <Base64EncoderSeoContent />
-            </div>
+      <div id="page-top" className="flex flex-col">
+         {/* The main tool viewport */}
+         <div className="h-[calc(100vh-72px)] shrink-0">
+            <Base64EncoderView />
          </div>
-      
+
+         {/* SEO Content directly in the DOM, below the fold */}
+         <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
+            <Base64EncoderSeoContent />
+         </div>
+      </div>
    );
 }

@@ -47,7 +47,8 @@ export function GlassmorphismGeneratorSeoContent() {
                Beautiful <span className="text-indigo-500">Glass UI Design</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Generate modern web application components with frosted glass effects. Configure blur strengths, shadows, inner boarders, and opacities visually.
+               Generate modern web application components with frosted glass effects. Configure blur strengths, shadows,
+               inner boarders, and opacities visually.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function GlassmorphismGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Interactive Slider Tools</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Fine-tune pixel perfect effects in our sandbox view rather than reloading your browser continuously looking for the perfect amount of opacity blur.
+                  Fine-tune pixel perfect effects in our sandbox view rather than reloading your browser continuously
+                  looking for the perfect amount of opacity blur.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function GlassmorphismGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Tailwind Optimized</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  The generated CSS natively adapts to plain web standards or specific arbitrary value tailwind CSS arrays for modern Next.js environments.
+                  The generated CSS natively adapts to plain web standards or specific arbitrary value tailwind CSS
+                  arrays for modern Next.js environments.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function GlassmorphismGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Box Shadow Modeling</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Construct perfect drop shadows behind your frost-windows to increase physical 3D elevation and separate elements deeply across any backdrop.
+                  Construct perfect drop shadows behind your frost-windows to increase physical 3D elevation and
+                  separate elements deeply across any backdrop.
                </p>
             </div>
          </div>
@@ -89,7 +93,8 @@ export function GlassmorphismGeneratorSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Mastering modern UX</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Glassmorphism builds digital hierarchy implicitly by overlapping elements but keeping out-of-focus background components somewhat visible.
+                  Glassmorphism builds digital hierarchy implicitly by overlapping elements but keeping out-of-focus
+                  background components somewhat visible.
                </p>
                <ul className="space-y-4">
                   {[
@@ -141,45 +146,73 @@ export function GlassmorphismGeneratorSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Design Glass UI Components</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Design Glass UI Components
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Configure Blur & Transparency</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Use the main sliders to adjust the backdrop-filter blur (px) and the background opacity (%). This creates the core "frosted" look of the glass element.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Add Depth with Box Shadows</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Enable the shadow settings to define the drop-shadow distance and spread. A soft, semi-transparent shadow is crucial for making the glass card appear elevated from the background.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Refine Borders & Outlines</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Apply an ultra-thin white or light-gray border. This "highlight" simulates the edge of a physical piece of glass, adding a significant level of professional realism to the UI.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Use the main sliders to adjust the backdrop-filter blur (px) and the background opacity (%).
+                        This creates the core "frosted" look of the glass element.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Interact with Preview Sandbox</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Place your generated card over different colorful background patterns in the preview window. This helps you verify how the glass effect interacts with various underlying colors and shapes.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Add Depth with Box Shadows</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Enable the shadow settings to define the drop-shadow distance and spread. A soft,
+                        semi-transparent shadow is crucial for making the glass card appear elevated from the
+                        background.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Refine Borders & Outlines</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Apply an ultra-thin white or light-gray border. This "highlight" simulates the edge of a
+                        physical piece of glass, adding a significant level of professional realism to the UI.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Interact with Preview Sandbox</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Place your generated card over different colorful background patterns in the preview window.
+                        This helps you verify how the glass effect interacts with various underlying colors and shapes.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy Native CSS or Tailwind</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Once satisfied with the visual style, click "Copy Code". You can choose between raw CSS properties or the equivalent Tailwind CSS utilities for your modern tech stack.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Once satisfied with the visual style, click "Copy Code". You can choose between raw CSS
+                        properties or the equivalent Tailwind CSS utilities for your modern tech stack.
+                     </p>
                   </div>
                </div>
             </div>

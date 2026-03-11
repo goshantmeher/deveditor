@@ -47,7 +47,8 @@ export function UuidGeneratorSeoContent() {
                UUID & ULID <span className="text-cyan-500">Generator</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Instantly generate cryptographically secure bulk batch v4 UUIDs and sortable ULIDs powered entirely by your browser's Web Crypto API.
+               Instantly generate cryptographically secure bulk batch v4 UUIDs and sortable ULIDs powered entirely by
+               your browser's Web Crypto API.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function UuidGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Bulk Generation</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Generate anywhere from 1 to 5,000 unique identifiers in a single millisecond batch. Easily duplicate massive amounts for fake database seeding.
+                  Generate anywhere from 1 to 5,000 unique identifiers in a single millisecond batch. Easily duplicate
+                  massive amounts for fake database seeding.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function UuidGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Sortable ULIDs</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Leverage Crockford's base32 encoding to create 26-character identifiers that natively alphabetize perfectly according to their creation time.
+                  Leverage Crockford's base32 encoding to create 26-character identifiers that natively alphabetize
+                  perfectly according to their creation time.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function UuidGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Cryptographically Secure</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Both UUIDs and the random portions of ULIDs utilize <code>crypto.getRandomValues()</code> protecting them from predictability and collision attacks.
+                  Both UUIDs and the random portions of ULIDs utilize <code>crypto.getRandomValues()</code> protecting
+                  them from predictability and collision attacks.
                </p>
             </div>
          </div>
@@ -87,10 +91,13 @@ export function UuidGeneratorSeoContent() {
          {/* Visual Section */}
          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground">Which identifier should you choose?</h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  Which identifier should you choose?
+               </h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Modern application architectures have largely moved away from auto-incrementing integer IDs due to distributed scaling complexity. 
-                  Knowing exactly which identifier to pick for your database schema is paramount.
+                  Modern application architectures have largely moved away from auto-incrementing integer IDs due to
+                  distributed scaling complexity. Knowing exactly which identifier to pick for your database schema is
+                  paramount.
                </p>
                <ul className="space-y-4">
                   {[
@@ -132,30 +139,48 @@ export function UuidGeneratorSeoContent() {
                <div className="space-y-6">
                   <div className="bg-background rounded-lg border border-border overflow-hidden">
                      <div className="bg-muted px-4 py-2 border-b border-border flex justify-between">
-                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">UUID v4 Breakdown</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                           UUID v4 Breakdown
+                        </span>
                         <span className="text-xs text-muted-foreground">36 chars (with hyphens)</span>
                      </div>
                      <div className="p-4 flex gap-1 font-mono text-sm break-all font-bold">
-                        <span className="text-emerald-500" title="Random bytes">181211b4</span>
+                        <span className="text-emerald-500" title="Random bytes">
+                           181211b4
+                        </span>
                         <span className="text-muted-foreground">-</span>
-                        <span className="text-emerald-500" title="Random bytes">2bb7</span>
+                        <span className="text-emerald-500" title="Random bytes">
+                           2bb7
+                        </span>
                         <span className="text-muted-foreground">-</span>
-                        <span className="text-blue-500" title="Version 4 UUID identifier">44eb</span>
+                        <span className="text-blue-500" title="Version 4 UUID identifier">
+                           44eb
+                        </span>
                         <span className="text-muted-foreground">-</span>
-                        <span className="text-rose-500" title="Variant bits + random">8165</span>
+                        <span className="text-rose-500" title="Variant bits + random">
+                           8165
+                        </span>
                         <span className="text-muted-foreground">-</span>
-                        <span className="text-emerald-500" title="Random bytes">36eb100c5cff</span>
+                        <span className="text-emerald-500" title="Random bytes">
+                           36eb100c5cff
+                        </span>
                      </div>
                   </div>
 
                   <div className="bg-background rounded-lg border border-border overflow-hidden">
                      <div className="bg-muted px-4 py-2 border-b border-border flex justify-between">
-                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">ULID Breakdown</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                           ULID Breakdown
+                        </span>
                         <span className="text-xs text-muted-foreground">26 chars (Base32)</span>
                      </div>
                      <div className="p-4 flex gap-0 font-mono text-sm break-all font-bold">
-                        <span className="text-amber-500" title="48-bit Timestamp">01ARZ3NDEK</span>
-                        <span className="text-indigo-500" title="80-bit Randomness">TSV4RRFFQ69G5FAV</span>
+                        <span className="text-amber-500" title="48-bit Timestamp">
+                           01ARZ3NDEK
+                        </span>
+                        <span className="text-indigo-500" title="80-bit Randomness">
+                           TSV4RRFFQ69G5FAV
+                        </span>
                      </div>
                   </div>
                </div>
@@ -164,45 +189,73 @@ export function UuidGeneratorSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Unique Identifiers</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Generate Unique Identifiers
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Select Identifier Type</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose between "UUID v4" for standard random 128-bit IDs or "ULID" for identifiers that are lexicographically sortable by their creation timestamp.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Define Batch Quantity</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Specify how many IDs you need in this session. You can generate from a single identifier up to a batch of 5,000 in one instant browser-native execution.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Initialize Batch Generation</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Generate". The tool utilizes the <code className="text-cyan-400">crypto.getRandomValues()</code> API to ensure high-entropy, collision-resistant results that are safe for production database usage.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose between "UUID v4" for standard random 128-bit IDs or "ULID" for identifiers that are
+                        lexicographically sortable by their creation timestamp.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Preview & Format Options</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Review the list of IDs in the output panel. You can toggle between different casing formats or punctuation styles (with/without hyphens) to match your schema requirements.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Define Batch Quantity</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Specify how many IDs you need in this session. You can generate from a single identifier up to a
+                        batch of 5,000 in one instant browser-native execution.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Initialize Batch Generation</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Generate". The tool utilizes the{' '}
+                        <code className="text-cyan-400">crypto.getRandomValues()</code> API to ensure high-entropy,
+                        collision-resistant results that are safe for production database usage.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview & Format Options</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Review the list of IDs in the output panel. You can toggle between different casing formats or
+                        punctuation styles (with/without hyphens) to match your schema requirements.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Identifiers</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Copy" icon to move the entire batch to your clipboard. Since all generation is 100% private and client-side, your IDs are never logged or seen by our servers.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click the "Copy" icon to move the entire batch to your clipboard. Since all generation is 100%
+                        private and client-side, your IDs are never logged or seen by our servers.
+                     </p>
                   </div>
                </div>
             </div>
@@ -237,7 +290,8 @@ export function UuidGeneratorSeoContent() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
             <h2 className="text-3xl font-bold text-white relative z-10">Generate IDs for your Next Project</h2>
             <p className="text-cyan-100 max-w-xl mx-auto relative z-10">
-               Grab a fresh, globally unique identifier straight from your browser. Bulk process 100s for test payloads immediately.
+               Grab a fresh, globally unique identifier straight from your browser. Bulk process 100s for test payloads
+               immediately.
             </p>
             <div className="pt-4 relative z-10">
                <ScrollToTopButton label="Scroll up to Generate" />

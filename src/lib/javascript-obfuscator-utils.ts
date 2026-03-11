@@ -25,7 +25,7 @@ export const DEFAULT_OBFUSCATION_OPTIONS: ObfuscationOptions = {
 
 export function obfuscateJavascript(code: string, options: ObfuscationOptions): string {
    if (!code || !code.trim()) return '';
-   
+
    try {
       const obfuscationResult = JavaScriptObfuscator.obfuscate(code, {
          compact: options.compact,

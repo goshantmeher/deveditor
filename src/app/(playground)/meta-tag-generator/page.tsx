@@ -6,7 +6,15 @@ export const metadata: Metadata = {
    title: 'Open Graph (OG) & Meta Tag Generator - DevEditor',
    description:
       'Visually generate HTML meta tags, Open Graph (OG) objects, and Twitter summary cards. Preview exactly how your page will look when shared across social media networks and get the exact HTML code.',
-   keywords: ['meta tag generator', 'open graph generator', 'og tag', 'twitter card generator', 'seo tags', 'html meta tags', 'social sharing preview'],
+   keywords: [
+      'meta tag generator',
+      'open graph generator',
+      'og tag',
+      'twitter card generator',
+      'seo tags',
+      'html meta tags',
+      'social sharing preview',
+   ],
    openGraph: {
       title: 'Open Graph (OG) & Meta Tag Generator',
       description: 'Generate and preview Open Graph formatting perfectly.',

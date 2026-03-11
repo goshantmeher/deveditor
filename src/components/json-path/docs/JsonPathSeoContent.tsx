@@ -47,7 +47,9 @@ export function JsonPathSeoContent() {
                Interactive <span className="text-amber-500">JSONPath</span> Sandbox
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Filter, parse, and slice deeply nested JSON datasets instantaneously utilizing highly robust JSONPath expressions. Rapidly evaluate precise array extractions seamlessly without deploying cumbersome Python or shell scripts statically.
+               Filter, parse, and slice deeply nested JSON datasets instantaneously utilizing highly robust JSONPath
+               expressions. Rapidly evaluate precise array extractions seamlessly without deploying cumbersome Python or
+               shell scripts statically.
             </p>
          </div>
 
@@ -59,7 +61,8 @@ export function JsonPathSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Deep Traversals</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Utilize recursive descent operators (`..`) to recursively grab highly specific dictionary keys completely ignoring heavy structural nesting limitations arbitrarily.
+                  Utilize recursive descent operators (`..`) to recursively grab highly specific dictionary keys
+                  completely ignoring heavy structural nesting limitations arbitrarily.
                </p>
             </div>
 
@@ -69,7 +72,8 @@ export function JsonPathSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Conditional Filtering</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Support dynamic subscript filters (`?(@.value &gt; 10)`) parsing elaborate logic matrices and slicing specific dynamic array indexes procedurally natively.
+                  Support dynamic subscript filters (`?(@.value &gt; 10)`) parsing elaborate logic matrices and slicing
+                  specific dynamic array indexes procedurally natively.
                </p>
             </div>
 
@@ -79,7 +83,8 @@ export function JsonPathSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Client-Side Engine</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Parses vast strings of highly sensitive proprietary object structures firmly locked within your local browser retaining absolute payload security passively.
+                  Parses vast strings of highly sensitive proprietary object structures firmly locked within your local
+                  browser retaining absolute payload security passively.
                </p>
             </div>
          </div>
@@ -87,9 +92,13 @@ export function JsonPathSeoContent() {
          {/* Visual Section */}
          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground">Perfect your API extractions beforehand.</h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  Perfect your API extractions beforehand.
+               </h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Drafting JSON queries blindly within backend routines causes extensive debugging cycles. Prototyping distinct filters dynamically against mock structures securely reduces pipeline implementation errors dramatically.
+                  Drafting JSON queries blindly within backend routines causes extensive debugging cycles. Prototyping
+                  distinct filters dynamically against mock structures securely reduces pipeline implementation errors
+                  dramatically.
                </p>
                <ul className="space-y-4">
                   {[
@@ -130,7 +139,10 @@ export function JsonPathSeoContent() {
                      { from: '$.book[?(@.price < 10)]', to: 'Filter books heavily' },
                      { from: '$.store.book[-1:]', to: 'Returns the last book strictly' },
                   ].map((item, i) => (
-                     <div key={i} className="flex flex-col md:flex-row gap-1 md:gap-4 text-muted-foreground mb-4 border-b border-border/30 pb-2">
+                     <div
+                        key={i}
+                        className="flex flex-col md:flex-row gap-1 md:gap-4 text-muted-foreground mb-4 border-b border-border/30 pb-2"
+                     >
                         <span className="text-amber-400 font-bold w-48 truncate">[{item.from}]</span>
                         <span className="text-sm opacity-80">{item.to}</span>
                      </div>
@@ -141,45 +153,76 @@ export function JsonPathSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Use the JSONPath Sandbox</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Use the JSONPath Sandbox
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Source JSON</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw JSON document into the left-side source editor. For large files, you can also drag and drop your <code className="text-amber-400">.json</code> file directly into the workspace.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Draft a Path Expression</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Start typing your JSONPath selector in the query bar. Use the root operator <code className="text-amber-400">$</code> followed by dot notation (e.g., <code className="text-amber-400">$.store.book</code>) or bracket notation.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Evaluate Filters in Real-time</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Apply advanced filters using the <code className="text-amber-400">?()</code> syntax. Observe the right-side output panel, which refreshes instantly to show only the nodes that match your criteria.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Paste your raw JSON document into the left-side source editor. For large files, you can also
+                        drag and drop your <code className="text-amber-400">.json</code> file directly into the
+                        workspace.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Refine Slice & Range Selectors</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Use array slicing (e.g., <code className="text-amber-400">[0:5]</code>) to grab specific subsets of items. The sandbox highlights exact matches, allowing you to debug complex traversals before code integration.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Draft a Path Expression</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Start typing your JSONPath selector in the query bar. Use the root operator{' '}
+                        <code className="text-amber-400">$</code> followed by dot notation (e.g.,{' '}
+                        <code className="text-amber-400">$.store.book</code>) or bracket notation.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Evaluate Filters in Real-time</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Apply advanced filters using the <code className="text-amber-400">?()</code> syntax. Observe the
+                        right-side output panel, which refreshes instantly to show only the nodes that match your
+                        criteria.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Refine Slice & Range Selectors</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Use array slicing (e.g., <code className="text-amber-400">[0:5]</code>) to grab specific subsets
+                        of items. The sandbox highlights exact matches, allowing you to debug complex traversals before
+                        code integration.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Extracted Data</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Once you have successfully isolated the required data, click the "Copy" button on the output panel to move the formatted JSON subset to your clipboard for use in your app.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Once you have successfully isolated the required data, click the "Copy" button on the output
+                        panel to move the formatted JSON subset to your clipboard for use in your app.
+                     </p>
                   </div>
                </div>
             </div>
@@ -212,7 +255,9 @@ export function JsonPathSeoContent() {
                      Is my input data saved?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-amber-500/20">
-                     To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the 'Persist Data' switch in the tool settings.
+                     To improve your experience, your input data is saved locally in your browser using localStorage.
+                     This is entirely client-side, meaning your data never leaves your device. You can opt-out of this
+                     behavior at any time by disabling the 'Persist Data' switch in the tool settings.
                   </p>
                </div>
             </div>

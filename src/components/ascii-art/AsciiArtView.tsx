@@ -94,7 +94,7 @@ export function AsciiArtView() {
             horizontalLayout: 'default',
             verticalLayout: 'default',
             width: 80,
-            whitespaceBreak: true
+            whitespaceBreak: true,
          });
          setOutput(generated);
          setError(null);
@@ -104,7 +104,7 @@ export function AsciiArtView() {
    }, [state]);
 
    const handleClear = () => {
-      setState(prev => ({ ...prev, text: '' }));
+      setState((prev) => ({ ...prev, text: '' }));
    };
 
    const copyToClipboard = async () => {
@@ -128,26 +128,35 @@ export function AsciiArtView() {
                   <h2 className="font-semibold text-sm">ASCII Generator</h2>
                </div>
                <div className="flex gap-2">
-                  <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleClear}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground"
+                     onClick={handleClear}
+                  >
                      <RotateCcw className="w-3.5 h-3.5" /> Clear
                   </Button>
                </div>
             </div>
-            
+
             <div className="p-6 space-y-8 overflow-y-auto">
                <div className="space-y-3">
-                  <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Source Text</label>
-                  <Textarea 
+                  <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                     Source Text
+                  </label>
+                  <Textarea
                      value={state.text}
-                     onChange={(e) => setState(prev => ({ ...prev, text: e.target.value }))}
+                     onChange={(e) => setState((prev) => ({ ...prev, text: e.target.value }))}
                      className="h-24 font-mono bg-muted/10 resize-none text-base"
                      placeholder="Enter text..."
                   />
                </div>
 
                <div className="space-y-3">
-                  <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Figlet Font Style</label>
-                  <Select value={state.font} onValueChange={(val) => setState(prev => ({ ...prev, font: val }))}>
+                  <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                     Figlet Font Style
+                  </label>
+                  <Select value={state.font} onValueChange={(val) => setState((prev) => ({ ...prev, font: val }))}>
                      <SelectTrigger className="h-12 bg-background">
                         <SelectValue />
                      </SelectTrigger>
@@ -164,20 +173,24 @@ export function AsciiArtView() {
                      </SelectContent>
                   </Select>
                </div>
-               
+
                <div className="bg-emerald-500/10 border border-emerald-500/20 p-4 rounded-xl space-y-2">
                   <div className="flex items-center gap-2 text-emerald-500 font-bold text-xs uppercase tracking-wider">
                      <Code2 className="w-4 h-4" /> Usage Tips
                   </div>
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                     Useful for generating giant console log headers, codebase comment banners, `README.md` titles, or CLI application logos.
+                     Useful for generating giant console log headers, codebase comment banners, `README.md` titles, or
+                     CLI application logos.
                   </p>
                </div>
             </div>
          </div>
 
          {/* Center divider icon */}
-         <div className="hidden md:flex absolute left-1/3 lg:left-[stretch] top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-background border border-border rounded-full items-center justify-center z-10 shadow-sm text-brand" style={{ left: 'clamp(24rem, 33.333%, 28rem)'}}>
+         <div
+            className="hidden md:flex absolute left-1/3 lg:left-[stretch] top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-background border border-border rounded-full items-center justify-center z-10 shadow-sm text-brand"
+            style={{ left: 'clamp(24rem, 33.333%, 28rem)' }}
+         >
             <ChevronRight className="w-4 h-4" />
          </div>
 
@@ -189,8 +202,18 @@ export function AsciiArtView() {
                   <h2 className="font-semibold text-sm text-gray-200">Generated Art Output</h2>
                </div>
                <div className="flex gap-2">
-                  <Button variant="outline" size="sm" className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10" onClick={copyToClipboard} disabled={!output}>
-                     {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />} 
+                  <Button
+                     variant="outline"
+                     size="sm"
+                     className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10"
+                     onClick={copyToClipboard}
+                     disabled={!output}
+                  >
+                     {copied ? (
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                     ) : (
+                        <Copy className="w-3.5 h-3.5" />
+                     )}
                      {copied ? 'Copied' : 'Copy Art'}
                   </Button>
                </div>
@@ -203,10 +226,10 @@ export function AsciiArtView() {
                      {error}
                   </div>
                ) : (
-                  <pre 
+                  <pre
                      className="text-emerald-400 font-mono leading-[1.2] whitespace-pre"
                      style={{
-                        fontSize: 'max(10px, min(14px, 1.5vw))'
+                        fontSize: 'max(10px, min(14px, 1.5vw))',
                      }}
                   >
                      {output || <span className="opacity-30">Type some text to generate ASCII art...</span>}

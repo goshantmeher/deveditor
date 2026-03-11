@@ -80,13 +80,19 @@ Speed Insights is GDPR-compliant. All data is anonymous, aggregated, and cannot 
    {
       id: 'local-storage',
       icon: Server,
-      title: 'Local Persistence (Optional)',
+      title: 'Local Persistence & Homepage Personalization',
       content: `Some tools offer an optional "Persist Data" toggle. When enabled, your content is saved to your browser's localStorage so it survives page refreshes.
 
 • localStorage is a browser API — data stays on your device
 • We never read, sync, or transmit localStorage data
 • You can clear it at any time via your browser settings or by disabling persistence
-• If you never enable persistence, nothing is stored at all`,
+• If you never enable persistence, nothing is stored at all
+
+The homepage also stores two small lists locally in your browser:
+• Favorites — tools you’ve starred (⭐), toggled only from the homepage
+• Recently Used — the last 5 tools you visited
+
+Both are stored under the keys “deveditor-favorites” and “deveditor-recently-used” in your browser’s localStorage. No tool usage data or browsing history is ever sent to our servers — this tracking is entirely local to your device. You can delete these at any time via DevTools → Application → Local Storage → deveditor.io.`,
    },
    {
       id: 'cookies',
@@ -165,6 +171,10 @@ export default function PrivacyPage() {
                   <li className="flex items-start gap-2">
                      <span className="text-emerald-500 mt-1">✓</span>
                      GDPR compliant — no personal data is processed or stored
+                  </li>
+                  <li className="flex items-start gap-2">
+                     <span className="text-emerald-500 mt-1">✓</span>
+                     Favorites & recently used tools are stored only in <strong>your browser</strong> — never sent anywhere
                   </li>
                </ul>
             </div>

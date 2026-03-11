@@ -47,7 +47,9 @@ export function YamlJsonSeoContent() {
                Instant <span className="text-orange-500">YAML ↔ JSON</span> Converter
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Translate tedious brackets effortlessly into highly readable spaces. Intuitively toggle back strictly converting cleanly indented architectures dynamically back into rigidly enforced system syntax seamlessly.
+               Translate tedious brackets effortlessly into highly readable spaces. Intuitively toggle back strictly
+               converting cleanly indented architectures dynamically back into rigidly enforced system syntax
+               seamlessly.
             </p>
          </div>
 
@@ -59,7 +61,8 @@ export function YamlJsonSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Humanized Configuration</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Struggle configuring heavy CI/CD pipelines natively? Compress vast arrays implicitly utilizing clean multi-line YAML formatting inherently avoiding missing trailing commas perfectly.
+                  Struggle configuring heavy CI/CD pipelines natively? Compress vast arrays implicitly utilizing clean
+                  multi-line YAML formatting inherently avoiding missing trailing commas perfectly.
                </p>
             </div>
 
@@ -69,7 +72,8 @@ export function YamlJsonSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Machine Enforced</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Transform ambiguous indents fundamentally back into strictly verified JSON matrices safely serving compiled payloads actively powering demanding frontend engines securely natively.
+                  Transform ambiguous indents fundamentally back into strictly verified JSON matrices safely serving
+                  compiled payloads actively powering demanding frontend engines securely natively.
                </p>
             </div>
 
@@ -79,7 +83,8 @@ export function YamlJsonSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Maximum Security</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Evaluating production secrets securely inside your terminal exclusively without routing standard sensitive `.env` configurations externally retaining rigid architecture confidently.
+                  Evaluating production secrets securely inside your terminal exclusively without routing standard
+                  sensitive `.env` configurations externally retaining rigid architecture confidently.
                </p>
             </div>
          </div>
@@ -87,9 +92,13 @@ export function YamlJsonSeoContent() {
          {/* Visual Section */}
          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground">Aligning DevOps paradigms dynamically.</h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  Aligning DevOps paradigms dynamically.
+               </h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Navigating the painful divide isolating Docker orchestration scripts cleanly away from React payload structures natively causes intense friction. Bridging syntax definitions instantly fixes persistent synchronization headaches safely.
+                  Navigating the painful divide isolating Docker orchestration scripts cleanly away from React payload
+                  structures natively causes intense friction. Bridging syntax definitions instantly fixes persistent
+                  synchronization headaches safely.
                </p>
                <ul className="space-y-4">
                   {[
@@ -130,7 +139,10 @@ export function YamlJsonSeoContent() {
                      { from: 'yes/no (YAML 1.1)', to: 'true/false (JSON)' },
                      { from: '# Comment Block', to: 'Discarded natively' },
                   ].map((item, i) => (
-                     <div key={i} className="flex flex-col md:flex-row gap-1 md:gap-4 text-muted-foreground mb-4 border-b border-border/30 pb-2">
+                     <div
+                        key={i}
+                        className="flex flex-col md:flex-row gap-1 md:gap-4 text-muted-foreground mb-4 border-b border-border/30 pb-2"
+                     >
                         <span className="text-orange-400 font-bold w-40 truncate">[{item.from}]</span>
                         <span className="text-sm opacity-80">{item.to}</span>
                      </div>
@@ -141,45 +153,72 @@ export function YamlJsonSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert YAML & JSON</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Convert YAML & JSON
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Establish Conversion Flow</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose whether you are refactoring YAML configuration into a JSON payload or compiling JSON data back into human-readable YAML blocks.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Raw Syntax</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Enter your configuration or data string into the source editor. The engine immediately begins drafting the remapped structure in the secondary panel using the JS-YAML engine.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Set Indentation Standards</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Select between 2 or 4 space indentation in the toolbar. This ensures the resulting YAML is perfectly aligned with your specific CI/CD pipeline or Docker requirements.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose whether you are refactoring YAML configuration into a JSON payload or compiling JSON data
+                        back into human-readable YAML blocks.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Type Handling</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Check how the tool handles booleans, nulls, and multi-line strings. Our converter follows standard YAML 1.2 rules for maximum compatibility across language ecosystems.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Raw Syntax</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Enter your configuration or data string into the source editor. The engine immediately begins
+                        drafting the remapped structure in the secondary panel using the JS-YAML engine.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Set Indentation Standards</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Select between 2 or 4 space indentation in the toolbar. This ensures the resulting YAML is
+                        perfectly aligned with your specific CI/CD pipeline or Docker requirements.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Type Handling</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Check how the tool handles booleans, nulls, and multi-line strings. Our converter follows
+                        standard YAML 1.2 rules for maximum compatibility across language ecosystems.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Securely Export Config</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Download the converted manifest or copy it to your clipboard. Since all parsing is done locally, your production secrets and environment variables remain 100% private.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Download the converted manifest or copy it to your clipboard. Since all parsing is done locally,
+                        your production secrets and environment variables remain 100% private.
+                     </p>
                   </div>
                </div>
             </div>
@@ -212,7 +251,9 @@ export function YamlJsonSeoContent() {
                      Is my input data saved?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-orange-500/20">
-                     To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the 'Persist Data' switch in the tool settings.
+                     To improve your experience, your input data is saved locally in your browser using localStorage.
+                     This is entirely client-side, meaning your data never leaves your device. You can opt-out of this
+                     behavior at any time by disabling the 'Persist Data' switch in the tool settings.
                   </p>
                </div>
             </div>

@@ -1,10 +1,12 @@
 'use client';
 
 import { Input } from '@/components/ui/input';
-import { Search, ChevronDown, Shield } from 'lucide-react';
+import { Search, ChevronDown, Star, Clock, X } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { Footer } from '@/components/Footer';
+import { STORAGE_KEYS } from '@/constants/storage';
+import { PrivacyBadge } from '@/components/PrivacyBadge';
 
 // ── Tool Status ──────────────────────────────────────────────
 type ToolStatus = 'available' | 'coming-soon' | 'planned';
@@ -110,6 +112,14 @@ const categories: Category[] = [
             status: 'available',
             tags: ['word', 'character', 'count', 'length'],
          },
+         {
+            title: 'String Trimmer / Cleaner',
+            description: 'Remove whitespace, empty lines, or specific prefixes/suffixes from large text blocks.',
+            icon: '✂️',
+            href: '/string-trimmer',
+            status: 'available',
+            tags: ['string', 'trim', 'clean', 'whitespace', 'text'],
+         },
       ],
    },
    {
@@ -183,6 +193,14 @@ const categories: Category[] = [
             status: 'available',
             tags: ['js', 'minify', 'obfuscator', 'security'],
          },
+         {
+            title: 'Certificate Inspector',
+            description: 'Paste a PEM/CRT file to see expiry date, issuer, and subject details natively.',
+            icon: '📜',
+            href: '/certificate-inspector',
+            status: 'available',
+            tags: ['certificate', 'pem', 'crt', 'ssl', 'tls', 'x509'],
+         },
       ],
    },
    {
@@ -255,6 +273,14 @@ const categories: Category[] = [
             href: '/font-pair',
             status: 'available',
             tags: ['font', 'google fonts', 'pair', 'typography', 'preview'],
+         },
+         {
+            title: 'Icon Font & Sprite Builder',
+            description: 'Browse, select, and build customized SVG icon bundles from various open-source libraries.',
+            icon: '📦',
+            href: '/icon-builder',
+            status: 'available',
+            tags: ['icon', 'font', 'svg', 'sprite', 'builder', 'lucide'],
          },
          {
             title: 'Theme Generator',
@@ -331,6 +357,14 @@ const categories: Category[] = [
             tags: ['cron', 'schedule', 'crontab', 'parser'],
          },
          {
+            title: 'DNS Lookup (DoH)',
+            description: 'Perform private DNS lookups natively in your browser using DoH (1.1.1.1 / 8.8.8.8).',
+            icon: '🌐',
+            href: '/dns-lookup',
+            status: 'available',
+            tags: ['dns', 'doh', 'lookup', 'cloudflare', 'records', 'networking'],
+         },
+         {
             title: 'JSON → Schema Generator',
             description: 'Paste JSON → generate TypeScript interfaces, Go structs, or Zod schemas.',
             icon: '📐',
@@ -385,24 +419,6 @@ const categories: Category[] = [
             href: '/htaccess-generator',
             status: 'available',
             tags: ['htaccess', 'redirect', 'nginx', 'apache', '301'],
-         },
-         {
-            title: 'API Tester (Extension Required)',
-            description:
-               'A local Postman alternative. Uses an open-source companion extension to bypass browser CORS restrictions safely.',
-            icon: '📡',
-            href: '/api-tester',
-            status: 'planned',
-            tags: ['api', 'tester', 'rest', 'http', 'postman', 'cors'],
-         },
-         {
-            title: 'DNS Lookup (DoH)',
-            description:
-               'Perform quick DNS resolution (A, AAAA, MX, TXT) natively in the browser using free DNS-over-HTTPS APIs.',
-            icon: '🌍',
-            href: '/dns-lookup',
-            status: 'planned',
-            tags: ['dns', 'lookup', 'domain', 'doh', 'network'],
          },
       ],
    },
@@ -500,24 +516,24 @@ const categories: Category[] = [
             description: 'Convert a PDF document into an editable Word Document format.',
             icon: '📝',
             href: '/pdf-to-doc',
-            status: 'planned',
+            status: 'available',
             tags: ['pdf', 'word', 'doc', 'docx', 'convert'],
-         },
-         {
-            title: 'Word (Doc) to PDF',
-            description: 'Convert an editable Word Document into a static PDF format.',
-            icon: '🔄',
-            href: '/doc-to-pdf',
-            status: 'planned',
-            tags: ['word', 'doc', 'docx', 'pdf', 'convert'],
          },
          {
             title: 'Add Pages to PDF',
             description: 'Insert additional blank pages or merge pages from another PDF into an existing one.',
             icon: '➕',
             href: '/add-pdf-pages',
-            status: 'planned',
+            status: 'available',
             tags: ['pdf', 'add', 'insert', 'pages', 'merge'],
+         },
+         {
+            title: 'Image to PDF',
+            description: 'Combine multiple JPG or PNG images into a single PDF document.',
+            icon: '🖼️',
+            href: '/image-to-pdf',
+            status: 'available',
+            tags: ['pdf', 'image', 'picture', 'jpg', 'png', 'merge'],
          },
          {
             title: 'Audio/Video Format Converter',
@@ -591,6 +607,14 @@ const categories: Category[] = [
             href: '/base64-image',
             status: 'available',
             tags: ['base64', 'image', 'decode', 'preview', 'picture'],
+         },
+         {
+            title: 'Base64 to JSON Decoder',
+            description: 'Directly decode a base64 encoded JSON string and view it in a tree natively.',
+            icon: '📦',
+            href: '/base64-to-json',
+            status: 'available',
+            tags: ['base64', 'json', 'decode', 'jwt', 'config'],
          },
          {
             title: 'Markdown to HTML Converter',
@@ -700,6 +724,100 @@ export default function Home() {
       });
    };
 
+   // ── Search ref + Ctrl+K shortcut ──────────────────────────
+   const searchInputRef = useRef<HTMLInputElement>(null);
+
+   useEffect(() => {
+      const handler = (e: KeyboardEvent) => {
+         if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            searchInputRef.current?.focus();
+            searchInputRef.current?.select();
+         }
+         if (e.key === 'Escape' && document.activeElement === searchInputRef.current) {
+            setSearchQuery('');
+            searchInputRef.current?.blur();
+         }
+      };
+      window.addEventListener('keydown', handler);
+      return () => window.removeEventListener('keydown', handler);
+   }, []);
+
+   // ── Recently Used ──────────────────────────────────────────
+   const [recentlyUsed, setRecentlyUsed] = useState<string[]>([]);
+
+   const readRecentlyUsed = useCallback(() => {
+      try {
+         const stored = localStorage.getItem(STORAGE_KEYS.RECENTLY_USED);
+         setRecentlyUsed(stored ? JSON.parse(stored) : []);
+      } catch { /* ignore */ }
+   }, []);
+
+   useEffect(() => {
+      readRecentlyUsed();
+      // Re-read when user returns to this tab (Next.js caches page, useEffect may not re-run)
+      const onVisible = () => { if (document.visibilityState === 'visible') readRecentlyUsed(); };
+      document.addEventListener('visibilitychange', onVisible);
+      return () => document.removeEventListener('visibilitychange', onVisible);
+   }, [readRecentlyUsed]);
+
+   const trackUsed = useCallback((href: string) => {
+      setRecentlyUsed((prev) => {
+         const next = [href, ...prev.filter((h) => h !== href)].slice(0, 8);
+         try { localStorage.setItem(STORAGE_KEYS.RECENTLY_USED, JSON.stringify(next)); } catch { /* ignore */ }
+         return next;
+      });
+   }, []);
+
+   const clearRecentItem = useCallback((href: string, e: React.MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setRecentlyUsed((prev) => {
+         const next = prev.filter((h) => h !== href);
+         try { localStorage.setItem(STORAGE_KEYS.RECENTLY_USED, JSON.stringify(next)); } catch { /* ignore */ }
+         return next;
+      });
+   }, []);
+
+   const clearAllRecent = useCallback(() => {
+      setRecentlyUsed([]);
+      try { localStorage.removeItem(STORAGE_KEYS.RECENTLY_USED); } catch { /* ignore */ }
+   }, []);
+
+   const recentTools = useMemo(
+      () => recentlyUsed
+         .map((href) => allTools.find((t) => t.href === href && t.status === 'available'))
+         .filter(Boolean) as typeof allTools,
+      [recentlyUsed]
+   );
+
+   // ── Favorites ──────────────────────────────────────────────
+   const [favorites, setFavorites] = useState<Set<string>>(new Set());
+
+   useEffect(() => {
+      try {
+         const stored = localStorage.getItem(STORAGE_KEYS.FAVORITES);
+         if (stored) setFavorites(new Set(JSON.parse(stored)));
+      } catch { /* ignore */ }
+   }, []);
+
+   const toggleFavorite = useCallback((href: string, e: React.MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setFavorites((prev) => {
+         const next = new Set(prev);
+         if (next.has(href)) next.delete(href);
+         else next.add(href);
+         try { localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify([...next])); } catch { /* ignore */ }
+         return next;
+      });
+   }, []);
+
+   const favoritedTools = useMemo(
+      () => allTools.filter((t) => favorites.has(t.href) && t.status === 'available'),
+      [favorites]
+   );
+
    // When searching, filter across all categories
    const isSearching = searchQuery.trim().length > 0;
    const query = searchQuery.toLowerCase();
@@ -750,28 +868,31 @@ export default function Home() {
                </p>
 
                {/* Privacy Badge */}
-               <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6">
-                  <Shield className="h-3 w-3" />
-                  100% client-side — nothing is sent to any server
-               </div>
+               <PrivacyBadge note="Favorites & recent tools saved locally" className="mb-6" />
 
                {/* Search Bar */}
                <div className="relative max-w-lg mx-auto">
                   <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
                   <Input
-                     placeholder="Search all tools..."
-                     className="pl-10 h-11 text-sm bg-background border-border/40 focus:border-primary/50"
+                     ref={searchInputRef}
+                     id="tool-search"
+                     placeholder="Search all tools… (Ctrl+K)"
+                     className="pl-10 pr-20 h-11 text-sm bg-background border-border/40 focus:border-primary/50"
                      value={searchQuery}
                      onChange={(e) => setSearchQuery(e.target.value)}
                      aria-label="Search developer tools"
                   />
-                  {isSearching && (
+                  {isSearching ? (
                      <button
                         onClick={() => setSearchQuery('')}
                         className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground text-xs"
                      >
                         Clear
                      </button>
+                  ) : (
+                     <kbd className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-muted-foreground/50 font-mono bg-muted/30 px-1.5 py-0.5 rounded border border-border/30 pointer-events-none hidden sm:block">
+                        Ctrl+K
+                     </kbd>
                   )}
                </div>
 
@@ -788,6 +909,56 @@ export default function Home() {
                   </p>
                )}
             </header>
+
+            {/* ── Favorites Section ─────────────────────── */}
+               {!isSearching && favoritedTools.length > 0 && (
+                  <section className="group mb-2">
+                     <div className="w-full flex items-center gap-3 px-4 py-3 rounded-xl border bg-linear-to-r from-amber-500/20 to-amber-500/5 border-amber-500/20">
+                        <span className="text-xl">⭐</span>
+                        <div className="flex-1 text-left">
+                           <h2 className="text-sm font-semibold text-foreground">Favorites</h2>
+                           <p className="text-[11px] text-muted-foreground">Your pinned tools — only stored in your browser</p>
+                        </div>
+                        <span className="text-[10px] text-amber-400 tabular-nums">{favoritedTools.length} pinned</span>
+                     </div>
+                     <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 mt-2 pl-1">
+                        {favoritedTools.map((tool) => (
+                           <ToolCard key={tool.href} tool={tool} isFavorited={true} onToggleFavorite={toggleFavorite} onNavigate={trackUsed} />
+                        ))}
+                     </div>
+                  </section>
+               )}
+
+            {/* ── Recently Used Section ──────────────── */}
+               {!isSearching && recentTools.length > 0 && (
+                  <section className="group mb-2">
+                     <div className="w-full flex items-center gap-3 px-4 py-3 rounded-xl border bg-linear-to-r from-blue-500/20 to-blue-500/5 border-blue-500/20">
+                        <Clock className="text-xl h-5 w-5 text-blue-400 shrink-0" />
+                        <div className="flex-1 text-left">
+                           <h2 className="text-sm font-semibold text-foreground">Recently Used</h2>
+                           <p className="text-[11px] text-muted-foreground">Your last {recentTools.length} tool{recentTools.length === 1 ? '' : 's'} — only stored in your browser</p>
+                        </div>
+                        <button
+                           onClick={clearAllRecent}
+                           className="text-[10px] text-blue-400/70 hover:text-blue-400 transition-colors whitespace-nowrap"
+                        >
+                           Clear all
+                        </button>
+                     </div>
+                     <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 mt-2 pl-1">
+                        {recentTools.map((tool) => (
+                           <ToolCard
+                              key={tool.href}
+                              tool={tool}
+                              isFavorited={favorites.has(tool.href)}
+                              onToggleFavorite={toggleFavorite}
+                              onNavigate={trackUsed}
+                              onRemoveRecent={clearRecentItem}
+                           />
+                        ))}
+                     </div>
+                  </section>
+               )}
 
             {/* ── Categories ───────────────────────────── */}
             <main className="space-y-6 mb-12">
@@ -832,7 +1003,12 @@ export default function Home() {
                         {!isCollapsed && (
                            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 mt-2 pl-1">
                               {category.tools.map((tool) => (
-                                 <ToolCard key={tool.href} tool={tool} />
+                                 <ToolCard
+                                    key={tool.href}
+                                    tool={tool}
+                                    isFavorited={favorites.has(tool.href)}
+                                    onToggleFavorite={toggleFavorite}
+                                 />
                               ))}
                            </div>
                         )}
@@ -847,7 +1023,19 @@ export default function Home() {
 }
 
 // ── Tool Card Component ──────────────────────────────────────
-function ToolCard({ tool }: { tool: Tool }) {
+function ToolCard({
+   tool,
+   isFavorited = false,
+   onToggleFavorite,
+   onNavigate,
+   onRemoveRecent,
+}: {
+   tool: Tool;
+   isFavorited?: boolean;
+   onToggleFavorite?: (href: string, e: React.MouseEvent) => void;
+   onNavigate?: (href: string) => void;
+   onRemoveRecent?: (href: string, e: React.MouseEvent) => void;
+}) {
    const config = statusConfig[tool.status];
 
    const content = (
@@ -870,8 +1058,29 @@ function ToolCard({ tool }: { tool: Tool }) {
             <p className="text-[10px] text-muted-foreground leading-snug line-clamp-1 mt-0.5">{tool.description}</p>
          </div>
 
-         {/* Status Indicator */}
-         <div className="shrink-0">
+         {/* Status + Favorite */}
+         <div className="shrink-0 flex items-center gap-2">
+            {tool.status === 'available' && onRemoveRecent && (
+               <button
+                  aria-label="Remove from recently used"
+                  onClick={(e) => onRemoveRecent(tool.href, e)}
+                  className="text-muted-foreground/30 hover:text-rose-400 transition-all duration-150 hover:scale-125 focus:outline-none"
+               >
+                  <X className="h-3.5 w-3.5" />
+               </button>
+            )}
+            {tool.status === 'available' && onToggleFavorite && (
+               <button
+                  id={`fav-${tool.href.replace('/', '')}`}
+                  aria-label={isFavorited ? 'Remove from favorites' : 'Add to favorites'}
+                  onClick={(e) => onToggleFavorite(tool.href, e)}
+                  className={`transition-all duration-150 hover:scale-125 focus:outline-none ${
+                     isFavorited ? 'text-amber-400' : 'text-muted-foreground/30 hover:text-amber-400'
+                  }`}
+               >
+                  <Star className={`h-3.5 w-3.5 ${isFavorited ? 'fill-amber-400' : ''}`} />
+               </button>
+            )}
             {tool.status === 'available' ? (
                <div className="relative flex items-center justify-center">
                   <div className="w-2 h-2 rounded-full bg-emerald-500" />
@@ -890,7 +1099,7 @@ function ToolCard({ tool }: { tool: Tool }) {
 
    if (tool.status === 'available') {
       return (
-         <Link href={tool.href} className="block">
+         <Link href={tool.href} className="block" onClick={() => onNavigate?.(tool.href)}>
             {content}
          </Link>
       );

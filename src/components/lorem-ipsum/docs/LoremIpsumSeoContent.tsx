@@ -47,7 +47,8 @@ export function LoremIpsumSeoContent() {
                Lorem Ipsum <span className="text-emerald-500">Generator</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Generate beautiful, natural-looking placeholder text instantly. Perfect for mocking up layouts, websites, and typography designs.
+               Generate beautiful, natural-looking placeholder text instantly. Perfect for mocking up layouts, websites,
+               and typography designs.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function LoremIpsumSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Precise Control</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Need exactly 23 words? Or 7 paragraphs? Use precise sliders to generate the exact amount of filler text your design requires.
+                  Need exactly 23 words? Or 7 paragraphs? Use precise sliders to generate the exact amount of filler
+                  text your design requires.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function LoremIpsumSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Infinite Variations</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Tired of seeing the exact same block of text everywhere? Generate fresh, randomized combinations of the classic Latin phrases.
+                  Tired of seeing the exact same block of text everywhere? Generate fresh, randomized combinations of
+                  the classic Latin phrases.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function LoremIpsumSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Instant Copy</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  One click to copy to clipboard. Fast, lightweight, and works entirely within your browser with zero latency.
+                  One click to copy to clipboard. Fast, lightweight, and works entirely within your browser with zero
+                  latency.
                </p>
             </div>
          </div>
@@ -89,7 +93,8 @@ export function LoremIpsumSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Design without distractions</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  When designing interfaces, real copy can distract stakeholders from evaluating the actual layout and typography. Dummy text keeps the focus on the design.
+                  When designing interfaces, real copy can distract stakeholders from evaluating the actual layout and
+                  typography. Dummy text keeps the focus on the design.
                </p>
                <ul className="space-y-4">
                   {[
@@ -129,55 +134,82 @@ export function LoremIpsumSeoContent() {
                   </span>
                </div>
                <p className="text-foreground text-sm leading-relaxed italic border-l-2 border-emerald-500/30 pl-4">
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat."
                </p>
-               <div className="mt-4 text-xs font-mono text-muted-foreground text-right">
-                  38 words • 258 characters
-               </div>
+               <div className="mt-4 text-xs font-mono text-muted-foreground text-right">38 words • 258 characters</div>
             </div>
          </div>
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Placeholder Text</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Generate Placeholder Text
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Select Unit Type</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Decide whether you need Paragraphs, Sentences, or individual Words. This helps you fill specific UI containers like blog bodies, sub-headers, or button labels perfectly.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Define the Quantity</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Use the slider or input box to set the exact number of units you need. The generator can handle from a single word up to 50 full paragraphs of filler text instantly.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Toggle "Start with Lorem Ipsum"</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Decide if you want your passage to begin with the classic "Lorem ipsum dolor sit amet..." phrase or jump straight into randomized Latin variations for a less uniform look.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Decide whether you need Paragraphs, Sentences, or individual Words. This helps you fill specific
+                        UI containers like blog bodies, sub-headers, or button labels perfectly.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Preview Live Output</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Observe the generated content in the main workspace. Review paragraph density and word-length distribution to ensure it simulates the look of real content in your design.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Define the Quantity</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Use the slider or input box to set the exact number of units you need. The generator can handle
+                        from a single word up to 50 full paragraphs of filler text instantly.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Toggle "Start with Lorem Ipsum"</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Decide if you want your passage to begin with the classic "Lorem ipsum dolor sit amet..." phrase
+                        or jump straight into randomized Latin variations for a less uniform look.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview Live Output</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Observe the generated content in the main workspace. Review paragraph density and word-length
+                        distribution to ensure it simulates the look of real content in your design.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">One-Click Copy</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Once satisfied, click the "Copy" icon. Your custom placeholder text is now on your clipboard, ready to be pasted into Figma, Sketch, or directly into your HTML code.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Once satisfied, click the "Copy" icon. Your custom placeholder text is now on your clipboard,
+                        ready to be pasted into Figma, Sketch, or directly into your HTML code.
+                     </p>
                   </div>
                </div>
             </div>

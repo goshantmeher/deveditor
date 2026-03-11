@@ -6,7 +6,15 @@ export const metadata: Metadata = {
    title: 'CSV to JSON Converter - DevEditor',
    description:
       'Bi-directionally convert CSV datasets to rigid JSON array mapped formats instantly safely securely offline directly inside your terminal workflow environment.',
-   keywords: ['csv to json', 'json to csv', 'csv converter', 'json converter', 'convert csv', 'format csv', 'parse csv'],
+   keywords: [
+      'csv to json',
+      'json to csv',
+      'csv converter',
+      'json converter',
+      'convert csv',
+      'format csv',
+      'parse csv',
+   ],
    openGraph: {
       title: 'Bi-Directional CSV ↔ JSON Tool',
       description: 'Format complex spreadsheet datasets robustly completely safely offline.',

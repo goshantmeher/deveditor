@@ -26,38 +26,35 @@ export function ImageCompressorView() {
    const [originalUrl, setOriginalUrl] = useState<string | null>(null);
    const [compressedUrl, setCompressedUrl] = useState<string | null>(null);
 
-   const compress = useCallback(
-      async (file: File, qual: number, fmt: OutputFormat) => {
-         setError(null);
-         try {
-            const img = new Image();
-            const url = URL.createObjectURL(file);
-            img.src = url;
+   const compress = useCallback(async (file: File, qual: number, fmt: OutputFormat) => {
+      setError(null);
+      try {
+         const img = new Image();
+         const url = URL.createObjectURL(file);
+         img.src = url;
 
-            await new Promise<void>((resolve, reject) => {
-               img.onload = () => resolve();
-               img.onerror = () => reject(new Error('Failed to load image'));
-            });
+         await new Promise<void>((resolve, reject) => {
+            img.onload = () => resolve();
+            img.onerror = () => reject(new Error('Failed to load image'));
+         });
 
-            const canvas = document.createElement('canvas');
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
-            const ctx = canvas.getContext('2d')!;
-            if (fmt === 'image/jpeg') {
-               ctx.fillStyle = '#ffffff';
-               ctx.fillRect(0, 0, canvas.width, canvas.height);
-            }
-            ctx.drawImage(img, 0, 0);
-            URL.revokeObjectURL(url);
-
-            const q = fmt !== 'image/png' ? qual / 100 : undefined;
-            canvas.toBlob((blob) => blob && setCompressedBlob(blob), fmt, q);
-         } catch {
-            setError('Failed to compress image. Please try a different file.');
+         const canvas = document.createElement('canvas');
+         canvas.width = img.naturalWidth;
+         canvas.height = img.naturalHeight;
+         const ctx = canvas.getContext('2d')!;
+         if (fmt === 'image/jpeg') {
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
          }
-      },
-      []
-   );
+         ctx.drawImage(img, 0, 0);
+         URL.revokeObjectURL(url);
+
+         const q = fmt !== 'image/png' ? qual / 100 : undefined;
+         canvas.toBlob((blob) => blob && setCompressedBlob(blob), fmt, q);
+      } catch {
+         setError('Failed to compress image. Please try a different file.');
+      }
+   }, []);
 
    useEffect(() => {
       if (typeof window === 'undefined' || isInitialized.current) return;
@@ -78,10 +75,7 @@ export function ImageCompressorView() {
 
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(
-         STORAGE_KEYS.IMAGE_COMPRESSOR,
-         JSON.stringify({ format, quality })
-      );
+      localStorage.setItem(STORAGE_KEYS.IMAGE_COMPRESSOR, JSON.stringify({ format, quality }));
    }, [format, quality, isPersistenceEnabled]);
 
    useEffect(() => {
@@ -216,7 +210,11 @@ export function ImageCompressorView() {
                      <Upload className="w-8 h-8 text-indigo-500" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-1">Upload an Image</h3>
-                  <p className="text-sm text-muted-foreground text-center">Drag & drop here, or click to browse files<br />(JPEG, PNG, WebP)</p>
+                  <p className="text-sm text-muted-foreground text-center">
+                     Drag & drop here, or click to browse files
+                     <br />
+                     (JPEG, PNG, WebP)
+                  </p>
                </div>
             ) : (
                <div className="flex-1 flex flex-col overflow-hidden">
@@ -224,7 +222,9 @@ export function ImageCompressorView() {
                      <div className="text-sm font-semibold text-foreground flex items-center gap-2">
                         Comparison
                         {compressedBlob && savings > 0 && (
-                           <span className="text-xs bg-emerald-500/10 text-emerald-500 px-2 py-0.5 rounded-full font-mono">−{savings}%</span>
+                           <span className="text-xs bg-emerald-500/10 text-emerald-500 px-2 py-0.5 rounded-full font-mono">
+                              −{savings}%
+                           </span>
                         )}
                      </div>
                      {compressedBlob && (

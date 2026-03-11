@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GeneratorPreview } from './GeneratorPreview';
-import { ControlSlider, ControlSelect, ControlGroup, ControlColor } from './GeneratorControls';
+import { ControlSlider, ControlSelect, ControlGroup, ControlColor, ControlInput } from './GeneratorControls';
 import { Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -17,6 +17,14 @@ export function FlexboxGenerator() {
    const [itemCount, setItemCount] = useState(5);
    const [itemSize, setItemSize] = useState(60);
    const [bodyBg, setBodyBg] = useState('#0f172a');
+   const [containerWidth, setContainerWidth] = useState('600px');
+   const [containerHeight, setContainerHeight] = useState('260px');
+   const [containerBorder, setContainerBorder] = useState('2px dashed #475569');
+
+   // Set a sensible default width based on actual screen size
+   useEffect(() => {
+      setContainerWidth(window.innerWidth < 768 ? '320px' : '600px');
+   }, []);
 
    const addItem = () => setItemCount((c) => Math.min(c + 1, 12));
    const removeItem = () => setItemCount((c) => Math.max(c - 1, 1));
@@ -40,7 +48,7 @@ export function FlexboxGenerator() {
          baseline: 'items-baseline',
       }[alignItems] || 'items-stretch';
 
-   const tailwind = `<div class="flex flex-${direction === 'column' ? 'col' : direction === 'row' ? 'row' : direction.replace('column', 'col')} ${wrap === 'nowrap' ? 'flex-nowrap' : wrap === 'wrap' ? 'flex-wrap' : 'flex-wrap-reverse'} ${justifyClass} ${alignClass} gap-[${gap}px] p-5 min-h-[300px] w-full">\n  <!-- items -->\n  <div class="h-[${itemSize}px] w-[${itemSize}px] rounded-xl flex items-center justify-center font-bold text-sm text-white">...</div>\n</div>`;
+   const tailwind = `<div class="flex flex-${direction === 'column' ? 'col' : direction === 'row' ? 'row' : direction.replace('column', 'col')} ${wrap === 'nowrap' ? 'flex-nowrap' : wrap === 'wrap' ? 'flex-wrap' : 'flex-wrap-reverse'} ${justifyClass} ${alignClass} gap-[${gap}px] p-5" style="width: ${containerWidth}; height: ${containerHeight}; border: ${containerBorder};">\n  <!-- items -->\n  <div class="h-[${itemSize}px] w-[${itemSize}px] rounded-xl flex items-center justify-center font-bold text-sm text-white">...</div>\n</div>`;
 
    const css = `.container {
   display: flex;
@@ -50,8 +58,10 @@ export function FlexboxGenerator() {
   align-items: ${alignItems};
   gap: ${gap}px;
   padding: 20px;
-  min-height: 300px;
-  width: 100%;
+  width: ${containerWidth};
+  height: ${containerHeight};
+  border: ${containerBorder};
+  overflow: auto;
 }
 
 .item {
@@ -82,7 +92,13 @@ export function FlexboxGenerator() {
                <ControlColor label="Background" value={bodyBg} onChange={setBodyBg} />
             </ControlGroup>
 
-            <ControlGroup title="Flex Container">
+            <ControlGroup title="Container Properties">
+               <ControlInput label="Width" value={containerWidth} onChange={setContainerWidth} placeholder="100%, 300px..." />
+               <ControlInput label="Height" value={containerHeight} onChange={setContainerHeight} placeholder="300px, 100vh..." />
+               <ControlInput label="Border" value={containerBorder} onChange={setContainerBorder} placeholder="2px dashed #ccc" />
+            </ControlGroup>
+
+            <ControlGroup title="Flex Properties">
                <ControlSelect
                   label="Direction"
                   value={direction}

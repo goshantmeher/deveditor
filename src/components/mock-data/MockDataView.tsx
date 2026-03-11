@@ -1,7 +1,19 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { RefreshCcw, Copy, CheckCircle2, Download, Plus, Trash2, RotateCcw, FileJson, Table, Play, Database } from 'lucide-react';
+import {
+   RefreshCcw,
+   Copy,
+   CheckCircle2,
+   Download,
+   Plus,
+   Trash2,
+   RotateCcw,
+   FileJson,
+   Table,
+   Play,
+   Database,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -10,12 +22,32 @@ import { STORAGE_KEYS } from '@/constants/storage';
 import { faker } from '@faker-js/faker';
 import Papa from 'papaparse';
 
-type FakerType = 
-   | 'uuid' | 'firstName' | 'lastName' | 'fullName' | 'email' | 'phone' 
-   | 'company' | 'jobTitle' | 'datePast' | 'dateFuture' | 'numberInt' 
-   | 'numberFloat' | 'boolean' | 'paragraph' | 'word' | 'imageUrl' 
-   | 'avatarUrl' | 'country' | 'city' | 'streetAddress' | 'zipCode' 
-   | 'creditCard' | 'username' | 'password' | 'color';
+type FakerType =
+   | 'uuid'
+   | 'firstName'
+   | 'lastName'
+   | 'fullName'
+   | 'email'
+   | 'phone'
+   | 'company'
+   | 'jobTitle'
+   | 'datePast'
+   | 'dateFuture'
+   | 'numberInt'
+   | 'numberFloat'
+   | 'boolean'
+   | 'paragraph'
+   | 'word'
+   | 'imageUrl'
+   | 'avatarUrl'
+   | 'country'
+   | 'city'
+   | 'streetAddress'
+   | 'zipCode'
+   | 'creditCard'
+   | 'username'
+   | 'password'
+   | 'color';
 
 interface FieldDef {
    id: string;
@@ -43,7 +75,7 @@ const DEFAULT_STATE: MockDataState = {
 
 const TYPE_OPTIONS: { value: FakerType; label: string; category: string }[] = [
    { value: 'uuid', label: 'UUID', category: 'ID' },
-   
+
    { value: 'firstName', label: 'First Name', category: 'Person' },
    { value: 'lastName', label: 'Last Name', category: 'Person' },
    { value: 'fullName', label: 'Full Name', category: 'Person' },
@@ -52,27 +84,27 @@ const TYPE_OPTIONS: { value: FakerType; label: string; category: string }[] = [
    { value: 'username', label: 'Username', category: 'Person' },
    { value: 'password', label: 'Password', category: 'Person' },
    { value: 'avatarUrl', label: 'Avatar URL', category: 'Person' },
-   
+
    { value: 'company', label: 'Company Name', category: 'Business' },
    { value: 'jobTitle', label: 'Job Title', category: 'Business' },
-   
+
    { value: 'datePast', label: 'Past Date', category: 'Date' },
    { value: 'dateFuture', label: 'Future Date', category: 'Date' },
-   
+
    { value: 'country', label: 'Country', category: 'Location' },
    { value: 'city', label: 'City', category: 'Location' },
    { value: 'streetAddress', label: 'Street Address', category: 'Location' },
    { value: 'zipCode', label: 'Zip/Postal Code', category: 'Location' },
-   
+
    { value: 'numberInt', label: 'Integer', category: 'Data' },
    { value: 'numberFloat', label: 'Decimal/Float', category: 'Data' },
    { value: 'boolean', label: 'Boolean', category: 'Data' },
    { value: 'color', label: 'Hex Color', category: 'Data' },
-   
+
    { value: 'word', label: 'Random Word', category: 'Text' },
    { value: 'paragraph', label: 'Paragraph', category: 'Text' },
    { value: 'imageUrl', label: 'Random Image URL', category: 'Text' },
-   
+
    { value: 'creditCard', label: 'Credit Card', category: 'Finance' },
 ];
 
@@ -100,7 +132,7 @@ export function MockDataView() {
             }
          }
       }
-      
+
       generateData();
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [isPersistenceEnabled]);
@@ -112,77 +144,103 @@ export function MockDataView() {
    }, [state, isPersistenceEnabled]);
 
    const addField = () => {
-      setState(prev => ({
+      setState((prev) => ({
          ...prev,
-         fields: [...prev.fields, { id: Date.now().toString(), name: `field_${prev.fields.length + 1}`, type: 'word' }]
+         fields: [...prev.fields, { id: Date.now().toString(), name: `field_${prev.fields.length + 1}`, type: 'word' }],
       }));
    };
 
    const removeField = (id: string) => {
-      setState(prev => ({
+      setState((prev) => ({
          ...prev,
-         fields: prev.fields.filter(f => f.id !== id)
+         fields: prev.fields.filter((f) => f.id !== id),
       }));
    };
 
    const updateField = (id: string, updates: Partial<FieldDef>) => {
-      setState(prev => ({
+      setState((prev) => ({
          ...prev,
-         fields: prev.fields.map(f => f.id === id ? { ...f, ...updates } : f)
+         fields: prev.fields.map((f) => (f.id === id ? { ...f, ...updates } : f)),
       }));
    };
 
    const generateFakeValue = (type: FakerType) => {
       switch (type) {
-         case 'uuid': return faker.string.uuid();
-         case 'firstName': return faker.person.firstName();
-         case 'lastName': return faker.person.lastName();
-         case 'fullName': return faker.person.fullName();
-         case 'email': return faker.internet.email();
-         case 'phone': return faker.phone.number();
-         case 'company': return faker.company.name();
-         case 'jobTitle': return faker.person.jobTitle();
-         case 'datePast': return faker.date.past().toISOString();
-         case 'dateFuture': return faker.date.future().toISOString();
-         case 'numberInt': return faker.number.int({ min: 1, max: 10000 });
-         case 'numberFloat': return faker.number.float({ min: 1, max: 1000, fractionDigits: 2 });
-         case 'boolean': return faker.datatype.boolean();
-         case 'paragraph': return faker.lorem.paragraph();
-         case 'word': return faker.lorem.word();
-         case 'imageUrl': return faker.image.url();
-         case 'avatarUrl': return faker.image.avatar();
-         case 'country': return faker.location.country();
-         case 'city': return faker.location.city();
-         case 'streetAddress': return faker.location.streetAddress();
-         case 'zipCode': return faker.location.zipCode();
-         case 'creditCard': return faker.finance.creditCardNumber();
-         case 'username': return faker.internet.username();
-         case 'password': return faker.internet.password();
-         case 'color': return faker.color.rgb();
-         default: return '';
+         case 'uuid':
+            return faker.string.uuid();
+         case 'firstName':
+            return faker.person.firstName();
+         case 'lastName':
+            return faker.person.lastName();
+         case 'fullName':
+            return faker.person.fullName();
+         case 'email':
+            return faker.internet.email();
+         case 'phone':
+            return faker.phone.number();
+         case 'company':
+            return faker.company.name();
+         case 'jobTitle':
+            return faker.person.jobTitle();
+         case 'datePast':
+            return faker.date.past().toISOString();
+         case 'dateFuture':
+            return faker.date.future().toISOString();
+         case 'numberInt':
+            return faker.number.int({ min: 1, max: 10000 });
+         case 'numberFloat':
+            return faker.number.float({ min: 1, max: 1000, fractionDigits: 2 });
+         case 'boolean':
+            return faker.datatype.boolean();
+         case 'paragraph':
+            return faker.lorem.paragraph();
+         case 'word':
+            return faker.lorem.word();
+         case 'imageUrl':
+            return faker.image.url();
+         case 'avatarUrl':
+            return faker.image.avatar();
+         case 'country':
+            return faker.location.country();
+         case 'city':
+            return faker.location.city();
+         case 'streetAddress':
+            return faker.location.streetAddress();
+         case 'zipCode':
+            return faker.location.zipCode();
+         case 'creditCard':
+            return faker.finance.creditCardNumber();
+         case 'username':
+            return faker.internet.username();
+         case 'password':
+            return faker.internet.password();
+         case 'color':
+            return faker.color.rgb();
+         default:
+            return '';
       }
    };
 
    const generateData = async () => {
       setIsGenerating(true);
-      
+
       // Use setTimeout to not block UI thread during large generation
       setTimeout(() => {
          try {
             const data = [];
-            
+
             // To ensure deterministic structure
             const currentFields = state.fields;
             const count = Math.min(Math.max(1, state.rowCount), 10000); // hard cap at 10k rows
-            
+
             for (let i = 0; i < count; i++) {
                const row: Record<string, string | number | boolean | null | undefined> = {};
-               currentFields.forEach(field => {
+               currentFields.forEach((field) => {
                   row[field.name || 'unnamed'] = generateFakeValue(field.type);
                });
                data.push(row);
             }
-            
+
             if (state.format === 'json') {
                setOutput(JSON.stringify(data, null, 2));
             } else {
@@ -217,7 +275,7 @@ export function MockDataView() {
 
    const downloadOutput = () => {
       if (!output) return;
-      
+
       const blob = new Blob([output], { type: state.format === 'json' ? 'application/json' : 'text/csv' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -234,11 +292,14 @@ export function MockDataView() {
    };
 
    // Group options by category
-   const groupedOptions = TYPE_OPTIONS.reduce((acc, option) => {
-      if (!acc[option.category]) acc[option.category] = [];
-      acc[option.category].push(option);
-      return acc;
-   }, {} as Record<string, typeof TYPE_OPTIONS>);
+   const groupedOptions = TYPE_OPTIONS.reduce(
+      (acc, option) => {
+         if (!acc[option.category]) acc[option.category] = [];
+         acc[option.category].push(option);
+         return acc;
+      },
+      {} as Record<string, typeof TYPE_OPTIONS>
+   );
 
    return (
       <div className="w-full h-full flex flex-col md:flex-row bg-background border border-border overflow-hidden">
@@ -251,31 +312,43 @@ export function MockDataView() {
                   </div>
                   <h1 className="font-bold text-sm tracking-tight text-foreground">Data Schema</h1>
                </div>
-               <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground" onClick={handleClear}>
+               <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-foreground hover:text-foreground"
+                  onClick={handleClear}
+               >
                   <RotateCcw className="w-3.5 h-3.5 mr-2" /> Reset
                </Button>
             </div>
-            
+
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
                <div className="space-y-3">
                   {state.fields.map((field, index) => (
-                     <div key={field.id} className="flex items-center gap-2 group animate-in fade-in slide-in-from-left-2">
-                        <div className="w-6 text-center text-[10px] text-muted-foreground font-mono opacity-50">{index + 1}</div>
-                        <Input 
+                     <div
+                        key={field.id}
+                        className="flex items-center gap-2 group animate-in fade-in slide-in-from-left-2"
+                     >
+                        <div className="w-6 text-center text-[10px] text-muted-foreground font-mono opacity-50">
+                           {index + 1}
+                        </div>
+                        <Input
                            value={field.name}
                            onChange={(e) => updateField(field.id, { name: e.target.value })}
                            placeholder="Field name"
                            className="flex-1 h-9 bg-background focus-visible:ring-1 focus-visible:ring-pink-500/30 font-mono text-xs"
                         />
-                        <select 
+                        <select
                            value={field.type}
                            onChange={(e) => updateField(field.id, { type: e.target.value as FakerType })}
                            className="flex-1 h-9 rounded-md border border-input bg-background px-3 py-1 text-xs shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-pink-500/30"
                         >
                            {Object.entries(groupedOptions).map(([category, options]) => (
                               <optgroup key={category} label={category}>
-                                 {options.map(opt => (
-                                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                 {options.map((opt) => (
+                                    <option key={opt.value} value={opt.value}>
+                                       {opt.label}
+                                    </option>
                                  ))}
                               </optgroup>
                            ))}
@@ -293,8 +366,8 @@ export function MockDataView() {
                   ))}
                </div>
 
-               <Button 
-                  variant="outline" 
+               <Button
+                  variant="outline"
                   className="w-full border-dashed border-2 hover:border-pink-500/50 hover:bg-pink-500/5 text-muted-foreground hover:text-foreground"
                   onClick={addField}
                >
@@ -307,21 +380,25 @@ export function MockDataView() {
                <div className="flex items-center gap-4">
                   <div className="flex-1 flex items-center gap-3">
                      <label className="text-xs font-semibold text-muted-foreground">Rows:</label>
-                     <Input 
-                        type="number" 
-                        min={1} 
-                        max={10000} 
+                     <Input
+                        type="number"
+                        min={1}
+                        max={10000}
                         value={state.rowCount}
-                        onChange={(e) => setState(prev => ({ ...prev, rowCount: parseInt(e.target.value) || 1 }))}
+                        onChange={(e) => setState((prev) => ({ ...prev, rowCount: parseInt(e.target.value) || 1 }))}
                         className="h-9 font-mono text-xs w-24"
                      />
                   </div>
-                  <Button 
+                  <Button
                      onClick={() => generateData()}
                      className="bg-pink-600 hover:bg-pink-700 text-white shadow-lg shadow-pink-500/20 px-6 gap-2"
                      disabled={isGenerating}
                   >
-                     {isGenerating ? <RefreshCcw className="w-4 h-4 animate-spin" /> : <Play className="w-4 h-4 fill-current" />}
+                     {isGenerating ? (
+                        <RefreshCcw className="w-4 h-4 animate-spin" />
+                     ) : (
+                        <Play className="w-4 h-4 fill-current" />
+                     )}
                      Generate
                   </Button>
                </div>
@@ -331,29 +408,42 @@ export function MockDataView() {
          {/* Right half: Output Preview */}
          <div className="w-full md:w-[55%] lg:w-[60%] flex flex-col bg-background min-h-[50vh] md:min-h-0">
             <div className="h-16 px-4 border-b border-border flex items-center justify-between shrink-0 bg-muted/10">
-               <Tabs value={state.format} onValueChange={(v) => setState(prev => ({ ...prev, format: v as 'json' | 'csv' }))}>
+               <Tabs
+                  value={state.format}
+                  onValueChange={(v) => setState((prev) => ({ ...prev, format: v as 'json' | 'csv' }))}
+               >
                   <TabsList className="h-9 bg-background border border-border/50">
-                     <TabsTrigger value="json" className="text-xs data-[state=active]:bg-pink-500/10 data-[state=active]:text-pink-600 rounded-sm px-4">
+                     <TabsTrigger
+                        value="json"
+                        className="text-xs data-[state=active]:bg-pink-500/10 data-[state=active]:text-pink-600 rounded-sm px-4"
+                     >
                         <FileJson className="w-3.5 h-3.5 mr-2" /> JSON
                      </TabsTrigger>
-                     <TabsTrigger value="csv" className="text-xs data-[state=active]:bg-emerald-500/10 data-[state=active]:text-emerald-600 rounded-sm px-4">
+                     <TabsTrigger
+                        value="csv"
+                        className="text-xs data-[state=active]:bg-emerald-500/10 data-[state=active]:text-emerald-600 rounded-sm px-4"
+                     >
                         <Table className="w-3.5 h-3.5 mr-2" /> CSV
                      </TabsTrigger>
                   </TabsList>
                </Tabs>
-               
+
                <div className="flex gap-2">
-                  <Button 
+                  <Button
                      size="sm"
                      variant="outline"
                      onClick={copyOutput}
                      disabled={!output}
                      className="bg-background border-border hover:bg-muted"
                   >
-                     {isCopied ? <CheckCircle2 className="w-3.5 h-3.5 mr-2 text-emerald-500" /> : <Copy className="w-3.5 h-3.5 mr-2" />} 
+                     {isCopied ? (
+                        <CheckCircle2 className="w-3.5 h-3.5 mr-2 text-emerald-500" />
+                     ) : (
+                        <Copy className="w-3.5 h-3.5 mr-2" />
+                     )}
                      Copy
                   </Button>
-                  <Button 
+                  <Button
                      size="sm"
                      variant="default"
                      onClick={downloadOutput}

@@ -44,10 +44,14 @@ export function GradientGeneratorSeoContent() {
                Visual Prototyping
             </div>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
-               Ultimate <span className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">CSS Gradients</span>
+               Ultimate{' '}
+               <span className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+                  CSS Gradients
+               </span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Construct beautiful, seamless linear, radial, and conic color gradients. Add multiple color stops safely and export directly into clean CSS or Tailwind classes.
+               Construct beautiful, seamless linear, radial, and conic color gradients. Add multiple color stops safely
+               and export directly into clean CSS or Tailwind classes.
             </p>
          </div>
 
@@ -59,7 +63,8 @@ export function GradientGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Multi-Stop Layering</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Add an infinite amount of color steps perfectly tuned via a precise percentage value slider. Generate beautiful mesh combinations securely and natively.
+                  Add an infinite amount of color steps perfectly tuned via a precise percentage value slider. Generate
+                  beautiful mesh combinations securely and natively.
                </p>
             </div>
 
@@ -69,7 +74,8 @@ export function GradientGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">3 Different Modes</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Toggle dynamically between standard linear-gradients, fully circular radial-gradients, or sweeping pie-chart style conic-gradients quickly.
+                  Toggle dynamically between standard linear-gradients, fully circular radial-gradients, or sweeping
+                  pie-chart style conic-gradients quickly.
                </p>
             </div>
 
@@ -79,7 +85,8 @@ export function GradientGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Tailwind Arbitrary Syntax</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Complex color arrays traditionally do not map exactly to pure Tailwind standard presets. Our engine encodes the entire chain strictly as arbitrary bracket parameters.
+                  Complex color arrays traditionally do not map exactly to pure Tailwind standard presets. Our engine
+                  encodes the entire chain strictly as arbitrary bracket parameters.
                </p>
             </div>
          </div>
@@ -89,7 +96,8 @@ export function GradientGeneratorSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Better background components</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Enhance flat solid color containers with rich multi-depth colors to guide the user's eye towards Call to Action elements seamlessly.
+                  Enhance flat solid color containers with rich multi-depth colors to guide the user's eye towards Call
+                  to Action elements seamlessly.
                </p>
                <ul className="space-y-4">
                   {[
@@ -141,45 +149,73 @@ export function GradientGeneratorSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Create CSS Gradients</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Create CSS Gradients
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Choose Your Gradient Mode</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Select between Linear (straight transitions), Radial (circular patterns), or Conic (sweeping pie-chart style) to define the base geometry of your color blend.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Color Stops</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Add multiple color markers to the gradient bar. Drag them to change their percentage distribution, and use the color picker to find the perfect hue and opacity for each step.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Set Direction & Angle</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Use the angle dial or the direction presets (Top, Bottom, Right, Left) to rotate your linear gradient. Radial gradients can also be centered or offset for specific lighting effects.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Select between Linear (straight transitions), Radial (circular patterns), or Conic (sweeping
+                        pie-chart style) to define the base geometry of your color blend.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Preview on Real Elements</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Review the live preview box to see how your colors interact. Toggle between "Desktop" and "Mobile" view to ensure the transition remains smooth across different viewport dimensions.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Color Stops</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Add multiple color markers to the gradient bar. Drag them to change their percentage
+                        distribution, and use the color picker to find the perfect hue and opacity for each step.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Set Direction & Angle</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Use the angle dial or the direction presets (Top, Bottom, Right, Left) to rotate your linear
+                        gradient. Radial gradients can also be centered or offset for specific lighting effects.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview on Real Elements</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Review the live preview box to see how your colors interact. Toggle between "Desktop" and
+                        "Mobile" view to ensure the transition remains smooth across different viewport dimensions.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Preferred Syntax</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click to copy the standard CSS <code className="text-pink-400">background: linear-gradient(...)</code> or the equivalent Tailwind CSS arbitrary bracket utility for your project.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click to copy the standard CSS{' '}
+                        <code className="text-pink-400">background: linear-gradient(...)</code> or the equivalent
+                        Tailwind CSS arbitrary bracket utility for your project.
+                     </p>
                   </div>
                </div>
             </div>

@@ -47,7 +47,8 @@ export function JavascriptObfuscatorSeoContent() {
                JavaScript <span className="text-red-500">Obfuscator</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Protect your proprietary intellectual property effortlessly client-side. Convert readable JS logic into extremely difficult, highly confusing obfuscated variants rapidly.
+               Protect your proprietary intellectual property effortlessly client-side. Convert readable JS logic into
+               extremely difficult, highly confusing obfuscated variants rapidly.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function JavascriptObfuscatorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Anti-Decompilation Logic</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Generate code drastically harder to read, debug, and trace mapping deeply integrated execution locks mapping specific domain targets avoiding logic scraping correctly.
+                  Generate code drastically harder to read, debug, and trace mapping deeply integrated execution locks
+                  mapping specific domain targets avoiding logic scraping correctly.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function JavascriptObfuscatorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Fully Dynamic Engine</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Fine tune specific protections such as array mapping RC4 encryptions dynamically directly into your browser previewer comparing output loops synchronously locally offline.
+                  Fine tune specific protections such as array mapping RC4 encryptions dynamically directly into your
+                  browser previewer comparing output loops synchronously locally offline.
                </p>
             </div>
 
@@ -79,52 +82,80 @@ export function JavascriptObfuscatorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">String Manipulators</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Hardcoded secrets and API paths within literal javascript strings can be split aggressively into separate arrays preventing search algorithms tracing critical nodes efficiently.
+                  Hardcoded secrets and API paths within literal javascript strings can be split aggressively into
+                  separate arrays preventing search algorithms tracing critical nodes efficiently.
                </p>
             </div>
          </div>
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Obfuscate JavaScript</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Obfuscate JavaScript
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Raw Script</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Enter your readable JavaScript source code into the input editor. The tool parses the Abstract Syntax Tree (AST) locally to prepare for transformation.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Protection Levels</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose your obfuscation strength. "Basic" renames variables, while "High" enables logic flattening and string array mapping for maximum protection.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Enable Security Features</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Optionally toggle "Self Defending" to make the code crash if tampered with or "Domain Lock" to restrict the script from running on unauthorized websites.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Enter your readable JavaScript source code into the input editor. The tool parses the Abstract
+                        Syntax Tree (AST) locally to prepare for transformation.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Execute Obfuscation Engine</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Obfuscate" to run the transformation. The output editor will display the newly generated, highly confusing version of your logic immediately.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Protection Levels</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose your obfuscation strength. "Basic" renames variables, while "High" enables logic
+                        flattening and string array mapping for maximum protection.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enable Security Features</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Optionally toggle "Self Defending" to make the code crash if tampered with or "Domain Lock" to
+                        restrict the script from running on unauthorized websites.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Execute Obfuscation Engine</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Obfuscate" to run the transformation. The output editor will display the newly generated,
+                        highly confusing version of your logic immediately.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-red-500/10 text-red-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy Protected Logic</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Once satisfied, copy the obfuscated block. Remember to keep your original source code safe, as this process cannot be reversed by any standard tool.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Once satisfied, copy the obfuscated block. Remember to keep your original source code safe, as
+                        this process cannot be reversed by any standard tool.
+                     </p>
                   </div>
                </div>
             </div>
@@ -159,7 +190,8 @@ export function JavascriptObfuscatorSeoContent() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
             <h2 className="text-3xl font-bold text-white relative z-10">Obfuscate Your Data</h2>
             <p className="text-red-100 max-w-xl mx-auto relative z-10">
-               Ready to secure your logic workflows against prying scraper eyes permanently inside Javascript files? Paste the snippet below immediately!
+               Ready to secure your logic workflows against prying scraper eyes permanently inside Javascript files?
+               Paste the snippet below immediately!
             </p>
             <div className="pt-4 relative z-10">
                <ScrollToTopButton label="Scroll up to the Action" />

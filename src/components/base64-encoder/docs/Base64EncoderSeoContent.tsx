@@ -156,45 +156,74 @@ export function Base64EncoderSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Encode & Decode Base64</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Encode & Decode Base64
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Choose Your Direction</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Toggle between "Encode" and "Decode" modes in the top workspace settings. If you already have data in the editors, use the "Swap" button to instantly reverse the operation.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Input Your Data</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw text or Base64 string into the input editor. You can also drag and drop text files directly into the pane to instantly load their contents for processing.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Select Encoding Variety</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Use the settings panel to choose between "Standard" Base64 or "URL-Safe" (which swaps <code className="text-indigo-400">+</code> and <code className="text-indigo-400">/</code>). You can also toggle "Data URI" mode to generate strings ready for HTML <code className="text-indigo-400">src</code> attributes.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Toggle between "Encode" and "Decode" modes in the top workspace settings. If you already have
+                        data in the editors, use the "Swap" button to instantly reverse the operation.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Output Line Breaks</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">If you need the Base64 output to follow a specific line-length limit (e.g., for PEM files or email headers), enable the "Wrap Lines" option in the configuration drawer.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Input Your Data</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Paste your raw text or Base64 string into the input editor. You can also drag and drop text
+                        files directly into the pane to instantly load their contents for processing.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Encoding Variety</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Use the settings panel to choose between "Standard" Base64 or "URL-Safe" (which swaps{' '}
+                        <code className="text-indigo-400">+</code> and <code className="text-indigo-400">/</code>). You
+                        can also toggle "Data URI" mode to generate strings ready for HTML{' '}
+                        <code className="text-indigo-400">src</code> attributes.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Output Line Breaks</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        If you need the Base64 output to follow a specific line-length limit (e.g., for PEM files or
+                        email headers), enable the "Wrap Lines" option in the configuration drawer.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Export Optimized String</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">The result appears instantly in the bottom pane. Click the "Copy" icon or download the result as a text document for use in your codebases or API requests.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        The result appears instantly in the bottom pane. Click the "Copy" icon or download the result as
+                        a text document for use in your codebases or API requests.
+                     </p>
                   </div>
                </div>
             </div>

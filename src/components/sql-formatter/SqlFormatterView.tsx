@@ -28,10 +28,12 @@ export function SqlFormatterView() {
    const { isPersistenceEnabled } = usePersistence();
    const isInitialized = useRef(false);
 
-   const [input, setInput] = useState('select id, first_name, last_name from users where status = "active" join orders on users.id = orders.user_id group by id order by last_name desc limit 10;');
+   const [input, setInput] = useState(
+      'select id, first_name, last_name from users where status = "active" join orders on users.id = orders.user_id group by id order by last_name desc limit 10;'
+   );
    const [output, setOutput] = useState('');
    const [dialect, setDialect] = useState<SqlLanguage>('postgresql');
-   
+
    const [isCopied, setIsCopied] = useState(false);
    const [error, setError] = useState('');
 
@@ -115,13 +117,22 @@ export function SqlFormatterView() {
                   </div>
                   <h1 className="font-bold text-sm tracking-tight text-foreground">SQL Formatter</h1>
                </div>
-               <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground" onClick={handleClear}>
+               <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-foreground hover:text-foreground"
+                  onClick={handleClear}
+               >
                   <RotateCcw className="w-3.5 h-3.5 mr-2" /> Reset
                </Button>
             </div>
             <div className="px-3 py-2 bg-muted/40 border-b border-border text-xs font-semibold uppercase tracking-wider text-muted-foreground flex justify-between items-center z-10">
                <span>Raw Query</span>
-               {error && <span className="text-red-500 normal-case tracking-normal max-w-[200px] truncate" title={error}>{error}</span>}
+               {error && (
+                  <span className="text-red-500 normal-case tracking-normal max-w-[200px] truncate" title={error}>
+                     {error}
+                  </span>
+               )}
             </div>
             <div className="flex-1 overflow-auto bg-[#1e1e1e] dark:bg-[#1e1e1e] light:bg-white text-sm custom-scrollbar">
                <CodeMirror
@@ -147,21 +158,23 @@ export function SqlFormatterView() {
                      </SelectTrigger>
                      <SelectContent>
                         {DIALECTS.map((d) => (
-                           <SelectItem key={d.value} value={d.value} className="text-xs">{d.label}</SelectItem>
+                           <SelectItem key={d.value} value={d.value} className="text-xs">
+                              {d.label}
+                           </SelectItem>
                         ))}
                      </SelectContent>
                   </Select>
                </div>
-               
+
                <div className="flex gap-2">
-                  <Button 
+                  <Button
                      size="sm"
                      variant="default"
                      onClick={copyOutput}
                      disabled={!output}
                      className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4"
                   >
-                     {isCopied ? <CheckCircle2 className="w-3.5 h-3.5 mr-2" /> : <Copy className="w-3.5 h-3.5 mr-2" />} 
+                     {isCopied ? <CheckCircle2 className="w-3.5 h-3.5 mr-2" /> : <Copy className="w-3.5 h-3.5 mr-2" />}
                      Copy Format
                   </Button>
                </div>

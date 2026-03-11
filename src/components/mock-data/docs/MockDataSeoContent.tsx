@@ -47,7 +47,8 @@ export function MockDataSeoContent() {
                JSON & CSV <span className="text-pink-500">Mock Data</span> Generator
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Construct thousands of rows of pristine, realistic test data instantly. Prototype APIs, load-test your databases, and populate UI components with completely private client-side engine execution.
+               Construct thousands of rows of pristine, realistic test data instantly. Prototype APIs, load-test your
+               databases, and populate UI components with completely private client-side engine execution.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function MockDataSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Relational Schemas</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Design granular keys. Pick from names, addresses, UUIDs, dates, passwords, hex colors, and more to model your exact payload needs precisely.
+                  Design granular keys. Pick from names, addresses, UUIDs, dates, passwords, hex colors, and more to
+                  model your exact payload needs precisely.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function MockDataSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Complete Privacy</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Never expose your schema keys to third parties. Every row of fake data is baked completely in the sandbox environment of your browser.
+                  Never expose your schema keys to third parties. Every row of fake data is baked completely in the
+                  sandbox environment of your browser.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function MockDataSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Multi-Format Exports</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Toggle instantly between formatted JSON strings for document stores mapping or unparsed flat CSV models for analytical data lakes testing.
+                  Toggle instantly between formatted JSON strings for document stores mapping or unparsed flat CSV
+                  models for analytical data lakes testing.
                </p>
             </div>
          </div>
@@ -89,42 +93,67 @@ export function MockDataSeoContent() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Mock Data</h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Define Your Field Names</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Enter the key names for your object (e.g., "id", "full_name", "email"). These will serve as the column headers or JSON property keys in your final output.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Select Data Types</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose a data genre for each field. Select from hundreds of realistic options like random Names, valid Email addresses, UUIDs, Phone numbers, and future/past Dates.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Set the Row Density</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Decide how many records you need. Whether you need a quick 5-row sample for a UI mockup or 1,000+ rows for performance testing, just enter the required count.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Enter the key names for your object (e.g., "id", "full_name", "email"). These will serve as the
+                        column headers or JSON property keys in your final output.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Choose Export Format</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Select between JSON and CSV output. JSON is ideal for frontend state mocking, while CSV is perfect for importing into Excel, Google Sheets, or SQL databases.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Data Types</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose a data genre for each field. Select from hundreds of realistic options like random Names,
+                        valid Email addresses, UUIDs, Phone numbers, and future/past Dates.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Set the Row Density</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Decide how many records you need. Whether you need a quick 5-row sample for a UI mockup or
+                        1,000+ rows for performance testing, just enter the required count.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Choose Export Format</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Select between JSON and CSV output. JSON is ideal for frontend state mocking, while CSV is
+                        perfect for importing into Excel, Google Sheets, or SQL databases.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-pink-500/10 text-pink-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Generate & Download</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Generate". The tool uses Faker.js locally to build your dataset. You can then copy the raw string or download the file directly to your disk instantly.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Generate". The tool uses Faker.js locally to build your dataset. You can then copy the
+                        raw string or download the file directly to your disk instantly.
+                     </p>
                   </div>
                </div>
             </div>
@@ -133,7 +162,10 @@ export function MockDataSeoContent() {
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center"> Frequently Asked Questions </h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  {' '}
+                  Frequently Asked Questions{' '}
+               </h2>
                <p className="text-muted-foreground text-center">Important notes regarding dataset processing.</p>
             </div>
 
@@ -155,7 +187,9 @@ export function MockDataSeoContent() {
                      Is my schema saved?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-pink-500/20">
-                     To improve your workflow context, your schema definition (field names and types) is strictly saved inside your local browser storage using localStorage. Nothing ever traces back to an external source or tracking script.
+                     To improve your workflow context, your schema definition (field names and types) is strictly saved
+                     inside your local browser storage using localStorage. Nothing ever traces back to an external
+                     source or tracking script.
                   </p>
                </div>
             </div>

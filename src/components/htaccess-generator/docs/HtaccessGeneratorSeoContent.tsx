@@ -47,7 +47,8 @@ export function HtaccessGeneratorSeoContent() {
                Redirect <span className="text-purple-500">Routing</span> Rules
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Click-to-generate complex Apache config strings. Ensure perfectly formulated SEO 301 mapping, canonical URL structures, and HTTPS enforcement parameters in seconds.
+               Click-to-generate complex Apache config strings. Ensure perfectly formulated SEO 301 mapping, canonical
+               URL structures, and HTTPS enforcement parameters in seconds.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function HtaccessGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Apache & Nginx Syntax</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Support for direct ModRewrite directives for .htaccess or server block structural equivalents inside nginx seamlessly parsed dynamically.
+                  Support for direct ModRewrite directives for .htaccess or server block structural equivalents inside
+                  nginx seamlessly parsed dynamically.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function HtaccessGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Built For SEO Authority</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Always guarantees the inclusion of R=301 (Permanent Redirect) directives to heavily ensure search indexing platforms migrate URL rankings accurately.
+                  Always guarantees the inclusion of R=301 (Permanent Redirect) directives to heavily ensure search
+                  indexing platforms migrate URL rankings accurately.
                </p>
             </div>
 
@@ -79,52 +82,80 @@ export function HtaccessGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Zero Regex Knowledge Needed</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Avoid mistakenly bringing your entire production website offline because of a missed syntax slash. We format the required Mod_Rewrite paths correctly automatically.
+                  Avoid mistakenly bringing your entire production website offline because of a missed syntax slash. We
+                  format the required Mod_Rewrite paths correctly automatically.
                </p>
             </div>
          </div>
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Server Redirects</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Generate Server Redirects
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Select Your Server Logic</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose whether you are generating rules for Apache (.htaccess) or Nginx (nginx.conf). The logic shifts between RewriteRules and return/rewrite statements automatically.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Define Common Redirects</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Use the toggle sidebar to instantly enable standard security redirects, such as forcing HTTPS (SSL) or resolving the "WWW" vs non-WWW canonical domain discrepancies.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Add Path-Specific Rules</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Input your source and destination paths for specific page redirects. You can choose between "Permanent (301)" for SEO-friendly moves or "Temporary (302)" for maintenance redirects.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose whether you are generating rules for Apache (.htaccess) or Nginx (nginx.conf). The logic
+                        shifts between RewriteRules and return/rewrite statements automatically.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Preview the Code</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">The right panel updates in real-time as you tweak your settings. Review the generated regex and flags (like [R=301,L] for Apache) to ensure it matches your requirements.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Define Common Redirects</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Use the toggle sidebar to instantly enable standard security redirects, such as forcing HTTPS
+                        (SSL) or resolving the "WWW" vs non-WWW canonical domain discrepancies.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Add Path-Specific Rules</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Input your source and destination paths for specific page redirects. You can choose between
+                        "Permanent (301)" for SEO-friendly moves or "Temporary (302)" for maintenance redirects.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview the Code</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        The right panel updates in real-time as you tweak your settings. Review the generated regex and
+                        flags (like [R=301,L] for Apache) to ensure it matches your requirements.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Deploy Your Config</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Copy the generated code block and paste it into your server's configuration file. Remember to test your redirects in an incognito window to bypass local browser cache!</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Copy the generated code block and paste it into your server's configuration file. Remember to
+                        test your redirects in an incognito window to bypass local browser cache!
+                     </p>
                   </div>
                </div>
             </div>
@@ -133,7 +164,10 @@ export function HtaccessGeneratorSeoContent() {
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center"> Frequently Asked Questions </h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  {' '}
+                  Frequently Asked Questions{' '}
+               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
@@ -148,7 +182,6 @@ export function HtaccessGeneratorSeoContent() {
                      </p>
                   </div>
                ))}
-               
             </div>
          </div>
 
@@ -167,7 +200,22 @@ export function HtaccessGeneratorSeoContent() {
 }
 
 function FlowArrow(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12 2v20"/><path d="m17 17-5 5-5-5"/><path d="m17 7-5-5-5 5"/></svg>
-  );
+   return (
+      <svg
+         xmlns="http://www.w3.org/2000/svg"
+         width="24"
+         height="24"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         strokeWidth="2"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+         {...props}
+      >
+         <path d="M12 2v20" />
+         <path d="m17 17-5 5-5-5" />
+         <path d="m17 7-5-5-5 5" />
+      </svg>
+   );
 }

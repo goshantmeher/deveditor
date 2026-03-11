@@ -28,12 +28,16 @@ export function GeneratorPreview({ css, html, tailwind, previewStyle, bodyBg = '
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: system-ui, sans-serif;
+    }
     body {
-      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: system-ui, sans-serif;
     }
   </style>
   <style id="dynamic-style"></style>

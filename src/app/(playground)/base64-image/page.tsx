@@ -4,8 +4,7 @@ import { Base64ImageSeoContent } from '@/components/base64-image/docs/Base64Imag
 
 export const metadata: Metadata = {
    title: 'Base64 to Image - DevEditor',
-   description:
-      'Instantly preview and securely download Base64 image strings right inside your browser.',
+   description: 'Instantly preview and securely download Base64 image strings right inside your browser.',
    keywords: [
       'base64 to image',
       'base64 image viewer',

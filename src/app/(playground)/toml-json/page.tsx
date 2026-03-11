@@ -6,7 +6,15 @@ export const metadata: Metadata = {
    title: 'TOML to JSON Converter - DevEditor',
    description:
       'Bi-directionally convert TOML configurations to rigid JSON matrix formats instantly safely securely offline directly inside your terminal workflow environment.',
-   keywords: ['toml to json', 'json to toml', 'toml converter', 'json converter', 'convert toml', 'format toml', 'parse toml'],
+   keywords: [
+      'toml to json',
+      'json to toml',
+      'toml converter',
+      'json converter',
+      'convert toml',
+      'format toml',
+      'parse toml',
+   ],
    openGraph: {
       title: 'Bi-Directional TOML ↔ JSON Tool',
       description: 'Format complex deeply nested configurations precisely offline.',

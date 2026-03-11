@@ -6,7 +6,16 @@ export const metadata: Metadata = {
    title: 'Font Pair Previewer - Test Google Font Combinations - DevEditor',
    description:
       'Preview trending Google Font pairings instantly. Test combinations of heading and body typography with adjustable sizing and weighting, and generate ready-to-use HTML and Tailwind configuration code.',
-   keywords: ['font pair', 'font pairing', 'font combinations', 'google fonts', 'typography tool', 'tailwind fonts', 'font preview', 'web design typography'],
+   keywords: [
+      'font pair',
+      'font pairing',
+      'font combinations',
+      'google fonts',
+      'typography tool',
+      'tailwind fonts',
+      'font preview',
+      'web design typography',
+   ],
    openGraph: {
       title: 'Font Pair & Typography Sandbox',
       description: 'Discover beautiful Google Font combinations for web design perfectly.',

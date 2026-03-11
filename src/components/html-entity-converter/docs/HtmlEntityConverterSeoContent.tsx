@@ -60,7 +60,8 @@ export function HtmlEntityConverterSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Bi-Directional</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Encode plain text into safe HTML entities, or decode raw entities back into readable text securely inline.
+                  Encode plain text into safe HTML entities, or decode raw entities back into readable text securely
+                  inline.
                </p>
             </div>
 
@@ -70,7 +71,8 @@ export function HtmlEntityConverterSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Client-Side Privacy</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Your raw HTML and text strings never leave your browser. Zero server interaction ensures your proprietary code is safe.
+                  Your raw HTML and text strings never leave your browser. Zero server interaction ensures your
+                  proprietary code is safe.
                </p>
             </div>
 
@@ -80,7 +82,8 @@ export function HtmlEntityConverterSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Built-in Reference</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Access a full table of the most common named HTML entities directly inside the tool to insert symbols quickly.
+                  Access a full table of the most common named HTML entities directly inside the tool to insert symbols
+                  quickly.
                </p>
             </div>
          </div>
@@ -90,7 +93,8 @@ export function HtmlEntityConverterSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Secure your HTML</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Protect your site against Cross-Site Scripting (XSS) by correctly encoding user input, or safely format code blocks containing raw HTML tags without the browser parsing them.
+                  Protect your site against Cross-Site Scripting (XSS) by correctly encoding user input, or safely
+                  format code blocks containing raw HTML tags without the browser parsing them.
                </p>
                <ul className="space-y-4">
                   {[
@@ -150,45 +154,74 @@ export function HtmlEntityConverterSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert HTML Entities</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Convert HTML Entities
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Choose Encode or Decode Mode</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Select "Encode" to convert special symbols into safe HTML strings, or "Decode" to transform raw entities like <code className="text-indigo-400">&amp;lt;</code> back into their original visual form.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Input Your Target Content</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw HTML snippet, variable names, or text containing special characters into the source editor. The tool supports multi-line conversion without any lag.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Select Mapping Schema (Numeric/Named)</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">When encoding, choose between Named entities (friendly strings like <code className="text-indigo-400">&amp;amp;</code>) or Numeric entities (e.g., <code className="text-indigo-400">&amp;#38;</code>) for stricter compatibility requirements.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Select "Encode" to convert special symbols into safe HTML strings, or "Decode" to transform raw
+                        entities like <code className="text-indigo-400">&amp;lt;</code> back into their original visual
+                        form.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Instant Live Preview</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Observe the output area simultaneously. The tool re-tokenizes your input on every keystroke, ensuring you can verify the conversion mapping in real-time before exporting.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Input Your Target Content</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Paste your raw HTML snippet, variable names, or text containing special characters into the
+                        source editor. The tool supports multi-line conversion without any lag.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Mapping Schema (Numeric/Named)</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        When encoding, choose between Named entities (friendly strings like{' '}
+                        <code className="text-indigo-400">&amp;amp;</code>) or Numeric entities (e.g.,{' '}
+                        <code className="text-indigo-400">&amp;#38;</code>) for stricter compatibility requirements.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Instant Live Preview</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Observe the output area simultaneously. The tool re-tokenizes your input on every keystroke,
+                        ensuring you can verify the conversion mapping in real-time before exporting.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Secured Result</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Copy" icon to move the result to your clipboard. You can now safely paste it into your HTML source files, email templates, or database records.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click the "Copy" icon to move the result to your clipboard. You can now safely paste it into
+                        your HTML source files, email templates, or database records.
+                     </p>
                   </div>
                </div>
             </div>

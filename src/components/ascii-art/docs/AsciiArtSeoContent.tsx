@@ -47,7 +47,9 @@ export function AsciiArtSeoContent() {
                Instantly Craft <span className="text-cyan-500">ASCII Art</span> Details
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Convert regular plaintext inputs instantly into massive, visually striking Figlet fonts seamlessly. Perfect for commenting vast code blocks, crafting interactive terminal interfaces, or styling documentation headers.
+               Convert regular plaintext inputs instantly into massive, visually striking Figlet fonts seamlessly.
+               Perfect for commenting vast code blocks, crafting interactive terminal interfaces, or styling
+               documentation headers.
             </p>
          </div>
 
@@ -59,7 +61,8 @@ export function AsciiArtSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Instant Transpilation</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Generates multidimensional string graphics flawlessly in real-time as you uniquely construct raw alphabetical keystrokes interactively locally.
+                  Generates multidimensional string graphics flawlessly in real-time as you uniquely construct raw
+                  alphabetical keystrokes interactively locally.
                </p>
             </div>
 
@@ -69,7 +72,8 @@ export function AsciiArtSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Popular Figlet Libraries</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Curated premium geometric typographic rendering models seamlessly loaded (including Doom, Slant, Ghost, and Banner3-D styles securely).
+                  Curated premium geometric typographic rendering models seamlessly loaded (including Doom, Slant,
+                  Ghost, and Banner3-D styles securely).
                </p>
             </div>
 
@@ -79,7 +83,8 @@ export function AsciiArtSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">CLI Branding</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Design striking Node.js server initiation scripts heavily commanding user attention strictly employing distinct formatting visual frameworks securely.
+                  Design striking Node.js server initiation scripts heavily commanding user attention strictly employing
+                  distinct formatting visual frameworks securely.
                </p>
             </div>
          </div>
@@ -87,9 +92,13 @@ export function AsciiArtSeoContent() {
          {/* Visual Section */}
          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground">Enhance codebase navigation heavily.</h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  Enhance codebase navigation heavily.
+               </h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Standard comments easily blur completely into dense blocks locally. Using high contrast ASCII text banners explicitly physically separates functional logic environments securely making reviewing significantly simpler implicitly.
+                  Standard comments easily blur completely into dense blocks locally. Using high contrast ASCII text
+                  banners explicitly physically separates functional logic environments securely making reviewing
+                  significantly simpler implicitly.
                </p>
                <ul className="space-y-4">
                   {[
@@ -126,14 +135,14 @@ export function AsciiArtSeoContent() {
                <div className="space-y-3 font-mono text-xs text-muted-foreground overflow-hidden">
                   <pre className="text-emerald-400 font-bold mb-4">
                      {[
-                        "/* ",
-                        "   ____        _        _                    ",
-                        "  |  _ \\      | |      | |                   ",
-                        "  | |_) | __ _| |_ __ _| |__   __ _ ___  ___ ",
+                        '/* ',
+                        '   ____        _        _                    ',
+                        '  |  _ \\      | |      | |                   ',
+                        '  | |_) | __ _| |_ __ _| |__   __ _ ___  ___ ',
                         "  |  _ < / _` | __/ _` | '_ \\ / _` / __|/ _ \\",
-                        "  | |_) | (_| | || (_| | | | | (_| \\__ \\  __/",
-                        "  |____/ \\__,_|\\__\\__,_|_| |_|\\__,_|___/\\___|",
-                        "*/"
+                        '  | |_) | (_| | || (_| | | | | (_| \\__ \\  __/',
+                        '  |____/ \\__,_|\\__\\__,_|_| |_|\\__,_|___/\\___|',
+                        '*/',
                      ].join('\n')}
                   </pre>
                   <p>const db = new DatabaseConnection();</p>
@@ -147,42 +156,67 @@ export function AsciiArtSeoContent() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate ASCII Art</h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Heading Text</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Type the words or phrase you want to convert into ASCII art in the main input editor. The visual result will begin rendering instantly as you type.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Select a Typographic Font</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose from dozens of premium Figlet fonts in the directory (e.g., Doom, Slant, Big). Each font has a distinct geometric style suitable for different documentation environments.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Character Spacing</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Use the settings panel to adjust kerning and horizontal layout. You can also specify the exact character width to ensure the art doesn't wrap awkwardly in your terminal.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Type the words or phrase you want to convert into ASCII art in the main input editor. The visual
+                        result will begin rendering instantly as you type.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Preview the Terminal Output</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Check the high-contrast preview pane to ensure the characters align perfectly. What you see in the dark-themed editor is exactly what will appear in your console or code comments.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select a Typographic Font</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose from dozens of premium Figlet fonts in the directory (e.g., Doom, Slant, Big). Each font
+                        has a distinct geometric style suitable for different documentation environments.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Character Spacing</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Use the settings panel to adjust kerning and horizontal layout. You can also specify the exact
+                        character width to ensure the art doesn't wrap awkwardly in your terminal.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview the Terminal Output</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Check the high-contrast preview pane to ensure the characters align perfectly. What you see in
+                        the dark-themed editor is exactly what will appear in your console or code comments.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy to Clipboard</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Once satisfied, click the "Copy" button. You can now paste your striking ASCII masterpiece directly into your source code, README files, or terminal splash screens.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Once satisfied, click the "Copy" button. You can now paste your striking ASCII masterpiece
+                        directly into your source code, README files, or terminal splash screens.
+                     </p>
                   </div>
                </div>
             </div>
@@ -215,7 +249,9 @@ export function AsciiArtSeoContent() {
                      Is my input data saved?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-cyan-500/20">
-                     To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the 'Persist Data' switch in the tool settings.
+                     To improve your experience, your input data is saved locally in your browser using localStorage.
+                     This is entirely client-side, meaning your data never leaves your device. You can opt-out of this
+                     behavior at any time by disabling the 'Persist Data' switch in the tool settings.
                   </p>
                </div>
             </div>

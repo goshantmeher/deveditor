@@ -6,10 +6,18 @@ export const metadata: Metadata = {
    title: 'Tailwind CSS Lookup & Converter - DevEditor',
    description:
       'Searchable reference for Tailwind classes. Convert Tailwind classes to raw CSS output and map Vanilla CSS rules heuristically back into Tailwind equivalents instantly.',
-   keywords: ['tailwind lookup', 'tailwind to css', 'css to tailwind', 'css converter', 'tailwind reference', 'tailwind utility mapper'],
+   keywords: [
+      'tailwind lookup',
+      'tailwind to css',
+      'css to tailwind',
+      'css converter',
+      'tailwind reference',
+      'tailwind utility mapper',
+   ],
    openGraph: {
       title: 'Tailwind CSS to Vanilla CSS Converter',
-      description: 'Searchable mapping engine to cross-translate Tailwind structures to standard Vanilla CSS definitions.',
+      description:
+         'Searchable mapping engine to cross-translate Tailwind structures to standard Vanilla CSS definitions.',
       url: 'https://www.deveditor.io/tailwind-lookup',
       type: 'website',
    },

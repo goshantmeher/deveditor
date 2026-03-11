@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Copy, Check, RefreshCw, Key, ShieldAlert, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -55,7 +54,7 @@ export function PasswordGeneratorView() {
    const handleGenerate = useCallback(() => {
       // Ensure at least one option is checked
       if (!options.lowercase && !options.uppercase && !options.numbers && !options.symbols) {
-         setOptions(prev => ({ ...prev, lowercase: true }));
+         setOptions((prev) => ({ ...prev, lowercase: true }));
       }
       const newPassword = generatePassword(options);
       setPassword(newPassword);
@@ -79,16 +78,28 @@ export function PasswordGeneratorView() {
    }, [password]);
 
    const updateOption = (key: keyof PasswordOptions, value: boolean | number) => {
-      setOptions(prev => ({ ...prev, [key]: value }));
+      setOptions((prev) => ({ ...prev, [key]: value }));
    };
 
    // Determine strength color
    let strengthColor = 'bg-red-500';
    let strengthLabel = 'Very Weak';
-   if (strength > 20) { strengthColor = 'bg-orange-500'; strengthLabel = 'Weak'; }
-   if (strength > 40) { strengthColor = 'bg-yellow-500'; strengthLabel = 'Fair'; }
-   if (strength > 60) { strengthColor = 'bg-blue-500'; strengthLabel = 'Strong'; }
-   if (strength > 80) { strengthColor = 'bg-green-500'; strengthLabel = 'Very Strong'; }
+   if (strength > 20) {
+      strengthColor = 'bg-orange-500';
+      strengthLabel = 'Weak';
+   }
+   if (strength > 40) {
+      strengthColor = 'bg-yellow-500';
+      strengthLabel = 'Fair';
+   }
+   if (strength > 60) {
+      strengthColor = 'bg-blue-500';
+      strengthLabel = 'Strong';
+   }
+   if (strength > 80) {
+      strengthColor = 'bg-green-500';
+      strengthLabel = 'Very Strong';
+   }
 
    return (
       <div className="w-full h-full flex flex-col bg-background border border-border rounded-xl shadow-sm overflow-hidden relative">
@@ -98,7 +109,7 @@ export function PasswordGeneratorView() {
                <Key className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">Secure Password Generator</span>
             </div>
-            
+
             <div className="flex items-center gap-2">
                <Button variant="ghost" size="sm" className="h-8 text-xs text-muted-foreground" onClick={handleGenerate}>
                   <RefreshCw className="w-3.5 h-3.5 mr-1" />
@@ -109,7 +120,6 @@ export function PasswordGeneratorView() {
 
          {/* Main Content */}
          <div className="flex-1 flex flex-col md:flex-row min-h-0 bg-background">
-            
             {/* Options Panel (Left) */}
             <div className="flex flex-col md:w-5/12 min-h-[300px] md:min-h-0 border-b md:border-b-0 md:border-r border-border overflow-y-auto">
                <div className="px-3 py-2 border-b min-h-12 border-border bg-background shrink-0 flex items-center justify-between">
@@ -117,7 +127,7 @@ export function PasswordGeneratorView() {
                      Password Criteria
                   </span>
                </div>
-               
+
                <div className="p-5 space-y-8">
                   {/* Length Slider */}
                   <div className="space-y-4">
@@ -150,15 +160,23 @@ export function PasswordGeneratorView() {
 
                   {/* Character Sets */}
                   <div className="space-y-4">
-                     <label className="text-xs font-semibold text-muted-foreground tracking-wider uppercase">Character Sets</label>
+                     <label className="text-xs font-semibold text-muted-foreground tracking-wider uppercase">
+                        Character Sets
+                     </label>
                      <div className="space-y-3">
                         <div className="flex items-center justify-between">
                            <span className="text-sm font-medium">Uppercase (A-Z)</span>
-                           <Switch checked={options.uppercase} onCheckedChange={(val) => updateOption('uppercase', val)} />
+                           <Switch
+                              checked={options.uppercase}
+                              onCheckedChange={(val) => updateOption('uppercase', val)}
+                           />
                         </div>
                         <div className="flex items-center justify-between">
                            <span className="text-sm font-medium">Lowercase (a-z)</span>
-                           <Switch checked={options.lowercase} onCheckedChange={(val) => updateOption('lowercase', val)} />
+                           <Switch
+                              checked={options.lowercase}
+                              onCheckedChange={(val) => updateOption('lowercase', val)}
+                           />
                         </div>
                         <div className="flex items-center justify-between">
                            <span className="text-sm font-medium">Numbers (0-9)</span>
@@ -176,9 +194,14 @@ export function PasswordGeneratorView() {
                      <div className="flex items-center justify-between group">
                         <div className="space-y-0.5">
                            <span className="text-sm font-medium">Easy to read</span>
-                           <p className="text-xs text-muted-foreground mr-4">Exclude similar characters like i, l, 1, L, o, 0, O.</p>
+                           <p className="text-xs text-muted-foreground mr-4">
+                              Exclude similar characters like i, l, 1, L, o, 0, O.
+                           </p>
                         </div>
-                        <Switch checked={options.excludeSimilar} onCheckedChange={(val) => updateOption('excludeSimilar', val)} />
+                        <Switch
+                           checked={options.excludeSimilar}
+                           onCheckedChange={(val) => updateOption('excludeSimilar', val)}
+                        />
                      </div>
                   </div>
                </div>
@@ -188,15 +211,21 @@ export function PasswordGeneratorView() {
             <div className="flex flex-col md:w-7/12 min-h-[300px] md:min-h-0 relative bg-muted/5 flex-1">
                <div className="px-3 py-2 border-b min-h-12 border-border bg-background shrink-0 flex items-center justify-between">
                   <span className="text-label font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
-                     {strength > 60 ? <ShieldCheck className="w-3.5 h-3.5 text-success" /> : <ShieldAlert className="w-3.5 h-3.5 text-warning" />}
+                     {strength > 60 ? (
+                        <ShieldCheck className="w-3.5 h-3.5 text-success" />
+                     ) : (
+                        <ShieldAlert className="w-3.5 h-3.5 text-warning" />
+                     )}
                      Generated Password
                   </span>
                </div>
-               
+
                <div className="flex-1 flex flex-col justify-center p-8 space-y-8">
                   {/* Password Display */}
                   <div className="relative group">
-                     <div className={`p-6 rounded-xl border border-border bg-background shadow-xs text-center break-all font-mono selection:bg-brand/20 transition-colors ${options.length > 32 ? 'text-lg md:text-2xl' : 'text-3xl md:text-4xl'}`}>
+                     <div
+                        className={`p-6 rounded-xl border border-border bg-background shadow-xs text-center break-all font-mono selection:bg-brand/20 transition-colors ${options.length > 32 ? 'text-lg md:text-2xl' : 'text-3xl md:text-4xl'}`}
+                     >
                         {password || <span className="text-muted-foreground/30 italic">...</span>}
                      </div>
                      <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -206,7 +235,11 @@ export function PasswordGeneratorView() {
                            className="h-8 w-8 bg-background shadow-sm hover:bg-muted"
                            onClick={handleCopy}
                         >
-                           {copied ? <Check className="h-4 w-4 text-success" /> : <Copy className="h-4 w-4 text-muted-foreground" />}
+                           {copied ? (
+                              <Check className="h-4 w-4 text-success" />
+                           ) : (
+                              <Copy className="h-4 w-4 text-muted-foreground" />
+                           )}
                         </Button>
                      </div>
                   </div>
@@ -222,12 +255,14 @@ export function PasswordGeneratorView() {
                   {/* Strength Meter */}
                   <div className="space-y-2 mt-4">
                      <div className="flex justify-between items-center text-sm font-semibold">
-                        <span className="text-muted-foreground uppercase tracking-wider text-xs">Password Strength</span>
+                        <span className="text-muted-foreground uppercase tracking-wider text-xs">
+                           Password Strength
+                        </span>
                         <span className="text-foreground">{strengthLabel}</span>
                      </div>
                      <div className="h-2.5 w-full bg-muted/50 rounded-full overflow-hidden flex border border-border/20">
-                        <div 
-                           className={`h-full transition-all duration-500 ease-in-out ${strengthColor}`} 
+                        <div
+                           className={`h-full transition-all duration-500 ease-in-out ${strengthColor}`}
                            style={{ width: `${strength}%` }}
                         />
                      </div>

@@ -33,7 +33,7 @@ export function analyzeText(text: string): TextStats {
    }
 
    const characters = text.length;
-   
+
    // Characters excluding whitespace
    const charactersNoSpaces = text.replace(/\s+/g, '').length;
 
@@ -45,7 +45,7 @@ export function analyzeText(text: string): TextStats {
    // Sentences: Naive approach splitting by sentence terminators
    // Accounts for Mrs., Dr., etc is hard natively, so we do a simple regex
    const sentenceMatch = text.match(/[^.!?]+[.!?]+(?:\s|$)/g);
-   const sentences = sentenceMatch ? sentenceMatch.length : (text.trim() ? 1 : 0);
+   const sentences = sentenceMatch ? sentenceMatch.length : text.trim() ? 1 : 0;
 
    // Paragraphs: Split by double newline usually
    const parasMatch = text.trim().split(/\n\s*\n/);

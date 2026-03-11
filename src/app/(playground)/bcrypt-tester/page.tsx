@@ -5,13 +5,7 @@ export const metadata: Metadata = {
    title: 'Bcrypt Hash Tester - Validator and Generator Online',
    description:
       'Verify and generate secure Bcrypt hashes online instantly in the browser. Test plaintext passwords against Bcrypt outputs globally with cost factor testing.',
-   keywords: [
-      'bcrypt tester',
-      'bcrypt verifier',
-      'bcrypt hash generator',
-      'bcrypt generator',
-      'bcrypt online',
-   ],
+   keywords: ['bcrypt tester', 'bcrypt verifier', 'bcrypt hash generator', 'bcrypt generator', 'bcrypt online'],
    openGraph: {
       title: 'Bcrypt Tester & Generator',
       description:
@@ -33,16 +27,14 @@ import { BcryptTesterSeoContent } from '@/components/bcrypt-tester/docs/BcryptTe
 
 export default function Page() {
    return (
-      
-         <div id="page-top" className="flex flex-col">
-            <div className="h-[calc(100vh-72px)] shrink-0 bg-background/50">
-               <BcryptTesterView />
-            </div>
-
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
-               <BcryptTesterSeoContent />
-            </div>
+      <div id="page-top" className="flex flex-col">
+         <div className="h-[calc(100vh-72px)] shrink-0 bg-background/50">
+            <BcryptTesterView />
          </div>
-      
+
+         <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
+            <BcryptTesterSeoContent />
+         </div>
+      </div>
    );
 }

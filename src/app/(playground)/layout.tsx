@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Footer } from '@/components/Footer';
 import { PlaygroundClientWrapper } from '@/components/PlaygroundClientWrapper';
+import { TrackPageVisit } from '@/components/TrackPageVisit';
 
 interface PlaygroundLayoutProps {
    children: ReactNode;
@@ -41,6 +42,7 @@ export default function PlaygroundLayout({ children }: PlaygroundLayoutProps) {
                overflowY: 'auto',
             }}
          >
+            <TrackPageVisit />
             {children}
             <Footer />
          </PlaygroundClientWrapper>

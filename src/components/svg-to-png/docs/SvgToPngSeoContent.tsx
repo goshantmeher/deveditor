@@ -55,8 +55,8 @@ export function SvgToPngSeoContent() {
                SVG to <span className="text-indigo-500">PNG/JPEG</span> Converter
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Render SVG onto canvas and export as raster at custom resolution.
-               Paste code or upload a file — all processing happens client-side.
+               Render SVG onto canvas and export as raster at custom resolution. Paste code or upload a file — all
+               processing happens client-side.
             </p>
          </div>
 
@@ -68,7 +68,8 @@ export function SvgToPngSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Custom Resolution</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Export at 64px to 4096px max dimension. Scale your SVG to any size while automatically preserving aspect ratio.
+                  Export at 64px to 4096px max dimension. Scale your SVG to any size while automatically preserving
+                  aspect ratio.
                </p>
             </div>
 
@@ -88,7 +89,8 @@ export function SvgToPngSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">PNG or JPEG</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Choose PNG for transparency support or JPEG for smaller file size. Instant conversion with live preview.
+                  Choose PNG for transparency support or JPEG for smaller file size. Instant conversion with live
+                  preview.
                </p>
             </div>
          </div>
@@ -98,7 +100,8 @@ export function SvgToPngSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Flexible Input Methods</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Whether you have SVG code in your clipboard or an SVG file on disk, the converter handles both workflows seamlessly.
+                  Whether you have SVG code in your clipboard or an SVG file on disk, the converter handles both
+                  workflows seamlessly.
                </p>
                <ul className="space-y-4">
                   {[
@@ -137,10 +140,13 @@ export function SvgToPngSeoContent() {
                </div>
                <div className="prose prose-invert prose-sm">
                   <p>
-                     For crisp icons and logos, set the max dimension to <code className="text-indigo-400">2x</code> or <code className="text-indigo-400">3x</code> your target display size. This ensures sharp rendering on high-DPI (Retina) screens.
+                     For crisp icons and logos, set the max dimension to <code className="text-indigo-400">2x</code> or{' '}
+                     <code className="text-indigo-400">3x</code> your target display size. This ensures sharp rendering
+                     on high-DPI (Retina) screens.
                   </p>
                   <p>
-                     If your SVG uses external fonts, convert them to paths first — the browser canvas won&apos;t load external font files during rendering.
+                     If your SVG uses external fonts, convert them to paths first — the browser canvas won&apos;t load
+                     external font files during rendering.
                   </p>
                </div>
             </div>
@@ -148,15 +154,36 @@ export function SvgToPngSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8 border-t border-border/50 pt-24">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert SVG to Raster</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Convert SVG to Raster
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                {[
-                  { n: 1, color: 'indigo', t: 'Paste or Upload SVG', d: 'Paste your SVG code in the textarea or drop an .svg file to load it automatically.' },
-                  { n: 2, color: 'emerald', t: 'Set Format & Resolution', d: 'Choose PNG or JPEG output and set the max dimension (64–4096px).' },
-                  { n: 3, color: 'amber', t: 'Convert & Download', d: 'Click "Convert to raster". Preview the rendered output and download when ready.' },
+                  {
+                     n: 1,
+                     color: 'indigo',
+                     t: 'Paste or Upload SVG',
+                     d: 'Paste your SVG code in the textarea or drop an .svg file to load it automatically.',
+                  },
+                  {
+                     n: 2,
+                     color: 'emerald',
+                     t: 'Set Format & Resolution',
+                     d: 'Choose PNG or JPEG output and set the max dimension (64–4096px).',
+                  },
+                  {
+                     n: 3,
+                     color: 'amber',
+                     t: 'Convert & Download',
+                     d: 'Click "Convert to raster". Preview the rendered output and download when ready.',
+                  },
                ].map(({ n, color, t, d }) => (
                   <div key={n} className="flex gap-4">
-                     <div className={`w-8 h-8 rounded-full bg-${color}-500/10 text-${color}-400 flex items-center justify-center font-bold font-mono shrink-0`}>{n}</div>
+                     <div
+                        className={`w-8 h-8 rounded-full bg-${color}-500/10 text-${color}-400 flex items-center justify-center font-bold font-mono shrink-0`}
+                     >
+                        {n}
+                     </div>
                      <div>
                         <h4 className="font-bold text-foreground text-lg mb-1">{t}</h4>
                         <p className="text-muted-foreground text-sm leading-relaxed">{d}</p>
@@ -168,7 +195,9 @@ export function SvgToPngSeoContent() {
 
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               Frequently Asked Questions
+            </h2>
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
                {faqSchema.mainEntity.map((faq: { name: string; acceptedAnswer: { text: string } }, i: number) => (
                   <div key={i} className="space-y-3">
@@ -190,7 +219,8 @@ export function SvgToPngSeoContent() {
             <div className="relative z-10 space-y-6">
                <h2 className="text-3xl font-bold text-white">Export SVG to Raster Privately</h2>
                <p className="text-indigo-100 max-w-xl mx-auto">
-                  Convert vector graphics to high-resolution raster images. No uploads, no limits — runs entirely in your browser.
+                  Convert vector graphics to high-resolution raster images. No uploads, no limits — runs entirely in
+                  your browser.
                </p>
                <div className="pt-4">
                   <ScrollToTopButton label="Scroll up to Convert" />

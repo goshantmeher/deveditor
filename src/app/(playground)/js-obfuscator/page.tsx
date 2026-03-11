@@ -23,7 +23,8 @@ export const metadata: Metadata = {
    twitter: {
       card: 'summary_large_image',
       title: 'JS Code Defense Grid Obfuscation Suite',
-      description: 'Flatten arrays aggressively breaking javascript decompilers cleanly mapping directly globally successfully natively offline.',
+      description:
+         'Flatten arrays aggressively breaking javascript decompilers cleanly mapping directly globally successfully natively offline.',
    },
    alternates: {
       canonical: 'https://www.deveditor.io/js-obfuscator',
@@ -34,16 +35,14 @@ import { JavascriptObfuscatorSeoContent } from '@/components/javascript-obfuscat
 
 export default function Page() {
    return (
-      
-         <div id="page-top" className="flex flex-col">
-            <div className="h-[calc(100vh-72px)] shrink-0 bg-background/50">
-               <JavascriptObfuscatorView />
-            </div>
-
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
-               <JavascriptObfuscatorSeoContent />
-            </div>
+      <div id="page-top" className="flex flex-col">
+         <div className="h-[calc(100vh-72px)] shrink-0 bg-background/50">
+            <JavascriptObfuscatorView />
          </div>
-      
+
+         <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
+            <JavascriptObfuscatorSeoContent />
+         </div>
+      </div>
    );
 }

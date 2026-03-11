@@ -15,7 +15,8 @@ interface JsonPathState {
 }
 
 const DEFAULT_STATE: JsonPathState = {
-   inputJson: '{\n  "store": {\n    "book": [\n      {\n        "category": "reference",\n        "author": "Nigel Rees",\n        "title": "Sayings of the Century",\n        "price": 8.95\n      },\n      {\n        "category": "fiction",\n        "author": "Evelyn Waugh",\n        "title": "Sword of Honour",\n        "price": 12.99\n      }\n    ],\n    "bicycle": {\n      "color": "red",\n      "price": 19.95\n    }\n  }\n}',
+   inputJson:
+      '{\n  "store": {\n    "book": [\n      {\n        "category": "reference",\n        "author": "Nigel Rees",\n        "title": "Sayings of the Century",\n        "price": 8.95\n      },\n      {\n        "category": "fiction",\n        "author": "Evelyn Waugh",\n        "title": "Sword of Honour",\n        "price": 12.99\n      }\n    ],\n    "bicycle": {\n      "color": "red",\n      "price": 19.95\n    }\n  }\n}',
    expression: '$.store.book[*].author',
 };
 
@@ -81,7 +82,7 @@ export function JsonPathView() {
    const formatJson = () => {
       try {
          const parsed = JSON.parse(state.inputJson);
-         setState(prev => ({ ...prev, inputJson: JSON.stringify(parsed, null, 2) }));
+         setState((prev) => ({ ...prev, inputJson: JSON.stringify(parsed, null, 2) }));
       } catch {
          // Ignore
       }
@@ -114,18 +115,25 @@ export function JsonPathView() {
                   <Button variant="secondary" size="sm" className="h-7 text-xs px-2 gap-1" onClick={formatJson}>
                      <Code2 className="w-3.5 h-3.5" /> Format JSON
                   </Button>
-                  <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleClear}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground"
+                     onClick={handleClear}
+                  >
                      <RotateCcw className="w-3.5 h-3.5" /> Clear
                   </Button>
                </div>
             </div>
-            
+
             <div className="flex flex-col flex-1 p-6 space-y-4 overflow-y-auto">
                <div className="flex-1 space-y-2 flex flex-col min-h-[250px]">
-                  <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider flex-none">Source JSON</label>
-                  <Textarea 
+                  <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider flex-none">
+                     Source JSON
+                  </label>
+                  <Textarea
                      value={state.inputJson}
-                     onChange={(e) => setState(prev => ({ ...prev, inputJson: e.target.value }))}
+                     onChange={(e) => setState((prev) => ({ ...prev, inputJson: e.target.value }))}
                      className="flex-1 min-h-0 font-mono whitespace-pre text-sm bg-muted/10 resize-none"
                      placeholder="Paste JSON here..."
                   />
@@ -138,9 +146,9 @@ export function JsonPathView() {
                   </label>
                   <div className="relative">
                      <PlaySquare className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-amber-500" />
-                     <Input 
+                     <Input
                         value={state.expression}
-                        onChange={(e) => setState(prev => ({ ...prev, expression: e.target.value }))}
+                        onChange={(e) => setState((prev) => ({ ...prev, expression: e.target.value }))}
                         className="h-12 pl-10 font-mono text-base border-amber-500/30 focus-visible:ring-amber-500"
                         placeholder="$.*"
                      />
@@ -162,8 +170,18 @@ export function JsonPathView() {
                   <h2 className="font-semibold text-sm text-gray-200">Evaluation Result</h2>
                </div>
                <div className="flex gap-2">
-                  <Button variant="outline" size="sm" className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10" onClick={copyOutput} disabled={!output}>
-                     {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />} 
+                  <Button
+                     variant="outline"
+                     size="sm"
+                     className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10"
+                     onClick={copyOutput}
+                     disabled={!output}
+                  >
+                     {copied ? (
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                     ) : (
+                        <Copy className="w-3.5 h-3.5" />
+                     )}
                      {copied ? 'Copied' : 'Copy JSON'}
                   </Button>
                </div>
@@ -177,7 +195,11 @@ export function JsonPathView() {
                   </div>
                ) : (
                   <pre className="text-gray-300 font-mono text-[13px] whitespace-pre-wrap break-all focus:outline-none">
-                     {output !== null ? JSON.stringify(output, null, 2) : <span className="text-gray-600 italic">No expression evaluated...</span>}
+                     {output !== null ? (
+                        JSON.stringify(output, null, 2)
+                     ) : (
+                        <span className="text-gray-600 italic">No expression evaluated...</span>
+                     )}
                   </pre>
                )}
             </div>

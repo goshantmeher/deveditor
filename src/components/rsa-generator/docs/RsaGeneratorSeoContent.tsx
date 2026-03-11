@@ -47,7 +47,8 @@ export function RsaGeneratorSeoContent() {
                RSA Key Pair <span className="text-violet-500">Generator</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Securely generate cryptographically rigorous 2048-bit and 4096-bit internal PEM RSA public & private key sets securely offline in the browser.
+               Securely generate cryptographically rigorous 2048-bit and 4096-bit internal PEM RSA public & private key
+               sets securely offline in the browser.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function RsaGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Fully Decentralized</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Keys are established exclusively via your computer's entropy directly mapped into Javascript\'s SubtileCrypto module natively avoiding backend API exploits permanently.
+                  Keys are established exclusively via your computer's entropy directly mapped into Javascript\'s
+                  SubtileCrypto module natively avoiding backend API exploits permanently.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function RsaGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Standardized Output</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Both keys are stringed efficiently into exact PKCS8 (Private) and SPKI (Public) PEM structures universally supported across AWS, SSH logic grids, GitHub, or internal JWT issuance.
+                  Both keys are stringed efficiently into exact PKCS8 (Private) and SPKI (Public) PEM structures
+                  universally supported across AWS, SSH logic grids, GitHub, or internal JWT issuance.
                </p>
             </div>
 
@@ -79,52 +82,81 @@ export function RsaGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Lightning Fast</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Compute massive Modulus lengths (1024, 2048, or even 4096-bit options) asynchronously via WebWorkers preventing visual UI lockdowns when crunching complex cryptographical polynomials.
+                  Compute massive Modulus lengths (1024, 2048, or even 4096-bit options) asynchronously via WebWorkers
+                  preventing visual UI lockdowns when crunching complex cryptographical polynomials.
                </p>
             </div>
          </div>
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate RSA Key Pairs</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Generate RSA Key Pairs
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Select Modulus Length</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose between 2048-bit (Standard) or 4096-bit (Maximum Security). Ensure your target environment (e.g., AWS, SSH) supports the selected length beforehand.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Pick Encryption Algorithm</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Select the padding or hash algorithm variant (like RSASSA-PKCS1-v1_5 or RSA-OAEP) required for your specific encryption or signing use case.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Initialize Key Generation</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Generate". The tool uses a Web Worker to handle the heavy mathematical computation locally, preventing your browser tab from freezing during the process.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose between 2048-bit (Standard) or 4096-bit (Maximum Security). Ensure your target
+                        environment (e.g., AWS, SSH) supports the selected length beforehand.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Export in PEM Format</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Review the generated public and private keys. The output is formatted in standard PEM strings, which are universally compatible with almost every major cloud provider and SDK.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Pick Encryption Algorithm</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Select the padding or hash algorithm variant (like RSASSA-PKCS1-v1_5 or RSA-OAEP) required for
+                        your specific encryption or signing use case.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Initialize Key Generation</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Generate". The tool uses a Web Worker to handle the heavy mathematical computation
+                        locally, preventing your browser tab from freezing during the process.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Export in PEM Format</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Review the generated public and private keys. The output is formatted in standard PEM strings,
+                        which are universally compatible with almost every major cloud provider and SDK.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-violet-500/10 text-violet-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Save Securely Offline</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Copy the keys or download them as <code className="text-violet-400">.pem</code> files. Because the process is entirely local, your private key is never seen by any server—keep it safe in an encrypted vault!</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Copy the keys or download them as <code className="text-violet-400">.pem</code> files. Because
+                        the process is entirely local, your private key is never seen by any server—keep it safe in an
+                        encrypted vault!
+                     </p>
                   </div>
                </div>
             </div>
@@ -159,7 +191,8 @@ export function RsaGeneratorSeoContent() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
             <h2 className="text-3xl font-bold text-white relative z-10">Generate Production Keys Now</h2>
             <p className="text-violet-100 max-w-xl mx-auto relative z-10">
-               Securely spin up production-ready PEM public and private RSA keys locally isolated without requiring complex OpenSSL terminal workflows permanently.
+               Securely spin up production-ready PEM public and private RSA keys locally isolated without requiring
+               complex OpenSSL terminal workflows permanently.
             </p>
             <div className="pt-4 relative z-10">
                <ScrollToTopButton label="Scroll up to Generate" />

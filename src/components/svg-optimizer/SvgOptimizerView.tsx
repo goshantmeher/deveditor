@@ -105,18 +105,19 @@ export function SvgOptimizerView() {
    };
 
    const faqSchema = {
-       '@context': 'https://schema.org',
-       '@type': 'SoftwareApplication',
-       name: 'SVG Optimizer',
-       applicationCategory: 'DeveloperApplication',
-       operatingSystem: 'Web Browser',
-       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-       featureList: [
-          'Automatic cleanup of useless tags like metadata, comments',
-          'Coordinate mathematical rounding for smaller files',
-          '100% Client-side privacy and SVGO powered',
-       ],
-       description: 'Free online SVGO tool to instantly compress and minimize SVG raw vector images without losing visual quality.',
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'SVG Optimizer',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Web Browser',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      featureList: [
+         'Automatic cleanup of useless tags like metadata, comments',
+         'Coordinate mathematical rounding for smaller files',
+         '100% Client-side privacy and SVGO powered',
+      ],
+      description:
+         'Free online SVGO tool to instantly compress and minimize SVG raw vector images without losing visual quality.',
    };
 
    return (
@@ -129,7 +130,7 @@ export function SvgOptimizerView() {
                <Scissors className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">SVG Optimizer (SVGO)</span>
             </div>
-            
+
             <div className="flex items-center gap-2 ml-auto shrink-0">
                {!input && (
                   <button
@@ -141,13 +142,13 @@ export function SvgOptimizerView() {
                      <span className="hidden sm:inline">Sample</span>
                   </button>
                )}
-               
-               <input 
-                  type="file" 
-                  accept=".svg,image/svg+xml" 
-                  ref={fileInputRef} 
+
+               <input
+                  type="file"
+                  accept=".svg,image/svg+xml"
+                  ref={fileInputRef}
                   onChange={handleFileUpload}
-                  className="hidden" 
+                  className="hidden"
                />
 
                <button
@@ -221,14 +222,14 @@ export function SvgOptimizerView() {
                      {result.optimizedBytes > 0 && (
                         <>
                            <span className="text-[10px] text-emerald-500 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">
-                              -{result.savingsPercent.toFixed(1)}% 
+                              -{result.savingsPercent.toFixed(1)}%
                            </span>
                            <span className="text-[10px] text-muted-foreground hidden sm:inline">
                               New: {formatBytes(result.optimizedBytes)}
                            </span>
                         </>
                      )}
-                     
+
                      <div className="flex items-center ml-1">
                         <Button
                            variant="ghost"
@@ -262,7 +263,7 @@ export function SvgOptimizerView() {
                      </div>
                   </div>
                </div>
-               
+
                {result.error ? (
                   <div className="flex-1 w-full p-4 flex flex-col justify-center items-center bg-destructive/5 text-destructive font-mono text-sm text-center">
                      <span className="font-bold mb-2">Parsing Error</span>
@@ -279,9 +280,9 @@ export function SvgOptimizerView() {
                ) : (
                   <div className="flex-1 w-full p-6 bg-muted/10 flex items-center justify-center overflow-auto rounded-br-xl relative">
                      {result.optimizedSvg ? (
-                        <div 
+                        <div
                            className="w-full h-full flex items-center justify-center relative z-10 transition-transform hover:scale-105 duration-300 [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-[80%] [&>svg]:max-h-[80%]"
-                           dangerouslySetInnerHTML={{ __html: result.optimizedSvg }} 
+                           dangerouslySetInnerHTML={{ __html: result.optimizedSvg }}
                         />
                      ) : (
                         <span className="text-muted-foreground text-sm relative z-10">No SVG to preview</span>

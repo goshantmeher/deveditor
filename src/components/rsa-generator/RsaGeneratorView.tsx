@@ -10,7 +10,7 @@ export function RsaGeneratorView() {
    const [keySize, setKeySize] = useState<RsaKeySize>(2048);
    const [keys, setKeys] = useState<RsaKeyPairPEM | null>(null);
    const [isGenerating, setIsGenerating] = useState(false);
-   
+
    const [copiedPublic, setCopiedPublic] = useState(false);
    const [copiedPrivate, setCopiedPrivate] = useState(false);
 
@@ -67,12 +67,16 @@ export function RsaGeneratorView() {
 
          <div className="flex-1 flex flex-col bg-background overflow-y-auto">
             <div className="max-w-4xl mx-auto w-full p-6 space-y-6">
-               
                {/* Controls */}
                <div className="flex flex-col sm:flex-row gap-4 items-end bg-muted/10 p-6 rounded-2xl border border-border">
                   <div className="space-y-2 flex-1 w-full">
-                     <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Key Size (Modulus)</label>
-                     <Select value={keySize.toString()} onValueChange={(val) => setKeySize(parseInt(val, 10) as RsaKeySize)}>
+                     <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                        Key Size (Modulus)
+                     </label>
+                     <Select
+                        value={keySize.toString()}
+                        onValueChange={(val) => setKeySize(parseInt(val, 10) as RsaKeySize)}
+                     >
                         <SelectTrigger className="w-full bg-background border-border shadow-xs">
                            <SelectValue placeholder="Select RSA Key Size" />
                         </SelectTrigger>
@@ -83,9 +87,9 @@ export function RsaGeneratorView() {
                         </SelectContent>
                      </Select>
                   </div>
-                  
-                  <Button 
-                     onClick={handleGenerate} 
+
+                  <Button
+                     onClick={handleGenerate}
                      disabled={isGenerating}
                      className="w-full sm:w-auto px-8 gap-2 bg-brand text-brand-foreground hover:bg-brand/90 font-semibold"
                   >
@@ -99,7 +103,10 @@ export function RsaGeneratorView() {
                   <div className="flex flex-col items-center justify-center p-12 text-center border border-dashed border-border/50 rounded-2xl opacity-60">
                      <Lock className="w-12 h-12 mb-4 text-muted-foreground" />
                      <p className="text-sm text-foreground/80 font-medium">No keys generated yet.</p>
-                     <p className="text-xs text-muted-foreground/80 mt-1 max-w-sm">Press generate to locally create secure PKCS8 Private and SPKI Public PEM strings safely inside this browser tab.</p>
+                     <p className="text-xs text-muted-foreground/80 mt-1 max-w-sm">
+                        Press generate to locally create secure PKCS8 Private and SPKI Public PEM strings safely inside
+                        this browser tab.
+                     </p>
                   </div>
                )}
 
@@ -107,7 +114,9 @@ export function RsaGeneratorView() {
                   <div className="flex flex-col items-center justify-center p-12 text-center border border-border rounded-2xl">
                      <RefreshCw className="w-10 h-10 mb-4 text-brand animate-spin" />
                      <p className="text-sm text-foreground/80 font-medium">Generating Cryptographic Entropy</p>
-                     <p className="text-xs text-muted-foreground/80 mt-1">4096-bit keys may lock your browser momentarily during intense modulus calculations.</p>
+                     <p className="text-xs text-muted-foreground/80 mt-1">
+                        4096-bit keys may lock your browser momentarily during intense modulus calculations.
+                     </p>
                   </div>
                )}
 
@@ -116,13 +125,29 @@ export function RsaGeneratorView() {
                      {/* Public Key */}
                      <div className="flex flex-col border border-border rounded-xl shadow-xs overflow-hidden">
                         <div className="flex items-center justify-between px-4 py-3 bg-muted/30 border-b border-border">
-                           <span className="text-sm font-semibold uppercase tracking-wider text-foreground">Public Key</span>
+                           <span className="text-sm font-semibold uppercase tracking-wider text-foreground">
+                              Public Key
+                           </span>
                            <div className="flex gap-2">
-                              <Button variant="outline" size="icon" className="h-7 w-7" onClick={() => handleDownload(keys.publicKey, 'public.pem')}>
+                              <Button
+                                 variant="outline"
+                                 size="icon"
+                                 className="h-7 w-7"
+                                 onClick={() => handleDownload(keys.publicKey, 'public.pem')}
+                              >
                                  <Download className="w-3.5 h-3.5 text-muted-foreground" />
                               </Button>
-                              <Button variant="outline" size="icon" className="h-7 w-7" onClick={() => handleCopy(keys.publicKey, true)}>
-                                 {copiedPublic ? <Check className="w-3.5 h-3.5 text-success" /> : <Copy className="w-3.5 h-3.5 text-muted-foreground" />}
+                              <Button
+                                 variant="outline"
+                                 size="icon"
+                                 className="h-7 w-7"
+                                 onClick={() => handleCopy(keys.publicKey, true)}
+                              >
+                                 {copiedPublic ? (
+                                    <Check className="w-3.5 h-3.5 text-success" />
+                                 ) : (
+                                    <Copy className="w-3.5 h-3.5 text-muted-foreground" />
+                                 )}
                               </Button>
                            </div>
                         </div>
@@ -137,13 +162,29 @@ export function RsaGeneratorView() {
                      {/* Private Key */}
                      <div className="flex flex-col rounded-xl shadow-xs border border-red-500/20 overflow-hidden">
                         <div className="flex items-center justify-between px-4 py-3 bg-red-500/5 border-b border-red-500/20">
-                           <span className="text-sm font-bold uppercase tracking-wider text-red-500/80">Private Key (Secret)</span>
+                           <span className="text-sm font-bold uppercase tracking-wider text-red-500/80">
+                              Private Key (Secret)
+                           </span>
                            <div className="flex gap-2">
-                              <Button variant="outline" size="icon" className="h-7 w-7 border-red-500/20 hover:bg-red-500/10" onClick={() => handleDownload(keys.privateKey, 'private.pem')}>
+                              <Button
+                                 variant="outline"
+                                 size="icon"
+                                 className="h-7 w-7 border-red-500/20 hover:bg-red-500/10"
+                                 onClick={() => handleDownload(keys.privateKey, 'private.pem')}
+                              >
                                  <Download className="w-3.5 h-3.5 text-red-400" />
                               </Button>
-                              <Button variant="outline" size="icon" className="h-7 w-7 border-red-500/20 hover:bg-red-500/10" onClick={() => handleCopy(keys.privateKey, false)}>
-                                 {copiedPrivate ? <Check className="w-3.5 h-3.5 text-success" /> : <Copy className="w-3.5 h-3.5 text-red-400" />}
+                              <Button
+                                 variant="outline"
+                                 size="icon"
+                                 className="h-7 w-7 border-red-500/20 hover:bg-red-500/10"
+                                 onClick={() => handleCopy(keys.privateKey, false)}
+                              >
+                                 {copiedPrivate ? (
+                                    <Check className="w-3.5 h-3.5 text-success" />
+                                 ) : (
+                                    <Copy className="w-3.5 h-3.5 text-red-400" />
+                                 )}
                               </Button>
                            </div>
                         </div>

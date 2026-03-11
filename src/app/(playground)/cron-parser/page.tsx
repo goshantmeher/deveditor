@@ -6,7 +6,14 @@ export const metadata: Metadata = {
    title: 'Cron Expression Parser & Translator - DevEditor',
    description:
       'Translate cron expressions into human-readable English text instantly. View the next 5 upcoming scheduled execution times for any crontab string automatically natively in your browser.',
-   keywords: ['cron parser', 'cron translator', 'cron to english', 'crontab generator', 'cron next execution', 'cron evaluator'],
+   keywords: [
+      'cron parser',
+      'cron translator',
+      'cron to english',
+      'crontab generator',
+      'cron next execution',
+      'cron evaluator',
+   ],
    openGraph: {
       title: 'Cron Expression Parser & Translator',
       description: 'Convert complex cron strings into plain English sentences instantly locally.',

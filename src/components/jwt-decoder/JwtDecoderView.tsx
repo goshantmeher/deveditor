@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS, DEFAULT_INPUTS } from '@/constants/storage';
 
-
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { parseJwt, formatTimestamp, ParsedJwt } from '@/lib/jwt-utils';

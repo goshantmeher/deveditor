@@ -47,7 +47,8 @@ export function XmlJsonSeoContent() {
                Instant <span className="text-blue-500">XML ↔ JSON</span> Converter
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Modernize legacy documents elegantly translating deep tags seamlessly generating fluid JSON payload responses intuitively safely offline instantly executing accurate structural logic globally safely.
+               Modernize legacy documents elegantly translating deep tags seamlessly generating fluid JSON payload
+               responses intuitively safely offline instantly executing accurate structural logic globally safely.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function XmlJsonSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Legacy Extraction</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Refactor legacy environments seamlessly generating arrays completely natively modernizing output completely bypassing slow integration mappings safely bridging standard components securely.
+                  Refactor legacy environments seamlessly generating arrays completely natively modernizing output
+                  completely bypassing slow integration mappings safely bridging standard components securely.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function XmlJsonSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Schema Formatter</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Export valid payload blocks accurately defining arrays thoroughly completely cleanly handling raw components correctly building structured responses efficiently dynamically reliably safely.
+                  Export valid payload blocks accurately defining arrays thoroughly completely cleanly handling raw
+                  components correctly building structured responses efficiently dynamically reliably safely.
                </p>
             </div>
 
@@ -79,7 +82,9 @@ export function XmlJsonSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Private Sandbox</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Transform configurations purely safely avoiding exposed network pipelines directly locally inside offline execution layers protecting sensitive metrics inherently completely thoroughly locally natively.
+                  Transform configurations purely safely avoiding exposed network pipelines directly locally inside
+                  offline execution layers protecting sensitive metrics inherently completely thoroughly locally
+                  natively.
                </p>
             </div>
          </div>
@@ -89,42 +94,68 @@ export function XmlJsonSeoContent() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert XML & JSON</h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Set Your Data Direction</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose whether you are modernizing XML into JSON or packaging JSON structures back into legacy XML markup. The editors will recalibrate their syntax highlighting immediately.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Input Structured Markup</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw document into the source panel. The engine immediately begins parsing the DOM tree to extract namespaces, tag attributes, and text nodes for remapping.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Observe Attribute Mapping</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Watch as <code className="text-blue-400">@attribute</code> tags in XML are gracefully translated into property keys in the JSON output, or how JSON object keys become XML tag names during export.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose whether you are modernizing XML into JSON or packaging JSON structures back into legacy
+                        XML markup. The editors will recalibrate their syntax highlighting immediately.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Clean and Beautify</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Use the "Beautify" toggle to apply consistent indentation to the resulting markup, making it easy to audit nested hierarchies before copying it to your build pipeline.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Input Structured Markup</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Paste your raw document into the source panel. The engine immediately begins parsing the DOM
+                        tree to extract namespaces, tag attributes, and text nodes for remapping.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Observe Attribute Mapping</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Watch as <code className="text-blue-400">@attribute</code> tags in XML are gracefully translated
+                        into property keys in the JSON output, or how JSON object keys become XML tag names during
+                        export.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Clean and Beautify</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Use the "Beautify" toggle to apply consistent indentation to the resulting markup, making it
+                        easy to audit nested hierarchies before copying it to your build pipeline.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Safely Deploy Manifest</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Download" or "Copy" to move the validated code. Because the entire transpiler runs 100% in your browser, your proprietary documents remain offline and secure.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Download" or "Copy" to move the validated code. Because the entire transpiler runs 100%
+                        in your browser, your proprietary documents remain offline and secure.
+                     </p>
                   </div>
                </div>
             </div>
@@ -157,7 +188,9 @@ export function XmlJsonSeoContent() {
                      Is my input data saved?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-blue-500/20">
-                     To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the 'Persist Data' switch in the tool settings.
+                     To improve your experience, your input data is saved locally in your browser using localStorage.
+                     This is entirely client-side, meaning your data never leaves your device. You can opt-out of this
+                     behavior at any time by disabling the 'Persist Data' switch in the tool settings.
                   </p>
                </div>
             </div>

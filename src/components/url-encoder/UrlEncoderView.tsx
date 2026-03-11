@@ -1,20 +1,8 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-import {
-   Copy,
-   Check,
-   ArrowRightLeft,
-   Link2,
-   FlaskConical,
-   Trash2,
-   Plus,
-   Table2,
-   Lock,
-   Unlock,
-} from 'lucide-react';
+import { Copy, Check, ArrowRightLeft, Link2, FlaskConical, Trash2, Plus, Table2, Lock, Unlock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { usePersistence } from '@/contexts/PersistenceContext';
@@ -79,8 +67,7 @@ export function UrlEncoderView() {
    }, [activeTab, input, isPersistenceEnabled]);
 
    // Compute output
-   const output =
-      direction === 'encode' ? encodeUrl(input, encodingMode) : decodeUrl(input, encodingMode);
+   const output = direction === 'encode' ? encodeUrl(input, encodingMode) : decodeUrl(input, encodingMode);
 
    // URL Parser logic
    useEffect(() => {
@@ -94,24 +81,21 @@ export function UrlEncoderView() {
       setEditableParams(parsed.params.map((p) => ({ ...p })));
    }, [urlInput]);
 
-   const handleCopy = useCallback(
-      async (text: string, label?: string) => {
-         if (!text) return;
-         try {
-            await navigator.clipboard.writeText(text);
-            if (label) {
-               setCopiedField(label);
-               setTimeout(() => setCopiedField(null), 2000);
-            } else {
-               setCopied(true);
-               setTimeout(() => setCopied(false), 2000);
-            }
-         } catch {
-            console.error('Failed to copy');
+   const handleCopy = useCallback(async (text: string, label?: string) => {
+      if (!text) return;
+      try {
+         await navigator.clipboard.writeText(text);
+         if (label) {
+            setCopiedField(label);
+            setTimeout(() => setCopiedField(null), 2000);
+         } else {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
          }
-      },
-      []
-   );
+      } catch {
+         console.error('Failed to copy');
+      }
+   }, []);
 
    const handleSwap = useCallback(() => {
       setDirection((prev) => (prev === 'encode' ? 'decode' : 'encode'));
@@ -160,10 +144,7 @@ export function UrlEncoderView() {
             </div>
 
             {/* Tab Switcher */}
-            <Tabs
-               value={activeTab}
-               onValueChange={(val) => setActiveTab(val as ActiveTab)}
-            >
+            <Tabs value={activeTab} onValueChange={(val) => setActiveTab(val as ActiveTab)}>
                <TabsList className="h-8 bg-muted/50">
                   <TabsTrigger value="encode-decode" className="text-xs h-6 px-3 data-[state=active]:bg-background">
                      Encode / Decode
@@ -332,11 +313,7 @@ function EncodeDecode({
             <textarea
                value={input}
                onChange={(e) => setInput(e.target.value)}
-               placeholder={
-                  direction === 'encode'
-                     ? 'Paste text to encode...'
-                     : 'Paste encoded text to decode...'
-               }
+               placeholder={direction === 'encode' ? 'Paste text to encode...' : 'Paste encoded text to decode...'}
                className="flex-1 w-full p-4 bg-transparent text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/40"
                spellCheck={false}
             />
@@ -365,9 +342,7 @@ function EncodeDecode({
                   </span>
                </div>
                <div className="flex items-center gap-3">
-                  {outputLength > 0 && (
-                     <span className="text-[10px] text-muted-foreground">{outputLength} chars</span>
-                  )}
+                  {outputLength > 0 && <span className="text-[10px] text-muted-foreground">{outputLength} chars</span>}
 
                   {/* Swap (mobile) */}
                   <button
@@ -415,9 +390,7 @@ function EncodeDecode({
                value={output}
                readOnly
                placeholder={
-                  direction === 'encode'
-                     ? 'Encoded output will appear here...'
-                     : 'Decoded output will appear here...'
+                  direction === 'encode' ? 'Encoded output will appear here...' : 'Decoded output will appear here...'
                }
                className="flex-1 w-full p-4 bg-background text-foreground text-sm font-mono resize-none focus:outline-none placeholder:text-muted-foreground/30"
                spellCheck={false}
@@ -523,7 +496,9 @@ function UrlParser({
                               <span className={`text-xs font-mono ${color} truncate`}>{value}</span>
                            </div>
                            <button
-                              onClick={() => handleCopy(value === '(default)' || value === '(none)' ? '' : value, label)}
+                              onClick={() =>
+                                 handleCopy(value === '(default)' || value === '(none)' ? '' : value, label)
+                              }
                               className="opacity-0 group-hover:opacity-100 transition-opacity ml-2 shrink-0"
                               title={`Copy ${label}`}
                            >
@@ -632,9 +607,7 @@ function UrlParser({
                               )}
                            </button>
                         </div>
-                        <p className="text-xs font-mono text-brand break-all select-all cursor-text">
-                           {rebuiltUrl}
-                        </p>
+                        <p className="text-xs font-mono text-brand break-all select-all cursor-text">{rebuiltUrl}</p>
                      </div>
                   )}
                </div>
@@ -658,9 +631,7 @@ function UrlParser({
                   <div className="w-14 h-14 rounded-2xl bg-brand/10 flex items-center justify-center mx-auto">
                      <Link2 className="w-7 h-7 text-brand" />
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                     Paste a URL above to parse it into components
-                  </p>
+                  <p className="text-sm text-muted-foreground">Paste a URL above to parse it into components</p>
                   <button
                      onClick={handleSample}
                      className="flex items-center gap-1.5 mx-auto px-3 py-1.5 rounded-md text-xs font-medium text-brand border border-brand/20 bg-brand/5 hover:bg-brand/10 transition-colors"

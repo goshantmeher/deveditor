@@ -47,7 +47,8 @@ export function ImageConverterSeoContent() {
                Local Image <span className="text-orange-500">Converter</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Securely crop, compress, explicitly resize, and cross-convert visual image files into efficient WebP rendering payloads securely within your local browser runtime.
+               Securely crop, compress, explicitly resize, and cross-convert visual image files into efficient WebP
+               rendering payloads securely within your local browser runtime.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function ImageConverterSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Next-Gen WebP Engine</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Export robust visual payloads seamlessly towards the ultra-efficient WebP file container seamlessly preventing Google Lighthouse speed index warnings entirely.
+                  Export robust visual payloads seamlessly towards the ultra-efficient WebP file container seamlessly
+                  preventing Google Lighthouse speed index warnings entirely.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function ImageConverterSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Zero Cloud Spying</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  All massive binary matrix payloads are executed privately natively via browser background workers directly preventing external leakage.
+                  All massive binary matrix payloads are executed privately natively via browser background workers
+                  directly preventing external leakage.
                </p>
             </div>
 
@@ -79,52 +82,82 @@ export function ImageConverterSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Visual Cropping Pipeline</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Avoid guessing coordinate mathematics. Outline highly exact sub-sections of uploaded textures easily alongside rigid aspect ratio bindings natively.
+                  Avoid guessing coordinate mathematics. Outline highly exact sub-sections of uploaded textures easily
+                  alongside rigid aspect ratio bindings natively.
                </p>
             </div>
          </div>
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert & Resize Images</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Convert & Resize Images
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Upload an Image</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Drag and drop your source file (PNG, JPEG, WebP) directly into the Right Workspace box. A preview and interactive bounding box will load instantly.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Cropping & Composition (Optional)</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Drag the handles over the visual preview to crop your image. You can lock the aspect ratio using the preset options (1:1, 16:9, etc.) above the preview to maintain standard proportions.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Define Output Settings</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">On the left settings pane, select your desired Export Format (WebP is highly recommended for web usage) and adjust the compression Quality slider based on your preferred file size targets.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Drag and drop your source file (PNG, JPEG, WebP) directly into the Right Workspace box. A
+                        preview and interactive bounding box will load instantly.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Explicit Resizing (Optional)</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">The dimensions automatically update to reflect your crop box percent scale. You can manually type specific width and height values to force an exact output resolution, or use the Scale dropdown to instantly apply 2x, 0.5x, etc., multipliers.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Cropping & Composition (Optional)</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Drag the handles over the visual preview to crop your image. You can lock the aspect ratio using
+                        the preset options (1:1, 16:9, etc.) above the preview to maintain standard proportions.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Define Output Settings</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        On the left settings pane, select your desired Export Format (WebP is highly recommended for web
+                        usage) and adjust the compression Quality slider based on your preferred file size targets.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Explicit Resizing (Optional)</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        The dimensions automatically update to reflect your crop box percent scale. You can manually
+                        type specific width and height values to force an exact output resolution, or use the Scale
+                        dropdown to instantly apply 2x, 0.5x, etc., multipliers.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Generate & Download</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Generate Output". Your image is instantly processed 100% locally within your browser tab. A final preview will render along with its optimized file size. Click Download to save the resulting optimized image!</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Generate Output". Your image is instantly processed 100% locally within your browser tab.
+                        A final preview will render along with its optimized file size. Click Download to save the
+                        resulting optimized image!
+                     </p>
                   </div>
                </div>
             </div>
@@ -133,7 +166,10 @@ export function ImageConverterSeoContent() {
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center"> Frequently Asked Questions </h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  {' '}
+                  Frequently Asked Questions{' '}
+               </h2>
                <p className="text-muted-foreground text-center">Notes regarding the underlying optimization logic.</p>
             </div>
 

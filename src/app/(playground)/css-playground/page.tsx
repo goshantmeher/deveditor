@@ -42,18 +42,16 @@ import { CssPlaygroundSeoContent } from '@/components/css-playground/docs/CssPla
 
 export default function Page() {
    return (
-      
-         <div id="page-top" className="flex flex-col">
-            {/* The main editor viewport */}
-            <div className="h-[calc(100vh-72px)] shrink-0">
-               <CssPlaygroundView />
-            </div>
-
-            {/* SEO Content directly in the DOM, below the fold */}
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
-               <CssPlaygroundSeoContent />
-            </div>
+      <div id="page-top" className="flex flex-col">
+         {/* The main editor viewport */}
+         <div className="h-[calc(100vh-72px)] shrink-0">
+            <CssPlaygroundView />
          </div>
-      
+
+         {/* SEO Content directly in the DOM, below the fold */}
+         <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
+            <CssPlaygroundSeoContent />
+         </div>
+      </div>
    );
 }

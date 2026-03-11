@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Copy, Check, RotateCcw, Shield, FlaskConical } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -16,14 +15,14 @@ export function HashGeneratorView() {
 
    const [input, setInput] = useState('');
    const [hashes, setHashes] = useState<Record<HashAlgorithm, string>>({
-      'MD5': '',
+      MD5: '',
       'SHA-1': '',
       'SHA-256': '',
       'SHA-512': '',
    });
-   
+
    const [copiedStates, setCopiedStates] = useState<Record<HashAlgorithm, boolean>>({
-      'MD5': false,
+      MD5: false,
       'SHA-1': false,
       'SHA-256': false,
       'SHA-512': false,
@@ -50,7 +49,7 @@ export function HashGeneratorView() {
    useEffect(() => {
       if (!input) {
          setHashes({
-            'MD5': '',
+            MD5: '',
             'SHA-1': '',
             'SHA-256': '',
             'SHA-512': '',
@@ -67,7 +66,7 @@ export function HashGeneratorView() {
          ]);
 
          setHashes({
-            'MD5': md5,
+            MD5: md5,
             'SHA-1': sha1,
             'SHA-256': sha256,
             'SHA-512': sha512,
@@ -103,10 +102,15 @@ export function HashGeneratorView() {
                <Shield className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">Hash Generator</span>
             </div>
-            
+
             <div className="flex items-center gap-2">
                {!input && (
-                  <Button variant="ghost" size="sm" className="h-8 text-xs text-muted-foreground" onClick={handleSample}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-8 text-xs text-muted-foreground"
+                     onClick={handleSample}
+                  >
                      <FlaskConical className="w-3.5 h-3.5 mr-1" />
                      Sample
                   </Button>
@@ -122,7 +126,6 @@ export function HashGeneratorView() {
 
          {/* Main Content */}
          <div className="flex-1 flex flex-col md:flex-row min-h-0 bg-background">
-            
             {/* Input Panel (Left) */}
             <div className="flex flex-col md:w-5/12 min-h-[200px] md:min-h-0 border-b md:border-b-0 md:border-r border-border">
                <div className="px-3 py-2 border-b min-h-12 border-border bg-background shrink-0 flex items-center justify-between">
@@ -149,17 +152,26 @@ export function HashGeneratorView() {
                      Generated Hashes
                   </span>
                </div>
-               
+
                <div className="flex-1 overflow-auto p-4 space-y-4">
                   {algorithms.map((algo) => (
-                     <div key={algo} className="flex flex-col space-y-1.5 p-3 rounded-lg border border-border bg-background shadow-xs hover:border-brand/30 transition-colors group">
+                     <div
+                        key={algo}
+                        className="flex flex-col space-y-1.5 p-3 rounded-lg border border-border bg-background shadow-xs hover:border-brand/30 transition-colors group"
+                     >
                         <div className="flex items-center justify-between">
                            <div className="flex items-center gap-2">
                               <span className="text-xs font-bold text-foreground bg-muted px-2 py-0.5 rounded uppercase tracking-wider">
                                  {algo}
                               </span>
                               <span className="text-tiny text-muted-foreground">
-                                 {algo === 'MD5' ? '128-bit' : algo === 'SHA-1' ? '160-bit' : algo === 'SHA-256' ? '256-bit' : '512-bit'}
+                                 {algo === 'MD5'
+                                    ? '128-bit'
+                                    : algo === 'SHA-1'
+                                      ? '160-bit'
+                                      : algo === 'SHA-256'
+                                        ? '256-bit'
+                                        : '512-bit'}
                               </span>
                            </div>
                            <Button
@@ -183,7 +195,9 @@ export function HashGeneratorView() {
                            </Button>
                         </div>
                         <div className="w-full bg-muted/20 p-2.5 rounded border border-border/50 break-all font-mono text-xs sm:text-sm text-foreground/90 selection:bg-brand/20">
-                           {hashes[algo] || <span className="text-muted-foreground/30 italic">Waiting for input...</span>}
+                           {hashes[algo] || (
+                              <span className="text-muted-foreground/30 italic">Waiting for input...</span>
+                           )}
                         </div>
                      </div>
                   ))}

@@ -161,7 +161,6 @@ export function buildQueryString(params: { key: string; value: string }[]): stri
 /**
  * Sample URL for demonstration.
  */
-export const SAMPLE_URL =
-   'https://example.com/search?query=hello%20world&lang=en&page=1&sort=relevance#results';
+export const SAMPLE_URL = 'https://example.com/search?query=hello%20world&lang=en&page=1&sort=relevance#results';
 
 export const SAMPLE_TEXT = 'Hello World! How are you? Special chars: <>&"\'@#$%^*()';

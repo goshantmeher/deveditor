@@ -155,45 +155,72 @@ export function ColorConverterSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert Colors & Build Palettes</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Convert Colors & Build Palettes
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Enter a Base Color</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Input a color using HEX, RGB, or HSL format, or use the visual color picker to find the perfect starting point for your project.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Review Format Conversions</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Instantly view the equivalent values in every major color model. This makes it easy to move between web (CSS) and print (CMYK) design requirements.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Check Accessibility Compliance</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Observe the WCAG compliance badge. The tool automatically tests foreground/background contrast ratios to ensure your color choices meet AA or AAA standards.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Input a color using HEX, RGB, or HSL format, or use the visual color picker to find the perfect
+                        starting point for your project.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Explore Color Harmonies</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Scroll down to see automatically generated monochromatic, triadic, and complementary palettes derived from your base seed color using mathematical color theory.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Review Format Conversions</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Instantly view the equivalent values in every major color model. This makes it easy to move
+                        between web (CSS) and print (CMYK) design requirements.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Check Accessibility Compliance</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Observe the WCAG compliance badge. The tool automatically tests foreground/background contrast
+                        ratios to ensure your color choices meet AA or AAA standards.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Explore Color Harmonies</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Scroll down to see automatically generated monochromatic, triadic, and complementary palettes
+                        derived from your base seed color using mathematical color theory.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy Palette Values</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click any color block in your generated harmony to copy its HEX value. You can also export the entire palette as a CSS variable list for your design system.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click any color block in your generated harmony to copy its HEX value. You can also export the
+                        entire palette as a CSS variable list for your design system.
+                     </p>
                   </div>
                </div>
             </div>

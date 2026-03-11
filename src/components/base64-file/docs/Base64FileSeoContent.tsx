@@ -47,7 +47,8 @@ export function Base64FileSeoContent() {
                Base64 File <span className="text-indigo-500">Encoder</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Convert any image, document, or archive straight into Base64 format perfectly, and decode raw Base64 data securely back into original download files locally.
+               Convert any image, document, or archive straight into Base64 format perfectly, and decode raw Base64 data
+               securely back into original download files locally.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function Base64FileSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Any File Type</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Support for PDFs, JPEG/PNG images, WebP, ZIP archives, MP3 audio, and more. If it is a file, we encode it.
+                  Support for PDFs, JPEG/PNG images, WebP, ZIP archives, MP3 audio, and more. If it is a file, we encode
+                  it.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function Base64FileSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Secure Privacy</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Every calculation is strictly local. Your private documents never cross the network, making this safe for corporate or sensitive assets.
+                  Every calculation is strictly local. Your private documents never cross the network, making this safe
+                  for corporate or sensitive assets.
                </p>
             </div>
 
@@ -79,52 +82,82 @@ export function Base64FileSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Bi-Directional</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Two modes baked into one workspace. Convert files to Base64 strings, or paste a massive Base64 string to download the original file intact.
+                  Two modes baked into one workspace. Convert files to Base64 strings, or paste a massive Base64 string
+                  to download the original file intact.
                </p>
             </div>
          </div>
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Encode & Decode Files</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Encode & Decode Files
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Select Processing Direction</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose "File to Base64" to encode a binary asset, or "Base64 to File" if you have a raw string you need to reconstruct into a downloadable document.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Upload Your Source File</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Drag and drop any file (Image, PDF, ZIP, etc.) into the upload zone. The tool will instantly parse the binary data using the browser's local FileReader API.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Data URI (Optional)</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">When encoding, you can toggle the "Include Data URI Prefix" option. This adds the <code className="text-indigo-400">data:[mime];base64,</code> header required for embedding directly in HTML or CSS source code.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose "File to Base64" to encode a binary asset, or "Base64 to File" if you have a raw string
+                        you need to reconstruct into a downloadable document.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Verify the Decoded Signature</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">If decoding a string, the tool will attempt to identify the magic bytes (file signature) to auto-detect the file extension, ensuring your download is correctly formatted (e.g., .png, .pdf).</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Upload Your Source File</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Drag and drop any file (Image, PDF, ZIP, etc.) into the upload zone. The tool will instantly
+                        parse the binary data using the browser's local FileReader API.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Data URI (Optional)</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        When encoding, you can toggle the "Include Data URI Prefix" option. This adds the{' '}
+                        <code className="text-indigo-400">data:[mime];base64,</code> header required for embedding
+                        directly in HTML or CSS source code.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify the Decoded Signature</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        If decoding a string, the tool will attempt to identify the magic bytes (file signature) to
+                        auto-detect the file extension, ensuring your download is correctly formatted (e.g., .png,
+                        .pdf).
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy String or Download File</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Once processing is complete, either copy the generated string to your clipboard or click "Download File" to save the binary output back to your local disk.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Once processing is complete, either copy the generated string to your clipboard or click
+                        "Download File" to save the binary output back to your local disk.
+                     </p>
                   </div>
                </div>
             </div>
@@ -133,7 +166,10 @@ export function Base64FileSeoContent() {
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center"> Frequently Asked Questions </h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  {' '}
+                  Frequently Asked Questions{' '}
+               </h2>
                <p className="text-muted-foreground text-center">Important notes regarding file format architecture.</p>
             </div>
 
@@ -155,7 +191,9 @@ export function Base64FileSeoContent() {
                      Is my input data saved?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20">
-                     To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the 'Persist Data' switch in the tool settings.
+                     To improve your experience, your input data is saved locally in your browser using localStorage.
+                     This is entirely client-side, meaning your data never leaves your device. You can opt-out of this
+                     behavior at any time by disabling the 'Persist Data' switch in the tool settings.
                   </p>
                </div>
             </div>

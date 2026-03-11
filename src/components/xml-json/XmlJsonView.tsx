@@ -15,9 +15,9 @@ export function XmlJsonView() {
       defaultMode: 'format-to-json',
       defaultInput: '<root>\n  <user>\n    <id>1</id>\n    <name>Alice</name>\n  </user>\n</root>',
       parseToJson: (input: string) => {
-         const parser = new XMLParser({ 
+         const parser = new XMLParser({
             ignoreAttributes: false,
-            attributeNamePrefix: "@_"
+            attributeNamePrefix: '@_',
          });
          const parsed = parser.parse(input);
          // if parsed is string, then it didn't parse xml correctly (invalid) or it's empty
@@ -27,13 +27,13 @@ export function XmlJsonView() {
          return parsed;
       },
       jsonToFormat: (json: unknown, indent: number) => {
-         const builder = new XMLBuilder({ 
+         const builder = new XMLBuilder({
             ignoreAttributes: false,
             format: true,
-            indentBy: " ".repeat(indent),
-            attributeNamePrefix: "@_"
+            indentBy: ' '.repeat(indent),
+            attributeNamePrefix: '@_',
          });
-         return builder.build(json as any);
+         return builder.build(json as Record<string, unknown>);
       },
    };
 
