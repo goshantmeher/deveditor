@@ -89,6 +89,10 @@ export const STORAGE_KEYS = {
    CSS_PLAYGROUND_PRESET: 'deveditor-css-play-preset',
    CSS_PLAYGROUND_MODE: 'deveditor-css-play-mode',
    RESUME_DATA: 'deveditor-resume-data',
+
+   // Homepage
+   FAVORITES: 'deveditor-favorites',
+   RECENTLY_USED: 'deveditor-recently-used',
 } as const;
 
 export const DEFAULT_INPUTS = {

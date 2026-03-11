@@ -41,11 +41,11 @@
 ---
 
 ## 💡 Cross-Cutting Enhancements
-- [ ] **Privacy Badge Component** — Reusable "🛡️ 100% client-side processing" badge for every tool page.
-- [ ] **Keyboard Shortcuts** — Global shortcuts (Ctrl+K for search, etc.).
-- [ ] **Tool Favoriting** — Let users star/pin their most-used tools (localStorage).
-- [ ] **Recently Used** — Show last 5 used tools at the top of the homepage.
-- [ ] **Share tool with config** — Encode tool state in URL params for pre-filled links.
+- [x] **Privacy Badge Component** — Reusable `PrivacyBadge` component used across all tool pages.
+- [x] **Keyboard Shortcuts** — Ctrl+K (or Cmd+K on Mac) focuses search; Escape clears & blurs it.
+- [x] **Tool Favoriting** — Star/pin tools from the homepage; stored in `localStorage`.
+- [x] **Recently Used** — Last 5 visited tools shown at the top of the homepage; stored in `localStorage`.
+- [ ] **Share tool with config** — Encode tool state in URL params for pre-filled sharable links.
 
 ---
 
