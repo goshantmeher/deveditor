@@ -97,8 +97,13 @@ export function FontPairView() {
       localStorage.setItem(STORAGE_KEYS.FONT_PAIR_SETTINGS, JSON.stringify(state));
    }, [state, isPersistenceEnabled]);
 
+   /** Strip anything that isn't a letter, digit, space, or hyphen — safe for Google Fonts URLs and CSS. */
+   const sanitizeFontName = (name: string): string =>
+      name.replace(/[^a-zA-Z0-9 -]/g, '').trim().slice(0, 80);
+
    const getFontUrl = (fontName: string) => {
-      return `https://fonts.googleapis.com/css2?family=${fontName.replace(/ /g, '+')}:wght@400;500;600;700&display=swap`;
+      const safe = sanitizeFontName(fontName);
+      return `https://fonts.googleapis.com/css2?family=${safe.replace(/ /g, '+')}:wght@400;500;600;700&display=swap`;
    };
 
    const randomize = () => {
@@ -110,8 +115,8 @@ export function FontPairView() {
       setState(DEFAULT_STATE);
    };
 
-   const activeHeadingFont = state.customHeadingFont || state.headingFont;
-   const activeBodyFont = state.customBodyFont || state.bodyFont;
+   const activeHeadingFont = sanitizeFontName(state.customHeadingFont || state.headingFont);
+   const activeBodyFont = sanitizeFontName(state.customBodyFont || state.bodyFont);
 
    const getHtmlLink = () => {
       const uniqueFonts = Array.from(new Set([activeHeadingFont, activeBodyFont]));

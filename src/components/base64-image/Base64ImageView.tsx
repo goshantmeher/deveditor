@@ -15,6 +15,11 @@ export function Base64ImageView() {
    const [imgSrc, setImgSrc] = useState<string | null>(null);
    const [previewBg, setPreviewBg] = useState<'theme' | 'checkers' | 'white' | 'black'>('checkers');
 
+   /** Only allow data URLs for whitelisted image MIME types encoded in base64. */
+   const isSafeImageDataUrl = (url: string): boolean => {
+      return /^data:image\/(png|jpe?g|gif|webp|svg\+xml);base64,[a-zA-Z0-9+/]+=*$/.test(url);
+   };
+
    // Load state from localStorage
    useEffect(() => {
       if (typeof window === 'undefined' || isInitialized.current) return;
@@ -42,9 +47,9 @@ export function Base64ImageView() {
          return;
       }
 
-      // If it has a data URI, use it directly (if it's an image)
+      // If it has a data URI, use it directly only if it's a safe image
       if (trimmed.startsWith('data:image/')) {
-         setImgSrc(trimmed);
+         setImgSrc(isSafeImageDataUrl(trimmed) ? trimmed : null);
          return;
       }
 
@@ -60,11 +65,11 @@ export function Base64ImageView() {
          src = `data:${mime};base64,${trimmed}`;
       }
 
-      setImgSrc(src);
+      setImgSrc(isSafeImageDataUrl(src) ? src : null);
    }, [inputStr]);
 
    const handleDownload = () => {
-      if (!imgSrc) return;
+      if (!imgSrc || !isSafeImageDataUrl(imgSrc)) return;
 
       const link = document.createElement('a');
       link.href = imgSrc;
