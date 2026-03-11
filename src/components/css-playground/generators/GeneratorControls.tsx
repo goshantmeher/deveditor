@@ -4,6 +4,7 @@ import React from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
+import { Input } from '@/components/ui/input';
 
 interface ControlSliderProps {
    label: string;
@@ -121,6 +122,27 @@ export function ControlGroup({ title, children }: ControlGroupProps) {
             {title}
          </h4>
          <div className="space-y-3">{children}</div>
+      </div>
+   );
+}
+
+interface ControlInputProps {
+   label: string;
+   value: string;
+   onChange: (value: string) => void;
+   placeholder?: string;
+}
+
+export function ControlInput({ label, value, onChange, placeholder }: ControlInputProps) {
+   return (
+      <div className="flex flex-col gap-1.5">
+         <Label className="text-[11px] font-medium text-muted-foreground">{label}</Label>
+         <Input
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            placeholder={placeholder}
+            className="h-8 text-xs px-2"
+         />
       </div>
    );
 }
