@@ -257,6 +257,14 @@ const categories: Category[] = [
             tags: ['font', 'google fonts', 'pair', 'typography', 'preview'],
          },
          {
+            title: 'Icon Font & Sprite Builder',
+            description: 'Browse, select, and build customized SVG icon bundles from various open-source libraries.',
+            icon: '📦',
+            href: '/icon-builder',
+            status: 'available',
+            tags: ['icon', 'font', 'svg', 'sprite', 'builder', 'lucide'],
+         },
+         {
             title: 'Theme Generator',
             description:
                'Generate comprehensive UI themes (Tailwind/CSS tokens). Evaluate and export JSON automatically.',

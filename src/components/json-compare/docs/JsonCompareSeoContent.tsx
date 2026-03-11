@@ -44,10 +44,11 @@ export function JsonCompareSeoContent() {
                Logic Debugger
             </div>
             <h1 className="text-4xl md:text-6xl font-black tracking-tight text-foreground leading-[1.1]">
-               JSON <span className="text-orange-500">Compare & Diff</span> 
+               JSON <span className="text-orange-500">Compare & Diff</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Securely analyze deeply nested structural differences between two JSON payloads right in your browser. Features automatic key sorting, canonical formatting, and robust error recovery.
+               Securely analyze deeply nested structural differences between two JSON payloads right in your browser.
+               Features automatic key sorting, canonical formatting, and robust error recovery.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function JsonCompareSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Semantic Comparisons</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Keys are automatically sorted inside nested objects before the diff runs. Focus purely on changed data rather than random hash key re-ordering from APIs.
+                  Keys are automatically sorted inside nested objects before the diff runs. Focus purely on changed data
+                  rather than random hash key re-ordering from APIs.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function JsonCompareSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Auto-Repairing Input</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Broken chunks of JSON dumped from system log files? Missing brackets? Trailing commas? Our parser heals broken payload inputs seamlessly.
+                  Broken chunks of JSON dumped from system log files? Missing brackets? Trailing commas? Our parser
+                  heals broken payload inputs seamlessly.
                </p>
             </div>
 
@@ -79,52 +82,83 @@ export function JsonCompareSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Extremely Private</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Engineered exclusively for sensitive API keys and PII debugging. Local memory handles the semantic DiffMatchPatch rendering directly on your hardware.
+                  Engineered exclusively for sensitive API keys and PII debugging. Local memory handles the semantic
+                  DiffMatchPatch rendering directly on your hardware.
                </p>
             </div>
          </div>
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Compare JSON Payloads</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Compare JSON Payloads
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Target JSON Data</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your original JSON into the "Left side" editor and the modified version into the "Right side" editor. You can also drag and drop .json files directly into either pane.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Enable Structural Normalization</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Turn on "Auto-sort Keys" in the settings bar. This is a critical step that ensures the comparison focuses on data changes rather than just different key orders common in API responses.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Review the Split-View Diff</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">The visual workspace highlights exactly what was <span className="text-emerald-500 font-bold">Added (+)</span>, <span className="text-rose-500 font-bold">Removed (-)</span>, or Modified. You can toggle between "Split" and "Unified" view modes based on your preference.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Paste your original JSON into the "Left side" editor and the modified version into the "Right
+                        side" editor. You can also drag and drop .json files directly into either pane.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Navigate Large Changes</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Use the change markers in the editor gutter to jump instantly between discrepancies. Fold unchanged objects to collapse large, identical blocks of data and focus on what matters.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enable Structural Normalization</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Turn on "Auto-sort Keys" in the settings bar. This is a critical step that ensures the
+                        comparison focuses on data changes rather than just different key orders common in API
+                        responses.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Review the Split-View Diff</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        The visual workspace highlights exactly what was{' '}
+                        <span className="text-emerald-500 font-bold">Added (+)</span>,{' '}
+                        <span className="text-rose-500 font-bold">Removed (-)</span>, or Modified. You can toggle
+                        between "Split" and "Unified" view modes based on your preference.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Navigate Large Changes</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Use the change markers in the editor gutter to jump instantly between discrepancies. Fold
+                        unchanged objects to collapse large, identical blocks of data and focus on what matters.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Export Results</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Once you've identified the logic bugs or data shifts, use the copy buttons on individual panes to retrieve the formatted data for your code environment.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Once you've identified the logic bugs or data shifts, use the copy buttons on individual panes
+                        to retrieve the formatted data for your code environment.
+                     </p>
                   </div>
                </div>
             </div>
@@ -133,8 +167,13 @@ export function JsonCompareSeoContent() {
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center"> Frequently Asked Questions </h2>
-               <p className="text-muted-foreground text-center">Important notes regarding standard logic configurations.</p>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+                  {' '}
+                  Frequently Asked Questions{' '}
+               </h2>
+               <p className="text-muted-foreground text-center">
+                  Important notes regarding standard logic configurations.
+               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
@@ -155,7 +194,8 @@ export function JsonCompareSeoContent() {
                      Are my editors saved when I leave?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-orange-500/20">
-                     By default, yes. DevEditor locally caches your text states directly inside native browser storage seamlessly. At any time, this behavior can be toggled via the sitewide properties.
+                     By default, yes. DevEditor locally caches your text states directly inside native browser storage
+                     seamlessly. At any time, this behavior can be toggled via the sitewide properties.
                   </p>
                </div>
             </div>

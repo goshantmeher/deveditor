@@ -6,7 +6,12 @@ import { Button } from '@/components/ui/button';
 import { FilePlus, Download, RotateCcw, Loader2, Plus, FileText, File, X, FileUp } from 'lucide-react';
 import { PdfToolSelector } from '@/components/pdf-tools/PdfToolSelector';
 import { PdfDropzone } from '@/components/pdf-tools/PdfDropzone';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import {
+   DropdownMenu,
+   DropdownMenuContent,
+   DropdownMenuItem,
+   DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { Fragment } from 'react';
 
 type RenderItem =
@@ -46,7 +51,7 @@ export function AddPagesView() {
    }, []);
 
    const addBlankPage = (index: number) => {
-      setItems(prev => {
+      setItems((prev) => {
          const newItems = [...prev];
          newItems.splice(index, 0, { id: `blank-${Date.now()}`, type: 'blank-page' });
          return newItems;
@@ -70,14 +75,14 @@ export function AddPagesView() {
          const pdf = await PDFDocument.load(buffer, { ignoreEncryption: true });
          const pages = pdf.getPageCount();
 
-         setItems(prev => {
+         setItems((prev) => {
             const newItems = [...prev];
             newItems.splice(insertIndex, 0, {
                id: `pdf-${Date.now()}`,
                type: 'inserted-pdf',
                name: file.name,
                pages,
-               data: buffer
+               data: buffer,
             });
             return newItems;
          });
@@ -87,7 +92,7 @@ export function AddPagesView() {
    };
 
    const removeItem = (id: string) => {
-      setItems(prev => prev.filter(item => item.id !== id));
+      setItems((prev) => prev.filter((item) => item.id !== id));
    };
 
    const handleGenerate = useCallback(async () => {
@@ -109,7 +114,7 @@ export function AddPagesView() {
             } else if (item.type === 'inserted-pdf') {
                const insertedDoc = await PDFDocument.load(item.data, { ignoreEncryption: true });
                const pages = await newPdf.copyPages(insertedDoc, insertedDoc.getPageIndices());
-               pages.forEach(p => newPdf.addPage(p));
+               pages.forEach((p) => newPdf.addPage(p));
             }
          }
 
@@ -178,9 +183,7 @@ export function AddPagesView() {
             </div>
             <div className="flex items-center gap-2 flex-wrap">
                {baseFile && (
-                  <span className="text-[10px] text-muted-foreground tabular-nums">
-                     {items.length} Elements
-                  </span>
+                  <span className="text-[10px] text-muted-foreground tabular-nums">{items.length} Elements</span>
                )}
                <Button
                   variant="ghost"
@@ -255,17 +258,19 @@ export function AddPagesView() {
                               {item.type === 'base-page' && (
                                  <>
                                     <FileText className="w-8 h-8 text-muted-foreground mb-3 opacity-30" />
-                                    <div className="text-xs font-semibold text-muted-foreground">Page {item.pageNumber}</div>
+                                    <div className="text-xs font-semibold text-muted-foreground">
+                                       Page {item.pageNumber}
+                                    </div>
                                  </>
                               )}
-                              
+
                               {item.type === 'blank-page' && (
                                  <>
                                     <File className="w-8 h-8 text-emerald-400 mb-3 opacity-80" />
                                     <div className="text-xs font-semibold text-emerald-500 text-center">Blank Page</div>
                                  </>
                               )}
-                              
+
                               {item.type === 'inserted-pdf' && (
                                  <>
                                     <FilePlus className="w-8 h-8 text-indigo-400 mb-3 opacity-80" />
@@ -278,7 +283,7 @@ export function AddPagesView() {
                                  </>
                               )}
                            </div>
-                           
+
                            {renderInsertButton(index + 1)}
                         </Fragment>
                      ))}

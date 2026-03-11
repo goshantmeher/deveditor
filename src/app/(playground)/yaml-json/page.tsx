@@ -6,7 +6,15 @@ export const metadata: Metadata = {
    title: 'YAML to JSON Converter - DevEditor',
    description:
       'Bi-directionally convert YAML configurations to rigid JSON matrix formats instantly safely securely offline directly inside your terminal workflow environment.',
-   keywords: ['yaml to json', 'json to yaml', 'yaml converter', 'json converter', 'convert yaml', 'format yaml', 'parse yaml'],
+   keywords: [
+      'yaml to json',
+      'json to yaml',
+      'yaml converter',
+      'json converter',
+      'convert yaml',
+      'format yaml',
+      'parse yaml',
+   ],
    openGraph: {
       title: 'Bi-Directional YAML ↔ JSON Tool',
       description: 'Format complex deeply nested configurations precisely offline.',

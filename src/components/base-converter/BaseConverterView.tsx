@@ -1,7 +1,17 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { RefreshCcw, Copy, CheckCircle2, FlaskConical, RotateCcw, Hash, Binary, SquareTerminal, Octagon } from 'lucide-react';
+import {
+   RefreshCcw,
+   Copy,
+   CheckCircle2,
+   FlaskConical,
+   RotateCcw,
+   Hash,
+   Binary,
+   SquareTerminal,
+   Octagon,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { usePersistence } from '@/contexts/PersistenceContext';
@@ -76,7 +86,11 @@ const BaseCard = ({
                onClick={() => onCopy(displayValue, base)}
                disabled={!displayValue || (isInput && !!currentError)}
             >
-               {copiedBase === base ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+               {copiedBase === base ? (
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+               ) : (
+                  <Copy className="w-4 h-4" />
+               )}
             </Button>
          </div>
          <Input

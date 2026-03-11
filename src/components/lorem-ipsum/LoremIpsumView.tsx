@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Copy, Check, FileText, RefreshCw, Hash } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -70,7 +69,7 @@ export function LoremIpsumView() {
 
    // Adjust max values based on type
    const maxCount = type === 'paragraphs' ? 50 : type === 'sentences' ? 100 : 1000;
-   
+
    // Handle count input safely
    const handleCountInput = (e: React.ChangeEvent<HTMLInputElement>) => {
       let val = parseInt(e.target.value, 10);
@@ -88,7 +87,7 @@ export function LoremIpsumView() {
                <FileText className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">Lorem Ipsum Generator</span>
             </div>
-            
+
             <div className="flex-1" />
 
             {/* Actions */}
@@ -96,7 +95,7 @@ export function LoremIpsumView() {
                <RefreshCw className="w-3.5 h-3.5 mr-1" />
                <span className="hidden sm:inline">Regenerate</span>
             </Button>
-            
+
             <Button
                variant="default"
                size="sm"
@@ -128,7 +127,7 @@ export function LoremIpsumView() {
                      Generator Settings
                   </span>
                </div>
-               
+
                <div className="p-5 space-y-6">
                   {/* Output Type */}
                   <div className="space-y-3">
@@ -159,9 +158,7 @@ export function LoremIpsumView() {
                   {/* Quantity Slider */}
                   <div className="space-y-4 pt-2">
                      <div className="flex justify-between items-center">
-                        <label className="text-xs font-semibold text-foreground uppercase">
-                           Number of {type}
-                        </label>
+                        <label className="text-xs font-semibold text-foreground uppercase">Number of {type}</label>
                         <input
                            type="number"
                            className="w-16 h-7 text-right bg-muted/20 border border-border/40 rounded px-2 text-xs focus:outline-none focus:border-brand/40"
@@ -186,7 +183,9 @@ export function LoremIpsumView() {
                      <div className="flex items-center justify-between">
                         <div className="space-y-0.5">
                            <label className="text-sm font-medium">Start with "Lorem ipsum"</label>
-                           <p className="text-xs text-muted-foreground">Force output to begin with the standard phrase.</p>
+                           <p className="text-xs text-muted-foreground">
+                              Force output to begin with the standard phrase.
+                           </p>
                         </div>
                         <Switch checked={startWithLorem} onCheckedChange={setStartWithLorem} />
                      </div>
@@ -203,12 +202,10 @@ export function LoremIpsumView() {
                      </span>
                   </div>
                   <div className="flex items-center gap-3">
-                     <span className="text-tiny text-muted-foreground">
-                        {output.length} characters
-                     </span>
+                     <span className="text-tiny text-muted-foreground">{output.length} characters</span>
                   </div>
                </div>
-               
+
                <div className="flex-1 w-full bg-background relative">
                   <textarea
                      value={output}

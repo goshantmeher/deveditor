@@ -34,16 +34,14 @@ import { PasswordStrengthSeoContent } from '@/components/password-strength/docs/
 
 export default function Page() {
    return (
-      
-         <div id="page-top" className="flex flex-col">
-            <div className="h-[calc(100vh-72px)] shrink-0 bg-background/50">
-               <PasswordStrengthView />
-            </div>
-
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
-               <PasswordStrengthSeoContent />
-            </div>
+      <div id="page-top" className="flex flex-col">
+         <div className="h-[calc(100vh-72px)] shrink-0 bg-background/50">
+            <PasswordStrengthView />
          </div>
-      
+
+         <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
+            <PasswordStrengthSeoContent />
+         </div>
+      </div>
    );
 }

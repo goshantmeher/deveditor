@@ -53,7 +53,7 @@ export function PdfToDocView() {
          for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
             const content = await page.getTextContent();
-            
+
             const segments: TextSegment[] = content.items.map((rawItem) => {
                const item = rawItem as { str?: string; fontName?: string; transform?: number[]; hasEOL?: boolean };
                const isTextItem = 'str' in item;
@@ -61,16 +61,16 @@ export function PdfToDocView() {
                const fontName = (item.fontName || '').toLowerCase();
                const transform = item.transform || [];
                const size = transform.length >= 4 ? Math.round(Math.abs(transform[3])) : 12;
-               
+
                return {
                   text: str,
                   isBold: fontName.includes('bold') || fontName.includes('black') || fontName.includes('heavy'),
                   isItalic: fontName.includes('italic') || fontName.includes('oblique'),
                   size: size > 0 ? size : 12,
-                  hasEOL: item.hasEOL || false
+                  hasEOL: item.hasEOL || false,
                };
             });
-            
+
             pagesInfo.push({ page: i, segments });
          }
 
@@ -89,20 +89,22 @@ export function PdfToDocView() {
       setIsDownloading(true);
       try {
          const children: Paragraph[] = [];
-         
+
          extractedPages.forEach((pageData) => {
             let currentParagraphRuns: TextRun[] = [];
-            
+
             pageData.segments.forEach((seg) => {
                if (seg.text) {
-                  currentParagraphRuns.push(new TextRun({
-                     text: seg.text,
-                     bold: seg.isBold,
-                     italics: seg.isItalic,
-                     size: seg.size * 2, // docx uses half-points
-                  }));
+                  currentParagraphRuns.push(
+                     new TextRun({
+                        text: seg.text,
+                        bold: seg.isBold,
+                        italics: seg.isItalic,
+                        size: seg.size * 2, // docx uses half-points
+                     })
+                  );
                }
-               
+
                if (seg.hasEOL) {
                   if (currentParagraphRuns.length > 0) {
                      children.push(new Paragraph({ children: currentParagraphRuns }));
@@ -112,7 +114,7 @@ export function PdfToDocView() {
                   }
                }
             });
-            
+
             if (currentParagraphRuns.length > 0) {
                children.push(new Paragraph({ children: currentParagraphRuns }));
             }
@@ -138,7 +140,7 @@ export function PdfToDocView() {
          a.download = `${baseName}_converted.docx`;
          a.click();
          URL.revokeObjectURL(url);
-         
+
          setDownloaded(true);
          setTimeout(() => setDownloaded(false), 2000);
       } catch (err) {
@@ -167,9 +169,7 @@ export function PdfToDocView() {
             </div>
             <div className="flex items-center gap-2 flex-wrap">
                {extractedPages && (
-                  <span className="text-[10px] text-muted-foreground tabular-nums">
-                     {pageCount} pages parsed
-                  </span>
+                  <span className="text-[10px] text-muted-foreground tabular-nums">{pageCount} pages parsed</span>
                )}
                <Button
                   variant="ghost"
@@ -247,7 +247,7 @@ export function PdfToDocView() {
                         {extractedPages.map((pageData, index) => {
                            let currentLine: TextSegment[] = [];
                            const lines: TextSegment[][] = [];
-                           
+
                            pageData.segments.forEach((seg, i) => {
                               currentLine.push(seg);
                               if (seg.hasEOL || i === pageData.segments.length - 1) {
@@ -262,24 +262,34 @@ export function PdfToDocView() {
                                     Page {pageData.page}
                                  </div>
                                  <div className="p-6">
-                                    {lines.length > 0 ? lines.map((line, lIdx) => (
-                                       <div key={lIdx} className="min-h-[1em] leading-relaxed wrap-break-word whitespace-pre-wrap">
-                                          {line.map((seg, sIdx) => {
-                                             if (!seg.text) return null;
-                                             return (
-                                                <span key={sIdx} style={{ 
-                                                   fontWeight: seg.isBold ? '700' : '400',
-                                                   fontStyle: seg.isItalic ? 'italic' : 'normal',
-                                                   fontSize: `${Math.max(12, Math.min(24, seg.size))}px`,
-                                                   lineHeight: 1.2
-                                                }}>
-                                                   {seg.text}
-                                                </span>
-                                             );
-                                          })}
+                                    {lines.length > 0 ? (
+                                       lines.map((line, lIdx) => (
+                                          <div
+                                             key={lIdx}
+                                             className="min-h-[1em] leading-relaxed wrap-break-word whitespace-pre-wrap"
+                                          >
+                                             {line.map((seg, sIdx) => {
+                                                if (!seg.text) return null;
+                                                return (
+                                                   <span
+                                                      key={sIdx}
+                                                      style={{
+                                                         fontWeight: seg.isBold ? '700' : '400',
+                                                         fontStyle: seg.isItalic ? 'italic' : 'normal',
+                                                         fontSize: `${Math.max(12, Math.min(24, seg.size))}px`,
+                                                         lineHeight: 1.2,
+                                                      }}
+                                                   >
+                                                      {seg.text}
+                                                   </span>
+                                                );
+                                             })}
+                                          </div>
+                                       ))
+                                    ) : (
+                                       <div className="text-sm text-muted-foreground italic">
+                                          No text found on this page.
                                        </div>
-                                    )) : (
-                                       <div className="text-sm text-muted-foreground italic">No text found on this page.</div>
                                     )}
                                  </div>
                               </div>

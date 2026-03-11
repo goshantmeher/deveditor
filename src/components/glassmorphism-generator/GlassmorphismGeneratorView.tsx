@@ -77,7 +77,9 @@ export function GlassmorphismGeneratorView() {
 
    // Convert hex to rgb
    const hexToRgb = (hex: string) => {
-      let r = 0, g = 0, b = 0;
+      let r = 0,
+         g = 0,
+         b = 0;
       if (hex.length === 4) {
          r = parseInt(hex[1] + hex[1], 16);
          g = parseInt(hex[2] + hex[2], 16);
@@ -117,7 +119,19 @@ export function GlassmorphismGeneratorView() {
          cls.push('border-[rgba(255,255,255,' + state.borderOpacity.toFixed(2) + ')]');
       }
       if (state.boxShadowOpacity > 0 || state.boxShadowBlur > 0) {
-         cls.push('shadow-[' + state.boxShadowX + 'px_' + state.boxShadowY + 'px_' + state.boxShadowBlur + 'px_' + state.boxShadowSpread + 'px_' + shadowColor.replace(/ /g, '') + ']');
+         cls.push(
+            'shadow-[' +
+               state.boxShadowX +
+               'px_' +
+               state.boxShadowY +
+               'px_' +
+               state.boxShadowBlur +
+               'px_' +
+               state.boxShadowSpread +
+               'px_' +
+               shadowColor.replace(/ /g, '') +
+               ']'
+         );
       }
       return `<!-- Tailwind CSS Glassmorphism -->
 <div class="${cls.join(' ')}">
@@ -144,10 +158,9 @@ export function GlassmorphismGeneratorView() {
 
    return (
       <div className="w-full h-full flex flex-col md:flex-row bg-background overflow-hidden relative border border-border rounded-xl shadow-sm">
-         
          {/* Live Preview Panel (Left/Top) */}
-         <div 
-            className="flex-1 min-h-[400px] md:min-h-0 relative flex items-center justify-center p-8 bg-cover bg-center overflow-hidden" 
+         <div
+            className="flex-1 min-h-[400px] md:min-h-0 relative flex items-center justify-center p-8 bg-cover bg-center overflow-hidden"
             style={{ backgroundImage: `url(${state.bgImage})` }}
          >
             {/* Background images picker */}
@@ -164,7 +177,7 @@ export function GlassmorphismGeneratorView() {
             </div>
 
             {/* The Glass Element */}
-            <div 
+            <div
                className="relative z-10 w-full max-w-sm aspect-square flex flex-col justify-center items-center p-8 text-center"
                style={{
                   background: rgbaColor,
@@ -187,34 +200,56 @@ export function GlassmorphismGeneratorView() {
                <Droplets className="w-4 h-4 text-brand" />
                <h2 className="font-semibold text-sm">Glassmorphism Settings</h2>
             </div>
-            
+
             <div className="flex-1 overflow-y-auto p-6 space-y-8">
                {/* Surface */}
                <div className="space-y-4">
                   <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
                      <PaintBucket className="w-4 h-4" /> Surface styling
                   </h3>
-                  
+
                   <div className="space-y-3">
                      <div className="flex justify-between items-center">
                         <label className="text-sm font-medium">Blur</label>
                         <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">{state.blur}px</span>
                      </div>
-                     <input type="range" min="0" max="100" value={state.blur} onChange={(e) => setState({...state, blur: Number(e.target.value)})} className="w-full accent-brand" />
+                     <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value={state.blur}
+                        onChange={(e) => setState({ ...state, blur: Number(e.target.value) })}
+                        className="w-full accent-brand"
+                     />
                   </div>
 
                   <div className="space-y-3">
                      <div className="flex justify-between items-center">
                         <label className="text-sm font-medium">Opacity</label>
-                        <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">{state.opacity.toFixed(2)}</span>
+                        <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">
+                           {state.opacity.toFixed(2)}
+                        </span>
                      </div>
-                     <input type="range" min="0" max="1" step="0.01" value={state.opacity} onChange={(e) => setState({...state, opacity: Number(e.target.value)})} className="w-full accent-brand" />
+                     <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value={state.opacity}
+                        onChange={(e) => setState({ ...state, opacity: Number(e.target.value) })}
+                        className="w-full accent-brand"
+                     />
                   </div>
 
                   <div className="space-y-3">
                      <div className="flex justify-between items-center">
                         <label className="text-sm font-medium">Color</label>
-                        <input type="color" value={state.color} onChange={(e) => setState({...state, color: e.target.value})} className="h-8 w-14 rounded cursor-pointer" />
+                        <input
+                           type="color"
+                           value={state.color}
+                           onChange={(e) => setState({ ...state, color: e.target.value })}
+                           className="h-8 w-14 rounded cursor-pointer"
+                        />
                      </div>
                   </div>
                </div>
@@ -224,21 +259,38 @@ export function GlassmorphismGeneratorView() {
                   <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
                      <ImageIcon className="w-4 h-4" /> Border Edge
                   </h3>
-                  
+
                   <div className="space-y-3">
                      <div className="flex justify-between items-center">
                         <label className="text-sm font-medium">Border Width</label>
                         <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">{state.borderSize}px</span>
                      </div>
-                     <input type="range" min="0" max="10" value={state.borderSize} onChange={(e) => setState({...state, borderSize: Number(e.target.value)})} className="w-full accent-brand" />
+                     <input
+                        type="range"
+                        min="0"
+                        max="10"
+                        value={state.borderSize}
+                        onChange={(e) => setState({ ...state, borderSize: Number(e.target.value) })}
+                        className="w-full accent-brand"
+                     />
                   </div>
-                  
+
                   <div className="space-y-3">
                      <div className="flex justify-between items-center">
                         <label className="text-sm font-medium">Border Opacity (White)</label>
-                        <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">{state.borderOpacity.toFixed(2)}</span>
+                        <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">
+                           {state.borderOpacity.toFixed(2)}
+                        </span>
                      </div>
-                     <input type="range" min="0" max="1" step="0.01" value={state.borderOpacity} onChange={(e) => setState({...state, borderOpacity: Number(e.target.value)})} className="w-full accent-brand" />
+                     <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value={state.borderOpacity}
+                        onChange={(e) => setState({ ...state, borderOpacity: Number(e.target.value) })}
+                        className="w-full accent-brand"
+                     />
                   </div>
                </div>
 
@@ -247,44 +299,82 @@ export function GlassmorphismGeneratorView() {
                   <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
                      <Layers className="w-4 h-4" /> Drop Shadow
                   </h3>
-                  
+
                   <div className="grid grid-cols-2 gap-4">
                      <div className="space-y-3">
                         <div className="flex justify-between items-center">
                            <label className="text-xs text-muted-foreground">X Offset</label>
                            <span className="text-[10px] font-mono">{state.boxShadowX}</span>
                         </div>
-                        <input type="range" min="-50" max="50" value={state.boxShadowX} onChange={(e) => setState({...state, boxShadowX: Number(e.target.value)})} className="w-full accent-brand" />
+                        <input
+                           type="range"
+                           min="-50"
+                           max="50"
+                           value={state.boxShadowX}
+                           onChange={(e) => setState({ ...state, boxShadowX: Number(e.target.value) })}
+                           className="w-full accent-brand"
+                        />
                      </div>
                      <div className="space-y-3">
                         <div className="flex justify-between items-center">
                            <label className="text-xs text-muted-foreground">Y Offset</label>
                            <span className="text-[10px] font-mono">{state.boxShadowY}</span>
                         </div>
-                        <input type="range" min="-50" max="50" value={state.boxShadowY} onChange={(e) => setState({...state, boxShadowY: Number(e.target.value)})} className="w-full accent-brand" />
+                        <input
+                           type="range"
+                           min="-50"
+                           max="50"
+                           value={state.boxShadowY}
+                           onChange={(e) => setState({ ...state, boxShadowY: Number(e.target.value) })}
+                           className="w-full accent-brand"
+                        />
                      </div>
                      <div className="space-y-3">
                         <div className="flex justify-between items-center">
                            <label className="text-xs text-muted-foreground">Blur</label>
                            <span className="text-[10px] font-mono">{state.boxShadowBlur}</span>
                         </div>
-                        <input type="range" min="0" max="100" value={state.boxShadowBlur} onChange={(e) => setState({...state, boxShadowBlur: Number(e.target.value)})} className="w-full accent-brand" />
+                        <input
+                           type="range"
+                           min="0"
+                           max="100"
+                           value={state.boxShadowBlur}
+                           onChange={(e) => setState({ ...state, boxShadowBlur: Number(e.target.value) })}
+                           className="w-full accent-brand"
+                        />
                      </div>
                      <div className="space-y-3">
                         <div className="flex justify-between items-center">
                            <label className="text-xs text-muted-foreground">Spread</label>
                            <span className="text-[10px] font-mono">{state.boxShadowSpread}</span>
                         </div>
-                        <input type="range" min="-50" max="50" value={state.boxShadowSpread} onChange={(e) => setState({...state, boxShadowSpread: Number(e.target.value)})} className="w-full accent-brand" />
+                        <input
+                           type="range"
+                           min="-50"
+                           max="50"
+                           value={state.boxShadowSpread}
+                           onChange={(e) => setState({ ...state, boxShadowSpread: Number(e.target.value) })}
+                           className="w-full accent-brand"
+                        />
                      </div>
                   </div>
 
                   <div className="space-y-3 pt-2">
                      <div className="flex justify-between items-center">
                         <label className="text-sm font-medium">Shadow Opacity (Black)</label>
-                        <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">{state.boxShadowOpacity.toFixed(2)}</span>
+                        <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">
+                           {state.boxShadowOpacity.toFixed(2)}
+                        </span>
                      </div>
-                     <input type="range" min="0" max="1" step="0.01" value={state.boxShadowOpacity} onChange={(e) => setState({...state, boxShadowOpacity: Number(e.target.value)})} className="w-full accent-brand" />
+                     <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value={state.boxShadowOpacity}
+                        onChange={(e) => setState({ ...state, boxShadowOpacity: Number(e.target.value) })}
+                        className="w-full accent-brand"
+                     />
                   </div>
                </div>
 
@@ -293,27 +383,34 @@ export function GlassmorphismGeneratorView() {
                   <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
                      <Maximize className="w-4 h-4" /> Border Radius
                   </h3>
-                  
+
                   <div className="space-y-3">
                      <div className="flex justify-between items-center">
                         <label className="text-sm font-medium">Rounding</label>
                         <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">{state.borderRadius}px</span>
                      </div>
-                     <input type="range" min="0" max="150" value={state.borderRadius} onChange={(e) => setState({...state, borderRadius: Number(e.target.value)})} className="w-full accent-brand" />
+                     <input
+                        type="range"
+                        min="0"
+                        max="150"
+                        value={state.borderRadius}
+                        onChange={(e) => setState({ ...state, borderRadius: Number(e.target.value) })}
+                        className="w-full accent-brand"
+                     />
                   </div>
                </div>
             </div>
-            
+
             {/* Output Code */}
             <div className="border-t border-border shrink-0 bg-muted/10">
                <div className="flex border-b border-border">
-                  <button 
+                  <button
                      className={`flex-1 py-2 text-xs font-bold ${activeTab === 'css' ? 'text-brand border-b-2 border-brand bg-brand/5' : 'text-muted-foreground hover:bg-muted/50'}`}
                      onClick={() => setActiveTab('css')}
                   >
                      CSS Code
                   </button>
-                  <button 
+                  <button
                      className={`flex-1 py-2 text-xs font-bold ${activeTab === 'tailwind' ? 'text-brand border-b-2 border-brand bg-brand/5' : 'text-muted-foreground hover:bg-muted/50'}`}
                      onClick={() => setActiveTab('tailwind')}
                   >
@@ -345,7 +442,6 @@ export function GlassmorphismGeneratorView() {
                </div>
             </div>
          </div>
-         
       </div>
    );
 }

@@ -6,7 +6,15 @@ export const metadata: Metadata = {
    title: 'Code Minifier / Beautifier - DevEditor',
    description:
       'Instantly compress or expand HTML, CSS, JavaScript, and JSON code. Run offline minification safely and beautify messy obfuscated source blocks natively.',
-   keywords: ['code minifier', 'code beautifier', 'javascript minify', 'css minifier', 'html formatter', 'json beautify', 'offline tool'],
+   keywords: [
+      'code minifier',
+      'code beautifier',
+      'javascript minify',
+      'css minifier',
+      'html formatter',
+      'json beautify',
+      'offline tool',
+   ],
    openGraph: {
       title: 'Code Minifier / Beautifier',
       description: 'Optimize script weight offline or format chaotic messy templates.',

@@ -149,12 +149,10 @@ export function JsonEditorSeoContent() {
          {/* Editor Guide Section */}
          <div className="space-y-8 border-t border-border/50 pt-24">
             <div className="text-center space-y-4">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
-                  JSON Editor Guide
-               </h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">JSON Editor Guide</h2>
                <p className="text-muted-foreground">Learn how to make the most out of the professional JSON suite.</p>
             </div>
-            
+
             <div className="bg-muted/30 rounded-3xl p-8 md:p-12 border border-border mt-12 max-w-4xl mx-auto">
                <JsonEditorInfo />
             </div>
@@ -162,45 +160,72 @@ export function JsonEditorSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Professionalize Your JSON</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Professionalize Your JSON
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Import Your Source Data</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw JSON into the editor or upload a file. The tool also supports CSV, YAML, and XML imports, automatically converting them to JSON on the fly.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Syntax & Logic</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Watch for red underline warnings indicating syntax errors. Use the "Auto-Fix" button to repair common mistakes like trailing commas or missing property quotes instantly.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Navigate Visual Tree</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Switch to the "Tree View" to explore deep nested structures. Expand or collapse objects and arrays to quickly locate specific keys without scrolling through thousands of lines.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Paste your raw JSON into the editor or upload a file. The tool also supports CSV, YAML, and XML
+                        imports, automatically converting them to JSON on the fly.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Format for Target Environment</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose "Beautify" with custom indentation for human readability, or "Minify" to strip all whitespace for optimized production API payloads.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Syntax & Logic</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Watch for red underline warnings indicating syntax errors. Use the "Auto-Fix" button to repair
+                        common mistakes like trailing commas or missing property quotes instantly.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Navigate Visual Tree</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Switch to the "Tree View" to explore deep nested structures. Expand or collapse objects and
+                        arrays to quickly locate specific keys without scrolling through thousands of lines.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Format for Target Environment</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose "Beautify" with custom indentation for human readability, or "Minify" to strip all
+                        whitespace for optimized production API payloads.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Export & Sync</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Download" to save your validated JSON file, or copy the string directly. Your progress is saved in local storage so you can pick up right where you left off.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Download" to save your validated JSON file, or copy the string directly. Your progress is
+                        saved in local storage so you can pick up right where you left off.
+                     </p>
                   </div>
                </div>
             </div>

@@ -32,9 +32,7 @@ function ExifTable({ data }: { data: ExifData }) {
             {entries.map(([key, value]) => (
                <tr key={key} className="border-b border-border/50">
                   <td className="py-2 font-mono text-[11px] text-foreground">{key}</td>
-                  <td className="py-2 font-mono text-[11px] text-muted-foreground break-all">
-                     {formatValue(value)}
-                  </td>
+                  <td className="py-2 font-mono text-[11px] text-muted-foreground break-all">{formatValue(value)}</td>
                </tr>
             ))}
          </tbody>
@@ -235,7 +233,11 @@ export function ExifViewerView() {
                      <ImageIcon className="w-8 h-8 text-indigo-500" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-1">Upload a Photo</h3>
-                  <p className="text-sm text-muted-foreground text-center">Drag & drop here, or click to browse files<br />(JPEG, PNG, WebP, HEIC)</p>
+                  <p className="text-sm text-muted-foreground text-center">
+                     Drag & drop here, or click to browse files
+                     <br />
+                     (JPEG, PNG, WebP, HEIC)
+                  </p>
                </div>
             )}
          </div>

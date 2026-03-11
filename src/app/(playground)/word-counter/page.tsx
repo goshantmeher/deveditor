@@ -24,7 +24,8 @@ export const metadata: Metadata = {
    twitter: {
       card: 'summary_large_image',
       title: 'Word & Character Counter',
-      description: 'Free Word and Character Counter. Get comprehensive text statistics and reading time estimates instantly.',
+      description:
+         'Free Word and Character Counter. Get comprehensive text statistics and reading time estimates instantly.',
    },
    alternates: {
       canonical: 'https://www.deveditor.io/word-counter',
@@ -35,18 +36,16 @@ import { WordCounterSeoContent } from '@/components/word-counter/docs/WordCounte
 
 export default function Page() {
    return (
-      
-         <div id="page-top" className="flex flex-col">
-            {/* The main tool viewport */}
-            <div className="h-[calc(100vh-72px)] shrink-0">
-               <WordCounterView />
-            </div>
-
-            {/* SEO Content directly in the DOM, below the fold */}
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
-               <WordCounterSeoContent />
-            </div>
+      <div id="page-top" className="flex flex-col">
+         {/* The main tool viewport */}
+         <div className="h-[calc(100vh-72px)] shrink-0">
+            <WordCounterView />
          </div>
-      
+
+         {/* SEO Content directly in the DOM, below the fold */}
+         <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
+            <WordCounterSeoContent />
+         </div>
+      </div>
    );
 }

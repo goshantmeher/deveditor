@@ -22,7 +22,7 @@ export function HtaccessGeneratorView() {
    const [subdomain, setSubdomain] = useState<SubdomainRule>('none');
    const [tls, setTls] = useState<TlsRule>('force-https');
 
-   const [customRules, setCustomRules] = useState<{from: string, to: string}[]>([]);
+   const [customRules, setCustomRules] = useState<{ from: string; to: string }[]>([]);
 
    const [output, setOutput] = useState('');
    const [isCopied, setIsCopied] = useState(false);
@@ -52,7 +52,10 @@ export function HtaccessGeneratorView() {
    // Save state
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(STORAGE_KEYS.HTACCESS_GENERATOR_INPUT, JSON.stringify({ serverType, domain, subdomain, tls, customRules }));
+      localStorage.setItem(
+         STORAGE_KEYS.HTACCESS_GENERATOR_INPUT,
+         JSON.stringify({ serverType, domain, subdomain, tls, customRules })
+      );
    }, [serverType, domain, subdomain, tls, customRules, isPersistenceEnabled]);
 
    // Generate configuration
@@ -82,8 +85,8 @@ export function HtaccessGeneratorView() {
 
          if (customRules.length > 0) {
             cfg += '# Custom Redirects\n';
-            customRules.forEach(r => {
-               if(r.from && r.to) {
+            customRules.forEach((r) => {
+               if (r.from && r.to) {
                   const fromPath = r.from.startsWith('/') ? r.from.substring(1) : r.from;
                   cfg += `RewriteRule ^${fromPath}$ ${r.to} [R=301,L]\n`;
                }
@@ -104,7 +107,7 @@ export function HtaccessGeneratorView() {
             cfg += tls === 'force-https' ? '# Redirect HTTP to HTTPS & resolve WWW\n' : '# Resolve WWW/non-WWW\n';
             cfg += 'server {\n';
             cfg += '    listen 80;\n';
-            
+
             if (subdomain === 'force-www') {
                cfg += `    server_name ${host} www.${host};\n`;
                cfg += `    return 301 ${nginxScheme}://www.${host}$request_uri;\n`;
@@ -125,8 +128,8 @@ export function HtaccessGeneratorView() {
             cfg += `    server_name ${subdomain === 'force-www' ? 'www.' : ''}${host};\n`;
             cfg += '    # ... other configs ...\n\n';
             cfg += '    # Custom Redirects\n';
-            customRules.forEach(r => {
-               if(r.from && r.to) {
+            customRules.forEach((r) => {
+               if (r.from && r.to) {
                   const fromPath = r.from.startsWith('/') ? r.from : `/${r.from}`;
                   cfg += `    rewrite ^${fromPath}$ ${r.to} permanent;\n`;
                }
@@ -192,15 +195,26 @@ export function HtaccessGeneratorView() {
                      <p className="text-xs text-muted-foreground">Configure Web Server Logic</p>
                   </div>
                </div>
-               <Button variant="ghost" size="sm" onClick={handleClear} className="text-muted-foreground hover:text-destructive hover:bg-destructive/10">
+               <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleClear}
+                  className="text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+               >
                   <RotateCcw className="w-3.5 h-3.5 mr-2" /> Reset
                </Button>
             </div>
 
             <div className="space-y-4 bg-card rounded-xl border border-border p-5 shadow-sm">
                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Target Server Stack</label>
-                  <Tabs value={serverType} onValueChange={(v) => setServerType(v as 'apache' | 'nginx')} className="w-full">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                     Target Server Stack
+                  </label>
+                  <Tabs
+                     value={serverType}
+                     onValueChange={(v) => setServerType(v as 'apache' | 'nginx')}
+                     className="w-full"
+                  >
                      <TabsList className="w-full grid grid-cols-2">
                         <TabsTrigger value="apache">Apache (.htaccess)</TabsTrigger>
                         <TabsTrigger value="nginx">Nginx (nginx.conf)</TabsTrigger>
@@ -209,17 +223,21 @@ export function HtaccessGeneratorView() {
                </div>
 
                <div className="space-y-1.5 pt-2">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Primary Local Domain Name</label>
-                  <Input 
-                     value={domain} 
-                     onChange={(e) => setDomain(e.target.value)} 
-                     placeholder="example.com" 
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                     Primary Local Domain Name
+                  </label>
+                  <Input
+                     value={domain}
+                     onChange={(e) => setDomain(e.target.value)}
+                     placeholder="example.com"
                      className="font-mono text-sm"
                   />
                </div>
 
                <div className="space-y-1.5 pt-2">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Subdomain Redirection rules</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                     Subdomain Redirection rules
+                  </label>
                   <Select value={subdomain} onValueChange={(v) => setSubdomain(v as SubdomainRule)}>
                      <SelectTrigger>
                         <SelectValue placeholder="Select rule" />
@@ -227,13 +245,17 @@ export function HtaccessGeneratorView() {
                      <SelectContent>
                         <SelectItem value="none">No Rewrite Rule</SelectItem>
                         <SelectItem value="force-www">Force explicit www (example.com → www...)</SelectItem>
-                        <SelectItem value="force-non-www">Force explicit non-www (www.example... → example...)</SelectItem>
+                        <SelectItem value="force-non-www">
+                           Force explicit non-www (www.example... → example...)
+                        </SelectItem>
                      </SelectContent>
                   </Select>
                </div>
 
                <div className="space-y-1.5 pt-2">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Encrypted Traffic TLS</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                     Encrypted Traffic TLS
+                  </label>
                   <Select value={tls} onValueChange={(v) => setTls(v as TlsRule)}>
                      <SelectTrigger>
                         <SelectValue placeholder="Select rule" />
@@ -248,7 +270,9 @@ export function HtaccessGeneratorView() {
 
             <div className="space-y-4 bg-card rounded-xl border border-border p-5 shadow-sm">
                <div className="flex items-center justify-between">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Targeted 301 Routes</label>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                     Targeted 301 Routes
+                  </label>
                   <Button variant="outline" size="sm" onClick={addCustomRule} className="h-7 text-xs font-medium">
                      + Add Route
                   </Button>
@@ -258,20 +282,25 @@ export function HtaccessGeneratorView() {
                   {customRules.map((rule, idx) => (
                      <div key={idx} className="flex gap-2 items-start bg-muted/30 p-2 rounded-lg border border-border">
                         <div className="flex-1 space-y-2">
-                           <Input 
-                              placeholder="/old-path.html" 
+                           <Input
+                              placeholder="/old-path.html"
                               value={rule.from}
                               onChange={(e) => updateRule(idx, 'from', e.target.value)}
                               className="h-8 text-xs font-mono"
                            />
-                           <Input 
-                              placeholder="/new-path" 
+                           <Input
+                              placeholder="/new-path"
                               value={rule.to}
                               onChange={(e) => updateRule(idx, 'to', e.target.value)}
                               className="h-8 text-xs font-mono"
                            />
                         </div>
-                        <Button variant="ghost" size="icon" onClick={() => removeRule(idx)} className="h-8 w-8 shrink-0 text-muted-foreground hover:text-red-500">
+                        <Button
+                           variant="ghost"
+                           size="icon"
+                           onClick={() => removeRule(idx)}
+                           className="h-8 w-8 shrink-0 text-muted-foreground hover:text-red-500"
+                        >
                            &times;
                         </Button>
                      </div>
@@ -292,15 +321,17 @@ export function HtaccessGeneratorView() {
                   <FileText className="w-4 h-4 text-purple-500" />
                   Generated {serverType === 'apache' ? '.htaccess' : 'nginx.conf'}
                </div>
-               <Button onClick={copyOutput} size="sm" className="bg-purple-600 hover:bg-purple-700 text-white rounded-lg h-8 px-4 text-xs font-semibold">
+               <Button
+                  onClick={copyOutput}
+                  size="sm"
+                  className="bg-purple-600 hover:bg-purple-700 text-white rounded-lg h-8 px-4 text-xs font-semibold"
+               >
                   {isCopied ? <CheckCircle2 className="w-3.5 h-3.5 mr-1.5" /> : <Copy className="w-3.5 h-3.5 mr-1.5" />}
                   Copy Code
                </Button>
             </div>
             <div className="flex-1 p-4 bg-[#1e1e1e] dark:bg-[#1e1e1e] overflow-auto">
-               <pre className="text-sm text-green-400 font-mono leading-relaxed whitespace-pre-wrap">
-                  {output}
-               </pre>
+               <pre className="text-sm text-green-400 font-mono leading-relaxed whitespace-pre-wrap">{output}</pre>
             </div>
          </div>
       </div>

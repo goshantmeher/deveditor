@@ -6,7 +6,15 @@ export const metadata: Metadata = {
    title: 'Unix Epoch Timestamp Converter - DevEditor',
    description:
       'Convert Unix epoch timestamps to human-readable dates and formats. Reverse convert standard ISO 8601 string dates cleanly back into 10 or 13-digit numerals directly offline safely.',
-   keywords: ['unix timestamp', 'epoch converter', 'time converter', 'timestamp to date', 'human readable time', 'posix time', 'convert ms to date'],
+   keywords: [
+      'unix timestamp',
+      'epoch converter',
+      'time converter',
+      'timestamp to date',
+      'human readable time',
+      'posix time',
+      'convert ms to date',
+   ],
    openGraph: {
       title: 'Unix Epoch Timestamp Converter',
       description: 'Quickly evaluate 10-digit server epoch numerals directly into local time.',

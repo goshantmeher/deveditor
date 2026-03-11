@@ -6,7 +6,15 @@ export const metadata: Metadata = {
    title: 'XML to JSON Converter - DevEditor',
    description:
       'Bi-directionally convert XML documents and attributes to JSON arrays and properties instantly safely securely offline directly inside your terminal workflow environment.',
-   keywords: ['xml to json', 'json to xml', 'xml converter', 'json converter', 'convert xml', 'format xml', 'parse xml'],
+   keywords: [
+      'xml to json',
+      'json to xml',
+      'xml converter',
+      'json converter',
+      'convert xml',
+      'format xml',
+      'parse xml',
+   ],
    openGraph: {
       title: 'Bi-Directional XML ↔ JSON Tool',
       description: 'Format complex markup documents dynamically offline reliably.',

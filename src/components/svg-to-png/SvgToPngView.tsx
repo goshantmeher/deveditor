@@ -43,10 +43,7 @@ export function SvgToPngView() {
 
    useEffect(() => {
       if (typeof window === 'undefined' || !isPersistenceEnabled || !isInitialized.current) return;
-      localStorage.setItem(
-         STORAGE_KEYS.SVG_TO_PNG,
-         JSON.stringify({ format, resolution, svgContent })
-      );
+      localStorage.setItem(STORAGE_KEYS.SVG_TO_PNG, JSON.stringify({ format, resolution, svgContent }));
    }, [format, resolution, svgContent, isPersistenceEnabled]);
 
    useEffect(() => {
@@ -90,11 +87,7 @@ export function SvgToPngView() {
          ctx.drawImage(img, 0, 0, w, h);
          URL.revokeObjectURL(url);
 
-         canvas.toBlob(
-            (b) => b && setOutputBlob(b),
-            format,
-            format === 'image/jpeg' ? 0.92 : undefined
-         );
+         canvas.toBlob((b) => b && setOutputBlob(b), format, format === 'image/jpeg' ? 0.92 : undefined);
       } catch {
          setError('Failed to render SVG. Check that your SVG markup is valid.');
       }
@@ -164,8 +157,16 @@ export function SvgToPngView() {
                </div>
 
                <div className="space-y-1.5">
-                  <label className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Output Format</label>
-                  <Select value={format} onValueChange={(v) => { setFormat(v as OutputFormat); setOutputBlob(null); }}>
+                  <label className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+                     Output Format
+                  </label>
+                  <Select
+                     value={format}
+                     onValueChange={(v) => {
+                        setFormat(v as OutputFormat);
+                        setOutputBlob(null);
+                     }}
+                  >
                      <SelectTrigger>
                         <SelectValue />
                      </SelectTrigger>
@@ -177,19 +178,26 @@ export function SvgToPngView() {
                </div>
 
                <div className="space-y-1.5">
-                  <label className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Max Dimension (px)</label>
+                  <label className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+                     Max Dimension (px)
+                  </label>
                   <Input
                      type="number"
                      min={64}
                      max={4096}
                      value={resolution}
-                     onChange={(e) => { setResolution(Number(e.target.value)); setOutputBlob(null); }}
+                     onChange={(e) => {
+                        setResolution(Number(e.target.value));
+                        setOutputBlob(null);
+                     }}
                      className="font-mono"
                   />
                </div>
 
                <div className="space-y-3 pt-4 border-t border-border/50">
-                  <label className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">Upload SVG File</label>
+                  <label className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+                     Upload SVG File
+                  </label>
                   <div
                      {...getRootProps()}
                      className="flex min-h-[80px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-border bg-muted/30 transition-all duration-300 hover:border-indigo-500/50 hover:bg-muted/50"
@@ -211,7 +219,9 @@ export function SvgToPngView() {
                      <div className="text-sm font-semibold text-foreground flex items-center gap-2">
                         Workspace
                         {outputBlob && (
-                           <span className="text-xs bg-emerald-500/10 text-emerald-500 px-2 py-0.5 rounded-full font-mono">Ready</span>
+                           <span className="text-xs bg-emerald-500/10 text-emerald-500 px-2 py-0.5 rounded-full font-mono">
+                              Ready
+                           </span>
                         )}
                      </div>
                      <div className="flex items-center gap-2">
@@ -228,10 +238,15 @@ export function SvgToPngView() {
 
                   <div className="flex-1 overflow-auto p-4 md:p-6 flex flex-col gap-4">
                      <div className="space-y-2">
-                        <label className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">SVG Code</label>
+                        <label className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+                           SVG Code
+                        </label>
                         <Textarea
                            value={svgContent}
-                           onChange={(e) => { setSvgContent(e.target.value); setOutputBlob(null); }}
+                           onChange={(e) => {
+                              setSvgContent(e.target.value);
+                              setOutputBlob(null);
+                           }}
                            placeholder="Paste SVG code or upload a file"
                            className="min-h-[180px] font-mono text-sm"
                         />
@@ -239,7 +254,9 @@ export function SvgToPngView() {
 
                      {outputUrl && outputBlob && (
                         <div className="rounded-xl border border-border p-4 bg-background">
-                           <h3 className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-3">Preview</h3>
+                           <h3 className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground mb-3">
+                              Preview
+                           </h3>
                            <img
                               src={outputUrl}
                               alt="Exported raster"
@@ -259,7 +276,9 @@ export function SvgToPngView() {
                      <ImageIcon className="w-8 h-8 text-indigo-500" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-1">Paste or Upload SVG</h3>
-                  <p className="text-sm text-muted-foreground">Upload an .svg file from the left panel or paste code to begin</p>
+                  <p className="text-sm text-muted-foreground">
+                     Upload an .svg file from the left panel or paste code to begin
+                  </p>
                </div>
             )}
          </div>

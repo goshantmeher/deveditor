@@ -47,7 +47,8 @@ export function HashGeneratorSeoContent() {
                Hash <span className="text-rose-500">Generator</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Securely compute cryptographic hashes of your data directly in the browser. Generate MD5, SHA-1, SHA-256, and SHA-512 simultaneously.
+               Securely compute cryptographic hashes of your data directly in the browser. Generate MD5, SHA-1, SHA-256,
+               and SHA-512 simultaneously.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function HashGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Web Crypto API</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Leverages the high-performance native browser cryptographic APIs to digest text with blazing fast, secure algorithms.
+                  Leverages the high-performance native browser cryptographic APIs to digest text with blazing fast,
+                  secure algorithms.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function HashGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Parallel Hashing</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Get MD5, SHA-1, SHA-256, and SHA-512 hashes all rendered simultaneously with a single keystroke. Compare outputs efficiently side-by-side.
+                  Get MD5, SHA-1, SHA-256, and SHA-512 hashes all rendered simultaneously with a single keystroke.
+                  Compare outputs efficiently side-by-side.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function HashGeneratorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Zero Exposure</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  100% Client-side. We cannot read, track, or save any string you run through our generator, ensuring your sensitive data remains yours.
+                  100% Client-side. We cannot read, track, or save any string you run through our generator, ensuring
+                  your sensitive data remains yours.
                </p>
             </div>
          </div>
@@ -87,9 +91,12 @@ export function HashGeneratorSeoContent() {
          {/* Visual Section */}
          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground">Identify text with mathematical certainty</h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  Identify text with mathematical certainty
+               </h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Hashing is the practice of converting an input of any length into a fixed-size string of text. Hashes are essential for validating file integrity, storing passwords safely, and building lookup tables.
+                  Hashing is the practice of converting an input of any length into a fixed-size string of text. Hashes
+                  are essential for validating file integrity, storing passwords safely, and building lookup tables.
                </p>
                <ul className="space-y-4">
                   {[
@@ -129,20 +136,21 @@ export function HashGeneratorSeoContent() {
                   </span>
                </div>
                <p className="text-sm leading-relaxed text-muted-foreground mb-6">
-                  A strong cryptographic hash function drastically changes its output if even a single bit of the input is altered.
+                  A strong cryptographic hash function drastically changes its output if even a single bit of the input
+                  is altered.
                </p>
                <div className="space-y-4 font-mono text-sm break-all">
                   <div className="bg-background rounded p-4 border border-border">
-                     <div className="text-xs text-muted-foreground mb-1 uppercase tracking-widest">Input: Hello World</div>
-                     <div className="text-rose-400 font-bold text-xs">
-                        a591a6d40bf420404a011733cfb7b190d62c6...
+                     <div className="text-xs text-muted-foreground mb-1 uppercase tracking-widest">
+                        Input: Hello World
                      </div>
+                     <div className="text-rose-400 font-bold text-xs">a591a6d40bf420404a011733cfb7b190d62c6...</div>
                   </div>
                   <div className="bg-background rounded p-4 border border-border">
-                     <div className="text-xs text-muted-foreground mb-1 uppercase tracking-widest">Input: hello World</div>
-                     <div className="text-indigo-400 font-bold text-xs">
-                        2247f1c1fce771f845d0af9fe3ad45b2bbcd4...
+                     <div className="text-xs text-muted-foreground mb-1 uppercase tracking-widest">
+                        Input: hello World
                      </div>
+                     <div className="text-indigo-400 font-bold text-xs">2247f1c1fce771f845d0af9fe3ad45b2bbcd4...</div>
                   </div>
                </div>
             </div>
@@ -150,45 +158,72 @@ export function HashGeneratorSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Cryptographic Hashes</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Generate Cryptographic Hashes
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Enter Your Input String</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Type or paste the text you want to hash into the main input field. As you type, the utility will begin computing all hash algorithms simultaneously in your browser.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Compare Algorithm Outputs</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Review the MD5, SHA-1, SHA-256, and SHA-512 outputs rendered in side-by-side cards. This helps you identify the different lengths and formats for each fingerprinting method.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Hexadecimal Integrity</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Each result displays the full hex-encoded string. Click on the code block to expand it if the string is truncated, ensuring you have the complete hash for validation.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Type or paste the text you want to hash into the main input field. As you type, the utility will
+                        begin computing all hash algorithms simultaneously in your browser.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Observe Input Sensitivity</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Notice how even a single character change (like changing a capital letter to lowercase) completely transforms the entire hash, confirming the "Avalanche Effect" of secure hashing.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Compare Algorithm Outputs</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Review the MD5, SHA-1, SHA-256, and SHA-512 outputs rendered in side-by-side cards. This helps
+                        you identify the different lengths and formats for each fingerprinting method.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Hexadecimal Integrity</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Each result displays the full hex-encoded string. Click on the code block to expand it if the
+                        string is truncated, ensuring you have the complete hash for validation.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Observe Input Sensitivity</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Notice how even a single character change (like changing a capital letter to lowercase)
+                        completely transforms the entire hash, confirming the "Avalanche Effect" of secure hashing.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Preferred Hash</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Copy" icon next to your desired hash (e.g., SHA-256 for high security). Your fingerprint is now ready to be used in checksum files, database records, or API configs.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click the "Copy" icon next to your desired hash (e.g., SHA-256 for high security). Your
+                        fingerprint is now ready to be used in checksum files, database records, or API configs.
+                     </p>
                   </div>
                </div>
             </div>
@@ -223,7 +258,8 @@ export function HashGeneratorSeoContent() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
             <h2 className="text-3xl font-bold text-white relative z-10">Generate Secure Hashes</h2>
             <p className="text-rose-100 max-w-xl mx-auto relative z-10">
-               Verify data integrity and secure your passwords with lightning-fast cryptographic hashing. Start typing at the top to compute.
+               Verify data integrity and secure your passwords with lightning-fast cryptographic hashing. Start typing
+               at the top to compute.
             </p>
             <div className="pt-4 relative z-10">
                <ScrollToTopButton label="Scroll up to Compute" />

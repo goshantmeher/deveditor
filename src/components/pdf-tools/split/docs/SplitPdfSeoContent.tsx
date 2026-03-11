@@ -145,42 +145,67 @@ export function SplitPdfSeoContent() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Split Your PDF</h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Select Your PDF File</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Upload the document you want to divide. The tool immediately prepares the page manifest for granular selection and splitting.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Split Mode</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose whether you want to "Split by Ranges" or "Extract All Pages" as individual files. You can enter comma-separated ranges like "1-3, 5-7".</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Output Logic</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Check the split configuration to ensure no vital pages are left out. The tool allows for non-contiguous selections for complete flexibility.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Upload the document you want to divide. The tool immediately prepares the page manifest for
+                        granular selection and splitting.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Execute Browser Split</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Split" button. The engine performs the cutting operation locally, generating the new set of PDF documents in seconds.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Split Mode</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose whether you want to "Split by Ranges" or "Extract All Pages" as individual files. You can
+                        enter comma-separated ranges like "1-3, 5-7".
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify Output Logic</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Check the split configuration to ensure no vital pages are left out. The tool allows for
+                        non-contiguous selections for complete flexibility.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Execute Browser Split</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click the "Split" button. The engine performs the cutting operation locally, generating the new
+                        set of PDF documents in seconds.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Save Split Files</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Download the resulting PDF(s). Everything stays on your machine throughout the entire process, guaranteeing your total document privacy.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Download the resulting PDF(s). Everything stays on your machine throughout the entire process,
+                        guaranteeing your total document privacy.
+                     </p>
                   </div>
                </div>
             </div>

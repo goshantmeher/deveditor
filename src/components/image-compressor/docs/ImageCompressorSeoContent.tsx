@@ -55,8 +55,8 @@ export function ImageCompressorSeoContent() {
                Client-Side <span className="text-indigo-500">Image Compressor</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Compress JPEG, PNG, and WebP images with an adjustable quality slider.
-               See before/after comparison and file size savings — all processed locally in your browser.
+               Compress JPEG, PNG, and WebP images with an adjustable quality slider. See before/after comparison and
+               file size savings — all processed locally in your browser.
             </p>
          </div>
 
@@ -68,7 +68,8 @@ export function ImageCompressorSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Quality Slider</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Fine-tune compression with a 1–100% quality control. Balance file size and visual fidelity for WebP and JPEG exports.
+                  Fine-tune compression with a 1–100% quality control. Balance file size and visual fidelity for WebP
+                  and JPEG exports.
                </p>
             </div>
 
@@ -98,7 +99,8 @@ export function ImageCompressorSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Optimize for Any Use Case</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Whether you&apos;re optimizing images for web performance, reducing email attachment sizes, or preparing assets for deployment — this tool gives you full control over the output.
+                  Whether you&apos;re optimizing images for web performance, reducing email attachment sizes, or
+                  preparing assets for deployment — this tool gives you full control over the output.
                </p>
                <ul className="space-y-4">
                   {[
@@ -137,10 +139,13 @@ export function ImageCompressorSeoContent() {
                </div>
                <div className="prose prose-invert prose-sm">
                   <p>
-                     For web assets, <code className="text-indigo-400">WebP</code> at 75–85% quality typically offers the best balance of file size and visual fidelity — often 30–50% smaller than equivalent JPEG files.
+                     For web assets, <code className="text-indigo-400">WebP</code> at 75–85% quality typically offers
+                     the best balance of file size and visual fidelity — often 30–50% smaller than equivalent JPEG
+                     files.
                   </p>
                   <p>
-                     Use <code className="text-indigo-400">PNG</code> only when you need lossless output or transparency. For everything else, WebP or JPEG will produce significantly smaller files.
+                     Use <code className="text-indigo-400">PNG</code> only when you need lossless output or
+                     transparency. For everything else, WebP or JPEG will produce significantly smaller files.
                   </p>
                </div>
             </div>
@@ -151,12 +156,31 @@ export function ImageCompressorSeoContent() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Compress Images</h2>
             <div className="max-w-4xl mx-auto space-y-6">
                {[
-                  { n: 1, color: 'indigo', t: 'Upload an Image', d: 'Drag and drop or click to select a JPEG, PNG, or WebP file.' },
-                  { n: 2, color: 'emerald', t: 'Adjust Quality & Format', d: 'Choose output format (WebP, JPEG, PNG) and use the quality slider to control compression level.' },
-                  { n: 3, color: 'amber', t: 'Download Result', d: 'Compare before/after previews and file sizes, then download the compressed image when satisfied.' },
+                  {
+                     n: 1,
+                     color: 'indigo',
+                     t: 'Upload an Image',
+                     d: 'Drag and drop or click to select a JPEG, PNG, or WebP file.',
+                  },
+                  {
+                     n: 2,
+                     color: 'emerald',
+                     t: 'Adjust Quality & Format',
+                     d: 'Choose output format (WebP, JPEG, PNG) and use the quality slider to control compression level.',
+                  },
+                  {
+                     n: 3,
+                     color: 'amber',
+                     t: 'Download Result',
+                     d: 'Compare before/after previews and file sizes, then download the compressed image when satisfied.',
+                  },
                ].map(({ n, color, t, d }) => (
                   <div key={n} className="flex gap-4">
-                     <div className={`w-8 h-8 rounded-full bg-${color}-500/10 text-${color}-400 flex items-center justify-center font-bold font-mono shrink-0`}>{n}</div>
+                     <div
+                        className={`w-8 h-8 rounded-full bg-${color}-500/10 text-${color}-400 flex items-center justify-center font-bold font-mono shrink-0`}
+                     >
+                        {n}
+                     </div>
                      <div>
                         <h4 className="font-bold text-foreground text-lg mb-1">{t}</h4>
                         <p className="text-muted-foreground text-sm leading-relaxed">{d}</p>
@@ -168,7 +192,9 @@ export function ImageCompressorSeoContent() {
 
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               Frequently Asked Questions
+            </h2>
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
                {faqSchema.mainEntity.map((faq: { name: string; acceptedAnswer: { text: string } }, i: number) => (
                   <div key={i} className="space-y-3">
@@ -190,7 +216,8 @@ export function ImageCompressorSeoContent() {
             <div className="relative z-10 space-y-6">
                <h2 className="text-3xl font-bold text-white">Compress Images Privately</h2>
                <p className="text-indigo-100 max-w-xl mx-auto">
-                  Reduce file sizes without sacrificing quality. No uploads, no accounts — runs entirely in your browser.
+                  Reduce file sizes without sacrificing quality. No uploads, no accounts — runs entirely in your
+                  browser.
                </p>
                <div className="pt-4">
                   <ScrollToTopButton label="Scroll up to Compress" />

@@ -158,45 +158,72 @@ export function ListConverterSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert Lists & Arrays</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Convert Lists & Arrays
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Input Items</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Paste your raw list into the source editor. It can be a column of text, comma-separated values, or items separated by tabs/pipes. The tool will auto-detect the delimiter.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Select Target Language or Format</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose from over 18 output formats in the sidebar, including JSON arrays, SQL clauses, Python lists, or Markdown bullet points. Each format is strictly typed and escaped correctly.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Apply List Transformations</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Clean up your data by toggling the "Deduplicate" or "Sort" settings. You can also specify custom quoting (Single vs Double) and indentation styles for code-ready output.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Paste your raw list into the source editor. It can be a column of text, comma-separated values,
+                        or items separated by tabs/pipes. The tool will auto-detect the delimiter.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Verify against Item Count</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Check the live item counter at the top of the interface. This helps you confirm that all expected records have been parsed correctly and identifies if any duplicates were removed.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Target Language or Format</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose from over 18 output formats in the sidebar, including JSON arrays, SQL clauses, Python
+                        lists, or Markdown bullet points. Each format is strictly typed and escaped correctly.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Apply List Transformations</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Clean up your data by toggling the "Deduplicate" or "Sort" settings. You can also specify custom
+                        quoting (Single vs Double) and indentation styles for code-ready output.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Verify against Item Count</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Check the live item counter at the top of the interface. This helps you confirm that all
+                        expected records have been parsed correctly and identifies if any duplicates were removed.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Formatted Array</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Copy" icon on the output panel. Your list is now a production-ready code structure that you can paste directly into your scripts or database queries.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click the "Copy" icon on the output panel. Your list is now a production-ready code structure
+                        that you can paste directly into your scripts or database queries.
+                     </p>
                   </div>
                </div>
             </div>

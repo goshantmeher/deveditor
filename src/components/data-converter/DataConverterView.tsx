@@ -1,7 +1,18 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { RefreshCcw, Copy, CheckCircle2, ChevronRight, FileJson, RotateCcw, Replace, FlaskConical, Upload, Download } from 'lucide-react';
+import {
+   RefreshCcw,
+   Copy,
+   CheckCircle2,
+   ChevronRight,
+   FileJson,
+   RotateCcw,
+   Replace,
+   FlaskConical,
+   Upload,
+   Download,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -95,11 +106,11 @@ export function DataConverterView({ config }: { config: DataConverterConfig }) {
    }, [state, config]);
 
    const handleClear = () => {
-      setState(prev => ({ ...prev, inputData: '' }));
+      setState((prev) => ({ ...prev, inputData: '' }));
    };
 
    const handleSwap = () => {
-      setState(prev => ({
+      setState((prev) => ({
          ...prev,
          mode: prev.mode === 'format-to-json' ? 'json-to-format' : 'format-to-json',
          inputData: error || !output ? prev.inputData : output,
@@ -108,13 +119,13 @@ export function DataConverterView({ config }: { config: DataConverterConfig }) {
 
    const handleSample = () => {
       if (state.mode === 'format-to-json') {
-         setState(prev => ({ ...prev, inputData: config.defaultInput }));
+         setState((prev) => ({ ...prev, inputData: config.defaultInput }));
       } else {
          try {
             const defaultJson = JSON.stringify(config.parseToJson(config.defaultInput), null, 2);
-            setState(prev => ({ ...prev, inputData: defaultJson }));
+            setState((prev) => ({ ...prev, inputData: defaultJson }));
          } catch {
-            setState(prev => ({ ...prev, inputData: '{\n  "sample": "data"\n}' }));
+            setState((prev) => ({ ...prev, inputData: '{\n  "sample": "data"\n}' }));
          }
       }
    };
@@ -125,7 +136,7 @@ export function DataConverterView({ config }: { config: DataConverterConfig }) {
 
       const reader = new FileReader();
       reader.onload = (event) => {
-         setState(prev => ({ ...prev, inputData: event.target?.result as string }));
+         setState((prev) => ({ ...prev, inputData: event.target?.result as string }));
       };
       reader.readAsText(file);
       if (fileInputRef.current) {
@@ -170,29 +181,62 @@ export function DataConverterView({ config }: { config: DataConverterConfig }) {
                <div className="flex gap-2">
                   <div className="flex gap-2">
                      {!state.inputData && (
-                        <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleSample}>
+                        <Button
+                           variant="ghost"
+                           size="sm"
+                           className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground"
+                           onClick={handleSample}
+                        >
                            <FlaskConical className="w-3.5 h-3.5" /> Sample
                         </Button>
                      )}
-                     <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={() => fileInputRef.current?.click()}>
+                     <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground"
+                        onClick={() => fileInputRef.current?.click()}
+                     >
                         <Upload className="w-3.5 h-3.5" /> Import
                      </Button>
-                     <input type="file" ref={fileInputRef} className="hidden" accept={state.mode === 'format-to-json' ? `.${config.formatName.toLowerCase()}` : '.json'} onChange={handleImport} />
+                     <input
+                        type="file"
+                        ref={fileInputRef}
+                        className="hidden"
+                        accept={state.mode === 'format-to-json' ? `.${config.formatName.toLowerCase()}` : '.json'}
+                        onChange={handleImport}
+                     />
                   </div>
-                  <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleSwap}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground"
+                     onClick={handleSwap}
+                  >
                      <Replace className="w-3.5 h-3.5" /> Swap Mode
                   </Button>
-                  <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleClear}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground"
+                     onClick={handleClear}
+                  >
                      <RotateCcw className="w-3.5 h-3.5" /> Clear
                   </Button>
                </div>
             </div>
-            
+
             <div className="flex flex-col flex-1 p-6 space-y-4 overflow-y-auto">
                <div className="flex gap-4 shrink-0 border-b border-border pb-4">
                   <div className="w-[60%] space-y-2">
-                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Conversion Matrix</label>
-                     <Select value={state.mode} onValueChange={(val: ConversionMode) => setState(prev => ({ ...prev, mode: val, inputData: '' }))}>
+                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                        Conversion Matrix
+                     </label>
+                     <Select
+                        value={state.mode}
+                        onValueChange={(val: ConversionMode) =>
+                           setState((prev) => ({ ...prev, mode: val, inputData: '' }))
+                        }
+                     >
                         <SelectTrigger className="bg-background">
                            <SelectValue />
                         </SelectTrigger>
@@ -203,8 +247,13 @@ export function DataConverterView({ config }: { config: DataConverterConfig }) {
                      </Select>
                   </div>
                   <div className="w-[40%] space-y-2">
-                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Indentation Space</label>
-                     <Select value={state.indentation} onValueChange={(val) => setState(prev => ({ ...prev, indentation: val }))}>
+                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                        Indentation Space
+                     </label>
+                     <Select
+                        value={state.indentation}
+                        onValueChange={(val) => setState((prev) => ({ ...prev, indentation: val }))}
+                     >
                         <SelectTrigger className="bg-background">
                            <SelectValue />
                         </SelectTrigger>
@@ -218,14 +267,20 @@ export function DataConverterView({ config }: { config: DataConverterConfig }) {
 
                <div className="flex-1 space-y-2 flex flex-col min-h-[250px]">
                   <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider flex items-center gap-2 shrink-0">
-                     {state.mode === 'format-to-json' ? <FormatIcon className="w-3 h-3 text-orange-400" /> : <FileJson className="w-3 h-3 text-amber-500" />}
+                     {state.mode === 'format-to-json' ? (
+                        <FormatIcon className="w-3 h-3 text-orange-400" />
+                     ) : (
+                        <FileJson className="w-3 h-3 text-amber-500" />
+                     )}
                      Raw {state.mode === 'format-to-json' ? config.formatName : 'JSON'} Input
                   </label>
-                  <Textarea 
+                  <Textarea
                      value={state.inputData}
-                     onChange={(e) => setState(prev => ({ ...prev, inputData: e.target.value }))}
+                     onChange={(e) => setState((prev) => ({ ...prev, inputData: e.target.value }))}
                      className="flex-1 min-h-0 font-mono whitespace-pre text-[13px] bg-muted/10 resize-none p-4"
-                     placeholder={state.mode === 'format-to-json' ? `Enter ${config.formatName} here...` : '{"key": "value"}'}
+                     placeholder={
+                        state.mode === 'format-to-json' ? `Enter ${config.formatName} here...` : '{"key": "value"}'
+                     }
                   />
                </div>
             </div>
@@ -240,15 +295,37 @@ export function DataConverterView({ config }: { config: DataConverterConfig }) {
          <div className="flex-none md:flex-1 flex flex-col min-w-0 bg-[#1e1e1e] border-t md:border-t-0 border-border h-[500px] md:h-full overflow-hidden">
             <div className="p-4 border-b border-white/10 flex items-center justify-between shrink-0 bg-[#181818]">
                <div className="flex items-center gap-2">
-                  {state.mode === 'format-to-json' ? <FileJson className="w-4 h-4 text-amber-500" /> : <FormatIcon className="w-4 h-4 text-orange-400" />}
-                  <h2 className="font-semibold text-sm text-gray-200">Constructed {state.mode === 'format-to-json' ? 'JSON' : config.formatName}</h2>
+                  {state.mode === 'format-to-json' ? (
+                     <FileJson className="w-4 h-4 text-amber-500" />
+                  ) : (
+                     <FormatIcon className="w-4 h-4 text-orange-400" />
+                  )}
+                  <h2 className="font-semibold text-sm text-gray-200">
+                     Constructed {state.mode === 'format-to-json' ? 'JSON' : config.formatName}
+                  </h2>
                </div>
                <div className="flex gap-2">
-                  <Button variant="outline" size="sm" className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10" onClick={handleDownload} disabled={!output}>
+                  <Button
+                     variant="outline"
+                     size="sm"
+                     className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10"
+                     onClick={handleDownload}
+                     disabled={!output}
+                  >
                      <Download className="w-3.5 h-3.5" /> Download
                   </Button>
-                  <Button variant="outline" size="sm" className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10" onClick={copyOutput} disabled={!output}>
-                     {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />} 
+                  <Button
+                     variant="outline"
+                     size="sm"
+                     className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10"
+                     onClick={copyOutput}
+                     disabled={!output}
+                  >
+                     {copied ? (
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                     ) : (
+                        <Copy className="w-3.5 h-3.5" />
+                     )}
                      Cop{copied ? 'ied' : 'y Format'}
                   </Button>
                </div>
@@ -261,7 +338,9 @@ export function DataConverterView({ config }: { config: DataConverterConfig }) {
                      {error}
                   </div>
                ) : (
-                  <pre className={`font-mono text-[13px] whitespace-pre-wrap break-all focus:outline-none ${state.mode === 'format-to-json' ? 'text-gray-300' : 'text-orange-200'}`}>
+                  <pre
+                     className={`font-mono text-[13px] whitespace-pre-wrap break-all focus:outline-none ${state.mode === 'format-to-json' ? 'text-gray-300' : 'text-orange-200'}`}
+                  >
                      {output || <span className="text-gray-600 italic">Anticipating schema objects...</span>}
                   </pre>
                )}

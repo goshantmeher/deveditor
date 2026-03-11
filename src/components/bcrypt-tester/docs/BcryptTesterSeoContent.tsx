@@ -47,7 +47,8 @@ export function BcryptTesterSeoContent() {
                Bcrypt Hash <span className="text-orange-500">Tester</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Securely verify plaintext passwords against generated bcrypt hashes directly in your browser without exposing your data over the web.
+               Securely verify plaintext passwords against generated bcrypt hashes directly in your browser without
+               exposing your data over the web.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function BcryptTesterSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Zero Exposure</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Everything happens client-side securely. Never put critical master database passwords into sketchy ad-ridden tools. Our environment guarantees pure JS verification.
+                  Everything happens client-side securely. Never put critical master database passwords into sketchy
+                  ad-ridden tools. Our environment guarantees pure JS verification.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function BcryptTesterSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Integrated Salt</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Bcrypt cleverly incorporates the salt directly into the resulting hash output string, which means you don't need a separate field to test valid matches.
+                  Bcrypt cleverly incorporates the salt directly into the resulting hash output string, which means you
+                  don't need a separate field to test valid matches.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function BcryptTesterSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Generate on the Fly</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Scale the cost rounds parameter smoothly from 4 to 31 inside the Generator tab to instantly mimic whatever hashing algorithm profile matches your stack.
+                  Scale the cost rounds parameter smoothly from 4 to 31 inside the Generator tab to instantly mimic
+                  whatever hashing algorithm profile matches your stack.
                </p>
             </div>
          </div>
@@ -89,42 +93,68 @@ export function BcryptTesterSeoContent() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Test Bcrypt Hashes</h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Select Mode: Generate or Verify</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Switch to "Generate" to create a new hash, or "Verify" if you need to check if a specific plaintext password matches an existing salted hash from your database.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Choose Computing Cost (Rounds)</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">When generating, adjust the "Cost Factor" slider. Standard production setups typically use between 10 and 12 rounds. Higher values provide better security but take longer to compute.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Hashed Data & Plaintext</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">In verification mode, paste the full bcrypt hash (starting with <code className="text-orange-400">$2a$</code> or <code className="text-orange-400">$2b$</code>) and the candidate password. The comparison runs instantly in your local browser memory.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Switch to "Generate" to create a new hash, or "Verify" if you need to check if a specific
+                        plaintext password matches an existing salted hash from your database.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Review the Verification Result</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">The tool will display a clear "Match" or "No Match" indicator. If it's a match, it confirms the encryption algorithm and salt embedded in the hash are valid for that specific input.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Choose Computing Cost (Rounds)</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        When generating, adjust the "Cost Factor" slider. Standard production setups typically use
+                        between 10 and 12 rounds. Higher values provide better security but take longer to compute.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Enter Hashed Data & Plaintext</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        In verification mode, paste the full bcrypt hash (starting with{' '}
+                        <code className="text-orange-400">$2a$</code> or <code className="text-orange-400">$2b$</code>)
+                        and the candidate password. The comparison runs instantly in your local browser memory.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Review the Verification Result</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        The tool will display a clear "Match" or "No Match" indicator. If it's a match, it confirms the
+                        encryption algorithm and salt embedded in the hash are valid for that specific input.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Securely Export or Clear</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Copy newly generated hashes for your config files. Once done, use the "Clear" button to wipe the workspace. No password data is ever leaked or sent to any server.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Copy newly generated hashes for your config files. Once done, use the "Clear" button to wipe the
+                        workspace. No password data is ever leaked or sent to any server.
+                     </p>
                   </div>
                </div>
             </div>
@@ -159,7 +189,8 @@ export function BcryptTesterSeoContent() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
             <h2 className="text-3xl font-bold text-white relative z-10">Verify Secrets Faster</h2>
             <p className="text-orange-100 max-w-xl mx-auto relative z-10">
-               Test your plaintext credentials against bcrypt hashes to debug authentication failures instantly. Start testing up above.
+               Test your plaintext credentials against bcrypt hashes to debug authentication failures instantly. Start
+               testing up above.
             </p>
             <div className="pt-4 relative z-10">
                <ScrollToTopButton label="Scroll up to Test" />

@@ -23,17 +23,15 @@ export function PdfDropzone({
    const isPdfOnly = !accept;
    const defaultAcceptString = '.pdf,application/pdf';
 
-
-
    const handleDrop = useCallback(
       (e: React.DragEvent<HTMLDivElement>) => {
          e.preventDefault();
          e.stopPropagation();
-         
+
          const files = Array.from(e.dataTransfer.files).filter((f) => {
             if (isPdfOnly) return f.type === 'application/pdf';
             const accepts = Object.keys(accept!);
-            return accepts.some(type => f.type === type || f.type.startsWith(type.replace('/*', '')));
+            return accepts.some((type) => f.type === type || f.type.startsWith(type.replace('/*', '')));
          });
          if (files.length > 0) onFilesSelected(files);
       },
@@ -49,8 +47,8 @@ export function PdfDropzone({
       let acceptString = defaultAcceptString;
       if (!isPdfOnly && accept) {
          const exts: string[] = [];
-         Object.values(accept).forEach(vals => exts.push(...vals));
-         Object.keys(accept).forEach(key => exts.push(key));
+         Object.values(accept).forEach((vals) => exts.push(...vals));
+         Object.keys(accept).forEach((key) => exts.push(key));
          acceptString = exts.join(',');
       }
 
@@ -63,7 +61,7 @@ export function PdfDropzone({
             const files = Array.from(input.files).filter((f) => {
                if (isPdfOnly) return f.type === 'application/pdf';
                const accepts = Object.keys(accept!);
-               return accepts.some(type => f.type === type || f.type.startsWith(type.replace('/*', '')));
+               return accepts.some((type) => f.type === type || f.type.startsWith(type.replace('/*', '')));
             });
             if (files.length > 0) onFilesSelected(files);
          }

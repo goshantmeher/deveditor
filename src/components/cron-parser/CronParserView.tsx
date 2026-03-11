@@ -108,12 +108,17 @@ export function CronParserView() {
                   <h2 className="font-semibold text-sm">Cron Expression</h2>
                </div>
                <div className="flex gap-2">
-                  <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleClear}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground"
+                     onClick={handleClear}
+                  >
                      <RotateCcw className="w-3.5 h-3.5" /> Clear
                   </Button>
                </div>
             </div>
-            
+
             <div className="p-6 md:p-8 space-y-8 overflow-y-auto">
                <div className="space-y-3">
                   <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider flex items-center justify-between">
@@ -122,7 +127,7 @@ export function CronParserView() {
                   </label>
                   <div className="relative">
                      <Hash className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                     <Input 
+                     <Input
                         value={state.expression}
                         onChange={(e) => setState({ expression: e.target.value })}
                         className="pl-10 h-14 font-mono text-lg bg-background"
@@ -132,7 +137,9 @@ export function CronParserView() {
                </div>
 
                <div className="space-y-3">
-                  <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Quick Presets</label>
+                  <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                     Quick Presets
+                  </label>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
                      {[
                         { label: 'Every minute', val: '* * * * *' },
@@ -152,15 +159,32 @@ export function CronParserView() {
                      ))}
                   </div>
                </div>
-               
+
                <div className="p-4 bg-muted/10 border border-border rounded-xl space-y-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">Syntax Helper</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
+                     Syntax Helper
+                  </h4>
                   <div className="grid grid-cols-5 gap-2 text-center text-[10px] md:text-sm font-mono text-muted-foreground">
-                     <div className="flex flex-col gap-1"><span className="font-bold text-foreground">Min</span><span>0-59</span></div>
-                     <div className="flex flex-col gap-1"><span className="font-bold text-foreground">Hour</span><span>0-23</span></div>
-                     <div className="flex flex-col gap-1"><span className="font-bold text-foreground">Day</span><span>1-31</span></div>
-                     <div className="flex flex-col gap-1"><span className="font-bold text-foreground">Month</span><span>1-12</span></div>
-                     <div className="flex flex-col gap-1"><span className="font-bold text-foreground">Week</span><span>0-6</span></div>
+                     <div className="flex flex-col gap-1">
+                        <span className="font-bold text-foreground">Min</span>
+                        <span>0-59</span>
+                     </div>
+                     <div className="flex flex-col gap-1">
+                        <span className="font-bold text-foreground">Hour</span>
+                        <span>0-23</span>
+                     </div>
+                     <div className="flex flex-col gap-1">
+                        <span className="font-bold text-foreground">Day</span>
+                        <span>1-31</span>
+                     </div>
+                     <div className="flex flex-col gap-1">
+                        <span className="font-bold text-foreground">Month</span>
+                        <span>1-12</span>
+                     </div>
+                     <div className="flex flex-col gap-1">
+                        <span className="font-bold text-foreground">Week</span>
+                        <span>0-6</span>
+                     </div>
                   </div>
                </div>
             </div>
@@ -179,8 +203,18 @@ export function CronParserView() {
                   <h2 className="font-semibold text-sm text-gray-200">Execution Schedule</h2>
                </div>
                <div className="flex gap-2">
-                  <Button variant="outline" size="sm" className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10" onClick={copyToClipboard} disabled={!englishDesc}>
-                     {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />} 
+                  <Button
+                     variant="outline"
+                     size="sm"
+                     className="h-7 text-xs px-3 gap-2 bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10"
+                     onClick={copyToClipboard}
+                     disabled={!englishDesc}
+                  >
+                     {copied ? (
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                     ) : (
+                        <Copy className="w-3.5 h-3.5" />
+                     )}
                      {copied ? 'Copied' : 'Copy Desc.'}
                   </Button>
                </div>
@@ -195,7 +229,9 @@ export function CronParserView() {
                ) : (
                   <>
                      <div className="space-y-4">
-                        <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground/50">Human Readable Description</label>
+                        <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground/50">
+                           Human Readable Description
+                        </label>
                         <div className="text-2xl md:text-3xl font-light text-emerald-400 leading-tight">
                            {englishDesc || <span className="opacity-30">Type an expression to see description...</span>}
                         </div>
@@ -208,17 +244,22 @@ export function CronParserView() {
                            </div>
                            <div className="space-y-2">
                               {nextRuns.map((date, index) => (
-                                 <div key={index} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 py-3 px-4 rounded-lg bg-white/5 border border-white/10">
+                                 <div
+                                    key={index}
+                                    className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 py-3 px-4 rounded-lg bg-white/5 border border-white/10"
+                                 >
                                     <span className="text-gray-400 font-mono text-sm w-8">#{index + 1}</span>
-                                    <span className="text-gray-200 font-medium text-[15px]">{date.toLocaleString(undefined, {
-                                       weekday: 'short',
-                                       year: 'numeric',
-                                       month: 'short',
-                                       day: 'numeric',
-                                       hour: '2-digit',
-                                       minute: '2-digit',
-                                       second: '2-digit'
-                                    })}</span>
+                                    <span className="text-gray-200 font-medium text-[15px]">
+                                       {date.toLocaleString(undefined, {
+                                          weekday: 'short',
+                                          year: 'numeric',
+                                          month: 'short',
+                                          day: 'numeric',
+                                          hour: '2-digit',
+                                          minute: '2-digit',
+                                          second: '2-digit',
+                                       })}
+                                    </span>
                                  </div>
                               ))}
                            </div>

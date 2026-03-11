@@ -47,7 +47,7 @@ export function Base64ImageView() {
          setImgSrc(trimmed);
          return;
       }
-      
+
       // If no data URI, we try to guess MIME type, default to png
       let src = trimmed;
       if (!trimmed.startsWith('data:')) {
@@ -56,10 +56,10 @@ export function Base64ImageView() {
          else if (trimmed.startsWith('R0lGOD')) mime = 'image/gif';
          else if (trimmed.startsWith('UklGR')) mime = 'image/webp';
          else if (trimmed.startsWith('PHN2Zy')) mime = 'image/svg+xml';
-         
+
          src = `data:${mime};base64,${trimmed}`;
       }
-      
+
       setImgSrc(src);
    }, [inputStr]);
 
@@ -68,11 +68,11 @@ export function Base64ImageView() {
 
       const link = document.createElement('a');
       link.href = imgSrc;
-      
+
       // Attempt to find extension
       const match = imgSrc.match(/^data:image\/([a-zA-Z0-9-+]+);base64,/);
       const ext = match ? match[1].replace('+xml', '') : 'png';
-      
+
       link.download = `decoded_image.${ext}`;
       document.body.appendChild(link);
       link.click();
@@ -92,22 +92,31 @@ export function Base64ImageView() {
                </div>
                <div className="flex gap-2">
                   {!inputStr && (
-                     <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        className="h-8 text-xs gap-1.5 text-muted-foreground hover:text-foreground" 
-                        onClick={() => setInputStr('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzYzNjZmMSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5Z29uIHBvaW50cz0iMTMgMiAzIDE0IDEyIDE0IDExIDIyIDIxIDEwIDEyIDEwIDEzIDIiPjwvcG9seWdvbj48L3N2Zz4=')}
+                     <Button
+                        variant="ghost"
+                        size="sm"
+                        className="h-8 text-xs gap-1.5 text-muted-foreground hover:text-foreground"
+                        onClick={() =>
+                           setInputStr(
+                              'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzYzNjZmMSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5Z29uIHBvaW50cz0iMTMgMiAzIDE0IDEyIDE0IDExIDIyIDIxIDEwIDEyIDEwIDEzIDIiPjwvcG9seWdvbj48L3N2Zz4='
+                           )
+                        }
                      >
                         <FlaskConical className="w-3.5 h-3.5" /> Sample
                      </Button>
                   )}
-                  <Button variant="ghost" size="sm" className="h-8 text-xs gap-1.5 text-muted-foreground hover:text-foreground" onClick={() => setInputStr('')}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-8 text-xs gap-1.5 text-muted-foreground hover:text-foreground"
+                     onClick={() => setInputStr('')}
+                  >
                      <RotateCcw className="w-3.5 h-3.5" /> Clear
                   </Button>
                </div>
             </div>
             <div className="flex-1 p-0 relative">
-               <Textarea 
+               <Textarea
                   className="w-full h-full resize-none border-none rounded-none focus-visible:ring-0 font-mono text-xs p-6 bg-transparent"
                   placeholder="Paste your Base64 encoded string here (e.g. data:image/png;base64,iVBORw0...)"
                   value={inputStr}
@@ -126,12 +135,36 @@ export function Base64ImageView() {
                </h2>
                <div className="flex gap-2 items-center">
                   <div className="hidden md:flex items-center gap-0.5 mr-2 p-1 bg-background border border-border/50 rounded-lg">
-                     <button onClick={() => setPreviewBg('theme')} title="Theme Background" className={`w-6 h-6 rounded flex items-center justify-center ${previewBg === 'theme' ? 'bg-muted shadow-sm' : 'hover:bg-muted/50'}`}><div className="w-3.5 h-3.5 rounded-sm bg-background border border-foreground/20" /></button>
-                     <button onClick={() => setPreviewBg('checkers')} title="Checkerboard" className={`w-6 h-6 rounded flex items-center justify-center ${previewBg === 'checkers' ? 'bg-muted shadow-sm' : 'hover:bg-muted/50'}`}><div className="w-3.5 h-3.5 rounded-sm bg-[url('/checkers.svg')] bg-[#F6F6F6] border border-border/50" /></button>
-                     <button onClick={() => setPreviewBg('white')} title="Solid White" className={`w-6 h-6 rounded flex items-center justify-center ${previewBg === 'white' ? 'bg-muted shadow-sm' : 'hover:bg-muted/50'}`}><div className="w-3.5 h-3.5 rounded-sm bg-white border border-gray-200" /></button>
-                     <button onClick={() => setPreviewBg('black')} title="Solid Black" className={`w-6 h-6 rounded flex items-center justify-center ${previewBg === 'black' ? 'bg-muted shadow-sm' : 'hover:bg-muted/50'}`}><div className="w-3.5 h-3.5 rounded-sm bg-black border border-gray-800" /></button>
+                     <button
+                        onClick={() => setPreviewBg('theme')}
+                        title="Theme Background"
+                        className={`w-6 h-6 rounded flex items-center justify-center ${previewBg === 'theme' ? 'bg-muted shadow-sm' : 'hover:bg-muted/50'}`}
+                     >
+                        <div className="w-3.5 h-3.5 rounded-sm bg-background border border-foreground/20" />
+                     </button>
+                     <button
+                        onClick={() => setPreviewBg('checkers')}
+                        title="Checkerboard"
+                        className={`w-6 h-6 rounded flex items-center justify-center ${previewBg === 'checkers' ? 'bg-muted shadow-sm' : 'hover:bg-muted/50'}`}
+                     >
+                        <div className="w-3.5 h-3.5 rounded-sm bg-[url('/checkers.svg')] bg-[#F6F6F6] border border-border/50" />
+                     </button>
+                     <button
+                        onClick={() => setPreviewBg('white')}
+                        title="Solid White"
+                        className={`w-6 h-6 rounded flex items-center justify-center ${previewBg === 'white' ? 'bg-muted shadow-sm' : 'hover:bg-muted/50'}`}
+                     >
+                        <div className="w-3.5 h-3.5 rounded-sm bg-white border border-gray-200" />
+                     </button>
+                     <button
+                        onClick={() => setPreviewBg('black')}
+                        title="Solid Black"
+                        className={`w-6 h-6 rounded flex items-center justify-center ${previewBg === 'black' ? 'bg-muted shadow-sm' : 'hover:bg-muted/50'}`}
+                     >
+                        <div className="w-3.5 h-3.5 rounded-sm bg-black border border-gray-800" />
+                     </button>
                   </div>
-                  <Button 
+                  <Button
                      size="sm"
                      variant="default"
                      onClick={handleDownload}
@@ -150,15 +183,20 @@ export function Base64ImageView() {
                      <p className="text-sm font-medium text-muted-foreground">Paste a Base64 string to see preview</p>
                   </div>
                ) : (
-                  <div className={`relative group p-4 max-w-full rounded-2xl shadow-xl border border-border inline-flex items-center justify-center min-w-[200px] min-h-[200px] transition-colors ${
-                     previewBg === 'theme' ? 'bg-background' : 
-                     previewBg === 'white' ? 'bg-white' : 
-                     previewBg === 'black' ? 'bg-black' : 
-                     'bg-transparent'
-                  }`}>
-                     <img 
-                        src={imgSrc} 
-                        alt="Decoded base64 preview" 
+                  <div
+                     className={`relative group p-4 max-w-full rounded-2xl shadow-xl border border-border inline-flex items-center justify-center min-w-[200px] min-h-[200px] transition-colors ${
+                        previewBg === 'theme'
+                           ? 'bg-background'
+                           : previewBg === 'white'
+                             ? 'bg-white'
+                             : previewBg === 'black'
+                               ? 'bg-black'
+                               : 'bg-transparent'
+                     }`}
+                  >
+                     <img
+                        src={imgSrc}
+                        alt="Decoded base64 preview"
                         className="max-w-full max-h-[60vh] object-contain rounded-lg shadow-sm"
                         onError={() => setImgSrc(null)} // Hide broken images on invalid base64
                      />

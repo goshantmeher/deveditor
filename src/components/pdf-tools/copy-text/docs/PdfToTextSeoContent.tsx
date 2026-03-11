@@ -143,45 +143,72 @@ export function PdfToTextSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Extract Text from PDF</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Extract Text from PDF
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Upload Your Document</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Drag and drop your PDF file or click the upload area to select a file from your device. The document is analyzed instantly without leaving your browser.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Analyze Page Contents</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Wait a few seconds as the engine parses the PDF structure. The extracted text will appear in the output area, preserving basic paragraph layout and spacing.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Text Layers</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Review the output for formatting accuracy. Note that if your PDF is a scanned image without an OCR layer, the text will not be extractable by this tool.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Drag and drop your PDF file or click the upload area to select a file from your device. The
+                        document is analyzed instantly without leaving your browser.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Copy to Clipboard</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Copy" button to save the entire extracted text to your clipboard. You can then paste it into your favorite editor or translation tool directly.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Analyze Page Contents</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Wait a few seconds as the engine parses the PDF structure. The extracted text will appear in the
+                        output area, preserving basic paragraph layout and spacing.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Text Layers</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Review the output for formatting accuracy. Note that if your PDF is a scanned image without an
+                        OCR layer, the text will not be extractable by this tool.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Copy to Clipboard</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click the "Copy" button to save the entire extracted text to your clipboard. You can then paste
+                        it into your favorite editor or translation tool directly.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Clear for Privacy</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Once finished, use the "Clear" button to wipe the document from local memory. For your security, no files are ever transmitted to external servers.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Once finished, use the "Clear" button to wipe the document from local memory. For your security,
+                        no files are ever transmitted to external servers.
+                     </p>
                   </div>
                </div>
             </div>

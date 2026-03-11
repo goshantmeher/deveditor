@@ -55,8 +55,8 @@ export function ExifViewerSeoContent() {
                EXIF Data <span className="text-indigo-500">Viewer & Remover</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Read and strip metadata from photos — GPS coordinates, camera info, timestamps, and more.
-               Protect your privacy before sharing images online. 100% client-side.
+               Read and strip metadata from photos — GPS coordinates, camera info, timestamps, and more. Protect your
+               privacy before sharing images online. 100% client-side.
             </p>
          </div>
 
@@ -68,7 +68,8 @@ export function ExifViewerSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Deep Metadata Inspection</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Read EXIF, XMP, IPTC, and ICC profile data. View GPS coordinates, camera make/model, lens info, exposure settings, and timestamps.
+                  Read EXIF, XMP, IPTC, and ICC profile data. View GPS coordinates, camera make/model, lens info,
+                  exposure settings, and timestamps.
                </p>
             </div>
 
@@ -78,7 +79,8 @@ export function ExifViewerSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">One-Click Stripping</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Remove all embedded metadata with a single click. Download a clean copy with identical pixel quality — safe for sharing anywhere.
+                  Remove all embedded metadata with a single click. Download a clean copy with identical pixel quality —
+                  safe for sharing anywhere.
                </p>
             </div>
 
@@ -88,7 +90,8 @@ export function ExifViewerSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">100% Client-Side</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  No uploads. Photos stay in your browser and are never transmitted to any server. Complete privacy and security guaranteed.
+                  No uploads. Photos stay in your browser and are never transmitted to any server. Complete privacy and
+                  security guaranteed.
                </p>
             </div>
          </div>
@@ -98,7 +101,8 @@ export function ExifViewerSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Why Metadata Matters</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Every photo you take stores hidden information. Before sharing images online, it&apos;s worth knowing what data is embedded — and removing what you don&apos;t want public.
+                  Every photo you take stores hidden information. Before sharing images online, it&apos;s worth knowing
+                  what data is embedded — and removing what you don&apos;t want public.
                </p>
                <ul className="space-y-4">
                   {[
@@ -137,10 +141,13 @@ export function ExifViewerSeoContent() {
                </div>
                <div className="prose prose-invert prose-sm">
                   <p>
-                     Always strip EXIF data before uploading photos to social media, forums, or marketplaces. Even if the platform removes some metadata, it&apos;s safer to clean it yourself first.
+                     Always strip EXIF data before uploading photos to social media, forums, or marketplaces. Even if
+                     the platform removes some metadata, it&apos;s safer to clean it yourself first.
                   </p>
                   <p>
-                     Supported formats: <code className="text-indigo-400">JPEG</code>, <code className="text-indigo-400">PNG</code>, <code className="text-indigo-400">WebP</code>, and <code className="text-indigo-400">HEIC</code>. JPEG photos typically contain the richest metadata.
+                     Supported formats: <code className="text-indigo-400">JPEG</code>,{' '}
+                     <code className="text-indigo-400">PNG</code>, <code className="text-indigo-400">WebP</code>, and{' '}
+                     <code className="text-indigo-400">HEIC</code>. JPEG photos typically contain the richest metadata.
                   </p>
                </div>
             </div>
@@ -151,12 +158,31 @@ export function ExifViewerSeoContent() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Use</h2>
             <div className="max-w-4xl mx-auto space-y-6">
                {[
-                  { n: 1, color: 'indigo', t: 'Upload a Photo', d: 'Drop a JPEG, PNG, WebP, or HEIC file. Metadata will be read and displayed instantly.' },
-                  { n: 2, color: 'emerald', t: 'Review Metadata', d: 'Scroll the table to see all EXIF/XMP fields — GPS coordinates, camera info, dates, and more.' },
-                  { n: 3, color: 'amber', t: 'Strip & Download', d: 'Click "Strip metadata" to create a clean copy. Download the stripped image ready for safe sharing.' },
+                  {
+                     n: 1,
+                     color: 'indigo',
+                     t: 'Upload a Photo',
+                     d: 'Drop a JPEG, PNG, WebP, or HEIC file. Metadata will be read and displayed instantly.',
+                  },
+                  {
+                     n: 2,
+                     color: 'emerald',
+                     t: 'Review Metadata',
+                     d: 'Scroll the table to see all EXIF/XMP fields — GPS coordinates, camera info, dates, and more.',
+                  },
+                  {
+                     n: 3,
+                     color: 'amber',
+                     t: 'Strip & Download',
+                     d: 'Click "Strip metadata" to create a clean copy. Download the stripped image ready for safe sharing.',
+                  },
                ].map(({ n, color, t, d }) => (
                   <div key={n} className="flex gap-4">
-                     <div className={`w-8 h-8 rounded-full bg-${color}-500/10 text-${color}-400 flex items-center justify-center font-bold font-mono shrink-0`}>{n}</div>
+                     <div
+                        className={`w-8 h-8 rounded-full bg-${color}-500/10 text-${color}-400 flex items-center justify-center font-bold font-mono shrink-0`}
+                     >
+                        {n}
+                     </div>
                      <div>
                         <h4 className="font-bold text-foreground text-lg mb-1">{t}</h4>
                         <p className="text-muted-foreground text-sm leading-relaxed">{d}</p>
@@ -168,7 +194,9 @@ export function ExifViewerSeoContent() {
 
          {/* FAQ Section */}
          <div className="space-y-12 border-t border-border/50 pt-24">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               Frequently Asked Questions
+            </h2>
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
                {faqSchema.mainEntity.map((faq: { name: string; acceptedAnswer: { text: string } }, i: number) => (
                   <div key={i} className="space-y-3">

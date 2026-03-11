@@ -6,7 +6,14 @@ export const metadata: Metadata = {
    title: 'ASCII Art Text Generator - DevEditor',
    description:
       'Instantly generate massive, striking ASCII art text banners flawlessly using popular Figlet fonts securely offline in your browser for code comments and CLIs.',
-   keywords: ['ascii art generator', 'figlet', 'text to ascii', 'code banner generator', 'comment header', 'terminal logo generator'],
+   keywords: [
+      'ascii art generator',
+      'figlet',
+      'text to ascii',
+      'code banner generator',
+      'comment header',
+      'terminal logo generator',
+   ],
    openGraph: {
       title: 'ASCII Art Text Generator (Figlet)',
       description: 'Convert regular text into high-impact ASCII string art offline.',

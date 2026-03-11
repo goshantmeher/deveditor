@@ -28,8 +28,8 @@ export function ImageToPdfView() {
       const newFiles: ImageFile[] = [];
 
       // Filter only images (specifically jpeg and png since pdf-lib natively supports those)
-      const validFiles = selectedFiles.filter(f => f.type === 'image/jpeg' || f.type === 'image/png');
-      
+      const validFiles = selectedFiles.filter((f) => f.type === 'image/jpeg' || f.type === 'image/png');
+
       if (validFiles.length !== selectedFiles.length) {
          setError('Some files were ignored. Only JPEG and PNG images are supported.');
       }
@@ -39,7 +39,7 @@ export function ImageToPdfView() {
             const buffer = await file.arrayBuffer();
             const blob = new Blob([buffer], { type: file.type });
             const url = URL.createObjectURL(blob);
-            
+
             newFiles.push({
                id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
                name: file.name,
@@ -58,7 +58,7 @@ export function ImageToPdfView() {
 
    const removeFile = useCallback((id: string) => {
       setFiles((prev) => {
-         const file = prev.find(f => f.id === id);
+         const file = prev.find((f) => f.id === id);
          if (file) {
             URL.revokeObjectURL(file.url);
          }
@@ -67,7 +67,7 @@ export function ImageToPdfView() {
    }, []);
 
    const handleReset = () => {
-      files.forEach(f => URL.revokeObjectURL(f.url));
+      files.forEach((f) => URL.revokeObjectURL(f.url));
       setFiles([]);
       setError(null);
    };
@@ -113,7 +113,7 @@ export function ImageToPdfView() {
             }
 
             const { width, height } = image.scale(1);
-            
+
             // Create a page matching the image dimensions perfectly
             const page = pdfDoc.addPage([width, height]);
             page.drawImage(image, {
@@ -129,7 +129,8 @@ export function ImageToPdfView() {
          const url = URL.createObjectURL(blob);
          const link = document.createElement('a');
          link.href = url;
-         link.download = files.length === 1 ? `${files[0].name.replace(/\.[^/.]+$/, '')}_converted.pdf` : 'images_merged.pdf';
+         link.download =
+            files.length === 1 ? `${files[0].name.replace(/\.[^/.]+$/, '')}_converted.pdf` : 'images_merged.pdf';
          document.body.appendChild(link);
          link.click();
          document.body.removeChild(link);
@@ -159,9 +160,7 @@ export function ImageToPdfView() {
             </div>
             <div className="flex items-center gap-2 flex-wrap">
                {files.length > 0 && (
-                  <span className="text-[10px] text-muted-foreground tabular-nums">
-                     {files.length} images selected
-                  </span>
+                  <span className="text-[10px] text-muted-foreground tabular-nums">{files.length} images selected</span>
                )}
                <Button
                   variant="ghost"
@@ -244,19 +243,19 @@ export function ImageToPdfView() {
                               {index + 1}
                            </div>
 
-                           <img 
-                              src={file.url} 
+                           <img
+                              src={file.url}
                               alt={file.name}
                               className="w-full h-full object-cover select-none pointer-events-none"
                            />
-                           
+
                            <div className="absolute bottom-0 inset-x-0 p-2 bg-linear-to-t from-black/60 to-transparent flex flex-col justify-end">
                               <span className="text-white text-xs font-medium truncate mb-0.5">{file.name}</span>
                               <span className="text-white/70 text-[10px]">{formatSize(file.size)}</span>
                            </div>
                         </div>
                      ))}
-                     
+
                      {/* Add more button */}
                      <button
                         onClick={() => {

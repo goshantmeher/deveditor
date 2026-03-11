@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useEffect, useRef } from 'react';
 import { ShieldAlert, CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -55,7 +54,9 @@ export function BcryptTesterView() {
             setIsComputing(false);
          }
       });
-      return () => { isCurrent = false; };
+      return () => {
+         isCurrent = false;
+      };
    }, [plaintext, hash, mode]);
 
    // Handle Generate
@@ -81,11 +82,21 @@ export function BcryptTesterView() {
                <ShieldAlert className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">Bcrypt Tester</span>
             </div>
-            
+
             <Tabs value={mode} onValueChange={(v) => setMode(v as 'verify' | 'generate')} className="shrink-0">
                <TabsList className="h-8 p-0.5">
-                  <TabsTrigger value="verify" className="h-7 text-xs px-3 data-[state=active]:bg-brand data-[state=active]:text-brand-foreground">Verify Hash</TabsTrigger>
-                  <TabsTrigger value="generate" className="h-7 text-xs px-3 data-[state=active]:bg-brand data-[state=active]:text-brand-foreground">Generate Hash</TabsTrigger>
+                  <TabsTrigger
+                     value="verify"
+                     className="h-7 text-xs px-3 data-[state=active]:bg-brand data-[state=active]:text-brand-foreground"
+                  >
+                     Verify Hash
+                  </TabsTrigger>
+                  <TabsTrigger
+                     value="generate"
+                     className="h-7 text-xs px-3 data-[state=active]:bg-brand data-[state=active]:text-brand-foreground"
+                  >
+                     Generate Hash
+                  </TabsTrigger>
                </TabsList>
             </Tabs>
 
@@ -99,10 +110,11 @@ export function BcryptTesterView() {
 
          <div className="flex-1 flex flex-col min-h-0 bg-background overflow-y-auto">
             <div className="flex flex-col md:flex-row gap-6 p-6 max-w-5xl mx-auto w-full">
-               
                <div className="flex-1 space-y-6 w-full md:w-auto">
                   <div className="space-y-4">
-                     <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Plaintext String</label>
+                     <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                        Plaintext String
+                     </label>
                      <input
                         type="text"
                         value={plaintext}
@@ -114,7 +126,9 @@ export function BcryptTesterView() {
 
                   {mode === 'verify' && (
                      <div className="space-y-4">
-                        <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Bcrypt Hash</label>
+                        <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                           Bcrypt Hash
+                        </label>
                         <textarea
                            value={hash}
                            onChange={(e) => setHash(e.target.value)}
@@ -128,8 +142,17 @@ export function BcryptTesterView() {
                   {mode === 'generate' && (
                      <div className="space-y-4">
                         <div className="flex justify-between items-center">
-                           <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Cost Factor (Rounds: {rounds})</label>
-                           <input type="number" value={rounds} onChange={(e) => setRounds(Number(e.target.value))} min={4} max={31} className="w-16 h-8 text-center border border-border bg-background rounded text-xs" />
+                           <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                              Cost Factor (Rounds: {rounds})
+                           </label>
+                           <input
+                              type="number"
+                              value={rounds}
+                              onChange={(e) => setRounds(Number(e.target.value))}
+                              min={4}
+                              max={31}
+                              className="w-16 h-8 text-center border border-border bg-background rounded text-xs"
+                           />
                         </div>
                         <Button className="w-full" onClick={handleGenerate} disabled={!plaintext || isComputing}>
                            {isComputing ? 'Computing...' : 'Generate Bcrypt Hash'}
@@ -147,7 +170,9 @@ export function BcryptTesterView() {
                         <div className="text-muted-foreground animate-pulse text-sm">Computing match...</div>
                      )}
                      {!isComputing && mode === 'verify' && result === null && (
-                        <div className="text-muted-foreground/50 text-sm text-center">Provide plaintext and hash to compare.</div>
+                        <div className="text-muted-foreground/50 text-sm text-center">
+                           Provide plaintext and hash to compare.
+                        </div>
                      )}
                      {!isComputing && mode === 'verify' && result === true && (
                         <div className="flex flex-col items-center text-success gap-4">
@@ -168,18 +193,23 @@ export function BcryptTesterView() {
                      )}
                      {mode === 'generate' && generatedHash && (
                         <div className="flex flex-col gap-4 w-full">
-                           <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider text-center">Generated Hash</label>
+                           <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wider text-center">
+                              Generated Hash
+                           </label>
                            <div className="p-4 bg-muted/20 border border-border/50 rounded-xl text-center font-mono break-all text-brand font-bold">
                               {generatedHash}
                            </div>
-                           <Button variant="outline" size="sm" onClick={() => navigator.clipboard.writeText(generatedHash)}>
+                           <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => navigator.clipboard.writeText(generatedHash)}
+                           >
                               Copy Hash
                            </Button>
                         </div>
                      )}
                   </div>
                </div>
-
             </div>
          </div>
       </div>

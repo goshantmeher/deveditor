@@ -76,7 +76,7 @@ export function SvgToJsxView() {
          }
       };
       reader.readAsText(file);
-      
+
       // Reset input so the same file can be selected again
       e.target.value = '';
    };
@@ -85,18 +85,18 @@ export function SvgToJsxView() {
    const outputLength = output.length;
 
    const faqSchema = {
-       '@context': 'https://schema.org',
-       '@type': 'SoftwareApplication',
-       name: 'SVG to React Converter',
-       applicationCategory: 'DeveloperApplication',
-       operatingSystem: 'Web Browser',
-       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-       featureList: [
-          'Automatic camelCase conversion for attributes',
-          'Inline style translation to React objects',
-          '100% Client-side privacy',
-       ],
-       description: 'Free online tool to instantly convert raw SVG code into React and JSX compatible component code.',
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'SVG to React Converter',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Web Browser',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      featureList: [
+         'Automatic camelCase conversion for attributes',
+         'Inline style translation to React objects',
+         '100% Client-side privacy',
+      ],
+      description: 'Free online tool to instantly convert raw SVG code into React and JSX compatible component code.',
    };
 
    return (
@@ -109,7 +109,7 @@ export function SvgToJsxView() {
                <FileCode2 className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">SVG to React / JSX</span>
             </div>
-            
+
             <div className="flex items-center gap-2 ml-auto shrink-0">
                {!input && (
                   <button
@@ -121,14 +121,14 @@ export function SvgToJsxView() {
                      <span className="hidden sm:inline">Sample</span>
                   </button>
                )}
-               
+
                {/* Hidden file input */}
-               <input 
-                  type="file" 
-                  accept=".svg,image/svg+xml" 
-                  ref={fileInputRef} 
+               <input
+                  type="file"
+                  accept=".svg,image/svg+xml"
+                  ref={fileInputRef}
                   onChange={handleFileUpload}
-                  className="hidden" 
+                  className="hidden"
                />
 
                <button
@@ -223,7 +223,7 @@ export function SvgToJsxView() {
                      </Button>
                   </div>
                </div>
-               
+
                {activeTab === 'code' ? (
                   <textarea
                      value={output}
@@ -235,9 +235,9 @@ export function SvgToJsxView() {
                ) : (
                   <div className="flex-1 w-full p-6 bg-muted/10 flex items-center justify-center overflow-auto rounded-br-xl relative">
                      {input ? (
-                        <div 
+                        <div
                            className="w-full h-full flex items-center justify-center relative z-10 transition-transform hover:scale-105 duration-300 [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-[80%] [&>svg]:max-h-[80%]"
-                           dangerouslySetInnerHTML={{ __html: input }} 
+                           dangerouslySetInnerHTML={{ __html: input }}
                         />
                      ) : (
                         <span className="text-muted-foreground text-sm relative z-10">No SVG to preview</span>

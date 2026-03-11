@@ -1,7 +1,17 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { MonitorSmartphone, LayoutTemplate, Copy, CheckCircle2, RotateCcw, ImageIcon, Image as ImageIconFallback, Globe, Hash } from 'lucide-react';
+import {
+   MonitorSmartphone,
+   LayoutTemplate,
+   Copy,
+   CheckCircle2,
+   RotateCcw,
+   ImageIcon,
+   Image as ImageIconFallback,
+   Globe,
+   Hash,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -18,7 +28,8 @@ interface MetaTagState {
 
 const DEFAULT_STATE: MetaTagState = {
    title: 'Next-Generation Fullstack Developer Workspace',
-   description: 'A powerful suite of totally free developer tools, converters, and formatters running natively in your browser.',
+   description:
+      'A powerful suite of totally free developer tools, converters, and formatters running natively in your browser.',
    url: 'https://www.deveditor.io',
    imageUrl: 'https://www.deveditor.io/og-image.png',
    twitterHandle: '@deveditor',
@@ -126,7 +137,13 @@ export function MetaTagGeneratorView() {
                   <h2 className="font-semibold text-sm">Meta Tag Properties</h2>
                </div>
                <div className="flex gap-2">
-                  <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleClear} title="Clear">
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground"
+                     onClick={handleClear}
+                     title="Clear"
+                  >
                      <RotateCcw className="w-3.5 h-3.5" />
                   </Button>
                   <Button variant="secondary" size="sm" className="h-7 text-xs px-3" onClick={handleReset}>
@@ -138,11 +155,13 @@ export function MetaTagGeneratorView() {
             <div className="flex-1 overflow-y-auto p-5 space-y-6">
                <div className="space-y-4">
                   <div className="space-y-1.5">
-                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Page Title</label>
-                     <Input 
-                        placeholder="e.g. My Website - Home" 
-                        value={state.title} 
-                        onChange={(e) => handleChange('title', e.target.value)} 
+                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                        Page Title
+                     </label>
+                     <Input
+                        placeholder="e.g. My Website - Home"
+                        value={state.title}
+                        onChange={(e) => handleChange('title', e.target.value)}
                         className="bg-muted/10"
                      />
                   </div>
@@ -150,37 +169,43 @@ export function MetaTagGeneratorView() {
                   <div className="space-y-1.5">
                      <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider flex justify-between">
                         <span>Page Description</span>
-                        <span className={state.description.length > 160 ? 'text-rose-400' : 'text-muted-foreground'}>{state.description.length}/160</span>
+                        <span className={state.description.length > 160 ? 'text-rose-400' : 'text-muted-foreground'}>
+                           {state.description.length}/160
+                        </span>
                      </label>
-                     <Textarea 
-                        placeholder="Short compelling description of your page content..." 
-                        value={state.description} 
-                        onChange={(e) => handleChange('description', e.target.value)} 
+                     <Textarea
+                        placeholder="Short compelling description of your page content..."
+                        value={state.description}
+                        onChange={(e) => handleChange('description', e.target.value)}
                         className="bg-muted/10 h-24 resize-none"
                      />
                   </div>
 
                   <div className="space-y-1.5">
-                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Site URL</label>
+                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                        Site URL
+                     </label>
                      <div className="relative">
                         <Globe className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                        <Input 
-                           placeholder="https://example.com" 
-                           value={state.url} 
-                           onChange={(e) => handleChange('url', e.target.value)} 
+                        <Input
+                           placeholder="https://example.com"
+                           value={state.url}
+                           onChange={(e) => handleChange('url', e.target.value)}
                            className="bg-muted/10 pl-9"
                         />
                      </div>
                   </div>
 
                   <div className="space-y-1.5">
-                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Image URL (OG/Twitter Header)</label>
+                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                        Image URL (OG/Twitter Header)
+                     </label>
                      <div className="relative">
                         <ImageIcon className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                        <Input 
-                           placeholder="https://example.com/image.png" 
-                           value={state.imageUrl} 
-                           onChange={(e) => handleChange('imageUrl', e.target.value)} 
+                        <Input
+                           placeholder="https://example.com/image.png"
+                           value={state.imageUrl}
+                           onChange={(e) => handleChange('imageUrl', e.target.value)}
                            className="bg-muted/10 pl-9"
                         />
                      </div>
@@ -188,13 +213,15 @@ export function MetaTagGeneratorView() {
                   </div>
 
                   <div className="space-y-1.5">
-                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Twitter Handle</label>
+                     <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                        Twitter Handle
+                     </label>
                      <div className="relative">
                         <Hash className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                        <Input 
-                           placeholder="@username" 
-                           value={state.twitterHandle} 
-                           onChange={(e) => handleChange('twitterHandle', e.target.value)} 
+                        <Input
+                           placeholder="@username"
+                           value={state.twitterHandle}
+                           onChange={(e) => handleChange('twitterHandle', e.target.value)}
                            className="bg-muted/10 pl-9"
                         />
                      </div>
@@ -206,7 +233,6 @@ export function MetaTagGeneratorView() {
          {/* Right Side: Preview & Code */}
          <div className="flex-1 flex flex-col min-w-0 bg-muted/5 h-[50vh] md:h-full overflow-hidden">
             <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-8">
-               
                {/* Previews */}
                <div className="space-y-4">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground pb-2">
@@ -214,45 +240,69 @@ export function MetaTagGeneratorView() {
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
-                     
                      {/* Twitter Preview */}
                      <div className="space-y-2">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-sky-500">Twitter Summary Card</span>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-sky-500">
+                           Twitter Summary Card
+                        </span>
                         <div className="border border-border rounded-xl overflow-hidden bg-background shadow-sm max-w-[400px]">
                            <div className="aspect-[1.91/1] bg-muted relative flex items-center justify-center border-b border-border overflow-hidden">
                               {state.imageUrl ? (
-                                 <img src={state.imageUrl} alt="OG Preview" className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+                                 <img
+                                    src={state.imageUrl}
+                                    alt="OG Preview"
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => (e.currentTarget.style.display = 'none')}
+                                 />
                               ) : (
                                  <ImageIconFallback className="w-8 h-8 text-muted-foreground/30" />
                               )}
                            </div>
                            <div className="p-3">
-                              <p className="text-muted-foreground text-[13px] uppercase truncate">{state.url ? new URL(state.url).hostname : 'example.com'}</p>
-                              <p className="font-bold text-[15px] truncate mt-0.5 text-foreground leading-snug">{state.title || "Page Title"}</p>
-                              <p className="text-muted-foreground text-[14px] line-clamp-2 mt-1 leading-snug">{state.description || "Description will appear here when the URL is shared."}</p>
+                              <p className="text-muted-foreground text-[13px] uppercase truncate">
+                                 {state.url ? new URL(state.url).hostname : 'example.com'}
+                              </p>
+                              <p className="font-bold text-[15px] truncate mt-0.5 text-foreground leading-snug">
+                                 {state.title || 'Page Title'}
+                              </p>
+                              <p className="text-muted-foreground text-[14px] line-clamp-2 mt-1 leading-snug">
+                                 {state.description || 'Description will appear here when the URL is shared.'}
+                              </p>
                            </div>
                         </div>
                      </div>
 
                      {/* Facebook/LinkedIn Preview */}
                      <div className="space-y-2">
-                        <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-500">Facebook / LinkedIn Feed</span>
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-500">
+                           Facebook / LinkedIn Feed
+                        </span>
                         <div className="border border-border rounded-lg overflow-hidden bg-[#F0F2F5] dark:bg-[#242526] shadow-sm max-w-[400px]">
                            <div className="aspect-[1.91/1] bg-muted relative flex items-center justify-center border-b border-border overflow-hidden">
                               {state.imageUrl ? (
-                                 <img src={state.imageUrl} alt="OG Preview" className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+                                 <img
+                                    src={state.imageUrl}
+                                    alt="OG Preview"
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => (e.currentTarget.style.display = 'none')}
+                                 />
                               ) : (
                                  <ImageIconFallback className="w-8 h-8 text-muted-foreground/30" />
                               )}
                            </div>
                            <div className="p-3 pb-4 bg-[#F2F3F5] dark:bg-[#18191A] border-t border-border/50">
-                              <p className="text-[#606770] dark:text-[#B0B3B8] text-[12px] uppercase truncate mb-0.5">{state.url ? new URL(state.url).hostname : 'EXAMPLE.COM'}</p>
-                              <p className="font-semibold text-[#1C1E21] dark:text-[#E4E6EB] text-[16px] truncate leading-tight">{state.title || "Page Title"}</p>
-                              <p className="text-[#606770] dark:text-[#B0B3B8] text-[14px] line-clamp-1 mt-0.5">{state.description || "Description will appear here when shared."}</p>
+                              <p className="text-[#606770] dark:text-[#B0B3B8] text-[12px] uppercase truncate mb-0.5">
+                                 {state.url ? new URL(state.url).hostname : 'EXAMPLE.COM'}
+                              </p>
+                              <p className="font-semibold text-[#1C1E21] dark:text-[#E4E6EB] text-[16px] truncate leading-tight">
+                                 {state.title || 'Page Title'}
+                              </p>
+                              <p className="text-[#606770] dark:text-[#B0B3B8] text-[14px] line-clamp-1 mt-0.5">
+                                 {state.description || 'Description will appear here when shared.'}
+                              </p>
                            </div>
                         </div>
                      </div>
-
                   </div>
                </div>
 
@@ -263,7 +313,11 @@ export function MetaTagGeneratorView() {
                         <LayoutTemplate className="w-4 h-4 text-emerald-500" /> Generated HTML Meta Tags
                      </div>
                      <Button variant="secondary" size="sm" className="h-8 gap-2" onClick={copyToClipboard}>
-                        {copiedCode ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                        {copiedCode ? (
+                           <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                        ) : (
+                           <Copy className="w-4 h-4" />
+                        )}
                         {copiedCode ? 'Copied HTML!' : 'Copy Tags'}
                      </Button>
                   </div>
@@ -271,7 +325,6 @@ export function MetaTagGeneratorView() {
                      {codeOutput}
                   </div>
                </div>
-
             </div>
          </div>
       </div>

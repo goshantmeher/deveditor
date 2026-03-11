@@ -146,42 +146,67 @@ export function ExtractPdfSeoContent() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Extract PDF Pages</h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Select Source Document</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Upload the PDF file you wish to extract pages from. The browser immediately generates a preview of the document structure for your review.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Define Page Ranges</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Enter the specific pages or numeric ranges (e.g., "1-5, 8") you want to keep. The tool isolates these sections while discarding the rest of the document.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Review Selection Preview</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Double-check the page count and order of your extraction. This ensures that the resulting PDF will contain exactly the information you need for your report or filing.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Upload the PDF file you wish to extract pages from. The browser immediately generates a preview
+                        of the document structure for your review.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Generate New Document</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Extract" button. The engine compiles a new standalone PDF containing only your selected pages, optimized for portability and sharing.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Define Page Ranges</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Enter the specific pages or numeric ranges (e.g., "1-5, 8") you want to keep. The tool isolates
+                        these sections while discarding the rest of the document.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Review Selection Preview</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Double-check the page count and order of your extraction. This ensures that the resulting PDF
+                        will contain exactly the information you need for your report or filing.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Generate New Document</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click the "Extract" button. The engine compiles a new standalone PDF containing only your
+                        selected pages, optimized for portability and sharing.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Download and Save</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Save the generated file to your local drive. Since all processing is performed 100% in your browser, your proprietary documents never leave your device.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Save the generated file to your local drive. Since all processing is performed 100% in your
+                        browser, your proprietary documents never leave your device.
+                     </p>
                   </div>
                </div>
             </div>

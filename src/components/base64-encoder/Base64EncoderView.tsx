@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useEffect, useRef } from 'react';
 import { TextEncoder } from './TextEncoder';
 import { FileEncoder } from './FileEncoder';

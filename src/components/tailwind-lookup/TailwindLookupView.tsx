@@ -20,14 +20,14 @@ const DEFAULT_STATE: LookupState = {
 
 // Simplified Heuristic Data for demo purposes
 const TW_DICT: Record<string, string> = {
-   'flex': 'display: flex;',
+   flex: 'display: flex;',
    'inline-flex': 'display: inline-flex;',
-   'hidden': 'display: none;',
-   'block': 'display: block;',
+   hidden: 'display: none;',
+   block: 'display: block;',
    'inline-block': 'display: inline-block;',
-   'absolute': 'position: absolute;',
-   'relative': 'position: relative;',
-   'fixed': 'position: fixed;',
+   absolute: 'position: absolute;',
+   relative: 'position: relative;',
+   fixed: 'position: fixed;',
    'w-full': 'width: 100%;',
    'h-full': 'height: 100%;',
    'w-screen': 'width: 100vw;',
@@ -39,11 +39,12 @@ const TW_DICT: Record<string, string> = {
    'justify-between': 'justify-content: space-between;',
    'justify-start': 'justify-content: flex-start;',
    'justify-end': 'justify-content: flex-end;',
-   'transition': 'transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;',
+   transition:
+      'transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;',
    'opacity-0': 'opacity: 0;',
    'opacity-50': 'opacity: 0.5;',
    'opacity-100': 'opacity: 1;',
-   'rounded': 'border-radius: 0.25rem;',
+   rounded: 'border-radius: 0.25rem;',
    'rounded-md': 'border-radius: 0.375rem;',
    'rounded-lg': 'border-radius: 0.5rem;',
    'rounded-xl': 'border-radius: 0.75rem;',
@@ -102,12 +103,12 @@ export function TailwindLookupView() {
          setOutput('');
          return;
       }
-      
+
       if (state.mode === 'tw-to-css') {
          const classes = state.input.replace(/\n/g, ' ').split(/\s+/).filter(Boolean);
-         const cssRules = classes.map(cls => {
+         const cssRules = classes.map((cls) => {
             if (TW_DICT[cls]) return `  ${TW_DICT[cls]}`;
-            
+
             // Simple generic heuristics
             const m = cls.match(/^[mp]([xytrbl]?)-(.+)$/); // margin/padding
             if (m) {
@@ -115,7 +116,7 @@ export function TailwindLookupView() {
                const dir = m[1];
                const val = m[2];
                const cssVal = val === 'auto' ? 'auto' : val.includes('px') ? val : `${Number(val) * 0.25}rem`;
-               
+
                if (!dir) return `  ${type}: ${cssVal};`;
                if (dir === 'x') return `  ${type}-left: ${cssVal};\n  ${type}-right: ${cssVal};`;
                if (dir === 'y') return `  ${type}-top: ${cssVal};\n  ${type}-bottom: ${cssVal};`;
@@ -132,15 +133,18 @@ export function TailwindLookupView() {
 
             return `  /* unknown tailwind class: ${cls} */`;
          });
-         
+
          const uniqueRules = Array.from(new Set(cssRules));
          setOutput(`.converted-element {\n${uniqueRules.join('\n')}\n}`);
       } else {
          // CSS to Tailwind heuristic
-         const rules = state.input.split(';').map(r => r.trim()).filter(Boolean);
+         const rules = state.input
+            .split(';')
+            .map((r) => r.trim())
+            .filter(Boolean);
          const twClasses: string[] = [];
-         
-         rules.forEach(rule => {
+
+         rules.forEach((rule) => {
             const exactMatch = CSS_DICT[rule];
             if (exactMatch) {
                twClasses.push(exactMatch);
@@ -158,26 +162,25 @@ export function TailwindLookupView() {
             }
             twClasses.push(`/* unmapped: ${rule} */`);
          });
-         
+
          setOutput(twClasses.join(' '));
       }
-      
    }, [state]);
 
    const loadSample = () => {
-      setState(prev => ({ 
-         ...prev, 
-         input: prev.mode === 'tw-to-css' ? SAMPLE_TW : SAMPLE_CSS 
+      setState((prev) => ({
+         ...prev,
+         input: prev.mode === 'tw-to-css' ? SAMPLE_TW : SAMPLE_CSS,
       }));
    };
 
    const clearAll = () => {
-      setState(prev => ({ ...prev, input: '' }));
+      setState((prev) => ({ ...prev, input: '' }));
       setOutput('');
    };
 
    const toggleMode = () => {
-      setState(prev => ({
+      setState((prev) => ({
          mode: prev.mode === 'tw-to-css' ? 'css-to-tw' : 'tw-to-css',
          input: '',
       }));
@@ -200,7 +203,11 @@ export function TailwindLookupView() {
          <div className="flex-1 flex flex-col min-w-0 border-b md:border-b-0 md:border-r border-border h-[50vh] md:h-full">
             <div className="h-14 flex items-center justify-between px-4 border-b border-border bg-muted/10 shrink-0">
                <div className="flex items-center gap-2">
-                  {state.mode === 'tw-to-css' ? <Wind className="w-5 h-5 text-sky-500" /> : <FileCode2 className="w-5 h-5 text-indigo-500" />}
+                  {state.mode === 'tw-to-css' ? (
+                     <Wind className="w-5 h-5 text-sky-500" />
+                  ) : (
+                     <FileCode2 className="w-5 h-5 text-indigo-500" />
+                  )}
                   <h2 className="font-semibold text-sm">
                      {state.mode === 'tw-to-css' ? 'Tailwind Classes' : 'CSS Rules'}
                   </h2>
@@ -213,25 +220,36 @@ export function TailwindLookupView() {
                      </Button>
                   )}
                   {state.input && (
-                     <Button variant="ghost" size="sm" onClick={clearAll} className="h-8 text-xs px-2 text-muted-foreground hover:text-foreground">
+                     <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={clearAll}
+                        className="h-8 text-xs px-2 text-muted-foreground hover:text-foreground"
+                     >
                         <Eraser className="w-3.5 h-3.5 mr-1" /> Clear
                      </Button>
                   )}
-                  <Button variant="secondary" size="sm" onClick={toggleMode} className="h-8 text-xs px-2 shadow-sm font-semibold ml-2 text-indigo-500">
+                  <Button
+                     variant="secondary"
+                     size="sm"
+                     onClick={toggleMode}
+                     className="h-8 text-xs px-2 shadow-sm font-semibold ml-2 text-indigo-500"
+                  >
                      <ArrowRightLeft className="w-3.5 h-3.5 mr-1" /> Swap Mode
                   </Button>
                </div>
             </div>
-            
+
             <div className="flex-1 relative">
                <textarea
                   className="w-full h-full p-6 resize-none bg-transparent outline-none font-mono text-sm leading-relaxed"
-                  placeholder={state.mode === 'tw-to-css' 
-                     ? 'Paste Tailwind classes here (e.g., flex items-center justify-between w-full)...\n\nClasses will be converted into raw CSS instantly.'
-                     : 'Paste CSS rules here (e.g., display: flex; align-items: center;)...\n\nRules will be heuristically mapped to Tailwind classes.'
+                  placeholder={
+                     state.mode === 'tw-to-css'
+                        ? 'Paste Tailwind classes here (e.g., flex items-center justify-between w-full)...\n\nClasses will be converted into raw CSS instantly.'
+                        : 'Paste CSS rules here (e.g., display: flex; align-items: center;)...\n\nRules will be heuristically mapped to Tailwind classes.'
                   }
                   value={state.input}
-                  onChange={(e) => setState({...state, input: e.target.value})}
+                  onChange={(e) => setState({ ...state, input: e.target.value })}
                   spellCheck="false"
                />
             </div>
@@ -241,7 +259,11 @@ export function TailwindLookupView() {
          <div className="flex-1 flex flex-col min-w-0 bg-muted/5 h-[50vh] md:h-full">
             <div className="h-14 flex items-center justify-between px-4 border-b border-border bg-muted/10 shrink-0">
                <div className="flex items-center gap-2">
-                  {state.mode === 'tw-to-css' ? <FileCode2 className="w-5 h-5 text-indigo-500" /> : <Wind className="w-5 h-5 text-sky-500" />}
+                  {state.mode === 'tw-to-css' ? (
+                     <FileCode2 className="w-5 h-5 text-indigo-500" />
+                  ) : (
+                     <Wind className="w-5 h-5 text-sky-500" />
+                  )}
                   <h2 className="font-semibold text-sm">
                      {state.mode === 'tw-to-css' ? 'Generated CSS' : 'Tailwind Equivalents'}
                   </h2>
@@ -266,12 +288,10 @@ export function TailwindLookupView() {
                   )}
                </Button>
             </div>
-            
+
             <div className="flex-1 overflow-auto p-6 relative">
                {output ? (
-                  <pre className="font-mono text-sm leading-relaxed whitespace-pre-wrap text-emerald-400">
-                     {output}
-                  </pre>
+                  <pre className="font-mono text-sm leading-relaxed whitespace-pre-wrap text-emerald-400">{output}</pre>
                ) : (
                   <div className="flex flex-col items-center justify-center h-full text-muted-foreground/50 gap-3">
                      <Search className="w-12 h-12 stroke-1" />

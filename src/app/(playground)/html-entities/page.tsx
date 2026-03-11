@@ -35,18 +35,16 @@ import { HtmlEntityConverterSeoContent } from '@/components/html-entity-converte
 
 export default function Page() {
    return (
-      
-         <div id="page-top" className="flex flex-col">
-            {/* The main tool viewport */}
-            <div className="h-[calc(100vh-72px)] shrink-0">
-               <HtmlEntityConverterView />
-            </div>
-
-            {/* SEO Content directly in the DOM, below the fold */}
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
-               <HtmlEntityConverterSeoContent />
-            </div>
+      <div id="page-top" className="flex flex-col">
+         {/* The main tool viewport */}
+         <div className="h-[calc(100vh-72px)] shrink-0">
+            <HtmlEntityConverterView />
          </div>
-      
+
+         {/* SEO Content directly in the DOM, below the fold */}
+         <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
+            <HtmlEntityConverterSeoContent />
+         </div>
+      </div>
    );
 }

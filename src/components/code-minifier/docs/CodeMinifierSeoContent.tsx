@@ -47,7 +47,8 @@ export function CodeMinifierSeoContent() {
                Instantly <span className="text-amber-500">Minify & Beautify</span> Logic
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Locally compress massive JavaScript blocks perfectly, or instantly expand chaotic one-line obfuscated dumped HTML files utilizing high-speed runtime parsers implicitly directly in-browser.
+               Locally compress massive JavaScript blocks perfectly, or instantly expand chaotic one-line obfuscated
+               dumped HTML files utilizing high-speed runtime parsers implicitly directly in-browser.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function CodeMinifierSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Extreme Compression</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Strips useless comments, trailing white spaces, line returns, and completely safely trims logic equations reducing bundle metrics upwards of 70% automatically runtime.
+                  Strips useless comments, trailing white spaces, line returns, and completely safely trims logic
+                  equations reducing bundle metrics upwards of 70% automatically runtime.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function CodeMinifierSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Format Restoration</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Tired of reading collapsed API responses? Switch the engine backward into Beautify mode translating minified objects back neatly into indented architectures correctly.
+                  Tired of reading collapsed API responses? Switch the engine backward into Beautify mode translating
+                  minified objects back neatly into indented architectures correctly.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function CodeMinifierSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Client-Side Privacy</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Execute completely private AST traversal logic maps offline safely keeping all enterprise business proprietary source secrets rigorously contained physically on your chip.
+                  Execute completely private AST traversal logic maps offline safely keeping all enterprise business
+                  proprietary source secrets rigorously contained physically on your chip.
                </p>
             </div>
          </div>
@@ -89,7 +93,8 @@ export function CodeMinifierSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Maximum output speed</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Processing occurs aggressively in a highly-optimized routine explicitly destroying unneeded DOM nodes or script tags parsing thousands of blocks incrementally.
+                  Processing occurs aggressively in a highly-optimized routine explicitly destroying unneeded DOM nodes
+                  or script tags parsing thousands of blocks incrementally.
                </p>
                <ul className="space-y-4">
                   {[
@@ -129,7 +134,10 @@ export function CodeMinifierSeoContent() {
                      { from: '250 KB Stylesheet', to: '95 KB Compressed' },
                      { from: '1 Line Spaghetti', to: '450 Lines Indented' },
                   ].map((item, i) => (
-                     <div key={i} className="flex flex-col gap-1 text-muted-foreground mb-4 border-b border-border/30 pb-2">
+                     <div
+                        key={i}
+                        className="flex flex-col gap-1 text-muted-foreground mb-4 border-b border-border/30 pb-2"
+                     >
                         <span className="text-amber-400 font-bold w-full truncate">[{item.from}]</span>
                         <span className="text-sm opacity-80">-&gt; Returns: {item.to}</span>
                      </div>
@@ -140,45 +148,72 @@ export function CodeMinifierSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Minify & Beautify Code</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Minify & Beautify Code
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Select Language & Mode</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose the language you want to process (JS, CSS, or HTML) and toggle between "Minify" (to compress) or "Beautify" (to reformat with indentation).</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Source Code</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Input your raw code into the editor. You can use the "Sample" button to load an example block or "Import" to load a file directly from your disk.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Transformation Settings</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">For beautification, adjust the indent size (e.g., 2 or 4 spaces). For minification, toggle advanced options like variable renaming or comment removal in the settings panel.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose the language you want to process (JS, CSS, or HTML) and toggle between "Minify" (to
+                        compress) or "Beautify" (to reformat with indentation).
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Compare File Size Reduction</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">The footer will display a "Before vs After" metric, showing exactly how many bytes were saved during the compression process in real-time.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Source Code</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Input your raw code into the editor. You can use the "Sample" button to load an example block or
+                        "Import" to load a file directly from your disk.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Configure Transformation Settings</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        For beautification, adjust the indent size (e.g., 2 or 4 spaces). For minification, toggle
+                        advanced options like variable renaming or comment removal in the settings panel.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Compare File Size Reduction</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        The footer will display a "Before vs After" metric, showing exactly how many bytes were saved
+                        during the compression process in real-time.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Export Your Optimized Code</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Copy" to move the result to your clipboard, or use the "Download" button to save the processed file back to your system.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Copy" to move the result to your clipboard, or use the "Download" button to save the
+                        processed file back to your system.
+                     </p>
                   </div>
                </div>
             </div>
@@ -211,7 +246,9 @@ export function CodeMinifierSeoContent() {
                      Is my input data saved?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-amber-500/20">
-                     To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the 'Persist Data' switch in the tool settings.
+                     To improve your experience, your input data is saved locally in your browser using localStorage.
+                     This is entirely client-side, meaning your data never leaves your device. You can opt-out of this
+                     behavior at any time by disabling the 'Persist Data' switch in the tool settings.
                   </p>
                </div>
             </div>

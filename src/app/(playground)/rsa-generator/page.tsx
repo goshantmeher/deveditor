@@ -34,16 +34,14 @@ import { RsaGeneratorSeoContent } from '@/components/rsa-generator/docs/RsaGener
 
 export default function Page() {
    return (
-      
-         <div id="page-top" className="flex flex-col">
-            <div className="min-h-0 shrink-0 bg-background pt-4 px-4 pb-2">
-               <RsaGeneratorView />
-            </div>
-
-            <div className="mt-4 border-t border-border/10 pt-8 pb-12 bg-background">
-               <RsaGeneratorSeoContent />
-            </div>
+      <div id="page-top" className="flex flex-col">
+         <div className="min-h-0 shrink-0 bg-background pt-4 px-4 pb-2">
+            <RsaGeneratorView />
          </div>
-      
+
+         <div className="mt-4 border-t border-border/10 pt-8 pb-12 bg-background">
+            <RsaGeneratorSeoContent />
+         </div>
+      </div>
    );
 }

@@ -55,7 +55,8 @@ export function ImageToPdfSeoContent() {
                Image to <span className="text-indigo-500">PDF</span> Converter
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Combine multiple JPG or PNG images into a single, high-quality PDF document. 100% secure and executed entirely within your browser.
+               Combine multiple JPG or PNG images into a single, high-quality PDF document. 100% secure and executed
+               entirely within your browser.
             </p>
          </div>
 
@@ -67,7 +68,8 @@ export function ImageToPdfSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Perfect Dimensions</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Forget white borders or stretched pixels. The resulting PDF generates custom page sizes to exactly match each embedded image's dimensions.
+                  Forget white borders or stretched pixels. The resulting PDF generates custom page sizes to exactly
+                  match each embedded image's dimensions.
                </p>
             </div>
 
@@ -77,7 +79,8 @@ export function ImageToPdfSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Lightning Fast</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Conversions are calculated locally in your machine's memory, bypassing slow server uploads and allowing instant downloads.
+                  Conversions are calculated locally in your machine's memory, bypassing slow server uploads and
+                  allowing instant downloads.
                </p>
             </div>
 
@@ -136,10 +139,12 @@ export function ImageToPdfSeoContent() {
                </div>
                <div className="prose prose-invert prose-sm">
                   <p>
-                     If you only want to convert a single image, that's completely fine! The tool will smartly generate a fast one-page document named after your image.
+                     If you only want to convert a single image, that's completely fine! The tool will smartly generate
+                     a fast one-page document named after your image.
                   </p>
                   <p>
-                     When converting multiple images, they will merge sequentially into a single file named `images_merged.pdf`. 
+                     When converting multiple images, they will merge sequentially into a single file named
+                     `images_merged.pdf`.
                   </p>
                </div>
             </div>

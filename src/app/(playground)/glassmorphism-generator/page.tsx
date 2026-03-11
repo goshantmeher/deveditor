@@ -6,10 +6,19 @@ export const metadata: Metadata = {
    title: 'Glassmorphism & Box Shadow Generator - DevEditor',
    description:
       'Free online tool to generate beautiful frosted glass UI effects. Fine tune box shadows, blurs, and opacities visually and export to modern CSS or Tailwind utility classes instantly.',
-   keywords: ['glassmorphism', 'shadow generator', 'box shadow', 'tailwind glass', 'frosted glass', 'css blur', 'backdrop filter'],
+   keywords: [
+      'glassmorphism',
+      'shadow generator',
+      'box shadow',
+      'tailwind glass',
+      'frosted glass',
+      'css blur',
+      'backdrop filter',
+   ],
    openGraph: {
       title: 'CSS Glassmorphism & Shadow Tool',
-      description: 'Easily design beautiful semi-transparent overlapping components with deep realistic drop shadows visually.',
+      description:
+         'Easily design beautiful semi-transparent overlapping components with deep realistic drop shadows visually.',
       url: 'https://www.deveditor.io/glassmorphism-generator',
       type: 'website',
    },

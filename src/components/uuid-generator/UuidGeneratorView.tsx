@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Copy, Check, RefreshCw, Layers, Fingerprint, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -19,7 +18,7 @@ export function UuidGeneratorView() {
    const [type, setType] = useState<IdType>('UUID v4');
    const [count, setCount] = useState<number>(1);
    const [format, setFormat] = useState<Formatting>('none');
-   
+
    const [output, setOutput] = useState<string>('');
    const [copied, setCopied] = useState(false);
 
@@ -34,8 +33,9 @@ export function UuidGeneratorView() {
          const storedFormat = localStorage.getItem(STORAGE_KEYS.UUID_FORMAT);
 
          if (storedType === 'UUID v4' || storedType === 'ULID') setType(storedType);
-         if (storedFormat === 'none' || storedFormat === 'uppercase' || storedFormat === 'lowercase') setFormat(storedFormat);
-         
+         if (storedFormat === 'none' || storedFormat === 'uppercase' || storedFormat === 'lowercase')
+            setFormat(storedFormat);
+
          if (storedCount) {
             const parsed = parseInt(storedCount, 10);
             if (!isNaN(parsed) && parsed > 0 && parsed <= 1000) setCount(parsed);
@@ -92,7 +92,7 @@ export function UuidGeneratorView() {
                <Fingerprint className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">UUID / ULID Generator</span>
             </div>
-            
+
             <div className="flex-1" />
 
             {/* Actions */}
@@ -100,7 +100,7 @@ export function UuidGeneratorView() {
                <Trash2 className="w-3.5 h-3.5 mr-1" />
                <span className="hidden sm:inline">Clear List</span>
             </Button>
-            
+
             <Button
                variant="default"
                size="sm"
@@ -124,7 +124,6 @@ export function UuidGeneratorView() {
 
          {/* Main Content */}
          <div className="flex-1 flex flex-col md:flex-row min-h-0 bg-background">
-            
             {/* Options Panel (Left) */}
             <div className="flex flex-col md:w-1/3 min-h-[300px] md:min-h-0 border-b md:border-b-0 md:border-r border-border overflow-y-auto">
                <div className="px-3 py-2 border-b min-h-12 border-border bg-background shrink-0 flex items-center justify-between">
@@ -132,7 +131,7 @@ export function UuidGeneratorView() {
                      Generation Settings
                   </span>
                </div>
-               
+
                <div className="p-5 space-y-8">
                   {/* Type Selector */}
                   <div className="space-y-3">
@@ -160,14 +159,18 @@ export function UuidGeneratorView() {
                   {/* Formatting Selector */}
                   {(type === 'UUID v4' || type === 'ULID') && (
                      <div className="space-y-3">
-                        <label className="text-xs font-semibold text-foreground tracking-wider uppercase">Formatting</label>
+                        <label className="text-xs font-semibold text-foreground tracking-wider uppercase">
+                           Formatting
+                        </label>
                         <div className="flex border border-border/40 bg-muted/20 rounded-lg p-1">
                            {(['none', 'uppercase', 'lowercase'] as Formatting[]).map((f) => (
                               <button
                                  key={f}
                                  onClick={() => setFormat(f)}
                                  className={`flex-1 py-1.5 text-xs text-center rounded capitalize transition-all ${
-                                    format === f ? 'bg-background shadow-xs text-foreground font-semibold border border-border/50' : 'text-muted-foreground hover:text-foreground'
+                                    format === f
+                                       ? 'bg-background shadow-xs text-foreground font-semibold border border-border/50'
+                                       : 'text-muted-foreground hover:text-foreground'
                                  }`}
                               >
                                  {f === 'none' ? 'Default' : f}
@@ -208,13 +211,9 @@ export function UuidGeneratorView() {
                         className="py-1"
                      />
                   </div>
-                  
+
                   {/* Big Generate Button */}
-                  <Button
-                     onClick={handleGenerate}
-                     className="w-full h-11 text-sm font-semibold mt-4"
-                     variant="outline"
-                  >
+                  <Button onClick={handleGenerate} className="w-full h-11 text-sm font-semibold mt-4" variant="outline">
                      <RefreshCw className="w-4 h-4 mr-2" />
                      Generate More
                   </Button>
@@ -230,7 +229,7 @@ export function UuidGeneratorView() {
                      </span>
                   </div>
                </div>
-               
+
                <div className="flex-1 w-full bg-background relative">
                   <textarea
                      value={output}

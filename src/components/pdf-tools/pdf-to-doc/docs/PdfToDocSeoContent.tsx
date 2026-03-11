@@ -67,7 +67,8 @@ export function PdfToDocSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Editable Text Conversion</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Extracts text from PDF documents and builds a clean .docx file, ready to be edited in MS Word, Google Docs, or LibreOffice.
+                  Extracts text from PDF documents and builds a clean .docx file, ready to be edited in MS Word, Google
+                  Docs, or LibreOffice.
                </p>
             </div>
 
@@ -87,7 +88,8 @@ export function PdfToDocSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">100% Private</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Total client-side execution means your documents stay on your machine. We never access, store, or transmit your sensitive files.
+                  Total client-side execution means your documents stay on your machine. We never access, store, or
+                  transmit your sensitive files.
                </p>
             </div>
          </div>
@@ -136,13 +138,19 @@ export function PdfToDocSeoContent() {
                </div>
                <div className="prose prose-invert prose-sm">
                   <p>
-                     If your document has complex structures like nested tables or dense graphical layouts, this tool will attempt to extract the <strong>raw text</strong> content sequentially along with its basic typography (bold, italic, font size).
+                     If your document has complex structures like nested tables or dense graphical layouts, this tool
+                     will attempt to extract the <strong>raw text</strong> content sequentially along with its basic
+                     typography (bold, italic, font size).
                   </p>
                   <p>
-                     <strong>Why doesn't the layout match exactly?</strong> Because DevEditor operates <strong>100% locally in your browser</strong> to protect your privacy, we cannot utilize the heavy, server-side C++ rendering engines required to perfectly mimic floating, absolute-positioned PDF layouts and embedded fonts.
+                     <strong>Why doesn't the layout match exactly?</strong> Because DevEditor operates{' '}
+                     <strong>100% locally in your browser</strong> to protect your privacy, we cannot utilize the heavy,
+                     server-side C++ rendering engines required to perfectly mimic floating, absolute-positioned PDF
+                     layouts and embedded fonts.
                   </p>
                   <p>
-                     For forms, invoices, and standard readable reports, this provides an excellent text foundational file you can effortlessly reformat in Word.
+                     For forms, invoices, and standard readable reports, this provides an excellent text foundational
+                     file you can effortlessly reformat in Word.
                   </p>
                </div>
             </div>
@@ -150,29 +158,46 @@ export function PdfToDocSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert PDF to Word</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Convert PDF to Word
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Select Document</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Simply drag and drop your PDF into the designated area. The extraction starts automatically directly inside your device memory.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Simply drag and drop your PDF into the designated area. The extraction starts automatically
+                        directly inside your device memory.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">2</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Wait for Parsing Complete</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">A confirmation will appear detailing the number of text pages parsed successfully and compiled to the internal virtual document tree.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        A confirmation will appear detailing the number of text pages parsed successfully and compiled
+                        to the internal virtual document tree.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">3</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Initialize the Download</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Hit the "Download Word Document" button to convert the extracted text layers into a fully valid MS Word .docx document instantly and save it locally on your machine.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Hit the "Download Word Document" button to convert the extracted text layers into a fully valid
+                        MS Word .docx document instantly and save it locally on your machine.
+                     </p>
                   </div>
                </div>
             </div>
@@ -184,7 +209,9 @@ export function PdfToDocSeoContent() {
                <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
                   Frequently Asked Questions
                </h2>
-               <p className="text-muted-foreground">Everything you need to know about PDF to Word conversions securely done.</p>
+               <p className="text-muted-foreground">
+                  Everything you need to know about PDF to Word conversions securely done.
+               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
@@ -207,7 +234,8 @@ export function PdfToDocSeoContent() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
             <h2 className="text-3xl font-bold text-white relative z-10">Convert PDF to Word Locally</h2>
             <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
-               Transform readable PDF text layers into an editable .docx format. No waiting times, 100% offline-ready in browser.
+               Transform readable PDF text layers into an editable .docx format. No waiting times, 100% offline-ready in
+               browser.
             </p>
             <div className="pt-4 relative z-10">
                <ScrollToTopButton label="Scroll up to Start Converting" />

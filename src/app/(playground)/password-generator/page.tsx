@@ -34,18 +34,16 @@ import { PasswordGeneratorSeoContent } from '@/components/password-generator/doc
 
 export default function Page() {
    return (
-      
-         <div id="page-top" className="flex flex-col">
-            {/* The main tool viewport */}
-            <div className="h-[calc(100vh-72px)] shrink-0">
-               <PasswordGeneratorView />
-            </div>
-
-            {/* SEO Content directly in the DOM, below the fold */}
-            <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
-               <PasswordGeneratorSeoContent />
-            </div>
+      <div id="page-top" className="flex flex-col">
+         {/* The main tool viewport */}
+         <div className="h-[calc(100vh-72px)] shrink-0">
+            <PasswordGeneratorView />
          </div>
-      
+
+         {/* SEO Content directly in the DOM, below the fold */}
+         <div className="mt-8 border-t border-border/10 pt-8 pb-12 bg-background">
+            <PasswordGeneratorSeoContent />
+         </div>
+      </div>
    );
 }

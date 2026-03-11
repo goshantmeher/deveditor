@@ -6,7 +6,14 @@ export const metadata: Metadata = {
    title: 'JSONPath Expression Evaluator & Playground - DevEditor',
    description:
       'Interact with JSON payloads using highly complex JSONPath expressions securely offline. Test data extraction syntax instantly dynamically before deploying to production architectures safely natively.',
-   keywords: ['jsonpath evaluator', 'json playground', 'json path sandbox', 'evaluate json queries', 'json xpath', 'json viewer'],
+   keywords: [
+      'jsonpath evaluator',
+      'json playground',
+      'json path sandbox',
+      'evaluate json queries',
+      'json xpath',
+      'json viewer',
+   ],
    openGraph: {
       title: 'JSONPath Sandbox Environment',
       description: 'Rapidly evaluate arrays strictly bypassing complex backend routing completely.',

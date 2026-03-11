@@ -47,7 +47,8 @@ export function TailwindLookupSeoContent() {
                Ultimate <span className="text-indigo-500">Tailwind Converter</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Searchable reference directory mapping Utility-First Tailwind v4 Classes instantly into standard Vanilla CSS structures and vice-versa.
+               Searchable reference directory mapping Utility-First Tailwind v4 Classes instantly into standard Vanilla
+               CSS structures and vice-versa.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function TailwindLookupSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Extract Raw CSS</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Evaluate enormous unreadable lines of generic Tailwind utilities instantly into logically blocked, nicely formatted raw CSS rule sets automatically.
+                  Evaluate enormous unreadable lines of generic Tailwind utilities instantly into logically blocked,
+                  nicely formatted raw CSS rule sets automatically.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function TailwindLookupSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Reverse Engineering</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Take legacy stylesheets and feed them directly into our engine to attempt migrating old systems into modern Tailwind utility arrays easily.
+                  Take legacy stylesheets and feed them directly into our engine to attempt migrating old systems into
+                  modern Tailwind utility arrays easily.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function TailwindLookupSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Heuristic Mapping</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  We use intelligent scale-conversion multipliers dynamically calculating matching values rather than attempting to download massive hard-coded configuration data locally.
+                  We use intelligent scale-conversion multipliers dynamically calculating matching values rather than
+                  attempting to download massive hard-coded configuration data locally.
                </p>
             </div>
          </div>
@@ -89,7 +93,8 @@ export function TailwindLookupSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Migrate legacy stylesheets</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Moving older applications into heavy NextJS infrastructures utilizing strict compiler requirements often makes preserving traditional {'<style>'} blocks hard to manage properly over long lifecycles.
+                  Moving older applications into heavy NextJS infrastructures utilizing strict compiler requirements
+                  often makes preserving traditional {'<style>'} blocks hard to manage properly over long lifecycles.
                </p>
                <ul className="space-y-4">
                   {[
@@ -141,45 +146,73 @@ export function TailwindLookupSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert CSS & Tailwind</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Convert CSS & Tailwind
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Style Rules</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Enter your raw vanilla CSS block or a string of Tailwind utility classes into the input editor. The tool automatically detects the input type and prepares for conversion.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Select Primary Direction</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Choose whether you want to translate "Tailwind to CSS" or "CSS to Tailwind". The engine updates its heuristic mapping rules to provide the most accurate output possible.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Audit the Mapping Logic</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Review the output panel. For CSS-to-Tailwind, the engine identifies exact utility matches or generates arbitrary bracket values (e.g., <code className="text-indigo-400">m-[17px]</code>) for precision measurements.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Enter your raw vanilla CSS block or a string of Tailwind utility classes into the input editor.
+                        The tool automatically detects the input type and prepares for conversion.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Refine Heuristic Results</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">If multiple Tailwind classes could represent the same CSS rule, the tool provides the closest standard version. You can manually adjust the input values to see how the mapping changes live.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Primary Direction</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Choose whether you want to translate "Tailwind to CSS" or "CSS to Tailwind". The engine updates
+                        its heuristic mapping rules to provide the most accurate output possible.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit the Mapping Logic</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Review the output panel. For CSS-to-Tailwind, the engine identifies exact utility matches or
+                        generates arbitrary bracket values (e.g., <code className="text-indigo-400">m-[17px]</code>) for
+                        precision measurements.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Refine Heuristic Results</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        If multiple Tailwind classes could represent the same CSS rule, the tool provides the closest
+                        standard version. You can manually adjust the input values to see how the mapping changes live.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy Your Utility String</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click the "Copy" icon on the result panel. Your converted styles are now on your clipboard, ready to be pasted into your React/Next.js components or legacy stylesheets.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click the "Copy" icon on the result panel. Your converted styles are now on your clipboard,
+                        ready to be pasted into your React/Next.js components or legacy stylesheets.
+                     </p>
                   </div>
                </div>
             </div>

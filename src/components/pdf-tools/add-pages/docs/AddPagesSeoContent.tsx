@@ -55,7 +55,8 @@ export function AddPagesSeoContent() {
                Add Pages to <span className="text-indigo-500">PDF</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Insert blank pages or merge entire PDF documents at specific locations within your base PDF. 100% secure and runs entirely in your browser.
+               Insert blank pages or merge entire PDF documents at specific locations within your base PDF. 100% secure
+               and runs entirely in your browser.
             </p>
          </div>
 
@@ -67,7 +68,8 @@ export function AddPagesSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Precision Insertion</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Visually choose exactly where you want to insert a blank page or an entirely new PDF file, right between existing pages.
+                  Visually choose exactly where you want to insert a blank page or an entirely new PDF file, right
+                  between existing pages.
                </p>
             </div>
 
@@ -77,7 +79,8 @@ export function AddPagesSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Lightning Fast</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Modifications are calculated locally in your machine's memory, allowing you to build and preview the new document instantly.
+                  Modifications are calculated locally in your machine's memory, allowing you to build and preview the
+                  new document instantly.
                </p>
             </div>
 
@@ -87,7 +90,8 @@ export function AddPagesSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">100% Private</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Total client-side execution means your documents stay on your machine. We never access, store, or transmit your sensitive files.
+                  Total client-side execution means your documents stay on your machine. We never access, store, or
+                  transmit your sensitive files.
                </p>
             </div>
          </div>
@@ -96,9 +100,7 @@ export function AddPagesSeoContent() {
          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">How It Works</h2>
-               <p className="text-muted-foreground leading-relaxed">
-                  Modify your PDF structure quickly and securely.
-               </p>
+               <p className="text-muted-foreground leading-relaxed">Modify your PDF structure quickly and securely.</p>
                <ul className="space-y-4">
                   {[
                      {
@@ -135,11 +137,10 @@ export function AddPagesSeoContent() {
                   <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pro Tip</span>
                </div>
                <div className="prose prose-invert prose-sm">
+                  <p>You can insert as many documents or blank pages as you need into a single base document.</p>
                   <p>
-                     You can insert as many documents or blank pages as you need into a single base document.
-                  </p>
-                  <p>
-                     If you insert a PDF that has multiple pages, all of its pages will be added sequentially at the index you selected.
+                     If you insert a PDF that has multiple pages, all of its pages will be added sequentially at the
+                     index you selected.
                   </p>
                </div>
             </div>
@@ -151,7 +152,9 @@ export function AddPagesSeoContent() {
                <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
                   Frequently Asked Questions
                </h2>
-               <p className="text-muted-foreground">Everything you need to know about modifying and adding PDF pages.</p>
+               <p className="text-muted-foreground">
+                  Everything you need to know about modifying and adding PDF pages.
+               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
@@ -174,7 +177,8 @@ export function AddPagesSeoContent() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/10 transition-colors" />
             <h2 className="text-3xl font-bold text-white relative z-10">Add PDF Pages Instantly</h2>
             <p className="text-indigo-100 max-w-xl mx-auto relative z-10">
-               Safely merge documents and insert blank pages at precise locations. 100% private, runs directly in your browser.
+               Safely merge documents and insert blank pages at precise locations. 100% private, runs directly in your
+               browser.
             </p>
             <div className="pt-4 relative z-10">
                <ScrollToTopButton label="Scroll up to Start" />

@@ -55,7 +55,8 @@ export function SvgToJsxSeoContent() {
                SVG to <span className="text-indigo-500">React JSX</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Instantly convert raw SVG elements into ready-to-use React components. Automatically maps snake-case attributes, resolves styling, and formats cleanly.
+               Instantly convert raw SVG elements into ready-to-use React components. Automatically maps snake-case
+               attributes, resolves styling, and formats cleanly.
             </p>
          </div>
 
@@ -67,7 +68,8 @@ export function SvgToJsxSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Perfect CamelCase Mapping</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Translates dozens of non-standard SVG attributes into React-supported camelCase dynamically and safely.
+                  Translates dozens of non-standard SVG attributes into React-supported camelCase dynamically and
+                  safely.
                </p>
             </div>
 
@@ -87,7 +89,8 @@ export function SvgToJsxSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Instant Live Output</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Export directly as code variables without wait times. It processes code concurrently frame by frame using DOM parsers.
+                  Export directly as code variables without wait times. It processes code concurrently frame by frame
+                  using DOM parsers.
                </p>
             </div>
          </div>
@@ -97,7 +100,8 @@ export function SvgToJsxSeoContent() {
             <div className="space-y-6">
                <h2 className="text-3xl font-bold tracking-tight text-foreground">Fast, Smart, and Ready to Paste</h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Dealing with manually refactoring <code>xml:space</code> or <code>fill-rule</code> is a headache. Now it is a single click away to wrap your icon sets securely in standard React components.
+                  Dealing with manually refactoring <code>xml:space</code> or <code>fill-rule</code> is a headache. Now
+                  it is a single click away to wrap your icon sets securely in standard React components.
                </p>
                <ul className="space-y-4">
                   {[
@@ -127,16 +131,14 @@ export function SvgToJsxSeoContent() {
             <div className="bg-muted/50 rounded-3xl p-8 border border-border">
                <div className="flex items-center gap-2 mb-4">
                   <Sparkles className="w-4 h-4 text-indigo-500" />
-                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                     Quick Look
-                  </span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Quick Look</span>
                </div>
                <div className="space-y-3 font-mono text-sm">
                   {[
                      { from: 'class="icon"', to: 'className="icon"' },
                      { from: 'stroke-width="2"', to: 'strokeWidth="2"' },
                      { from: 'xmlns:xlink="..."', to: 'xmlnsXlink="..."' },
-                     { from: 'style="fill: blue;"', to: 'style={{fill: \'blue\'}}' },
+                     { from: 'style="fill: blue;"', to: "style={{fill: 'blue'}}" },
                   ].map((item, i) => (
                      <div key={i} className="flex flex-col gap-1 text-muted-foreground mb-4">
                         <span className="text-xs text-rose-400 opacity-80">{item.from}</span>
@@ -149,45 +151,75 @@ export function SvgToJsxSeoContent() {
 
          {/* How to Use Section */}
          <div className="space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Convert SVG to React</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">
+               How to Convert SVG to React
+            </h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Paste Your Vector Markup</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Enter your raw SVG string into the input area. The tool also supports dragging and dropping file assets for immediate parsing.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Observe Casing Transformation</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Watch as the engine automatically maps <code className="text-indigo-400">stroke-width</code> to <code className="text-indigo-400">strokeWidth</code> and <code className="text-indigo-400">fill-rule</code> to <code className="text-indigo-400">fillRule</code> for React compatibility.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Resolve Style Objects</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Check the output for the "Style Transformation" area where inline CSS strings are converted into standard JSX object property syntax automatically.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Enter your raw SVG string into the input area. The tool also supports dragging and dropping file
+                        assets for immediate parsing.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Component Names</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Verify that all non-standard elements like <code className="text-indigo-400">mask-type</code> or <code className="text-indigo-400">clip-path</code> have been correctly remapped into their valid React prop counterparts.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Observe Casing Transformation</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Watch as the engine automatically maps <code className="text-indigo-400">stroke-width</code> to{' '}
+                        <code className="text-indigo-400">strokeWidth</code> and{' '}
+                        <code className="text-indigo-400">fill-rule</code> to{' '}
+                        <code className="text-indigo-400">fillRule</code> for React compatibility.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Resolve Style Objects</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Check the output for the "Style Transformation" area where inline CSS strings are converted into
+                        standard JSX object property syntax automatically.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Audit Component Names</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Verify that all non-standard elements like <code className="text-indigo-400">mask-type</code> or{' '}
+                        <code className="text-indigo-400">clip-path</code> have been correctly remapped into their valid
+                        React prop counterparts.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy and Paste Component</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Copy" to get the full JSX markup. The processing is entirely browser-based, keeping your assets localized and secure in your environment.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Copy" to get the full JSX markup. The processing is entirely browser-based, keeping your
+                        assets localized and secure in your environment.
+                     </p>
                   </div>
                </div>
             </div>

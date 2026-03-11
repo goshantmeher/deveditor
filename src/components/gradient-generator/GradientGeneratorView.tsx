@@ -71,8 +71,12 @@ export function GradientGeneratorView() {
       if (newPos > 100) newPos = 50;
 
       // Random color
-      const rndColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-      
+      const rndColor =
+         '#' +
+         Math.floor(Math.random() * 16777215)
+            .toString(16)
+            .padStart(6, '0');
+
       newStops.push({ id: generateId(), color: rndColor, position: newPos });
       setState({ ...state, stops: newStops });
    };
@@ -88,8 +92,16 @@ export function GradientGeneratorView() {
    };
 
    const randomize = () => {
-      const c1 = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-      const c2 = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+      const c1 =
+         '#' +
+         Math.floor(Math.random() * 16777215)
+            .toString(16)
+            .padStart(6, '0');
+      const c2 =
+         '#' +
+         Math.floor(Math.random() * 16777215)
+            .toString(16)
+            .padStart(6, '0');
       setState({
          type: state.type,
          angle: Math.floor(Math.random() * 360),
@@ -104,7 +116,7 @@ export function GradientGeneratorView() {
    const getGradientString = () => {
       const sortedStops = [...state.stops].sort((a, b) => a.position - b.position);
       const stopsStr = sortedStops.map((s) => `${s.color} ${s.position}%`).join(', ');
-      
+
       if (state.type === 'linear') {
          return `linear-gradient(${state.angle}deg, ${stopsStr})`;
       } else if (state.type === 'radial') {
@@ -116,7 +128,7 @@ export function GradientGeneratorView() {
    };
 
    const gradientValue = getGradientString();
-   
+
    const sortedStops = [...state.stops].sort((a, b) => a.position - b.position);
 
    const cssCode = `/* CSS Gradient */
@@ -129,7 +141,7 @@ export function GradientGeneratorView() {
 <div class="bg-[${gradientValue.replace(/ /g, '_')}]"></div>
 
 <!-- Alternatively, if linear and matching Tailwind's default angles you can use standard utilities: -->
-<!-- e.g. bg-linear-to-r from-[${sortedStops[0].color}] to-[${sortedStops[sortedStops.length-1].color}] -->`;
+<!-- e.g. bg-linear-to-r from-[${sortedStops[0].color}] to-[${sortedStops[sortedStops.length - 1].color}] -->`;
 
    const copyToClipboard = async (text: string, type: 'css' | 'tailwind') => {
       try {
@@ -161,10 +173,8 @@ export function GradientGeneratorView() {
          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
          {/* Left Preview Panel */}
-         <div 
-            className="flex-1 min-h-[400px] md:min-h-0 relative flex items-center justify-center p-8 transition-all duration-300" 
-         >
-            <div 
+         <div className="flex-1 min-h-[400px] md:min-h-0 relative flex items-center justify-center p-8 transition-all duration-300">
+            <div
                className="w-full h-full max-w-2xl max-h-[80%] rounded-3xl shadow-2xl transition-all duration-300"
                style={{ background: gradientValue }}
             />
@@ -177,11 +187,16 @@ export function GradientGeneratorView() {
                   <Palette className="w-4 h-4 text-brand" />
                   <h2 className="font-semibold text-sm">Gradient Editor</h2>
                </div>
-               <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={randomize}>
+               <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground"
+                  onClick={randomize}
+               >
                   <Dice5 className="w-3.5 h-3.5" /> Randomize
                </Button>
             </div>
-            
+
             <div className="flex-1 overflow-y-auto p-6 space-y-8">
                {/* Controls */}
                <div className="space-y-4">
@@ -212,7 +227,14 @@ export function GradientGeneratorView() {
                            <label className="text-sm font-medium">Angle</label>
                            <span className="text-xs font-mono bg-muted px-1.5 py-0.5 rounded">{state.angle}°</span>
                         </div>
-                        <input type="range" min="0" max="360" value={state.angle} onChange={(e) => setState({...state, angle: Number(e.target.value)})} className="w-full accent-brand" />
+                        <input
+                           type="range"
+                           min="0"
+                           max="360"
+                           value={state.angle}
+                           onChange={(e) => setState({ ...state, angle: Number(e.target.value) })}
+                           className="w-full accent-brand"
+                        />
                      </div>
                   )}
                </div>
@@ -223,33 +245,44 @@ export function GradientGeneratorView() {
                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
                         <PaintBucket className="w-4 h-4" /> Color Stops
                      </h3>
-                     <Button variant="outline" size="sm" className="h-7 text-xs px-2 gap-1" onClick={addStop} disabled={state.stops.length >= 8}>
+                     <Button
+                        variant="outline"
+                        size="sm"
+                        className="h-7 text-xs px-2 gap-1"
+                        onClick={addStop}
+                        disabled={state.stops.length >= 8}
+                     >
                         <Plus className="w-3.5 h-3.5" /> Stop
                      </Button>
                   </div>
 
                   <div className="space-y-3">
                      {state.stops.map((stop) => (
-                        <div key={stop.id} className="flex flex-col gap-2 p-3 bg-muted/30 border border-border/50 rounded-lg relative group">
+                        <div
+                           key={stop.id}
+                           className="flex flex-col gap-2 p-3 bg-muted/30 border border-border/50 rounded-lg relative group"
+                        >
                            <div className="flex items-center gap-3">
-                              <input 
-                                 type="color" 
-                                 value={stop.color} 
-                                 onChange={(e) => updateStop(stop.id, { color: e.target.value })} 
-                                 className="h-8 w-10 rounded cursor-pointer shrink-0" 
+                              <input
+                                 type="color"
+                                 value={stop.color}
+                                 onChange={(e) => updateStop(stop.id, { color: e.target.value })}
+                                 className="h-8 w-10 rounded cursor-pointer shrink-0"
                               />
                               <div className="flex-1 flex flex-col gap-1 w-full relative">
                                  <div className="flex justify-between items-center w-full">
-                                    <span className="text-xs font-mono text-muted-foreground">{stop.color.toUpperCase()}</span>
+                                    <span className="text-xs font-mono text-muted-foreground">
+                                       {stop.color.toUpperCase()}
+                                    </span>
                                     <span className="text-xs font-mono">{stop.position}%</span>
                                  </div>
-                                 <input 
-                                    type="range" 
-                                    min="0" 
-                                    max="100" 
-                                    value={stop.position} 
-                                    onChange={(e) => updateStop(stop.id, { position: Number(e.target.value) })} 
-                                    className="w-full h-1.5 bg-border rounded-lg appearance-none cursor-pointer accent-brand" 
+                                 <input
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    value={stop.position}
+                                    onChange={(e) => updateStop(stop.id, { position: Number(e.target.value) })}
+                                    className="w-full h-1.5 bg-border rounded-lg appearance-none cursor-pointer accent-brand"
                                  />
                               </div>
                               <button
@@ -265,19 +298,18 @@ export function GradientGeneratorView() {
                      ))}
                   </div>
                </div>
-               
             </div>
-            
+
             {/* Output Code */}
             <div className="border-t border-border shrink-0 bg-muted/10">
                <div className="flex border-b border-border">
-                  <button 
+                  <button
                      className={`flex-1 py-2 text-xs font-bold ${activeTab === 'css' ? 'text-brand border-b-2 border-brand bg-brand/5' : 'text-muted-foreground hover:bg-muted/50'}`}
                      onClick={() => setActiveTab('css')}
                   >
                      CSS Code
                   </button>
-                  <button 
+                  <button
                      className={`flex-1 py-2 text-xs font-bold ${activeTab === 'tailwind' ? 'text-brand border-b-2 border-brand bg-brand/5' : 'text-muted-foreground hover:bg-muted/50'}`}
                      onClick={() => setActiveTab('tailwind')}
                   >

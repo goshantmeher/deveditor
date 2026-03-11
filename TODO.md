@@ -8,7 +8,7 @@
 > The current flat grid will not scale to 30+ tools. It must be reorganized
 > before more tools are added.
 
-- *All initial redesign tasks completed.*
+- _All initial redesign tasks completed._
 
 ### Proposed Categories:
 
@@ -23,37 +23,37 @@
 
 ## ✅ Already Built
 
-| Tool                                 | Route              | Status  |
-| ------------------------------------ | ------------------ | ------- |
-| JSON Viewer/Editor                   | `/json-editor`     | ✅ Live |
-| CSS Playground (Editor + Generators) | `/css-playground`  | ✅ Live |
-| Base64 Encoder/Decoder               | `/base64-encoder`  | ✅ Live |
-| Case Converter                       | `/case-converter`  | ✅ Live |
-| Text Diff Checker                    | `/text-diff`       | ✅ Live |
-| JWT Debugger                         | `/jwt-debugger`    | ✅ Live |
-| RegEx Tester                         | `/regex-tester`    | ✅ Live |
-| Color Converter & Palette            | `/color-converter` | ✅ Live |
-| Theme Generator                      | `/theme-generator` | ✅ Live |
-| JSON → Schema Generator              | `/json-to-schema`  | ✅ Live |
-| QR Code Generator                    | `/qr-generator`    | ✅ Live |
-| URL Encoder/Decoder                  | `/url-encoder`     | ✅ Live |
-| Hash Generator                       | `/hash-generator`  | ✅ Live |
-| UUID / ULID Generator                | `/uuid-generator`  | ✅ Live |
-| Password Generator                   | `/password-gen`    | ✅ Live |
-| YAML ↔ JSON Converter                | `/yaml-json`       | ✅ Live |
-| JSON Path Playground                 | `/json-path`       | ✅ Live |
-| JSON Compare / Diff                  | `/json-compare`    | ✅ Live |
-| PDF Resume Builder                   | `/resume-builder`  | ✅ Live |
-| SQL Formatter                        | `/sql-formatter`   | ✅ Live |
-| .htaccess Generator                  | `/htaccess-generator`| ✅ Live |
-| Image Converter                      | `/image-converter`   | ✅ Live |
-| Image Compressor                     | `/image-compressor` | ✅ Live |
-| SVG → PNG/JPEG Converter             | `/svg-to-png`       | ✅ Live |
-| EXIF Data Viewer & Remover           | `/exif-remover`     | ✅ Live |
-| PDF Tools (Merge/Split/Extract)      | `/pdf-*`             | ✅ Live |
-| Markdown Previewer                   | `/markdown`        | ✅ Live |
-| List / Array Converter               | `/list-converter`  | ✅ Live |
-| Tailwind CSS Lookup                  | `/tailwind`        | ✅ Live |
+| Tool                                 | Route                 | Status  |
+| ------------------------------------ | --------------------- | ------- |
+| JSON Viewer/Editor                   | `/json-editor`        | ✅ Live |
+| CSS Playground (Editor + Generators) | `/css-playground`     | ✅ Live |
+| Base64 Encoder/Decoder               | `/base64-encoder`     | ✅ Live |
+| Case Converter                       | `/case-converter`     | ✅ Live |
+| Text Diff Checker                    | `/text-diff`          | ✅ Live |
+| JWT Debugger                         | `/jwt-debugger`       | ✅ Live |
+| RegEx Tester                         | `/regex-tester`       | ✅ Live |
+| Color Converter & Palette            | `/color-converter`    | ✅ Live |
+| Theme Generator                      | `/theme-generator`    | ✅ Live |
+| JSON → Schema Generator              | `/json-to-schema`     | ✅ Live |
+| QR Code Generator                    | `/qr-generator`       | ✅ Live |
+| URL Encoder/Decoder                  | `/url-encoder`        | ✅ Live |
+| Hash Generator                       | `/hash-generator`     | ✅ Live |
+| UUID / ULID Generator                | `/uuid-generator`     | ✅ Live |
+| Password Generator                   | `/password-gen`       | ✅ Live |
+| YAML ↔ JSON Converter                | `/yaml-json`          | ✅ Live |
+| JSON Path Playground                 | `/json-path`          | ✅ Live |
+| JSON Compare / Diff                  | `/json-compare`       | ✅ Live |
+| PDF Resume Builder                   | `/resume-builder`     | ✅ Live |
+| SQL Formatter                        | `/sql-formatter`      | ✅ Live |
+| .htaccess Generator                  | `/htaccess-generator` | ✅ Live |
+| Image Converter                      | `/image-converter`    | ✅ Live |
+| Image Compressor                     | `/image-compressor`   | ✅ Live |
+| SVG → PNG/JPEG Converter             | `/svg-to-png`         | ✅ Live |
+| EXIF Data Viewer & Remover           | `/exif-remover`       | ✅ Live |
+| PDF Tools (Merge/Split/Extract)      | `/pdf-*`              | ✅ Live |
+| Markdown Previewer                   | `/markdown`           | ✅ Live |
+| List / Array Converter               | `/list-converter`     | ✅ Live |
+| Tailwind CSS Lookup                  | `/tailwind`           | ✅ Live |
 
 ---
 
@@ -79,8 +79,10 @@
 
 > Complementing the existing CSS Playground.
 
-- [ ] **Icon Font Previewer** — Browse FontAwesome, Lucide, or Material icons with copy-to-clipboard functionality.
+- [x] **Icon Font Builder** — Browse FontAwesome, Lucide, or Material icons to build a custom React Component library or SVG sprite.
+   - ✅ Feasible: Initial implementation with Lucide library and Zustand cart.
    - Priority: ⭐⭐⭐
+   - **Built:** `/icon-builder`
 
 ---
 
@@ -167,7 +169,7 @@
 
 > Tools for converting between data formats.
 
-*All items in this category have been completed.*
+_All items in this category have been completed._
 
 ---
 
@@ -198,27 +200,27 @@ Based on impact, bookmark potential, and effort required:
 
 ### Phase 3 — Medium Impact, Medium Effort
 
-| #   | Tool                     | Category    | Status   |
-| --- | ------------------------ | ----------- | -------- |
-| 11  | Markdown Previewer       | 🔤 Text     |          |
-| 12  | Password Generator       | 🔐 Security |          |
-| 13  | Unix Timestamp Converter | 🏗️ Logic    |          |
-| 14  | YAML ↔ JSON Converter    | 📊 Data     |          |
-| 15  | QR Code Generator        | 📦 Media    |          |
-| 16  | Image Compressor         | 📦 Media    | ✅ Done  |
-| 17  | JSON → TypeScript Schema | 🏗️ Logic    |          |
+| #   | Tool                     | Category    | Status  |
+| --- | ------------------------ | ----------- | ------- |
+| 11  | Markdown Previewer       | 🔤 Text     |         |
+| 12  | Password Generator       | 🔐 Security |         |
+| 13  | Unix Timestamp Converter | 🏗️ Logic    |         |
+| 14  | YAML ↔ JSON Converter    | 📊 Data     |         |
+| 15  | QR Code Generator        | 📦 Media    |         |
+| 16  | Image Compressor         | 📦 Media    | ✅ Done |
+| 17  | JSON → TypeScript Schema | 🏗️ Logic    |         |
 
 ### Phase 4 — Nice to Have
 
-| #   | Tool                   | Category  | Status   |
-| --- | ---------------------- | --------- | -------- |
-| 18  | List / Array Converter | 🔤 Text   |          |
-| 19  | HTML Entity Converter  | 🔤 Text   |          |
-| 20  | SVG Optimizer          | 🎨 Design |          |
-| 21  | Favicon Generator      | 🎨 Design |          |
-| 22  | SVG → PNG Converter    | 📦 Media  | ✅ Done  |
-| 23  | EXIF Remover           | 📦 Media  | ✅ Done  |
-| 24+ | Everything else        | —         |          |
+| #   | Tool                   | Category  | Status  |
+| --- | ---------------------- | --------- | ------- |
+| 18  | List / Array Converter | 🔤 Text   |         |
+| 19  | HTML Entity Converter  | 🔤 Text   |         |
+| 20  | SVG Optimizer          | 🎨 Design |         |
+| 21  | Favicon Generator      | 🎨 Design |         |
+| 22  | SVG → PNG Converter    | 📦 Media  | ✅ Done |
+| 23  | EXIF Remover           | 📦 Media  | ✅ Done |
+| 24+ | Everything else        | —         |         |
 
 ---
 

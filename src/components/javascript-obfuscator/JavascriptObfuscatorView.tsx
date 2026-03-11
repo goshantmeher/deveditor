@@ -1,14 +1,17 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ShieldAlert, Play, Copy, Check, RotateCcw, MonitorPlay, TriangleAlert } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { usePersistence } from '@/contexts/PersistenceContext';
-import { obfuscateJavascript, ObfuscationOptions, DEFAULT_OBFUSCATION_OPTIONS } from '@/lib/javascript-obfuscator-utils';
+import {
+   obfuscateJavascript,
+   ObfuscationOptions,
+   DEFAULT_OBFUSCATION_OPTIONS,
+} from '@/lib/javascript-obfuscator-utils';
 import ReactCodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { vscodeDark } from '@uiw/codemirror-theme-vscode';
@@ -46,7 +49,9 @@ export function JavascriptObfuscatorView() {
          if (opts) {
             try {
                setOptions(JSON.parse(opts));
-            } catch { /* ignore malformed JSON */ }
+            } catch {
+               /* ignore malformed JSON */
+            }
          }
       }
    }, [isPersistenceEnabled]);
@@ -61,7 +66,7 @@ export function JavascriptObfuscatorView() {
    }, [inputCode, options, isPersistenceEnabled]);
 
    const updateOption = (key: keyof ObfuscationOptions, value: ObfuscationOptions[keyof ObfuscationOptions]) => {
-      setOptions(prev => ({ ...prev, [key]: value }));
+      setOptions((prev) => ({ ...prev, [key]: value }));
    };
 
    const handleObfuscate = useCallback(() => {
@@ -98,20 +103,34 @@ export function JavascriptObfuscatorView() {
                <ShieldAlert className="h-4 w-4 text-brand" />
                <span className="text-sm font-semibold text-foreground">JavaScript Obfuscator</span>
             </div>
-            
+
             <div className="flex items-center gap-2">
                {!inputCode && (
-                  <Button variant="ghost" size="sm" className="h-8 text-xs text-muted-foreground" onClick={() => setInputCode(SAMPLE_JS)}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-8 text-xs text-muted-foreground"
+                     onClick={() => setInputCode(SAMPLE_JS)}
+                  >
                      <MonitorPlay className="w-3.5 h-3.5 mr-1" />
                      Test Sample
                   </Button>
                )}
-               <Button variant="ghost" size="sm" className="h-8 text-xs text-muted-foreground" onClick={() => { setInputCode(''); setOutputCode(''); setError(null); }}>
+               <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 text-xs text-muted-foreground"
+                  onClick={() => {
+                     setInputCode('');
+                     setOutputCode('');
+                     setError(null);
+                  }}
+               >
                   <RotateCcw className="w-3.5 h-3.5 mr-1" />
                   Clear
                </Button>
-               <Button 
-                  onClick={handleObfuscate} 
+               <Button
+                  onClick={handleObfuscate}
                   disabled={!inputCode || isComputing}
                   className="h-8 text-xs px-4 bg-brand hover:bg-brand/90 text-brand-foreground"
                >
@@ -134,7 +153,7 @@ export function JavascriptObfuscatorView() {
                <div className="p-4 border-b border-border bg-muted/10">
                   <span className="text-xs font-semibold text-foreground uppercase tracking-wider">Features Setup</span>
                </div>
-               
+
                <div className="p-5 space-y-6">
                   <div className="flex items-center justify-between">
                      <div className="space-y-0.5">
@@ -143,13 +162,18 @@ export function JavascriptObfuscatorView() {
                      </div>
                      <Switch checked={options.compact} onCheckedChange={(val) => updateOption('compact', val)} />
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                      <div className="space-y-0.5">
                         <label className="text-sm font-medium">Control Flow</label>
-                        <p className="text-tiny text-muted-foreground line-clamp-2 pr-2">Flattening alters source structure drastically.</p>
+                        <p className="text-tiny text-muted-foreground line-clamp-2 pr-2">
+                           Flattening alters source structure drastically.
+                        </p>
                      </div>
-                     <Switch checked={options.controlFlowFlattening} onCheckedChange={(val) => updateOption('controlFlowFlattening', val)} />
+                     <Switch
+                        checked={options.controlFlowFlattening}
+                        onCheckedChange={(val) => updateOption('controlFlowFlattening', val)}
+                     />
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -157,7 +181,10 @@ export function JavascriptObfuscatorView() {
                         <label className="text-sm font-medium">Dead Code</label>
                         <p className="text-tiny text-muted-foreground pr-2">Inject random dead code chunks.</p>
                      </div>
-                     <Switch checked={options.deadCodeInjection} onCheckedChange={(val) => updateOption('deadCodeInjection', val)} />
+                     <Switch
+                        checked={options.deadCodeInjection}
+                        onCheckedChange={(val) => updateOption('deadCodeInjection', val)}
+                     />
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -165,7 +192,10 @@ export function JavascriptObfuscatorView() {
                         <label className="text-sm font-medium">Mute Console</label>
                         <p className="text-tiny text-muted-foreground pr-2">Disables console.log.</p>
                      </div>
-                     <Switch checked={options.disableConsoleOutput} onCheckedChange={(val) => updateOption('disableConsoleOutput', val)} />
+                     <Switch
+                        checked={options.disableConsoleOutput}
+                        onCheckedChange={(val) => updateOption('disableConsoleOutput', val)}
+                     />
                   </div>
 
                   <div className="flex items-center justify-between">
@@ -173,12 +203,20 @@ export function JavascriptObfuscatorView() {
                         <label className="text-sm font-medium">String Arrays</label>
                         <p className="text-tiny text-muted-foreground pr-2">Hide literal strings in shifted arrays.</p>
                      </div>
-                     <Switch checked={options.stringArray} onCheckedChange={(val) => updateOption('stringArray', val)} />
+                     <Switch
+                        checked={options.stringArray}
+                        onCheckedChange={(val) => updateOption('stringArray', val)}
+                     />
                   </div>
 
                   <div className="space-y-2 pt-2 border-t border-border/40">
                      <label className="text-xs font-semibold text-foreground">STRING ENCODING</label>
-                     <Select value={options.stringArrayEncoding} onValueChange={(v) => updateOption('stringArrayEncoding', v as ObfuscationOptions['stringArrayEncoding'])}>
+                     <Select
+                        value={options.stringArrayEncoding}
+                        onValueChange={(v) =>
+                           updateOption('stringArrayEncoding', v as ObfuscationOptions['stringArrayEncoding'])
+                        }
+                     >
                         <SelectTrigger className="w-full text-xs h-8">
                            <SelectValue placeholder="Disabled" />
                         </SelectTrigger>
@@ -194,10 +232,11 @@ export function JavascriptObfuscatorView() {
 
             {/* In / Out Panels */}
             <div className="flex-1 flex flex-col md:flex-row min-h-0 border-l border-border bg-muted/10 relative">
-               
                <div className="flex-1 flex flex-col min-h-[300px] border-b md:border-b-0 md:border-r border-border relative">
                   <div className="px-3 py-2 border-b min-h-12 border-border bg-background shrink-0 flex items-center justify-between z-10">
-                     <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Original Code</span>
+                     <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                        Original Code
+                     </span>
                   </div>
                   <div className="flex-1 overflow-auto absolute inset-0 top-12 bg-[#1e1e1e] p-0 custom-scrollbar group">
                      <ReactCodeMirror
@@ -213,8 +252,16 @@ export function JavascriptObfuscatorView() {
 
                <div className="flex-1 flex flex-col min-h-[300px] relative">
                   <div className="px-3 py-2 border-b min-h-12 border-border bg-background shrink-0 flex items-center justify-between z-10">
-                     <span className="text-xs font-semibold text-brand uppercase tracking-wider">Obfuscated Bundle</span>
-                     <Button variant="ghost" size="icon" className="h-7 w-7 text-muted-foreground hover:text-foreground" onClick={handleCopy} disabled={!outputCode}>
+                     <span className="text-xs font-semibold text-brand uppercase tracking-wider">
+                        Obfuscated Bundle
+                     </span>
+                     <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-7 w-7 text-muted-foreground hover:text-foreground"
+                        onClick={handleCopy}
+                        disabled={!outputCode}
+                     >
                         {copied ? <Check className="w-4 h-4 text-success" /> : <Copy className="w-4 h-4" />}
                      </Button>
                   </div>
@@ -235,7 +282,6 @@ export function JavascriptObfuscatorView() {
                      )}
                   </div>
                </div>
-
             </div>
          </div>
       </div>

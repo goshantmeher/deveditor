@@ -26,7 +26,7 @@ const DEFAULT_STATE: UnixState = {
 function getRelativeTime(timestampMs: number): string {
    const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
    const daysDifference = Math.round((timestampMs - Date.now()) / (1000 * 60 * 60 * 24));
-   
+
    if (Math.abs(daysDifference) < 1) {
       const hoursDiff = Math.round((timestampMs - Date.now()) / (1000 * 60 * 60));
       if (Math.abs(hoursDiff) < 1) {
@@ -35,15 +35,15 @@ function getRelativeTime(timestampMs: number): string {
       }
       return rtf.format(hoursDiff, 'hour');
    }
-   
+
    if (Math.abs(daysDifference) > 365) {
       return rtf.format(Math.round(daysDifference / 365), 'year');
    }
-   
+
    if (Math.abs(daysDifference) > 30) {
       return rtf.format(Math.round(daysDifference / 30), 'month');
    }
-   
+
    return rtf.format(daysDifference, 'day');
 }
 
@@ -73,16 +73,16 @@ export function UnixTimestampView() {
             }
          }
       }
-      
+
       // Initialize with current time if empty
       if (!state.epochInput && !state.dateInput) {
          const now = Date.now();
-         setState(prev => ({ 
-            ...prev, 
-            epochInput: prev.unit === 's' ? Math.floor(now / 1000).toString() : now.toString() 
+         setState((prev) => ({
+            ...prev,
+            epochInput: prev.unit === 's' ? Math.floor(now / 1000).toString() : now.toString(),
          }));
       }
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [isPersistenceEnabled]);
 
    // Save state
@@ -104,13 +104,13 @@ export function UnixTimestampView() {
          setParsedDate(null);
          return;
       }
-      
+
       const num = parseInt(state.epochInput, 10);
       if (isNaN(num)) {
          setParsedDate(null);
          return;
       }
-      
+
       const ms = state.unit === 's' ? num * 1000 : num;
       setParsedDate(new Date(ms));
    }, [state.epochInput, state.unit]);
@@ -121,28 +121,28 @@ export function UnixTimestampView() {
          setParsedEpoch('');
          return;
       }
-      
+
       const d = new Date(state.dateInput);
       if (isNaN(d.getTime())) {
          setParsedEpoch('');
          return;
       }
-      
+
       const e = state.unit === 's' ? Math.floor(d.getTime() / 1000) : d.getTime();
       setParsedEpoch(e.toString());
    }, [state.dateInput, state.unit]);
 
    const handleClear = () => {
-      setState(prev => ({ ...prev, epochInput: '', dateInput: '' }));
+      setState((prev) => ({ ...prev, epochInput: '', dateInput: '' }));
    };
 
    const setNow = () => {
       const now = Date.now();
       const num = state.unit === 's' ? Math.floor(now / 1000) : now;
-      setState(prev => ({
+      setState((prev) => ({
          ...prev,
          epochInput: num.toString(),
-         dateInput: new Date(now).toISOString().slice(0, 16)
+         dateInput: new Date(now).toISOString().slice(0, 16),
       }));
    };
 
@@ -175,33 +175,44 @@ export function UnixTimestampView() {
                   <Button variant="secondary" size="sm" className="h-7 text-xs px-2 gap-1" onClick={setNow}>
                      <Clock className="w-3.5 h-3.5" /> Set Now
                   </Button>
-                  <Button variant="ghost" size="sm" className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground" onClick={handleClear}>
+                  <Button
+                     variant="ghost"
+                     size="sm"
+                     className="h-7 text-xs px-2 gap-1 text-muted-foreground hover:text-foreground"
+                     onClick={handleClear}
+                  >
                      <RotateCcw className="w-3.5 h-3.5" /> Clear
                   </Button>
                </div>
             </div>
-            
+
             <div className="p-6 md:p-8 space-y-12 overflow-y-auto">
-               
                {/* Epoch to Date */}
                <div className="space-y-6">
                   <h3 className="text-sm font-bold flex items-center gap-2 border-b border-border pb-2">
                      <Hash className="w-4 h-4 text-indigo-500" /> Epoch to Human Date
                   </h3>
-                  
+
                   <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
                      <div className="flex-1 w-full space-y-2">
-                        <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Timestamp</label>
-                        <Input 
+                        <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                           Timestamp
+                        </label>
+                        <Input
                            value={state.epochInput}
-                           onChange={(e) => setState(prev => ({ ...prev, epochInput: e.target.value }))}
+                           onChange={(e) => setState((prev) => ({ ...prev, epochInput: e.target.value }))}
                            className="h-12 font-mono text-lg bg-background"
                            placeholder="1710000000"
                         />
                      </div>
                      <div className="w-full md:w-32 space-y-2">
-                        <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Unit</label>
-                        <Select value={state.unit} onValueChange={(val: 's'|'ms') => setState(prev => ({ ...prev, unit: val }))}>
+                        <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                           Unit
+                        </label>
+                        <Select
+                           value={state.unit}
+                           onValueChange={(val: 's' | 'ms') => setState((prev) => ({ ...prev, unit: val }))}
+                        >
                            <SelectTrigger className="h-12 bg-background">
                               <SelectValue />
                            </SelectTrigger>
@@ -229,14 +240,18 @@ export function UnixTimestampView() {
                            <div className="text-sm text-muted-foreground italic">Waiting for valid input...</div>
                         )}
                      </div>
-                     <Button 
-                        variant="secondary" 
-                        size="sm" 
+                     <Button
+                        variant="secondary"
+                        size="sm"
                         className="h-9 whitespace-nowrap"
                         disabled={!parsedDate}
                         onClick={() => copyToClipboard(parsedDate ? parsedDate.toISOString() : '', 'date')}
                      >
-                        {copiedDate ? <CheckCircle2 className="w-4 h-4 mr-2 text-emerald-500" /> : <Copy className="w-4 h-4 mr-2" />}
+                        {copiedDate ? (
+                           <CheckCircle2 className="w-4 h-4 mr-2 text-emerald-500" />
+                        ) : (
+                           <Copy className="w-4 h-4 mr-2" />
+                        )}
                         Copy ISO
                      </Button>
                   </div>
@@ -251,14 +266,16 @@ export function UnixTimestampView() {
                   <h3 className="text-sm font-bold flex items-center gap-2 border-b border-border pb-2">
                      <Calendar className="w-4 h-4 text-emerald-500" /> Human Date to Epoch
                   </h3>
-                  
+
                   <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
                      <div className="flex-1 w-full space-y-2">
-                        <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">Date Time String / Local</label>
-                        <Input 
+                        <label className="text-[11px] font-medium text-muted-foreground uppercase tracking-wider">
+                           Date Time String / Local
+                        </label>
+                        <Input
                            type="datetime-local"
                            value={state.dateInput}
-                           onChange={(e) => setState(prev => ({ ...prev, dateInput: e.target.value }))}
+                           onChange={(e) => setState((prev) => ({ ...prev, dateInput: e.target.value }))}
                            className="h-12 bg-background font-mono px-4 text-[13px] md:text-sm"
                         />
                      </div>
@@ -270,26 +287,30 @@ export function UnixTimestampView() {
                            <>
                               <div className="text-[20px] font-mono font-bold text-emerald-500">{parsedEpoch}</div>
                               <div className="text-sm text-muted-foreground mt-1">
-                                 Output format: {state.unit === 's' ? 'Seconds (POSIX Unix)' : 'Milliseconds (JS Native)'}
+                                 Output format:{' '}
+                                 {state.unit === 's' ? 'Seconds (POSIX Unix)' : 'Milliseconds (JS Native)'}
                               </div>
                            </>
                         ) : (
                            <div className="text-sm text-muted-foreground italic">Waiting for valid date...</div>
                         )}
                      </div>
-                     <Button 
-                        variant="secondary" 
-                        size="sm" 
+                     <Button
+                        variant="secondary"
+                        size="sm"
                         className="h-9 whitespace-nowrap"
                         disabled={!parsedEpoch}
                         onClick={() => copyToClipboard(parsedEpoch, 'epoch')}
                      >
-                        {copiedEpoch ? <CheckCircle2 className="w-4 h-4 mr-2 text-emerald-500" /> : <Copy className="w-4 h-4 mr-2" />}
+                        {copiedEpoch ? (
+                           <CheckCircle2 className="w-4 h-4 mr-2 text-emerald-500" />
+                        ) : (
+                           <Copy className="w-4 h-4 mr-2" />
+                        )}
                         Copy Epoch
                      </Button>
                   </div>
                </div>
-
             </div>
          </div>
 
@@ -308,27 +329,31 @@ export function UnixTimestampView() {
             </div>
 
             <div className="flex flex-col items-center justify-center flex-1 p-8 space-y-8 relative">
-               
                <div className="text-center space-y-4 relative z-10">
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">Live UNIX Timestamp</div>
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">
+                     Live UNIX Timestamp
+                  </div>
                   <div className="text-4xl md:text-5xl font-light text-sky-400 font-mono tracking-wider tabular-nums">
                      {state.unit === 's' ? Math.floor(currentTime / 1000) : currentTime}
                   </div>
-                  <div className="text-sm text-gray-400 mt-2">
-                     {new Date(currentTime).toUTCString()}
-                  </div>
+                  <div className="text-sm text-gray-400 mt-2">{new Date(currentTime).toUTCString()}</div>
                </div>
 
                <div className="flex gap-4 z-10">
-                  <Button 
-                     variant="outline" 
+                  <Button
+                     variant="outline"
                      className="bg-transparent border-white/20 text-gray-300 hover:text-white hover:bg-white/10"
                      onClick={() => {
-                        const val = state.unit === 's' ? Math.floor(currentTime / 1000).toString() : currentTime.toString();
+                        const val =
+                           state.unit === 's' ? Math.floor(currentTime / 1000).toString() : currentTime.toString();
                         copyToClipboard(val, 'epoch');
                      }}
                   >
-                     {copiedEpoch ? <CheckCircle2 className="w-4 h-4 mr-2 text-emerald-400" /> : <Copy className="w-4 h-4 mr-2" />} 
+                     {copiedEpoch ? (
+                        <CheckCircle2 className="w-4 h-4 mr-2 text-emerald-400" />
+                     ) : (
+                        <Copy className="w-4 h-4 mr-2" />
+                     )}
                      Copy Live Epoch
                   </Button>
                </div>

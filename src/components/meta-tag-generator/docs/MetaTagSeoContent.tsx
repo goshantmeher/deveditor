@@ -47,7 +47,8 @@ export function MetaTagSeoContent() {
                Instantly Generate <span className="text-indigo-500">Perfect Meta Tags</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-               Craft high-converting Open Graph sharing metadata visibly. Preview how your web pages will appear natively across Facebook, Twitter, LinkedIn, and standard search engines in real time.
+               Craft high-converting Open Graph sharing metadata visibly. Preview how your web pages will appear
+               natively across Facebook, Twitter, LinkedIn, and standard search engines in real time.
             </p>
          </div>
 
@@ -59,7 +60,8 @@ export function MetaTagSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Live Visual Previews</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Immediately see precisely how your rich social sharing cards render across different platforms locally to eliminate truncation and formatting errors.
+                  Immediately see precisely how your rich social sharing cards render across different platforms locally
+                  to eliminate truncation and formatting errors.
                </p>
             </div>
 
@@ -69,7 +71,8 @@ export function MetaTagSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Automated Snippets</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Outputs perfectly validated HTML markup explicitly combining standard search indexing meta names with heavily supported `og:` property attributes together.
+                  Outputs perfectly validated HTML markup explicitly combining standard search indexing meta names with
+                  heavily supported `og:` property attributes together.
                </p>
             </div>
 
@@ -79,7 +82,8 @@ export function MetaTagSeoContent() {
                </div>
                <h3 className="text-xl font-bold mb-3 text-foreground">Drive Deep Engagement</h3>
                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Properly formatted meta titles acting concurrently alongside compelling banner images increase organic click-through rates systematically from all timelines natively.
+                  Properly formatted meta titles acting concurrently alongside compelling banner images increase organic
+                  click-through rates systematically from all timelines natively.
                </p>
             </div>
          </div>
@@ -87,9 +91,12 @@ export function MetaTagSeoContent() {
          {/* Visual Section */}
          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-               <h2 className="text-3xl font-bold tracking-tight text-foreground">A checklist for better search presence</h2>
+               <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                  A checklist for better search presence
+               </h2>
                <p className="text-muted-foreground leading-relaxed">
-                  Missing Open Graph elements routinely result in platform scraping failures dropping default blank previews drastically destroying social share viability.
+                  Missing Open Graph elements routinely result in platform scraping failures dropping default blank
+                  previews drastically destroying social share viability.
                </p>
                <ul className="space-y-4">
                   {[
@@ -130,7 +137,10 @@ export function MetaTagSeoContent() {
                      { from: 'og:url', to: 'Canonical routing explicitly.' },
                      { from: 'og:image', to: 'Absolute path JPEG/PNGs.' },
                   ].map((item, i) => (
-                     <div key={i} className="flex flex-col md:flex-row gap-1 md:gap-4 text-muted-foreground mb-4 border-b border-border/30 pb-2">
+                     <div
+                        key={i}
+                        className="flex flex-col md:flex-row gap-1 md:gap-4 text-muted-foreground mb-4 border-b border-border/30 pb-2"
+                     >
                         <span className="text-indigo-400 font-bold w-24">[{item.from}]</span>
                         <span className="text-sm opacity-80">{item.to}</span>
                      </div>
@@ -144,42 +154,68 @@ export function MetaTagSeoContent() {
             <h2 className="text-3xl font-bold tracking-tight text-foreground text-center">How to Generate Meta Tags</h2>
             <div className="max-w-4xl mx-auto space-y-6">
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">1</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     1
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Enter Core Site Data</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Start by filling in your page Title and Description. These form the foundation of your search engine listings and social media snippets.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">2</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Add Visual Assets</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Paste the URL of your preferred preview image. Use a 1200x630px image for the best results across Facebook, LinkedIn, and Twitter's large card formats.</p>
-                  </div>
-               </div>
-               
-               <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">3</div>
-                  <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Preview Social Realism</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Scroll through the preview tabs to see exactly how your tags will render natively on Facebook, Twitter (X), and LinkedIn. Check for title truncation or image cropping issues.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Start by filling in your page Title and Description. These form the foundation of your search
+                        engine listings and social media snippets.
+                     </p>
                   </div>
                </div>
 
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">4</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     2
+                  </div>
                   <div>
-                     <h4 className="font-bold text-foreground text-lg mb-1">Select Required Syntax</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">The generator produces both standard Meta tags and Open Graph (og:) tags simultaneously. It also includes specific Twitter Card properties to ensure maximum platform compatibility.</p>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Add Visual Assets</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Paste the URL of your preferred preview image. Use a 1200x630px image for the best results
+                        across Facebook, LinkedIn, and Twitter's large card formats.
+                     </p>
                   </div>
                </div>
-               
+
                <div className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">5</div>
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     3
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Preview Social Realism</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Scroll through the preview tabs to see exactly how your tags will render natively on Facebook,
+                        Twitter (X), and LinkedIn. Check for title truncation or image cropping issues.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     4
+                  </div>
+                  <div>
+                     <h4 className="font-bold text-foreground text-lg mb-1">Select Required Syntax</h4>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        The generator produces both standard Meta tags and Open Graph (og:) tags simultaneously. It also
+                        includes specific Twitter Card properties to ensure maximum platform compatibility.
+                     </p>
+                  </div>
+               </div>
+
+               <div className="flex gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center font-bold font-mono shrink-0">
+                     5
+                  </div>
                   <div>
                      <h4 className="font-bold text-foreground text-lg mb-1">Copy and Paste to Head</h4>
-                     <p className="text-muted-foreground text-sm leading-relaxed">Click "Copy Code" to grab the entire block of validated HTML. Paste these tags directly into the <code className="text-indigo-400">&lt;head&gt;</code> section of your webpage to enable rich sharing.</p>
+                     <p className="text-muted-foreground text-sm leading-relaxed">
+                        Click "Copy Code" to grab the entire block of validated HTML. Paste these tags directly into the{' '}
+                        <code className="text-indigo-400">&lt;head&gt;</code> section of your webpage to enable rich
+                        sharing.
+                     </p>
                   </div>
                </div>
             </div>
@@ -212,7 +248,9 @@ export function MetaTagSeoContent() {
                      Is my input data saved?
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed pl-3.5 border-l border-indigo-500/20">
-                     To improve your experience, your input data is saved locally in your browser using localStorage. This is entirely client-side, meaning your data never leaves your device. You can opt-out of this behavior at any time by disabling the 'Persist Data' switch in the tool settings.
+                     To improve your experience, your input data is saved locally in your browser using localStorage.
+                     This is entirely client-side, meaning your data never leaves your device. You can opt-out of this
+                     behavior at any time by disabling the 'Persist Data' switch in the tool settings.
                   </p>
                </div>
             </div>

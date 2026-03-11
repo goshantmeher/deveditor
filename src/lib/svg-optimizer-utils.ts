@@ -21,7 +21,7 @@ export function optimizeSvgString(svgString: string): SvgOptimizerResult {
 
    try {
       const originalBytes = new Blob([svgString]).size;
-      
+
       const result = optimize(svgString, {
          multipass: true,
          plugins: [

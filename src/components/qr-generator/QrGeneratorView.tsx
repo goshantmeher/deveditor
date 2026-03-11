@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import React, { useState, useRef, useCallback, useDeferredValue, useEffect } from 'react';
 import { QRCodeSVG, QRCodeCanvas } from 'qrcode.react';
 import { QrCode, Copy, CheckCircle2, Type, Palette, Maximize, ShieldCheck, FileImage, FileCode } from 'lucide-react';

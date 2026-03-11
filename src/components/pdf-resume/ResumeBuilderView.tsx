@@ -1,7 +1,6 @@
 'use client';
 import { STORAGE_KEYS } from '@/constants/storage';
 
-
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { ResumeData, TemplateId, DEFAULT_RESUME_DATA } from '@/types/resume';
 import { ResumeForm } from './ResumeForm';

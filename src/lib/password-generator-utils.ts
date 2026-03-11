@@ -106,7 +106,7 @@ export function evaluatePasswordStrength(password: string): number {
    const hasSymbol = /[^a-zA-Z0-9]/.test(password);
 
    const varieties = [hasLower, hasUpper, hasNumber, hasSymbol].filter(Boolean).length;
-   
+
    if (varieties === 1) score += 10;
    if (varieties === 2) score += 25;
    if (varieties === 3) score += 40;
