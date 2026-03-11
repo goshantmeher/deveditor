@@ -23,10 +23,10 @@
 - [ ] **SVG Editor & Animator** — Visually edit paths and create multi-stage CSS/SMIL animations for SVG objects.
 
 ### 🔤 Category: Text
-- [ ] **String Trimmer / Cleaner** — Remove whitespace, empty lines, or specific prefixes/suffixes from large text blocks.
+- [x] **String Trimmer / Cleaner** — Remove whitespace, empty lines, or specific prefixes/suffixes from large text blocks. [Live: /string-trimmer]
 
 ### 🔐 Category: Security
-- [ ] **Certificate Inspector** — Paste a PEM/CRT file to see expiry date, issuer, and subject details.
+- [x] **Certificate Inspector** — Paste a PEM/CRT file to see expiry date, issuer, and subject details. [Live: /certificate-inspector]
 
 ### 🎮 Miscellaneous & Fun
 - [ ] **Meme Generator** — Upload images, overlay impact font, drag to position, and download.
@@ -36,7 +36,7 @@
 ---
 
 ## 🏗️ Category: Architecture & Logic (Expansion)
-- [ ] **Base64 to JSON** — Directly decode a base64 encoded JSON string and view it in a tree.
+- [x] **Base64 to JSON** — Directly decode a base64 encoded JSON string and view it in a tree. ([Live](/base64-to-json))
 
 ---
 
@@ -50,4 +50,4 @@
 ---
 
 > **Last updated:** 2026-03-12
-> **Total tools in ecosystem:** 60 (55 built, 5 remaining)
+> **Total tools in ecosystem:** 60 (58 built, 2 remaining)

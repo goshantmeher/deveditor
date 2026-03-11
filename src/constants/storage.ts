@@ -3,6 +3,7 @@ export const STORAGE_KEYS = {
    BASE64_ENCODER_TAB: 'deveditor-base64-active-tab',
    BASE64_TEXT_INPUT: 'deveditor-base64-text-input',
    BASE64_URL_INPUT: 'deveditor-base64-url-input',
+   BASE64_TO_JSON_INPUT: 'deveditor-base64-to-json-input',
    URL_ENCODER_TAB: 'deveditor-url-encoder-active-tab',
    URL_ENCODER_INPUT: 'deveditor-url-encoder-input',
    HTML_ENTITY_INPUT: 'deveditor-html-entity-input',
@@ -15,8 +16,10 @@ export const STORAGE_KEYS = {
    LIST_CONVERTER_DELIMITER: 'deveditor-list-delimiter',
    LIST_CONVERTER_INPUT: 'deveditor-list-input',
    MARKDOWN_CONVERTER_CONTENT: 'deveditor-markdown-content',
+   STRING_TRIMMER_INPUT: 'deveditor-string-trimmer-input',
 
    // Testing & Validation
+   CERTIFICATE_INSPECTOR_INPUT: 'deveditor-certificate-inspector',
    BCRYPT_TEST_PLAINTEXT: 'deveditor-bcrypt-plain',
    BCRYPT_TEST_HASH: 'deveditor-bcrypt-hash',
    HASH_GENERATOR_INPUT: 'deveditor-hash-input',
