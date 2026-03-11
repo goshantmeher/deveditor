@@ -87,6 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { slug: 'meta-tag-generator', priority: 0.8 },
       { slug: 'seo-generators', priority: 0.8 },
       { slug: 'code-minifier', priority: 0.8 },
+      { slug: 'dns-lookup', priority: 0.8 },
 
       // PDF tools
       { slug: 'pdf-resume', priority: 0.9 },

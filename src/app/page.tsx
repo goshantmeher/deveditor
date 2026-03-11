@@ -339,6 +339,14 @@ const categories: Category[] = [
             tags: ['cron', 'schedule', 'crontab', 'parser'],
          },
          {
+            title: 'DNS Lookup (DoH)',
+            description: 'Perform private DNS lookups natively in your browser using DoH (1.1.1.1 / 8.8.8.8).',
+            icon: '🌐',
+            href: '/dns-lookup',
+            status: 'available',
+            tags: ['dns', 'doh', 'lookup', 'cloudflare', 'records', 'networking'],
+         },
+         {
             title: 'JSON → Schema Generator',
             description: 'Paste JSON → generate TypeScript interfaces, Go structs, or Zod schemas.',
             icon: '📐',
@@ -393,24 +401,6 @@ const categories: Category[] = [
             href: '/htaccess-generator',
             status: 'available',
             tags: ['htaccess', 'redirect', 'nginx', 'apache', '301'],
-         },
-         {
-            title: 'API Tester (Extension Required)',
-            description:
-               'A local Postman alternative. Uses an open-source companion extension to bypass browser CORS restrictions safely.',
-            icon: '📡',
-            href: '/api-tester',
-            status: 'planned',
-            tags: ['api', 'tester', 'rest', 'http', 'postman', 'cors'],
-         },
-         {
-            title: 'DNS Lookup (DoH)',
-            description:
-               'Perform quick DNS resolution (A, AAAA, MX, TXT) natively in the browser using free DNS-over-HTTPS APIs.',
-            icon: '🌍',
-            href: '/dns-lookup',
-            status: 'planned',
-            tags: ['dns', 'lookup', 'domain', 'doh', 'network'],
          },
       ],
    },

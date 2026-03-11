@@ -24,6 +24,9 @@ export const STORAGE_KEYS = {
    REGEX_PATTERN: 'deveditor-regex-pattern',
    REGEX_FLAGS: 'deveditor-regex-flags',
    REGEX_TEST: 'deveditor-regex-test',
+   DNS_LOOKUP_DOMAIN: 'deveditor-dns-domain',
+   DNS_LOOKUP_PROVIDER: 'deveditor-dns-provider',
+   DNS_LOOKUP_TYPE: 'deveditor-dns-type',
 
    // Generators
    PASSWORD_GENERATOR_OPTIONS: 'deveditor-password-opts',
